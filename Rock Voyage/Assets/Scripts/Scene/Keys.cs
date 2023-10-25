@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,7 +23,16 @@ namespace RockVoyage
         private float _penalty;
         public float Penalty => _penalty;
 
+        private float _keysSpeed = 0f;
+
+        private RectTransform _keysTransform;
+
         public static float noteLength;
+
+        private void OnDestroy()
+        {
+            Events.OnCountdownEnded -= CountdownEndedHandler;
+        }
 
         private void Start()
         {
@@ -35,7 +45,8 @@ namespace RockVoyage
             {
                 string[] keyInfo = _songKeys[i].Split(' '); // w 0.5 1
                 char key = char.Parse(keyInfo[0]); // w
-                float keyDuration = float.Parse(keyInfo[1]); // 0.5
+                float keyDuration = float.Parse(keyInfo[1],
+                    CultureInfo.InvariantCulture); // 0.5
                 int keyAmount = int.Parse(keyInfo[2]); // 1
                 for (int j = 0; j < keyDuration * keyAmount * divider; j++)
                 {
@@ -55,8 +66,21 @@ namespace RockVoyage
                 }
             }
 
-            _penalty = 1 / (bars * divider * 4);
+            _penalty = 1f / (bars * divider * 4f);
             noteLength = _bsParanoidSO.MusicForGroup.length / _resultKeys.Length;
+            _keysTransform = GetComponent<RectTransform>();
+            Events.OnCountdownEnded += CountdownEndedHandler;
+        }
+
+        private void Update()
+        {
+            _keysTransform.anchoredPosition -= new Vector2(_keysSpeed
+                * Time.deltaTime, 0f);
+        }
+
+        private void CountdownEndedHandler()
+        {
+            _keysSpeed = _penalty * 2250000f;
         }
     }
 }

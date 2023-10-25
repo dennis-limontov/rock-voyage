@@ -44,7 +44,7 @@ namespace RockVoyage
 
         public void OnNotePlayed(InputAction.CallbackContext inputContext)
         {
-            _currentNote = char.Parse(inputContext.control.displayName);
+            _currentNote = char.Parse(inputContext.control.name);
         }
     }
 }
