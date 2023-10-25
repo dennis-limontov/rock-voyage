@@ -4,9 +4,10 @@ using UnityEngine;
 
 namespace EthanTheHero
 {
+#if (ROCK_VOYAGE)
     public class PlayerAnimation : MonoBehaviour
     {
-        #region FIELD
+#region FIELD
         private PlayerMovement playerMv;
         private Animator myAnim;
         private Rigidbody2D myBody;
@@ -28,7 +29,7 @@ namespace EthanTheHero
 
         private bool runIdleIsPlayying;
 
-        #endregion
+#endregion
 
         void Awake()
         {
@@ -40,7 +41,7 @@ namespace EthanTheHero
 
         void Update()
         {
-            #region IDLE & RUN
+#region IDLE & RUN
 
             myAnim.SetFloat(speed, Mathf.Abs(playerMv.move.x));
 
@@ -53,29 +54,29 @@ namespace EthanTheHero
             }
             myAnim.SetBool(runIdle, runIdleIsPlayying);
 
-            #endregion
+#endregion
 
-            #region JUMP
+#region JUMP
 
             myAnim.SetBool(jump, playerMv.grounded);
             myAnim.SetFloat(yvelocity, myBody.velocity.y);
 
-            #endregion
+#endregion
 
-            #region DASH
+#region DASH
 
             myAnim.SetBool(dash, playerMv.isDashing);
 
-            #endregion
+#endregion
 
-            #region WALL SLIDING & WALL JUMP
+#region WALL SLIDING & WALL JUMP
 
             myAnim.SetBool(wallSliding, playerMv.wallSliding);
             myAnim.SetBool(wallJump, playerMv.wallJump);
 
-            #endregion
+#endregion
 
-            #region HURT&DEATH
+#region HURT&DEATH
 
             //Set hurt animation 
             if (Input.GetKeyDown(KeyCode.H))
@@ -103,10 +104,11 @@ namespace EthanTheHero
                     myAnim.SetTrigger(deathEnded);
             }
 
-            #endregion
+#endregion
         }
 
     }
+#endif
 }
 
 

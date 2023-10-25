@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.InputSystem.InputAction;
 using UnityEngine.SceneManagement;
 
 namespace RockVoyage
@@ -27,9 +28,9 @@ namespace RockVoyage
             }
         }
 
-        private void Update()
+        public void OnUsedSmth(CallbackContext inputContext)
         {
-            if ((_house != null) && Input.GetKeyDown(KeyCode.Space))
+            if (_house != null)
             {
                 SceneManager.LoadScene(Constants.SCENE_SCENE);
             }

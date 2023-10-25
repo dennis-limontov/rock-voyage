@@ -4,9 +4,10 @@ using UnityEngine;
 
 namespace EthanTheHero
 {
+#if (ROCK_VOYAGE)
 	public class PlayerMovement : MonoBehaviour
 	{
-		#region FIELD
+#region FIELD
 
 		[SerializeField] private PlayerMovementData data;
 		[SerializeField] private float lastOnGroundTime;
@@ -37,9 +38,9 @@ namespace EthanTheHero
 		private RaycastHit2D wall;
 		private float jumpTime;
 
-        #endregion
+#endregion
 
-        #region MONOBEHAVIOUR
+#region MONOBEHAVIOUR
         void Awake()
 		{
 			myBody = GetComponent<Rigidbody2D>();
@@ -89,9 +90,9 @@ namespace EthanTheHero
 
 			WallSlidngMechanic();
 		}
-        #endregion
+#endregion
 
-        #region RUN
+#region RUN
         private void run(float lerpAmount)
 		{
 			float targetSpeed = move.x * data.runMaxSpeed;
@@ -115,9 +116,9 @@ namespace EthanTheHero
 			//Implementing run
 			myBody.AddForce(movement * Vector2.right, ForceMode2D.Force);
 		}
-		#endregion
+#endregion
 
-		#region DASH
+#region DASH
 		private IEnumerator dash()
 		{
 			canDash = false;
@@ -141,9 +142,9 @@ namespace EthanTheHero
 			yield return new WaitForSeconds(data.dashingCoolDown);
 			canDash = true;
 		}
-		#endregion
+#endregion
 
-		#region JUMP
+#region JUMP
 		private void jump()
 		{
 
@@ -157,9 +158,9 @@ namespace EthanTheHero
 				myBody.velocity = new Vector2(myBody.velocity.x, data.jumpHeight);
 			}
 		}
-		#endregion
+#endregion
 
-		#region Wall Sliding and Wall Jump
+#region Wall Sliding and Wall Jump
 		private void WallSlidngMechanic()
 		{
 			wall = Physics2D.Raycast(WallCheck.position, new Vector2(data.wallDistance, 0f), data.wallDistance, wallLayer);
@@ -191,9 +192,9 @@ namespace EthanTheHero
 			yield return new WaitForSeconds(data.WallJumpTimeInSecond);
 			wallJump = false;
 		}
-		#endregion
+#endregion
 
-		#region OTHER
+#region OTHER
 		private void CheckDirectionToFace(bool isMovingRight)
 		{
 			Vector3 tem = transform.localScale;
@@ -203,6 +204,7 @@ namespace EthanTheHero
 				tem.x = 1f;
 			transform.localScale = tem;
 		}
-		#endregion
+#endregion
 	}
+#endif
 }

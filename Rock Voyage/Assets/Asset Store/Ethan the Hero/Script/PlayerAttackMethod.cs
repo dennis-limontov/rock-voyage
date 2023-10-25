@@ -4,9 +4,10 @@ using UnityEngine;
 
 namespace EthanTheHero
 {
+	#if (ROCK_VOYAGE)
 	public class PlayerAttackMethod : MonoBehaviour
 	{
-		#region FIELD
+#region FIELD
 
 		private PlayerAnimation playerAnim;
 		private PlayerMovement playerMv;
@@ -27,7 +28,7 @@ namespace EthanTheHero
 		private const string attack03 = "Attack03";
 		private const string notAttacking = "NotAttacking";
 
-		#endregion
+#endregion
 
 		void Awake()
 		{
@@ -57,7 +58,7 @@ namespace EthanTheHero
 
 		}
 
-		#region BASIC ATTACK
+#region BASIC ATTACK
 
 		private void BasicAttackCombo()
 		{
@@ -152,8 +153,9 @@ namespace EthanTheHero
 
 		}
 
-		#endregion
+#endregion
 
 
 	}
+#endif
 }

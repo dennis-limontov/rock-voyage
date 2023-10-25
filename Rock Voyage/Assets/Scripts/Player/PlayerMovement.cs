@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.InputSystem.InputAction;
 
 namespace RockVoyage
 {
@@ -7,20 +8,17 @@ namespace RockVoyage
         [SerializeField]
         private float _speed = 3f;
 
-        // Start is called before the first frame update
-        void Start()
-        {
+        private Vector2 _movementVector;
 
+        private void Update()
+        {
+            transform.Translate(_movementVector.x * _speed * Time.deltaTime,
+               _movementVector.y * _speed * Time.deltaTime, 0f);
         }
 
-        // Update is called once per frame
-        void Update()
+        public void OnMoved(CallbackContext inputContext)
         {
-            float h = Input.GetAxis("Horizontal");
-            float v = Input.GetAxis("Vertical");
-
-            transform.Translate(h * _speed * Time.deltaTime,
-                v * _speed * Time.deltaTime, 0f);
+            _movementVector = inputContext.ReadValue<Vector2>();
         }
     }
 }
