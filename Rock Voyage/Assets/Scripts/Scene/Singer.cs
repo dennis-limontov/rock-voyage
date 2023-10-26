@@ -40,6 +40,11 @@ namespace RockVoyage
                 if (_keys.ResultKeys[i] != _currentNote)
                 {
                     Events.OnWrongNotePlayed?.Invoke(_keys.Penalty);
+                    _music.mute = true;
+                }
+                else
+                {
+                    _music.mute = false;
                 }
             }
         }
