@@ -39,48 +39,42 @@ namespace RockVoyage
             string[] _songKeys = _bsParanoidSO.KeysArray.text.Split(Environment.NewLine);
             int bars = int.Parse(_songKeys[0].Split(' ')[0]); // 113
             int divider = int.Parse(_songKeys[0].Split(' ')[1]); // 2
-            _resultKeys = new char[bars * divider * 4];
+            _resultKeys = new char[bars * divider * 4]; // 904 = amount of 1/8 notes
             int k = 0;
             for (int i = 1; i < _songKeys.Length; i++)
             {
-                string[] keyInfo = _songKeys[i].Split(' '); // w 0.5 1
-                char key = char.Parse(keyInfo[0]); // w
-                float keyDuration = float.Parse(keyInfo[1],
-                    CultureInfo.InvariantCulture); // 0.5
-                int keyAmount = int.Parse(keyInfo[2]); // 1
-                for (int j = 0; j < keyDuration * keyAmount * divider; j++)
+                string[] keyInfo = _songKeys[i].Split(' '); // x 4 8
+                char key = char.Parse(keyInfo[0]); // x
+                float keyDuration = float.Parse(keyInfo[1], CultureInfo.InvariantCulture); // 4
+                int keyAmount = int.Parse(keyInfo[2]); // 8
+                for (int j = 0; j < keyDuration * keyAmount * divider; j++) // j < 64
                 {
-                    if (key == '_')
-                    {
-                        _resultKeys[k] = ' ';
-                    }
-                    else
-                    {
-                        _resultKeys[k] = key;
-                    }
+                    _resultKeys[k] = (key == '_') ? ' ' : key;
                     
-                    GameObject _newKey = Instantiate(_keyPrefab,
-                        _keysLayoutGroup.transform);
+                    GameObject _newKey = Instantiate(_keyPrefab, _keysLayoutGroup.transform);
                     _newKey.GetComponentInChildren<TextMeshProUGUI>().text
                         = _resultKeys[k++].ToString();
                 }
             }
 
-            _penalty = 1f / (bars * divider * 4f);
-            noteLength = _bsParanoidSO.MusicForGroup.length / _resultKeys.Length;
+            _penalty = 1f / (bars * divider * 4f); // 1/904
+            noteLength = _bsParanoidSO.MusicForGroup.length / _resultKeys.Length; // 164/904 = 41/226
+
             _keysTransform = GetComponent<RectTransform>();
+
             Events.OnCountdownEnded += CountdownEndedHandler;
         }
 
         private void Update()
         {
-            _keysTransform.anchoredPosition -= new Vector2(_keysSpeed
-                * Time.deltaTime, 0f);
+            _keysTransform.position -= new Vector3(_keysSpeed * Time.deltaTime, 0f);
         }
 
         private void CountdownEndedHandler()
         {
-            _keysSpeed = _penalty * 2250000f;
+            //_keysSpeed = _keysTransform.sizeDelta.x / _bsParanoidSO.MusicForGroup.length; // 90400/164 = 22600/41
+            _keysSpeed = _keyPrefab.GetComponent<RectTransform>().sizeDelta.x * _resultKeys.Length
+                / _bsParanoidSO.MusicForGroup.length;
         }
     }
 }

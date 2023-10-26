@@ -269,7 +269,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1392003479}
         m_TargetAssemblyTypeName: RockVoyage.PlayerContact, Assembly-CSharp
-        m_MethodName: OnUsedSmth
+        m_MethodName: OnInteracted
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

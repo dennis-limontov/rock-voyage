@@ -28,7 +28,7 @@ namespace RockVoyage
             }
         }
 
-        public void OnUsedSmth(CallbackContext inputContext)
+        public void OnInteracted(CallbackContext inputContext)
         {
             if (_house != null)
             {

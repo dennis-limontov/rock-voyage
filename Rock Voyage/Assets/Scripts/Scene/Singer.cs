@@ -34,7 +34,9 @@ namespace RockVoyage
         {
             for (int i = 0; i < _keys.ResultKeys.Length; i++)
             {
+                _currentNote = ' ';
                 yield return new WaitForSeconds(Keys.noteLength);
+
                 if (_keys.ResultKeys[i] != _currentNote)
                 {
                     Events.OnWrongNotePlayed?.Invoke(_keys.Penalty);
