@@ -14,12 +14,12 @@ namespace RockVoyage
 
         private void OnDestroy()
         {
-            Events.OnWrongNotePlayed -= WrongNotePlayedHandler;
+            SceneEvents.OnWrongNotePlayed -= WrongNotePlayedHandler;
         }
 
         private void Start()
         {
-            Events.OnWrongNotePlayed += WrongNotePlayedHandler;
+            SceneEvents.OnWrongNotePlayed += WrongNotePlayedHandler;
         }
 
         private void WrongNotePlayedHandler(float penalty)

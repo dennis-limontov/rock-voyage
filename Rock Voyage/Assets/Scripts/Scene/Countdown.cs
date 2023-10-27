@@ -37,7 +37,7 @@ namespace RockVoyage
                 yield return new WaitForSeconds(1f);
             }
 
-            Events.OnCountdownEnded?.Invoke();
+            SceneEvents.OnCountdownEnded?.Invoke();
             transform.parent.gameObject.SetActive(false);
         }
     }

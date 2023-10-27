@@ -16,7 +16,7 @@ namespace RockVoyage
         private void Start()
         {
             _music = GetComponent<AudioSource>();
-            Events.OnCountdownEnded += CountdownEndedHandler;
+            SceneEvents.OnCountdownEnded += CountdownEndedHandler;
         }
 
         private void CountdownEndedHandler()
@@ -27,7 +27,7 @@ namespace RockVoyage
 
         private void OnDestroy()
         {
-            Events.OnCountdownEnded -= CountdownEndedHandler;
+            SceneEvents.OnCountdownEnded -= CountdownEndedHandler;
         }
 
         private IEnumerator KeysCoroutine()
@@ -39,7 +39,7 @@ namespace RockVoyage
 
                 if (_keys.ResultKeys[i] != _currentNote)
                 {
-                    Events.OnWrongNotePlayed?.Invoke(_keys.Penalty);
+                    SceneEvents.OnWrongNotePlayed?.Invoke(_keys.Penalty);
                     _music.mute = true;
                 }
                 else
@@ -47,6 +47,8 @@ namespace RockVoyage
                     _music.mute = false;
                 }
             }
+
+            SceneEvents.OnConcertEnded?.Invoke();
         }
 
         public void OnNotePlayed(InputAction.CallbackContext inputContext)

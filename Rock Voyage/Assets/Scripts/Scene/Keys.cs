@@ -31,7 +31,7 @@ namespace RockVoyage
 
         private void OnDestroy()
         {
-            Events.OnCountdownEnded -= CountdownEndedHandler;
+            SceneEvents.OnCountdownEnded -= CountdownEndedHandler;
         }
 
         private void Start()
@@ -72,7 +72,7 @@ namespace RockVoyage
 
             _keysTransform = GetComponent<RectTransform>();
 
-            Events.OnCountdownEnded += CountdownEndedHandler;
+            SceneEvents.OnCountdownEnded += CountdownEndedHandler;
         }
 
         private void Update()

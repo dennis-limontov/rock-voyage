@@ -7,12 +7,26 @@ namespace RockVoyage
         [SerializeField]
         private AudioSource _music;
 
+        [SerializeField]
+        private GameObject _keysCanvas;
+
+        [SerializeField]
+        private Statistics _statisticsCanvas;
+
         private float _perfomanceQuality = 1f;
 
         private void Start()
         {
-            Events.OnCountdownEnded += CountdownEndedHandler;
-            Events.OnWrongNotePlayed += WrongNotePlayedHandler;
+            SceneEvents.OnConcertEnded += ConcertEndedHandler;
+            SceneEvents.OnCountdownEnded += CountdownEndedHandler;
+            SceneEvents.OnWrongNotePlayed += WrongNotePlayedHandler;
+        }
+
+        private void ConcertEndedHandler()
+        {
+            _keysCanvas.SetActive(false);
+            _statisticsCanvas.gameObject.SetActive(true);
+            _statisticsCanvas.FillAllTexts(_perfomanceQuality, 1f, 300);
         }
 
         private void CountdownEndedHandler()
@@ -27,7 +41,9 @@ namespace RockVoyage
 
         private void OnDestroy()
         {
-            Events.OnCountdownEnded -= CountdownEndedHandler;
+            SceneEvents.OnWrongNotePlayed -= WrongNotePlayedHandler;
+            SceneEvents.OnCountdownEnded -= CountdownEndedHandler;
+            SceneEvents.OnConcertEnded -= ConcertEndedHandler;
         }
     }
 }
