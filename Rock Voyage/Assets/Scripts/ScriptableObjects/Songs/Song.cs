@@ -2,8 +2,8 @@
 
 namespace RockVoyage
 {
-    [CreateAssetMenu(menuName = "ScriptableObjects/Songs/BlackSabbathParanoid")]
-    public class BlackSabbathParanoid : ScriptableObject
+    [CreateAssetMenu(menuName = "ScriptableObjects/Songs/Song")]
+    public class Song : ScriptableObject
     {
         [SerializeField]
         private AudioClip _musicForSinger;

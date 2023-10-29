@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,7 +17,15 @@ namespace RockVoyage
 
         public void EnterHouse()
         {
-            SceneManager.LoadScene(_houseInfo.SceneName);
+            _houseInfo.MapInfo.MapObjects.SetActive(false);
+            SceneManager.LoadScene(_houseInfo.SceneName, LoadSceneMode.Additive);
+            SceneManager.sceneLoaded += SceneLoadedHandler;
+        }
+
+        private void SceneLoadedHandler(Scene arg0, LoadSceneMode arg1)
+        {
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName(_houseInfo.SceneName));
+            SceneManager.sceneLoaded -= SceneLoadedHandler;
         }
 
         public void ShowView()

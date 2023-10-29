@@ -22,5 +22,13 @@ namespace RockVoyage
             get => _isNewspaperPurchased;
             set => _isNewspaperPurchased = value;
         }
+
+        [SerializeField]
+        private GameObject _mapObjects;
+        public GameObject MapObjects
+        {
+            get => _mapObjects;
+            set => _mapObjects = value;
+        }
     }
 }

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace RockVoyage
@@ -9,7 +7,8 @@ namespace RockVoyage
     {
         public void OnClick()
         {
-            SceneManager.LoadScene(GameCharacteristics.MapInfo.MapName);
+            SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+            GameCharacteristics.MapInfo.MapObjects.SetActive(true);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace RockVoyage
     public class Keys : MonoBehaviour
     {
         [SerializeField]
-        private BlackSabbathParanoid _bsParanoidSO;
+        private Song _bsParanoidSO;
 
         [SerializeField]
         private HorizontalLayoutGroup _keysLayoutGroup;
