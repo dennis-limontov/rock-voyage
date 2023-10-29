@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6220093d397544695ef0fb9006f3b0, type: 3}
   m_Name: Hostel Info
   m_EditorClassIdentifier: 
-  _costPerNight: 7
   _mapInfo: {fileID: 11400000, guid: d44f69a02ad774c46ab596ab5a0d2a45, type: 2}
+  _sceneName: Hostel
+  _costPerNight: 7

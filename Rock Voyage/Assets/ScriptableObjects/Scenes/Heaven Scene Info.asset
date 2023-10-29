@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3883d2180ccb8b4cb8bc07adc9339f8, type: 3}
   m_Name: Heaven Scene Info
   m_EditorClassIdentifier: 
-  _mapInfo: {fileID: 0}
-  _sceneName: 
-  _fansCapacity: 0
+  _mapInfo: {fileID: 11400000, guid: d44f69a02ad774c46ab596ab5a0d2a45, type: 2}
+  _sceneName: Heaven Scene
+  _fansCapacity: 999
