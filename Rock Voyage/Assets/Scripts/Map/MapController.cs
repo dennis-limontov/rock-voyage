@@ -1,6 +1,6 @@
-using System;
 using System.Collections;
 using UnityEngine;
+using RVGC = RockVoyage.GameCharacteristics;
 
 namespace RockVoyage
 {
@@ -9,11 +9,12 @@ namespace RockVoyage
         [SerializeField]
         private float _gameSpeed;
 
-        private DateTime _clockDate;
+        [SerializeField]
+        private MapInfo _mapInfo;
 
         private void Start()
         {
-            _clockDate = DateTime.UnixEpoch;
+            RVGC.MapInfo = _mapInfo;
             Time.timeScale = _gameSpeed;
             StartCoroutine(StartGameTime());
         }
@@ -23,8 +24,8 @@ namespace RockVoyage
             while (true)
             {
                 yield return new WaitForSeconds(1f);
-                _clockDate = _clockDate.AddSeconds(1);
-                MapEvents.OnClockDateChanged?.Invoke(_clockDate);
+                RVGC.ClockDate = RVGC.ClockDate.AddSeconds(1);
+                MapEvents.OnClockDateChanged?.Invoke(RVGC.ClockDate);
             }
         }
     }

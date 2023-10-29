@@ -11,6 +11,14 @@ namespace RockVoyage
         [SerializeField]
         private GameObject _circleBorder;
 
+        [SerializeField]
+        private HouseInfo _houseInfo;
+
+        public void EnterHouse()
+        {
+            SceneManager.LoadScene(_houseInfo.SceneName);
+        }
+
         public void ShowView()
         {
             _view.SetActive(true);

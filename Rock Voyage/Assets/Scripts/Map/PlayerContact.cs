@@ -6,15 +6,15 @@ namespace RockVoyage
 {
     public class PlayerContact : MonoBehaviour
     {
-        private GameObject _house;
+        private House _house;
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if (LayerMask.NameToLayer(Constants.HOUSE_LAYER)
                 == collision.gameObject.layer)
             {
-                _house = collision.gameObject;
-                collision.gameObject.GetComponent<House>().ShowBorder();
+                _house = collision.gameObject.GetComponent<House>();
+                _house.ShowBorder();
             }
         }
 
@@ -23,8 +23,8 @@ namespace RockVoyage
             if (LayerMask.NameToLayer(Constants.HOUSE_LAYER)
                 == collision.gameObject.layer)
             {
+                _house.HideBorder();
                 _house = null;
-                collision.gameObject.GetComponent<House>().HideBorder();
             }
         }
 
@@ -32,7 +32,7 @@ namespace RockVoyage
         {
             if (_house != null)
             {
-                SceneManager.LoadScene(Constants.SCENE_SCENE);
+                _house.EnterHouse();
             }
         }
     }

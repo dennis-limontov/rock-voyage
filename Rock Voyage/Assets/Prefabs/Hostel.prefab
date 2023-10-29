@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7436912962966786930
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1417177339724284992, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1417177339724284992, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 1417177339724284992, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 1417177339724284992, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1417177339724284992, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1417177339724284992, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1417177339724284992, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1417177339724284992, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1417177339724284992, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1417177339724284992, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1417177339724284992, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1417177339724284995, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
+      propertyPath: m_Name
+      value: Hostel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1417177340373902666, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
+      propertyPath: m_text
+      value: "\u0425\u043E\u0441\u0442\u0435\u043B"
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
