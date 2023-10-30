@@ -201,11 +201,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 38392539}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32f278340d65cf24b87c8ffe4d0dfb06, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d5baf841e21471428f5be8b465242e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mapObjects: {fileID: 1707767111}
-  _mapInfo: {fileID: 11400000, guid: d44f69a02ad774c46ab596ab5a0d2a45, type: 2}
+  _gameSpeed: 100
 --- !u!1 &87023228
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,6 +421,11 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
+--- !u!1 &110805872 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1821150211701724, guid: 145c07d78e4332a40bbf42389a7172e5, type: 3}
+  m_PrefabInstance: {fileID: 1392003477}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &162228676 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4787624443014810, guid: 145c07d78e4332a40bbf42389a7172e5, type: 3}
@@ -515,8 +519,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -813,7 +817,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18469147, g: 0.9245283, b: 0.013082923, a: 1}
+  m_Color: {r: 0.11158766, g: 0.91764706, b: 0.011764723, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -848,6 +852,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1150661964}
   - component: {fileID: 1150661965}
+  - component: {fileID: 1150661966}
   m_Layer: 0
   m_Name: Map Image
   m_TagString: Untagged
@@ -922,6 +927,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1150661966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150661963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32f278340d65cf24b87c8ffe4d0dfb06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mapObjects: {fileID: 1707767111}
+  _mapInfo: {fileID: 11400000, guid: d44f69a02ad774c46ab596ab5a0d2a45, type: 2}
 --- !u!1001 &1275714625
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1158,7 +1177,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5083710258384142024, guid: 145c07d78e4332a40bbf42389a7172e5, type: 3}
   m_PrefabInstance: {fileID: 1392003477}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 110805872}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ac1555aed8a9ed47a75fcd865ab8675, type: 3}
@@ -1173,6 +1192,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 02871f047a406884387a6ce5d27747e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1392003486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110805872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c08268f86377c03448b0c08dbe9e2968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1400657830
