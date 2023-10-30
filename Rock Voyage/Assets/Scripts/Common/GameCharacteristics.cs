@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace RockVoyage
 {
@@ -8,7 +9,11 @@ namespace RockVoyage
         public static DateTime ClockDate
         { 
             get => _clockDate;
-            set => _clockDate = value;
+            set
+            {
+                MapEvents.OnClockDateChanged?.Invoke(_clockDate, value);
+                _clockDate = value;
+            }
         }
 
         private static MapInfo _mapInfo;
@@ -17,5 +22,8 @@ namespace RockVoyage
             get => _mapInfo;
             set => _mapInfo = value;
         }
+
+        public static List<PlayerCharacteristics> players
+            = new List<PlayerCharacteristics>(Constants.PLAYERS_MAX);
     }
 }

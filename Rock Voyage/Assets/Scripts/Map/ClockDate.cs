@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using TMPro;
 using UnityEngine;
 
@@ -14,9 +15,9 @@ namespace RockVoyage
             MapEvents.OnClockDateChanged += ClockDateChangedHandler;
         }
 
-        private void ClockDateChangedHandler(DateTime clockDate)
+        private void ClockDateChangedHandler(DateTime clockDateOld, DateTime clockDateNew)
         {
-            _clockDateInfo.text = clockDate.ToString();
+            _clockDateInfo.text = clockDateNew.ToString("yyyy/MM/dd hh:mm tt", CultureInfo.InvariantCulture);
         }
 
         private void OnDestroy()
