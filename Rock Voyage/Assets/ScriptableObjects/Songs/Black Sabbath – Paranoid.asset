@@ -15,5 +15,6 @@ MonoBehaviour:
   _musicForSinger: {fileID: 8300000, guid: 34a57caee22bed34297869be43d20780, type: 3}
   _musicForGroup: {fileID: 8300000, guid: 101a6b89bcffa8c4e8bc6739869ec941, type: 3}
   _keysArray: {fileID: 4900000, guid: 7eb1a40edd798ec44b1c40ce08aade3c, type: 3}
+  _songName: "Black Sabbath \u2013 Paranoid"
   _isUnique: 0
   _prominence: 0.75

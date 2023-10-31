@@ -17,7 +17,6 @@ namespace RockVoyage
 
         private void Start()
         {
-            SceneEvents.OnSceneLoaded?.Invoke();
             SceneEvents.OnConcertEnded += ConcertEndedHandler;
             SceneEvents.OnCountdownEnded += CountdownEndedHandler;
             SceneEvents.OnWrongNotePlayed += WrongNotePlayedHandler;
@@ -45,7 +44,6 @@ namespace RockVoyage
             SceneEvents.OnWrongNotePlayed -= WrongNotePlayedHandler;
             SceneEvents.OnCountdownEnded -= CountdownEndedHandler;
             SceneEvents.OnConcertEnded -= ConcertEndedHandler;
-            SceneEvents.OnSceneUnloaded?.Invoke();
         }
     }
 }

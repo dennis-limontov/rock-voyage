@@ -2,7 +2,7 @@
 
 namespace RockVoyage
 {
-    [CreateAssetMenu(menuName = "ScriptableObjects/Scenes/SceneInfo")]
+    [CreateAssetMenu(menuName = "ScriptableObjects/SceneInfo")]
     public class SceneInfo : HouseInfo
     {
         [SerializeField]

@@ -2,8 +2,8 @@
 
 namespace RockVoyage
 {
-    [CreateAssetMenu(menuName = "ScriptableObjects/Songs/Song")]
-    public class Song : ScriptableObject
+    [CreateAssetMenu(menuName = "ScriptableObjects/SongInfo")]
+    public class SongInfo : ScriptableObject
     {
         [SerializeField]
         private AudioClip _musicForSinger;
@@ -16,6 +16,10 @@ namespace RockVoyage
         [SerializeField]
         private TextAsset _keysArray;
         public TextAsset KeysArray => _keysArray;
+
+        [SerializeField]
+        private string _songName;
+        public string SongName => _songName;
 
         [SerializeField]
         private bool _isUnique;

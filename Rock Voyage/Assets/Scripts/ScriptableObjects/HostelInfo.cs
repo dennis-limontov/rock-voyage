@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace RockVoyage
 {
-    [CreateAssetMenu(menuName = "ScriptableObjects/Hostels/HostelInfo")]
+    [CreateAssetMenu(menuName = "ScriptableObjects/HostelInfo")]
     public class HostelInfo : HouseInfo
     {
         [SerializeField]

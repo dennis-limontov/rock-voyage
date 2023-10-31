@@ -4,12 +4,12 @@ namespace RockVoyage
 {
     public class PlayerVision : MonoBehaviour
     {
-        private void OnCollisionEnter2D(Collision2D collision)
+        private void OnTriggerEnter2D(Collider2D collider2D)
         {
             if (LayerMask.NameToLayer(Constants.HOUSE_LAYER)
-                == collision.gameObject.layer)
+                == collider2D.gameObject.layer)
             {
-                collision.gameObject.GetComponent<House>().ShowView();
+                collider2D.gameObject.GetComponent<House>().ShowView();
             }
         }
     }

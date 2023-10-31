@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Hostel.unity
     guid: 8ed1170b0b13b8f4f84da42e1c2b2064
+  - enabled: 1
+    path: Assets/Scenes/Airport.unity
+    guid: a08c8e2393ad99b4a854739dc6e81607
   m_configObjects: {}

@@ -2,7 +2,7 @@
 
 namespace RockVoyage
 {
-    [CreateAssetMenu(menuName = "ScriptableObjects/Maps/MapInfo")]
+    [CreateAssetMenu(menuName = "ScriptableObjects/MapInfo")]
     public class MapInfo : ScriptableObject
     {
         [SerializeField]
