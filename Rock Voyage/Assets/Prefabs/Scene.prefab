@@ -57,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1417177340373902666, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
       propertyPath: m_text
-      value: "\u0421\u0446\u0435\u043D\u0430"
+      value: Scene
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}

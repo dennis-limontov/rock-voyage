@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace RockVoyage
@@ -16,6 +17,11 @@ namespace RockVoyage
         public static Color ENERGY_COLOR_MIDDLE = Color.yellow;
         public static Color ENERGY_COLOR_LOW = new Color(1f, 0.5f, 0f, 1f);
         public static Color ENERGY_COLOR_DANGER = Color.red;
+        public static float FAME_INCREMENT = 0.01f;
+        public static float FAME_MAX = 1f;
+        public static TimeSpan GARAGE_STUDIO_TIME = new TimeSpan(2, 0, 0);
+        public static TimeSpan PRO_STUDIO_TIME = new TimeSpan(6, 0, 0);
+        public static TimeSpan SCENE_TIME = new TimeSpan(3, 0, 0);
         public const int HOSTEL_NEW_DAY_HOUR = 10;
         public const int PLAYERS_MAX = 2;
     }

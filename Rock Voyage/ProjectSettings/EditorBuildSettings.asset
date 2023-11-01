@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Airport.unity
     guid: a08c8e2393ad99b4a854739dc6e81607
+  - enabled: 1
+    path: Assets/Scenes/Garage Studio.unity
+    guid: c2af22510f0766e408b40129b53aea8b
+  - enabled: 1
+    path: Assets/Scenes/Pro Studio.unity
+    guid: 50fee3ce480c2ec429afd447aa095ffd
   m_configObjects: {}

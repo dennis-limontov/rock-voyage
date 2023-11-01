@@ -57,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1417177340373902666, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
       propertyPath: m_text
-      value: "\u0410\u044D\u0440\u043E\u043F\u043E\u0440\u0442"
+      value: Airport
       objectReference: {fileID: 0}
     - target: {fileID: 1417177340373902677, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
       propertyPath: m_SizeDelta.x
