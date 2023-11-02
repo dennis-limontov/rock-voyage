@@ -14,6 +14,18 @@ namespace RockVoyage
         private void Start()
         {
             _text = GetComponent<TextMeshProUGUI>();
+            SceneEvents.OnSongChosen += SongChosenHandler;
+            transform.parent.gameObject.SetActive(false);
+        }
+
+        private void OnDestroy()
+        {
+            SceneEvents.OnSongChosen -= SongChosenHandler;
+        }
+
+        private void SongChosenHandler()
+        {
+            transform.parent.gameObject.SetActive(true);
             StartCoroutine(CountdownCoroutine());
         }
 

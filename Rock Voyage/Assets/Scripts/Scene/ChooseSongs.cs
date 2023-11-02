@@ -17,11 +17,13 @@ namespace RockVoyage
             {
                 _dropdown.options.Add(new TMP_Dropdown.OptionData(_songsList[i].SongName));
             }
+            _dropdown.value = -1;
         }
 
         public void OnStartClicked()
         {
-
+            transform.parent.gameObject.SetActive(false);
+            SceneEvents.OnSongChosen?.Invoke();
         }
     }
 }

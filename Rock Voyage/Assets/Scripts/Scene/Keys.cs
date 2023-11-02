@@ -71,6 +71,8 @@ namespace RockVoyage
             noteLength = _bsParanoidSO.MusicForGroup.length / _resultKeys.Length; // 164/904 = 41/226
 
             _keysTransform = GetComponent<RectTransform>();
+            GameObject keysCanvas = GetComponentInParent<Canvas>().gameObject;
+            keysCanvas.SetActive(false);
 
             SceneEvents.OnCountdownEnded += CountdownEndedHandler;
         }

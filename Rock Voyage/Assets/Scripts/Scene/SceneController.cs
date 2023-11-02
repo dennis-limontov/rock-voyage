@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace RockVoyage
@@ -11,7 +12,10 @@ namespace RockVoyage
         private GameObject _keysCanvas;
 
         [SerializeField]
-        private Statistics _statisticsCanvas;
+        private Canvas _statisticsCanvas;
+
+        [SerializeField]
+        private CloseButton _closeButton;
 
         private float _perfomanceQuality = 1f;
 
@@ -19,18 +23,29 @@ namespace RockVoyage
         {
             SceneEvents.OnConcertEnded += ConcertEndedHandler;
             SceneEvents.OnCountdownEnded += CountdownEndedHandler;
+            SceneEvents.OnSongChosen += SongChosenHandler;
             SceneEvents.OnWrongNotePlayed += WrongNotePlayedHandler;
+        }
+
+        private void SongChosenHandler()
+        {
+            _closeButton.transform.parent.gameObject.SetActive(false);
         }
 
         private void ConcertEndedHandler()
         {
             _keysCanvas.SetActive(false);
+            _closeButton.transform.parent.gameObject.SetActive(true);
             _statisticsCanvas.gameObject.SetActive(true);
-            _statisticsCanvas.FillAllTexts(_perfomanceQuality, 1f, 300);
+            if (_statisticsCanvas.TryGetComponent(out Statistics statistics))
+            {
+                statistics.FillAllTexts(_perfomanceQuality, 1f, 300);
+            }
         }
 
         private void CountdownEndedHandler()
         {
+            _keysCanvas.SetActive(true);
             _music.Play();
         }
 
@@ -42,6 +57,7 @@ namespace RockVoyage
         private void OnDestroy()
         {
             SceneEvents.OnWrongNotePlayed -= WrongNotePlayedHandler;
+            SceneEvents.OnSongChosen -= SongChosenHandler;
             SceneEvents.OnCountdownEnded -= CountdownEndedHandler;
             SceneEvents.OnConcertEnded -= ConcertEndedHandler;
         }
