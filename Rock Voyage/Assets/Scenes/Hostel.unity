@@ -480,6 +480,7 @@ MonoBehaviour:
   _newspaperButton: {fileID: 701143487}
   _sleepButton: {fileID: 2064011962}
   _hostelInfo: {fileID: 11400000, guid: ee194bed686474148a677f132e548c74, type: 2}
+  _okButton: {fileID: 1941681815}
 --- !u!1 &404293869
 GameObject:
   m_ObjectHideFlags: 0

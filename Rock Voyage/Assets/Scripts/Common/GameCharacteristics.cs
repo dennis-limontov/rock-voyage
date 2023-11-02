@@ -23,11 +23,15 @@ namespace RockVoyage
             set => _mapInfo = value;
         }
 
-        private static int _money;
+        private static int _money = Constants.MONEY_AT_START;
         public static int Money
         {
             get => _money;
-            set => _money = value;
+            set
+            {
+                MapEvents.OnMoneyChanged?.Invoke(_money, value);
+                _money = value;
+            }
         }
 
         private static float _fame;

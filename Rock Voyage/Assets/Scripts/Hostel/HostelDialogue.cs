@@ -32,18 +32,16 @@ namespace RockVoyage
         [SerializeField]
         private HostelInfo _hostelInfo;
 
+        [SerializeField]
+        private Button _okButton;
+
         private TimeSpan _reservationDays;
+
+        private int _reservationCost;
 
         private void Start()
         {
-            if (_hostelInfo.IsBooked && !_hostelInfo.MapInfo.IsMapPurchased)
-            {
-                _mapButton.interactable = true;
-            }
-            if (_hostelInfo.IsBooked && !_hostelInfo.MapInfo.IsNewspaperPurchased)
-            {
-                _newspaperButton.interactable = true;
-            }
+            ButtonsView();
             if (!_hostelInfo.IsBooked)
             {
                 _sleepButton.interactable = false;
@@ -60,17 +58,19 @@ namespace RockVoyage
         // Variant 1-2
         public void OnBuyAMapClicked()
         {
-            // to buy a map
             _hostelInfo.MapInfo.IsMapPurchased = true;
             _mapButton.interactable = false;
+            RVGC.Money -= Constants.MAP_COST;
+            ButtonsView();
         }
 
         // Variant 1-3
         public void OnBuyANewspaperClicked()
         {
-            // to buy a newspaper
             _hostelInfo.MapInfo.IsNewspaperPurchased = true;
             _newspaperButton.interactable = false;
+            RVGC.Money -= Constants.NEWSPAPER_COST;
+            ButtonsView();
         }
 
         // Variant 2-1
@@ -91,24 +91,39 @@ namespace RockVoyage
         {
             int newDaysToInt = (newDays != string.Empty) ? int.Parse(newDays) : 0;
             _reservationDays = new TimeSpan(newDaysToInt, 0, 0, 0);
-            int cost = newDaysToInt * _hostelInfo.CostPerNight;
-            _costText.text = cost.ToString();
+            _reservationCost = newDaysToInt * _hostelInfo.CostPerNight;
+            _costText.text = _reservationCost.ToString();
+            ButtonsView();
         }
 
         // Variant 2-3
         public void OnReservationDateChanged()
         {
-            if (!_hostelInfo.MapInfo.IsMapPurchased)
+            if (RVGC.Money >= _reservationCost)
             {
-                _mapButton.interactable = true;
+                if (!_hostelInfo.MapInfo.IsMapPurchased)
+                {
+                    _mapButton.interactable = true;
+                }
+                if (!_hostelInfo.MapInfo.IsNewspaperPurchased)
+                {
+                    _newspaperButton.interactable = true;
+                }
+                _sleepButton.interactable = true;
+                RVGC.Money -= _reservationCost;
+                ButtonsView();
+                _hostelInfo.AddDays(_reservationDays);
+                _reservationDateText.text = _hostelInfo.ReservationDepartureTime.ToString();
             }
-            if (!_hostelInfo.MapInfo.IsNewspaperPurchased)
-            {
-                _newspaperButton.interactable = true;
-            }
-            _sleepButton.interactable = true;
-            _hostelInfo.AddDays(_reservationDays);
-            _reservationDateText.text = _hostelInfo.ReservationDepartureTime.ToString();
+        }
+
+        private void ButtonsView()
+        {
+            _mapButton.interactable = ((RVGC.Money >= Constants.MAP_COST)
+                && _hostelInfo.IsBooked && !_hostelInfo.MapInfo.IsMapPurchased);
+            _newspaperButton.interactable = ((RVGC.Money >= Constants.NEWSPAPER_COST)
+                && _hostelInfo.IsBooked && !_hostelInfo.MapInfo.IsNewspaperPurchased);
+            _okButton.interactable = (RVGC.Money >= _reservationCost);
         }
 
         // Variant 2-4

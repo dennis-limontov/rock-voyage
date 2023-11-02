@@ -22,7 +22,13 @@ namespace RockVoyage
         public static TimeSpan GARAGE_STUDIO_TIME = new TimeSpan(2, 0, 0);
         public static TimeSpan PRO_STUDIO_TIME = new TimeSpan(6, 0, 0);
         public static TimeSpan SCENE_TIME = new TimeSpan(3, 0, 0);
+
+        // costs
+        public static int MONEY_AT_START = 100;
+        public static int MAP_COST = 60;
+        public static int NEWSPAPER_COST = 60;
         public const int HOSTEL_NEW_DAY_HOUR = 10;
+
         public const int PLAYERS_MAX = 2;
     }
 }
