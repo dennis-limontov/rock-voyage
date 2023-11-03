@@ -16,7 +16,7 @@ namespace RockVoyage
 
         private void Start()
         {
-            _playerCharacteristics = GameCharacteristics.players[0];
+            _playerCharacteristics = GameCharacteristics.CurrentPlayer;
             MapEvents.OnClockDateChanged += ClockDateChangedHandler;
         }
 

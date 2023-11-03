@@ -41,7 +41,18 @@ namespace RockVoyage
             set => _fame = value;
         }
 
+        private static DateTime _recordAvailableDate = DateTime.UnixEpoch;
+        public static DateTime RecordAvailableDate
+        {
+            get => _recordAvailableDate;
+            set
+            {
+                _recordAvailableDate = value;
+            }
+        }
+
         public static List<PlayerCharacteristics> players
             = new List<PlayerCharacteristics>(Constants.PLAYERS_MAX);
+        public static PlayerCharacteristics CurrentPlayer => players[0];
     }
 }

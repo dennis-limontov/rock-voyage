@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -42,7 +43,12 @@ namespace RockVoyage
         private void Start()
         {
             ButtonsView();
-            if (!_hostelInfo.IsBooked)
+            if (_hostelInfo.IsBooked)
+            {
+                _reservationDateText.text = _hostelInfo.ReservationDepartureTime
+                    .ToString(Constants.DATE_STRING_FORMAT, CultureInfo.InvariantCulture);
+            }
+            else
             {
                 _sleepButton.interactable = false;
             }
@@ -83,6 +89,8 @@ namespace RockVoyage
             }
             RVGC.ClockDate = new DateTime(ourDay.Year, ourDay.Month, ourDay.Day,
                 Constants.HOSTEL_NEW_DAY_HOUR, 0, 0);
+            RVGC.CurrentPlayer.Energy = Constants.ENERGY_MAX;
+            
             OnBackClicked();
         }
 
@@ -113,7 +121,8 @@ namespace RockVoyage
                 RVGC.Money -= _reservationCost;
                 ButtonsView();
                 _hostelInfo.AddDays(_reservationDays);
-                _reservationDateText.text = _hostelInfo.ReservationDepartureTime.ToString();
+                _reservationDateText.text = _hostelInfo.ReservationDepartureTime
+                    .ToString(Constants.DATE_STRING_FORMAT, CultureInfo.InvariantCulture);
             }
         }
 

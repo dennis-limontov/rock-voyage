@@ -17,7 +17,8 @@ namespace RockVoyage
 
         private void ClockDateChangedHandler(DateTime clockDateOld, DateTime clockDateNew)
         {
-            _clockDateInfo.text = clockDateNew.ToString("yyyy/MM/dd hh:mm tt", CultureInfo.InvariantCulture);
+            _clockDateInfo.text = clockDateNew.ToString(Constants.DATE_STRING_FORMAT,
+                CultureInfo.InvariantCulture);
         }
 
         private void OnDestroy()
