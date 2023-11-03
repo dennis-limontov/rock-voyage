@@ -5,6 +5,9 @@ namespace RockVoyage
 {
     public class Constants
     {
+        // scenes
+        public const string START_CITY_NAME = "Map";
+
         // layers
         public static string HOUSE_LAYER = "House";
 
