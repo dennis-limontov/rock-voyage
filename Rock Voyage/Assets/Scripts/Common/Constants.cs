@@ -6,6 +6,7 @@ namespace RockVoyage
     public class Constants
     {
         // scenes
+        public const string MAIN_MENU_SCENE_NAME = "Main Menu";
         public const string START_CITY_NAME = "Map";
 
         // layers

@@ -11,6 +11,11 @@ namespace RockVoyage
         [SerializeField]
         private MapInfo _mapInfo;
 
+        private void Awake()
+        {
+            Time.timeScale = 1f;
+        }
+
         private void Start()
         {
             RVGC.MapInfo = _mapInfo;
