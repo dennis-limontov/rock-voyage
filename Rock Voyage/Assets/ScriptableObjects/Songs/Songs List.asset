@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _songs:
   - {fileID: 11400000, guid: 035c9d57cae0b264f98a37a99a7662be, type: 2}
+  - {fileID: 11400000, guid: da65d9f8d7dcb7e4e853e0e3a8f3f0c5, type: 2}

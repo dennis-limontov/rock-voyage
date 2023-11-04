@@ -6,7 +6,7 @@ namespace RockVoyage
     {
         public static Action OnCountdownEnded;
         public static Action OnConcertEnded;
-        public static Action OnSongChosen;
+        public static Action<SongInfo> OnSongChosen;
         public static Action<float> OnWrongNotePlayed;
     }
 }

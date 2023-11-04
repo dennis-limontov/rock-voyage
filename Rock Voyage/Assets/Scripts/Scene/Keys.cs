@@ -9,9 +9,6 @@ namespace RockVoyage
     public class Keys : MonoBehaviour
     {
         [SerializeField]
-        private SongInfo _bsParanoidSO;
-
-        [SerializeField]
         private HorizontalLayoutGroup _keysLayoutGroup;
 
         [SerializeField]
@@ -23,6 +20,8 @@ namespace RockVoyage
         private float _penalty;
         public float Penalty => _penalty;
 
+        private SongInfo _currentSong;
+
         private float _keysSpeed = 0f;
 
         private RectTransform _keysTransform;
@@ -32,11 +31,23 @@ namespace RockVoyage
         private void OnDestroy()
         {
             SceneEvents.OnCountdownEnded -= CountdownEndedHandler;
+            SceneEvents.OnSongChosen -= SongChosenHandler;
         }
 
         private void Start()
         {
-            string[] _songKeys = _bsParanoidSO.KeysArray.text.Split(Environment.NewLine);
+            _keysTransform = GetComponent<RectTransform>();
+            GameObject keysCanvas = GetComponentInParent<Canvas>().gameObject;
+            keysCanvas.SetActive(false);
+
+            SceneEvents.OnSongChosen += SongChosenHandler;
+            SceneEvents.OnCountdownEnded += CountdownEndedHandler;
+        }
+
+        private void SongChosenHandler(SongInfo currentSong)
+        {
+            _currentSong = currentSong;
+            string[] _songKeys = _currentSong.KeysArray.text.Split(Environment.NewLine);
             int bars = int.Parse(_songKeys[0].Split(' ')[0]); // 113
             int divider = int.Parse(_songKeys[0].Split(' ')[1]); // 2
             _resultKeys = new char[bars * divider * 4]; // 904 = amount of 1/8 notes
@@ -47,7 +58,7 @@ namespace RockVoyage
                 char key = char.Parse(keyInfo[0]); // x s
                 float keyDuration = float.Parse(keyInfo[1], CultureInfo.InvariantCulture); // 4 1.5
                 int keyAmount = int.Parse(keyInfo[2]); // 8 1
-                int notesAmountInMinDuration = (int)(keyDuration * keyAmount * divider); // 64 3
+                // int notesAmountInMinDuration = (int)(keyDuration * keyAmount * divider); // 64 3
                 for (int j = 0; j < keyAmount; j++)
                 {
                     var localKey = key;
@@ -68,13 +79,7 @@ namespace RockVoyage
             }
 
             _penalty = 1f / (bars * divider * 4f); // 1/904
-            noteLength = _bsParanoidSO.MusicForGroup.length / _resultKeys.Length; // 164/904 = 41/226
-
-            _keysTransform = GetComponent<RectTransform>();
-            GameObject keysCanvas = GetComponentInParent<Canvas>().gameObject;
-            keysCanvas.SetActive(false);
-
-            SceneEvents.OnCountdownEnded += CountdownEndedHandler;
+            noteLength = _currentSong.MusicForGroup.length / _resultKeys.Length; // 164/904 = 41/226
         }
 
         private void Update()
@@ -86,7 +91,7 @@ namespace RockVoyage
         {
             //_keysSpeed = _keysTransform.sizeDelta.x / _bsParanoidSO.MusicForGroup.length; // 90400/164 = 22600/41
             _keysSpeed = _keyPrefab.GetComponent<RectTransform>().sizeDelta.x * _resultKeys.Length
-                / _bsParanoidSO.MusicForGroup.length;
+                / _currentSong.MusicForGroup.length;
         }
     }
 }

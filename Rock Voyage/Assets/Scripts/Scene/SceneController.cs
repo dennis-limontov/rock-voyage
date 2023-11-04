@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace RockVoyage
@@ -27,8 +26,9 @@ namespace RockVoyage
             SceneEvents.OnWrongNotePlayed += WrongNotePlayedHandler;
         }
 
-        private void SongChosenHandler()
+        private void SongChosenHandler(SongInfo currentSong)
         {
+            _music.clip = currentSong.MusicForGroup;
             _closeButton.transform.parent.gameObject.SetActive(false);
         }
 

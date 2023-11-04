@@ -23,7 +23,7 @@ namespace RockVoyage
             SceneEvents.OnSongChosen -= SongChosenHandler;
         }
 
-        private void SongChosenHandler()
+        private void SongChosenHandler(SongInfo currentSong)
         {
             transform.parent.gameObject.SetActive(true);
             StartCoroutine(CountdownCoroutine());

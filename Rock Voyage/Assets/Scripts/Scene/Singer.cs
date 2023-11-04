@@ -17,12 +17,18 @@ namespace RockVoyage
         {
             _music = GetComponent<AudioSource>();
             SceneEvents.OnCountdownEnded += CountdownEndedHandler;
+            SceneEvents.OnSongChosen += SongChosenHandler;
         }
 
         private void CountdownEndedHandler()
         {
             _music.Play();
             StartCoroutine(KeysCoroutine());
+        }
+
+        private void SongChosenHandler(SongInfo currentSong)
+        {
+            _music.clip = currentSong.MusicForSinger;
         }
 
         private void OnDestroy()
