@@ -17,6 +17,15 @@ namespace RockVoyage
         private CloseButton _closeButton;
 
         private float _perfomanceQuality = 1f;
+        private float PerfomanceQuality
+        {
+            get => _perfomanceQuality;
+            set
+            {
+                _perfomanceQuality = value;
+                SceneEvents.OnPerfomanceQualityChanged?.Invoke(_perfomanceQuality);
+            }
+        }
 
         private void Start()
         {
@@ -29,6 +38,7 @@ namespace RockVoyage
         private void SongChosenHandler(SongInfo currentSong)
         {
             _music.clip = currentSong.MusicForGroup;
+            PerfomanceQuality = 1f;
             _closeButton.transform.parent.gameObject.SetActive(false);
         }
 
@@ -51,7 +61,7 @@ namespace RockVoyage
 
         private void WrongNotePlayedHandler(float penalty)
         {
-            _perfomanceQuality -= penalty;
+            PerfomanceQuality -= penalty;
         }
 
         private void OnDestroy()

@@ -14,17 +14,17 @@ namespace RockVoyage
 
         private void OnDestroy()
         {
-            SceneEvents.OnWrongNotePlayed -= WrongNotePlayedHandler;
+            SceneEvents.OnPerfomanceQualityChanged -= PerfomanceQualityChangedHandler;
         }
 
         private void Start()
         {
-            SceneEvents.OnWrongNotePlayed += WrongNotePlayedHandler;
+            SceneEvents.OnPerfomanceQualityChanged += PerfomanceQualityChangedHandler;
         }
 
-        private void WrongNotePlayedHandler(float penalty)
+        private void PerfomanceQualityChangedHandler(float currentQuality)
         {
-            _slider.value -= penalty;
+            _slider.value = currentQuality;
             _percents.text = (_slider.value * 100f).ToString("f2") + " %";
         }
     }

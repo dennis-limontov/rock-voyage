@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -9,6 +10,8 @@ namespace RockVoyage
         [SerializeField]
         private Keys _keys;
 
+        private SongInfo _currentSong;
+
         private AudioSource _music;
 
         private char _currentNote;
@@ -18,43 +21,41 @@ namespace RockVoyage
             _music = GetComponent<AudioSource>();
             SceneEvents.OnCountdownEnded += CountdownEndedHandler;
             SceneEvents.OnSongChosen += SongChosenHandler;
+            SceneEvents.OnCurrentNoteChanged += CurrentNoteChangedHandler;
+        }
+
+        private void CurrentNoteChangedHandler(char currentNote, char nextNote)
+        {
+            if (currentNote != _currentNote)
+            {
+                SceneEvents.OnWrongNotePlayed?.Invoke(_currentSong.Penalty);
+                _music.mute = true;
+            }
+            else
+            {
+                _music.mute = false;
+            }
+
+            _currentNote = ' ';
         }
 
         private void CountdownEndedHandler()
         {
             _music.Play();
-            StartCoroutine(KeysCoroutine());
+            _currentNote = ' ';
         }
 
         private void SongChosenHandler(SongInfo currentSong)
         {
             _music.clip = currentSong.MusicForSinger;
+            _currentSong = currentSong;
         }
 
         private void OnDestroy()
         {
+            SceneEvents.OnCurrentNoteChanged -= CurrentNoteChangedHandler;
+            SceneEvents.OnSongChosen -= SongChosenHandler;
             SceneEvents.OnCountdownEnded -= CountdownEndedHandler;
-        }
-
-        private IEnumerator KeysCoroutine()
-        {
-            for (int i = 0; i < _keys.ResultKeys.Length; i++)
-            {
-                _currentNote = ' ';
-                yield return new WaitForSeconds(Keys.noteLength);
-
-                if (_keys.ResultKeys[i] != _currentNote)
-                {
-                    SceneEvents.OnWrongNotePlayed?.Invoke(_keys.Penalty);
-                    _music.mute = true;
-                }
-                else
-                {
-                    _music.mute = false;
-                }
-            }
-
-            SceneEvents.OnConcertEnded?.Invoke();
         }
 
         public void OnNotePlayed(InputAction.CallbackContext inputContext)

@@ -23,6 +23,7 @@ namespace RockVoyage
         public void OnStartClicked()
         {
             transform.parent.gameObject.SetActive(false);
+            _songsList[_dropdown.value].FillResultKeys();
             SceneEvents.OnSongChosen?.Invoke(_songsList[_dropdown.value]);
         }
     }

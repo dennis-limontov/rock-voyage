@@ -1687,9 +1687,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9326419186fac548b0f1c492031eabc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bsParanoidSO: {fileID: 11400000, guid: 035c9d57cae0b264f98a37a99a7662be, type: 2}
-  _keysLayoutGroup: {fileID: 2626886802193704379}
   _keyPrefab: {fileID: 5835061807260532339, guid: a6aa803e36bab71489bf981431839aac, type: 3}
+  _music: {fileID: 2626886800324894025}
 --- !u!114 &2626886802193704380
 MonoBehaviour:
   m_ObjectHideFlags: 0
