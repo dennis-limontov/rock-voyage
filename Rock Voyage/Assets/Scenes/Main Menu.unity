@@ -1613,6 +1613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8d8b88083d688843ba2ff478e1afbe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _firstSong: {fileID: 11400000, guid: 035c9d57cae0b264f98a37a99a7662be, type: 2}
 --- !u!114 &1918936612
 MonoBehaviour:
   m_ObjectHideFlags: 0

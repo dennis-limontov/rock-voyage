@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4929c57b39b05184eaf3c8e10cba7878, type: 3}
+  m_Name: "Led Zeppelin \u2013 Communication Breakdown"
+  m_EditorClassIdentifier: 
+  _musicForSinger: {fileID: 8300000, guid: 9a55660fff833f049acb38a6cf4066fb, type: 3}
+  _musicForGroup: {fileID: 8300000, guid: 9a55660fff833f049acb38a6cf4066fb, type: 3}
+  _keysArray: {fileID: 4900000, guid: cf35e94ac202d354d860e7c8978b0425, type: 3}
+  _songName: "Led Zeppelin \u2013 Communication Breakdown"
+  _isUnique: 0
+  _prominence: 0.75

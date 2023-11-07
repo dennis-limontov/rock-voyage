@@ -51,6 +51,9 @@ namespace RockVoyage
             }
         }
 
+        private static List<SongInfo> _availableSongs = new List<SongInfo>();
+        public static List<SongInfo> AvailableSongs => _availableSongs;
+
         public static List<PlayerCharacteristics> players
             = new List<PlayerCharacteristics>(Constants.PLAYERS_MAX);
         public static PlayerCharacteristics CurrentPlayer => players[0];

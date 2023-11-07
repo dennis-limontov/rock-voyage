@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using RVGC = RockVoyage.GameCharacteristics;
 
 namespace RockVoyage
 {
@@ -8,14 +9,11 @@ namespace RockVoyage
         [SerializeField]
         private TMP_Dropdown _dropdown;
 
-        [SerializeField]
-        private SongsList _songsList;
-
         private void Start()
         {
-            for (int i = 0; i < _songsList.Length; i++)
+            foreach (var song in RVGC.AvailableSongs)
             {
-                _dropdown.options.Add(new TMP_Dropdown.OptionData(_songsList[i].SongName));
+                _dropdown.options.Add(new TMP_Dropdown.OptionData(song.SongName));
             }
             _dropdown.value = -1;
         }
@@ -23,8 +21,8 @@ namespace RockVoyage
         public void OnStartClicked()
         {
             transform.parent.gameObject.SetActive(false);
-            _songsList[_dropdown.value].FillResultKeys();
-            SceneEvents.OnSongChosen?.Invoke(_songsList[_dropdown.value]);
+            RVGC.AvailableSongs[_dropdown.value].FillResultKeys();
+            SceneEvents.OnSongChosen?.Invoke(RVGC.AvailableSongs[_dropdown.value]);
         }
     }
 }

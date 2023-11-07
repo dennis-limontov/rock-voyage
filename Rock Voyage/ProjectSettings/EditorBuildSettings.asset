@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Pro Studio.unity
     guid: 50fee3ce480c2ec429afd447aa095ffd
+  - enabled: 1
+    path: Assets/Scenes/Street Music.unity
+    guid: 46002c7c8064f344598f374cdcbd773c
   m_configObjects: {}

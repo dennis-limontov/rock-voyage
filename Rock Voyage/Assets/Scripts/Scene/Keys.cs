@@ -7,6 +7,9 @@ namespace RockVoyage
     public class Keys : MonoBehaviour
     {
         [SerializeField]
+        private GameObject _keysCanvas;
+
+        [SerializeField]
         private GameObject _keyPrefab;
 
         [SerializeField]
@@ -18,10 +21,13 @@ namespace RockVoyage
 
         private RectTransform _keysTransform;
 
+        private IEnumerator _keysCoroutine;
+
         private void OnDestroy()
         {
-            SceneEvents.OnCountdownEnded -= CountdownEndedHandler;
             SceneEvents.OnSongChosen -= SongChosenHandler;
+            SceneEvents.OnCountdownEnded -= CountdownEndedHandler;
+            SceneEvents.OnConcertEnded -= ConcertEndedHandler;
         }
 
         private void Start()
@@ -30,8 +36,30 @@ namespace RockVoyage
             GameObject keysCanvas = GetComponentInParent<Canvas>().gameObject;
             keysCanvas.SetActive(false);
 
-            SceneEvents.OnSongChosen += SongChosenHandler;
+            SceneEvents.OnConcertEnded += ConcertEndedHandler;
             SceneEvents.OnCountdownEnded += CountdownEndedHandler;
+            SceneEvents.OnSongChosen += SongChosenHandler;
+        }
+
+        private void ConcertEndedHandler()
+        {
+            _music.Stop();
+            StopCoroutine(_keysCoroutine);
+            _keysCanvas.SetActive(false);
+            foreach (Transform key in _keysTransform)
+            {
+                Destroy(key.gameObject);
+            }
+        }
+
+        private void CountdownEndedHandler()
+        {
+            // _keysSpeed = _keysTransform.sizeDelta.x / _bsParanoidSO.MusicForGroup.length; // 90400/164 = 22600/41
+            _keysCanvas.SetActive(true);
+            _keysSpeed = _keyPrefab.GetComponent<RectTransform>().sizeDelta.x
+                * _currentSong.ResultKeys.Length / _currentSong.MusicForGroup.length;
+            _keysCoroutine = MovingKeys();
+            StartCoroutine(_keysCoroutine);
         }
 
         private void SongChosenHandler(SongInfo currentSong)
@@ -42,14 +70,6 @@ namespace RockVoyage
                 GameObject _newKey = Instantiate(_keyPrefab, _keysTransform);
                 _newKey.GetComponentInChildren<TextMeshProUGUI>().text = key.ToString();
             }
-        }
-
-        private void CountdownEndedHandler()
-        {
-            // _keysSpeed = _keysTransform.sizeDelta.x / _bsParanoidSO.MusicForGroup.length; // 90400/164 = 22600/41
-            _keysSpeed = _keyPrefab.GetComponent<RectTransform>().sizeDelta.x
-                * _currentSong.ResultKeys.Length / _currentSong.MusicForGroup.length;
-            StartCoroutine(MovingKeys());
         }
 
         private IEnumerator MovingKeys()
@@ -73,11 +93,6 @@ namespace RockVoyage
                     SceneEvents.OnCurrentNoteChanged?.Invoke(_currentSong.ResultKeys[i],
                     _currentSong.ResultKeys[j]);
                 }
-            }
-
-            foreach (Transform key in _keysTransform)
-            {
-                Destroy(key.gameObject);
             }
 
             SceneEvents.OnConcertEnded?.Invoke();

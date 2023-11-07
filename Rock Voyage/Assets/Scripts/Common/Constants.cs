@@ -38,5 +38,8 @@ namespace RockVoyage
 
         public static string DATE_STRING_FORMAT = "yyyy/MM/dd hh:mm tt";
         public const int PLAYERS_MAX = 2;
+
+        public static float REMEMBER_CHANCE = 0.01f;
+        public static float EARN_MONEY_CHANCE = 0.05f;
     }
 }

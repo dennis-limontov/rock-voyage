@@ -6,6 +6,9 @@ namespace RockVoyage
 {
     public class MainMenu : MonoBehaviour
     {
+        [SerializeField]
+        private SongInfo _firstSong;
+
         public void OnNewGameClicked()
         {
             ResetGameData();
@@ -23,6 +26,8 @@ namespace RockVoyage
             GameCharacteristics.Fame = 0f;
             GameCharacteristics.Money = Constants.MONEY_AT_START;
             GameCharacteristics.players.Clear();
+            GameCharacteristics.AvailableSongs.Clear();
+            GameCharacteristics.AvailableSongs.Add(_firstSong);
             GameCharacteristics.RecordAvailableDate = DateTime.UnixEpoch;
         }
     }

@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -19,9 +18,15 @@ namespace RockVoyage
         private void Start()
         {
             _music = GetComponent<AudioSource>();
+            SceneEvents.OnConcertEnded += ConcertEndedHandler;
             SceneEvents.OnCountdownEnded += CountdownEndedHandler;
             SceneEvents.OnSongChosen += SongChosenHandler;
             SceneEvents.OnCurrentNoteChanged += CurrentNoteChangedHandler;
+        }
+
+        private void ConcertEndedHandler()
+        {
+            _music.Stop();
         }
 
         private void CurrentNoteChangedHandler(char currentNote, char nextNote)
@@ -33,6 +38,10 @@ namespace RockVoyage
             }
             else
             {
+                if (currentNote != ' ')
+                {
+                    SceneEvents.OnRightNotePlayed?.Invoke();
+                }
                 _music.mute = false;
             }
 
@@ -56,6 +65,7 @@ namespace RockVoyage
             SceneEvents.OnCurrentNoteChanged -= CurrentNoteChangedHandler;
             SceneEvents.OnSongChosen -= SongChosenHandler;
             SceneEvents.OnCountdownEnded -= CountdownEndedHandler;
+            SceneEvents.OnConcertEnded -= ConcertEndedHandler;
         }
 
         public void OnNotePlayed(InputAction.CallbackContext inputContext)

@@ -8,9 +8,6 @@ namespace RockVoyage
         private AudioSource _music;
 
         [SerializeField]
-        private GameObject _keysCanvas;
-
-        [SerializeField]
         private Canvas _statisticsCanvas;
 
         [SerializeField]
@@ -27,9 +24,13 @@ namespace RockVoyage
             }
         }
 
-        private void Start()
+        private void Awake()
         {
             SceneEvents.OnConcertEnded += ConcertEndedHandler;
+        }
+
+        private void Start()
+        {
             SceneEvents.OnCountdownEnded += CountdownEndedHandler;
             SceneEvents.OnSongChosen += SongChosenHandler;
             SceneEvents.OnWrongNotePlayed += WrongNotePlayedHandler;
@@ -44,7 +45,6 @@ namespace RockVoyage
 
         private void ConcertEndedHandler()
         {
-            _keysCanvas.SetActive(false);
             _closeButton.transform.parent.gameObject.SetActive(true);
             _statisticsCanvas.gameObject.SetActive(true);
             if (_statisticsCanvas.TryGetComponent(out Statistics statistics))
@@ -55,7 +55,6 @@ namespace RockVoyage
 
         private void CountdownEndedHandler()
         {
-            _keysCanvas.SetActive(true);
             _music.Play();
         }
 
