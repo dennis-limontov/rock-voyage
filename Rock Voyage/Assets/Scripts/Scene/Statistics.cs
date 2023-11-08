@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace RockVoyage
 {
-    public class Statistics : MonoBehaviour
+    public class Statistics : UIBase
     {
         [SerializeField]
         private TextMeshProUGUI _perfomanceQualityPercent;

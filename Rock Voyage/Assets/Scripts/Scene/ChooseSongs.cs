@@ -4,13 +4,14 @@ using RVGC = RockVoyage.GameCharacteristics;
 
 namespace RockVoyage
 {
-    public class ChooseSongs : MonoBehaviour
+    public class ChooseSongs : UIBase
     {
         [SerializeField]
         private TMP_Dropdown _dropdown;
 
-        private void Start()
+        public override void Init(UIBaseParent parent)
         {
+            base.Init(parent);
             foreach (var song in RVGC.AvailableSongs)
             {
                 _dropdown.options.Add(new TMP_Dropdown.OptionData(song.SongName));
@@ -20,7 +21,6 @@ namespace RockVoyage
 
         public void OnStartClicked()
         {
-            transform.parent.gameObject.SetActive(false);
             RVGC.AvailableSongs[_dropdown.value].FillResultKeys();
             SceneEvents.OnSongChosen?.Invoke(RVGC.AvailableSongs[_dropdown.value]);
         }

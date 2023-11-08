@@ -2,16 +2,13 @@ using UnityEngine;
 
 namespace RockVoyage
 {
-    public class SceneController : MonoBehaviour
+    public class SceneController : UIActiveOneChild
     {
         [SerializeField]
-        private AudioSource _music;
-
-        [SerializeField]
-        private Canvas _statisticsCanvas;
-
-        [SerializeField]
         private CloseButton _closeButton;
+
+        [SerializeField]
+        private UIBase _countdown;
 
         private float _perfomanceQuality = 1f;
         private float PerfomanceQuality
@@ -24,38 +21,21 @@ namespace RockVoyage
             }
         }
 
-        private void Awake()
-        {
-            SceneEvents.OnConcertEnded += ConcertEndedHandler;
-        }
-
-        private void Start()
-        {
-            SceneEvents.OnCountdownEnded += CountdownEndedHandler;
-            SceneEvents.OnSongChosen += SongChosenHandler;
-            SceneEvents.OnWrongNotePlayed += WrongNotePlayedHandler;
-        }
-
-        private void SongChosenHandler(SongInfo currentSong)
-        {
-            _music.clip = currentSong.MusicForGroup;
-            PerfomanceQuality = 1f;
-            _closeButton.transform.parent.gameObject.SetActive(false);
-        }
-
         private void ConcertEndedHandler()
         {
             _closeButton.transform.parent.gameObject.SetActive(true);
-            _statisticsCanvas.gameObject.SetActive(true);
-            if (_statisticsCanvas.TryGetComponent(out Statistics statistics))
+            GoToNext();
+            if (CurrentElement is Statistics statistics)
             {
                 statistics.FillAllTexts(_perfomanceQuality, 1f, 300);
             }
         }
 
-        private void CountdownEndedHandler()
+        private void SongChosenHandler(SongInfo currentSong)
         {
-            _music.Play();
+            PerfomanceQuality = 1f;
+            _closeButton.transform.parent.gameObject.SetActive(false);
+            GoTo(_countdown);
         }
 
         private void WrongNotePlayedHandler(float penalty)
@@ -67,8 +47,17 @@ namespace RockVoyage
         {
             SceneEvents.OnWrongNotePlayed -= WrongNotePlayedHandler;
             SceneEvents.OnSongChosen -= SongChosenHandler;
-            SceneEvents.OnCountdownEnded -= CountdownEndedHandler;
+            SceneEvents.OnCountdownEnded -= GoToNext;
             SceneEvents.OnConcertEnded -= ConcertEndedHandler;
+        }
+
+        public override void Init(UIBaseParent parent)
+        {
+            base.Init(parent);
+            SceneEvents.OnConcertEnded += ConcertEndedHandler;
+            SceneEvents.OnCountdownEnded += GoToNext;
+            SceneEvents.OnSongChosen += SongChosenHandler;
+            SceneEvents.OnWrongNotePlayed += WrongNotePlayedHandler;
         }
     }
 }

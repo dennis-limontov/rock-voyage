@@ -4,11 +4,8 @@ using UnityEngine;
 
 namespace RockVoyage
 {
-    public class Keys : MonoBehaviour
+    public class Keys : UIBase
     {
-        [SerializeField]
-        private GameObject _keysCanvas;
-
         [SerializeField]
         private GameObject _keyPrefab;
 
@@ -26,45 +23,45 @@ namespace RockVoyage
         private void OnDestroy()
         {
             SceneEvents.OnSongChosen -= SongChosenHandler;
-            SceneEvents.OnCountdownEnded -= CountdownEndedHandler;
-            SceneEvents.OnConcertEnded -= ConcertEndedHandler;
         }
 
-        private void Start()
+        public override void Enter()
         {
-            _keysTransform = GetComponent<RectTransform>();
-            GameObject keysCanvas = GetComponentInParent<Canvas>().gameObject;
-            keysCanvas.SetActive(false);
-
-            SceneEvents.OnConcertEnded += ConcertEndedHandler;
-            SceneEvents.OnCountdownEnded += CountdownEndedHandler;
-            SceneEvents.OnSongChosen += SongChosenHandler;
-        }
-
-        private void ConcertEndedHandler()
-        {
-            _music.Stop();
-            StopCoroutine(_keysCoroutine);
-            _keysCanvas.SetActive(false);
-            foreach (Transform key in _keysTransform)
-            {
-                Destroy(key.gameObject);
-            }
-        }
-
-        private void CountdownEndedHandler()
-        {
+            base.Enter();
+            _music.Play();
             // _keysSpeed = _keysTransform.sizeDelta.x / _bsParanoidSO.MusicForGroup.length; // 90400/164 = 22600/41
-            _keysCanvas.SetActive(true);
             _keysSpeed = _keyPrefab.GetComponent<RectTransform>().sizeDelta.x
                 * _currentSong.ResultKeys.Length / _currentSong.MusicForGroup.length;
             _keysCoroutine = MovingKeys();
             StartCoroutine(_keysCoroutine);
         }
 
+        public override void Init(UIBaseParent parent)
+        {
+            base.Init(parent);
+            _keysTransform = GetComponent<RectTransform>();
+
+            SceneEvents.OnSongChosen += SongChosenHandler;
+        }
+
+        public override void Exit()
+        {
+            base.Exit();
+            _music.Stop();
+            if (_keysCoroutine != null)
+            {
+                StopCoroutine(_keysCoroutine);
+            }
+            foreach (Transform key in _keysTransform)
+            {
+                Destroy(key.gameObject);
+            }
+        }
+
         private void SongChosenHandler(SongInfo currentSong)
         {
             _currentSong = currentSong;
+            _music.clip = currentSong.MusicForGroup;
             foreach (var key in _currentSong.ResultKeys)
             {
                 GameObject _newKey = Instantiate(_keyPrefab, _keysTransform);

@@ -5,43 +5,38 @@ using UnityEngine;
 
 namespace RockVoyage
 {
-    public class Countdown : MonoBehaviour
+    public class Countdown : UIBase
     {
         private TextMeshProUGUI _text;
-        private int countdown = 3;
+        private int _countdown = 3;
         private const string GO = "LET'S ROCK!!!";
 
-        private void Start()
+        public override void Enter()
         {
-            _text = GetComponent<TextMeshProUGUI>();
-            SceneEvents.OnSongChosen += SongChosenHandler;
-            transform.parent.gameObject.SetActive(false);
-        }
-
-        private void OnDestroy()
-        {
-            SceneEvents.OnSongChosen -= SongChosenHandler;
-        }
-
-        private void SongChosenHandler(SongInfo currentSong)
-        {
-            transform.parent.gameObject.SetActive(true);
+            base.Enter();
+            _countdown = 3;
             StartCoroutine(CountdownCoroutine());
+        }
+
+        public override void Init(UIBaseParent parent)
+        {
+            base.Init(parent);
+            _text = GetComponent<TextMeshProUGUI>();
         }
 
         private IEnumerator CountdownCoroutine()
         {
-            while (countdown >= 0)
+            while (_countdown >= 0)
             {
-                if (countdown == 0)
+                if (_countdown == 0)
                 {
                     _text.text = GO;
                 }
                 else
                 {
-                    _text.text = countdown.ToString();
+                    _text.text = _countdown.ToString();
                 }
-                countdown--;
+                _countdown--;
                 DOTween.Sequence()
                     .Append(transform.DOScale(3f, 1f))
                     .Append(transform.DOScale(1f, 0f));
@@ -50,7 +45,6 @@ namespace RockVoyage
             }
 
             SceneEvents.OnCountdownEnded?.Invoke();
-            transform.parent.gameObject.SetActive(false);
         }
     }
 }

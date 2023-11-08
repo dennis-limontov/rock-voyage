@@ -42,6 +42,11 @@ namespace RockVoyage
 
         public void FillResultKeys()
         {
+            if (_resultKeys != null)
+            {
+                return;
+            }
+
             string[] _songKeys = KeysArray.text.Split(Environment.NewLine);
             int bars = int.Parse(_songKeys[0].Split(' ')[0]); // 113
             int divider = int.Parse(_songKeys[0].Split(' ')[1]); // 2
