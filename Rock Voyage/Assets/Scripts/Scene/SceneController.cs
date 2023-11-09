@@ -24,10 +24,17 @@ namespace RockVoyage
         private void ConcertEndedHandler()
         {
             _closeButton.transform.parent.gameObject.SetActive(true);
-            GoToNext();
-            if (CurrentElement is Statistics statistics)
+            if (_currentIndex + 1 < children.Length)
             {
-                statistics.FillAllTexts(_perfomanceQuality, 1f, 300);
+                GoToNext();
+                if (CurrentElement is Statistics statistics)
+                {
+                    statistics.FillAllTexts(_perfomanceQuality, 1f, 300);
+                }
+            }
+            else
+            {
+                ((UIActiveOneChild)GetController()).GoToFirst();
             }
         }
 

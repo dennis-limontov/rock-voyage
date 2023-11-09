@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace RockVoyage
 {
-    public class EarnedMoney : MonoBehaviour
+    public class EarnedMoney : UIBase
     {
         [SerializeField]
         private AudioSource _coinSound;
@@ -13,13 +13,9 @@ namespace RockVoyage
 
         private int _earnedMoney = 0;
 
-        private void OnDestroy()
+        public override void Init(UIBaseParent parent = null)
         {
-            SceneEvents.OnRightNotePlayed -= RightNotePlayedHandler;
-        }
-
-        private void Start()
-        {
+            base.Init(parent);
             SceneEvents.OnConcertEnded += ConcertEndedHandler;
             SceneEvents.OnRightNotePlayed += RightNotePlayedHandler;
         }
@@ -40,6 +36,12 @@ namespace RockVoyage
                 _earnedMoneyText.text = _earnedMoney.ToString();
                 _coinSound.PlayOneShot(_coinSound.clip);
             }
+        }
+
+        private void OnDestroy()
+        {
+            SceneEvents.OnRightNotePlayed -= RightNotePlayedHandler;
+            SceneEvents.OnConcertEnded -= ConcertEndedHandler;
         }
     }
 }

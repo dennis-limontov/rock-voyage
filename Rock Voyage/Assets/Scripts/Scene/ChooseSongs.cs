@@ -9,9 +9,10 @@ namespace RockVoyage
         [SerializeField]
         private TMP_Dropdown _dropdown;
 
-        public override void Init(UIBaseParent parent)
+        public override void Enter()
         {
-            base.Init(parent);
+            base.Enter();
+            _dropdown.options.Clear();
             foreach (var song in RVGC.AvailableSongs)
             {
                 _dropdown.options.Add(new TMP_Dropdown.OptionData(song.SongName));

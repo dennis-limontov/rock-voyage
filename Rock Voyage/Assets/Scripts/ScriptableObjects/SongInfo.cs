@@ -42,7 +42,7 @@ namespace RockVoyage
 
         public void FillResultKeys()
         {
-            if (_resultKeys != null)
+            if ((_resultKeys != null) && (_resultKeys.Length != 0))
             {
                 return;
             }
