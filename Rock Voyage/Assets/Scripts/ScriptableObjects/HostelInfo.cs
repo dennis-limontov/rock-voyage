@@ -24,7 +24,7 @@ namespace RockVoyage
             _reservationDepartureTime += departureDaysToAdd;
             if (_reservationDepartureTime.Hour < 12)
             {
-                _reservationDepartureTime.Subtract(new TimeSpan(1, 0, 0, 0));
+                _reservationDepartureTime = _reservationDepartureTime.Subtract(new TimeSpan(1, 0, 0, 0));
             }
             _reservationDepartureTime = new DateTime(_reservationDepartureTime.Year,
                 _reservationDepartureTime.Month, _reservationDepartureTime.Day,
