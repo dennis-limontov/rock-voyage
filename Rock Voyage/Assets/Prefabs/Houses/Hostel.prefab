@@ -1,27 +1,31 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &1124764440239729058
+--- !u!1001 &7436912962966786930
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 66206959384244638, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
+      propertyPath: m_text
+      value: Hostel
+      objectReference: {fileID: 0}
     - target: {fileID: 1417177339724284992, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1417177339724284992, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -5.56
       objectReference: {fileID: 0}
     - target: {fileID: 1417177339724284992, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.73
       objectReference: {fileID: 0}
     - target: {fileID: 1417177339724284992, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.5
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 1417177339724284992, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
       propertyPath: m_LocalRotation.w
@@ -29,15 +33,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1417177339724284992, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1417177339724284992, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1417177339724284992, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1417177339724284992, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -53,23 +57,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1417177339724284995, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
       propertyPath: m_Name
-      value: Airport
+      value: Hostel
       objectReference: {fileID: 0}
     - target: {fileID: 1417177340373902666, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
       propertyPath: m_text
-      value: Airport
+      value: Hostel
       objectReference: {fileID: 0}
-    - target: {fileID: 1417177340373902677, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 8
+    - target: {fileID: 3992252673697502197, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
+      propertyPath: m_text
+      value: Hostel
       objectReference: {fileID: 0}
-    - target: {fileID: 2501970843555052774, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 4359953307462105734, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
+      propertyPath: m_text
+      value: Hostel
       objectReference: {fileID: 0}
-    - target: {fileID: 3605613292394930826, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
-      propertyPath: _houseInfo
-      value: 
-      objectReference: {fileID: 11400000, guid: f13a752005f9fb64d9ff8e5db2717dff, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}

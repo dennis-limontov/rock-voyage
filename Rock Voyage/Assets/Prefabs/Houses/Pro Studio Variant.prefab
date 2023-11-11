@@ -1,12 +1,16 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &5056608791761154271
+--- !u!1001 &4796527251379279053
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 66206959384244638, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
+      propertyPath: m_text
+      value: Pro Studio
+      objectReference: {fileID: 0}
     - target: {fileID: 1417177339724284992, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -53,15 +57,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1417177339724284995, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
       propertyPath: m_Name
-      value: House Variant
+      value: Pro Studio Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1417177340373902666, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
       propertyPath: m_text
-      value: GarageStudio
+      value: Prostudio
       objectReference: {fileID: 0}
     - target: {fileID: 3605613292394930826, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
       propertyPath: _houseInfo
       value: 
-      objectReference: {fileID: 11400000, guid: f66612a4cceed284eb96c8778d60d05a, type: 2}
+      objectReference: {fileID: 11400000, guid: 85e93b02f9771f044a4eac219e844a97, type: 2}
+    - target: {fileID: 3992252673697502197, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
+      propertyPath: m_text
+      value: Pro Studio
+      objectReference: {fileID: 0}
+    - target: {fileID: 4359953307462105734, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
+      propertyPath: m_text
+      value: Pro Studio
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}

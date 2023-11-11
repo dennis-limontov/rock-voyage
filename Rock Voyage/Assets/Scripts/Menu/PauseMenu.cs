@@ -6,10 +6,13 @@ namespace RockVoyage
     public class PauseMenu : MonoBehaviour
     {
         [SerializeField]
+        private CanvasGroup _buttonsCanvasGroup;
+
+        [SerializeField]
         private Canvas _pauseMenuCanvas;
 
         [SerializeField]
-        private GameObject _coveringPanel;
+        private GameObject _yesNoPanel;
 
         public void OnPause()
         {
@@ -40,12 +43,14 @@ namespace RockVoyage
 
         public void OnBackToMainMenuClicked()
         {
-            _coveringPanel.SetActive(true);
+            _buttonsCanvasGroup.blocksRaycasts = false;
+            _yesNoPanel.SetActive(true);
         }
 
         public void OnNoButtonClicked()
         {
-            _coveringPanel.SetActive(false);
+            _yesNoPanel.SetActive(false);
+            _buttonsCanvasGroup.blocksRaycasts = true;
         }
 
         public void OnYesButtonClicked()

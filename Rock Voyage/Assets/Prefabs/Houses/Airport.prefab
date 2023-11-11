@@ -1,12 +1,24 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &5031724497589012493
+--- !u!1001 &1124764440239729058
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 66206959384244638, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
+      propertyPath: m_text
+      value: Airport
+      objectReference: {fileID: 0}
+    - target: {fileID: 178072582858994749, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1417177339037015712, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1417177339724284992, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -21,7 +33,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1417177339724284992, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1417177339724284992, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
       propertyPath: m_LocalRotation.w
@@ -53,19 +65,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1417177339724284995, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
       propertyPath: m_Name
-      value: Street Music Variant
+      value: Airport
       objectReference: {fileID: 0}
     - target: {fileID: 1417177340373902666, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
       propertyPath: m_text
-      value: Street Music
+      value: Airport
       objectReference: {fileID: 0}
-    - target: {fileID: 2501970843555052774, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 1417177340373902677, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3605613292394930826, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
       propertyPath: _houseInfo
       value: 
-      objectReference: {fileID: 11400000, guid: bdadded8c220a52458d4bcbea8e21275, type: 2}
+      objectReference: {fileID: 11400000, guid: f13a752005f9fb64d9ff8e5db2717dff, type: 2}
+    - target: {fileID: 3992252673697502197, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
+      propertyPath: m_text
+      value: Airport
+      objectReference: {fileID: 0}
+    - target: {fileID: 4359953307462105734, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
+      propertyPath: m_text
+      value: Airport
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
