@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using RVGC = RockVoyage.GameCharacteristics;
 
@@ -20,6 +21,10 @@ namespace RockVoyage
         {
             RVGC.MapInfo = _mapInfo;
             _mapInfo.MapObjects = _mapObjects;
+
+            EventHub.Initialize();
+            MapEvents.OnClockDateChanged?.Invoke(DateTime.UnixEpoch, GameCharacteristics.ClockDate);
+            MapEvents.OnMoneyChanged?.Invoke(0, GameCharacteristics.Money);
         }
     }
 }

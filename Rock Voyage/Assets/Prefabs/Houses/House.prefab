@@ -394,6 +394,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: House Label Text
       objectReference: {fileID: 0}
+    - target: {fileID: 7797150960062031927, guid: 3408be21242498d4199df7213fe94e9e, type: 3}
+      propertyPath: m_fontStyle
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3408be21242498d4199df7213fe94e9e, type: 3}
 --- !u!224 &7413678943606940518 stripped

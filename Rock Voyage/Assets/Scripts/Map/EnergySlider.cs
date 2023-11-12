@@ -23,13 +23,6 @@ namespace RockVoyage
         private void ClockDateChangedHandler(DateTime dateTimeOld, DateTime dateTimeNew)
         {
             _slider.value = _playerCharacteristics.Energy;
-            _sliderImage.color = _slider.value switch
-            {
-                < Constants.ENERGY_LIMIT_DANGER => Constants.ENERGY_COLOR_DANGER,
-                < Constants.ENERGY_LIMIT_LOW => Constants.ENERGY_COLOR_LOW,
-                < Constants.ENERGY_LIMIT_MIDDLE => Constants.ENERGY_COLOR_MIDDLE,
-                _ => Constants.ENERGY_COLOR_MAX
-            };
         }
     }
 }

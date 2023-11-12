@@ -6,7 +6,11 @@
         public float Energy
         {
             get => _energy;
-            set => _energy = value;
+            set
+            {
+                EventHub.OnValueChanged?.Invoke(GameAttributes.Energy, _energy, value);
+                _energy = value;
+            }
         }
     }
 }
