@@ -10,6 +10,7 @@ namespace RockVoyage
         {
             MapEvents.OnClockDateChanged += ClockDateChangedHandler;
             MapEvents.OnMoneyChanged += MoneyChangedHandler;
+            SceneEvents.OnPerfomanceQualityChanged += PerfomanceQualityChangedHandler;
         }
 
         private static void ClockDateChangedHandler(DateTime arg1, DateTime arg2)
@@ -21,6 +22,11 @@ namespace RockVoyage
         {
             OnValueChanged?.Invoke(GameAttributes.Money, arg1, arg2);
         }
+
+        private static void PerfomanceQualityChangedHandler(float obj)
+        {
+            OnValueChanged?.Invoke(GameAttributes.PerfomanceQuality, 0f, obj);
+        }
     }
 
     public enum GameAttributes
@@ -28,7 +34,10 @@ namespace RockVoyage
         Energy,
         Fame,
         Money,
-        PerfomanceQuality,
-        Time
+        Time,
+
+        CrowdHappiness,
+        MoneyProfit,
+        PerfomanceQuality
     }
 }

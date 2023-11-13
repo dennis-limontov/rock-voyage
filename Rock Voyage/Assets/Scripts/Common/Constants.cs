@@ -13,9 +13,9 @@ namespace RockVoyage
         public static string HOUSE_LAYER = "House";
 
         public const float ENERGY_CONSUMPTION_PER_HOUR = 4f;
-        public const float ENERGY_LIMIT_MIDDLE = 70f;
-        public const float ENERGY_LIMIT_LOW = 40f;
-        public const float ENERGY_LIMIT_DANGER = 10f;
+        public const float ENERGY_LIMIT_MIDDLE = 0.7f;
+        public const float ENERGY_LIMIT_LOW = 0.4f;
+        public const float ENERGY_LIMIT_DANGER = 0.1f;
         public const float ENERGY_MAX = 100f;
         public static Color ENERGY_COLOR_MAX = Color.green;
         public static Color ENERGY_COLOR_MIDDLE = Color.yellow;

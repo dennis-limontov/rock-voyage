@@ -14,6 +14,12 @@ namespace RockVoyage
 
         private HostelInfo _hostelInfo;
 
+        public override void Enter()
+        {
+            base.Enter();
+            UpdateComponentsView();
+        }
+
         public override void Init(UIBaseParent parent = null)
         {
             base.Init(parent);

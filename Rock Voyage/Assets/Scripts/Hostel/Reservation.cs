@@ -27,16 +27,16 @@ namespace RockVoyage
 
         private int _reservationCost;
 
-        public override void Init(UIBaseParent parent = null)
-        {
-            base.Init(parent);
-            _hostelInfo = ((HostelController)GetController()).HostelInfo;
-        }
-
         public override void Enter()
         {
             base.Enter();
             UpdateComponentsView();
+        }
+
+        public override void Init(UIBaseParent parent = null)
+        {
+            base.Init(parent);
+            _hostelInfo = ((HostelController)GetController()).HostelInfo;
         }
 
         public void OnGoToSleepClicked()

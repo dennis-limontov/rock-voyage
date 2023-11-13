@@ -9,10 +9,21 @@ namespace RockVoyage
         [SerializeField]
         protected GameAttributes attribute;
 
+        protected string _textFormat;
+
         public override void Init(UIBaseParent parent = null)
         {
             base.Init(parent);
             EventHub.OnValueChanged += UpdateCharacteristic;
+            _textFormat = attribute switch
+            {
+                GameAttributes.Energy => "f2 \\%",
+                GameAttributes.CrowdHappiness or GameAttributes.Fame
+                    or GameAttributes.PerfomanceQuality => "p2",
+                GameAttributes.Money or GameAttributes.MoneyProfit => "d \\$",
+                GameAttributes.Time => Constants.DATE_STRING_FORMAT,
+                _ => string.Empty
+            };
         }
 
         protected virtual void UpdateCharacteristic(GameAttributes attribute,
@@ -41,13 +52,13 @@ namespace RockVoyage
 
         protected virtual void UpdateCharacteristic(DateTime oldValue, DateTime newValue)
         {
-            UpdateCharacteristic(oldValue.ToString(Constants.DATE_STRING_FORMAT, CultureInfo.InvariantCulture),
-                newValue.ToString(Constants.DATE_STRING_FORMAT, CultureInfo.InvariantCulture));
+            UpdateCharacteristic(oldValue.ToString(_textFormat, CultureInfo.InvariantCulture),
+                newValue.ToString(_textFormat, CultureInfo.InvariantCulture));
         }
 
         protected virtual void UpdateCharacteristic(float oldValue, float newValue)
         {
-            UpdateCharacteristic(oldValue.ToString("f2"), newValue.ToString("f2"));
+            UpdateCharacteristic(oldValue.ToString(_textFormat), newValue.ToString(_textFormat));
         }
 
         protected virtual void UpdateCharacteristic(int oldValue, int newValue)

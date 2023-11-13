@@ -21,16 +21,23 @@ namespace RockVoyage
             }
         }
 
+        public override void Init(UIBaseParent parent)
+        {
+            base.Init(parent);
+            SceneEvents.OnConcertEnded += ConcertEndedHandler;
+            SceneEvents.OnCountdownEnded += GoToNext;
+            SceneEvents.OnSongChosen += SongChosenHandler;
+            SceneEvents.OnWrongNotePlayed += WrongNotePlayedHandler;
+        }
+
         private void ConcertEndedHandler()
         {
             _closeButton.transform.parent.gameObject.SetActive(true);
             if (_currentIndex + 1 < children.Length)
             {
                 GoToNext();
-                if (CurrentElement is Statistics statistics)
-                {
-                    statistics.FillAllTexts(_perfomanceQuality, 1f, 300);
-                }
+                EventHub.OnValueChanged?.Invoke(GameAttributes.CrowdHappiness, 0f, 1f);
+                EventHub.OnValueChanged?.Invoke(GameAttributes.MoneyProfit, 0, 300);
             }
             else
             {
@@ -56,15 +63,6 @@ namespace RockVoyage
             SceneEvents.OnSongChosen -= SongChosenHandler;
             SceneEvents.OnCountdownEnded -= GoToNext;
             SceneEvents.OnConcertEnded -= ConcertEndedHandler;
-        }
-
-        public override void Init(UIBaseParent parent)
-        {
-            base.Init(parent);
-            SceneEvents.OnConcertEnded += ConcertEndedHandler;
-            SceneEvents.OnCountdownEnded += GoToNext;
-            SceneEvents.OnSongChosen += SongChosenHandler;
-            SceneEvents.OnWrongNotePlayed += WrongNotePlayedHandler;
         }
     }
 }

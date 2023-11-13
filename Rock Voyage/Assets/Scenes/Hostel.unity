@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 64666522}
   - component: {fileID: 64666521}
   m_Layer: 5
-  m_Name: Placeholder
+  m_Name: Days InputField Placeholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1378,7 +1378,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 481828453}
         m_TargetAssemblyTypeName: RockVoyage.Reservation, Assembly-CSharp
         m_MethodName: OnDaysChanged
         m_Mode: 0
@@ -1387,7 +1387,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 666
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
   m_OnTouchScreenKeyboardStatusChanged:
@@ -2190,7 +2190,7 @@ GameObject:
   - component: {fileID: 1669586322}
   - component: {fileID: 1669586323}
   m_Layer: 5
-  m_Name: Text Area
+  m_Name: Days InputField Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2470,7 +2470,7 @@ GameObject:
   - component: {fileID: 2053567142}
   - component: {fileID: 2053567141}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Days InputField Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

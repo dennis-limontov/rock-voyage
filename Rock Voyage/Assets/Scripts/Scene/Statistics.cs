@@ -14,9 +14,6 @@ namespace RockVoyage
         [SerializeField]
         private TextMeshProUGUI _moneyProfitBucks;
 
-        [SerializeField]
-        private SceneInfo _sceneInfo;
-
         public void FillAllTexts(float perfomanceQuality, float crowdHappiness,
             int moneyProfit)
         {

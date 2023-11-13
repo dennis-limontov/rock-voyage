@@ -2299,10 +2299,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7767330668365937773, guid: 145c07d78e4332a40bbf42389a7172e5, type: 3}
-      propertyPath: m_BodyType
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 145c07d78e4332a40bbf42389a7172e5, type: 3}
 --- !u!114 &1392003478 stripped
@@ -2958,27 +2954,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 539cbaa080f31d54b8b09417dfd94726, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attribute: 4
---- !u!114 &1668096739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1668096737}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreLayout: 0
-  m_MinWidth: -1
-  m_MinHeight: -1
-  m_PreferredWidth: 0
-  m_PreferredHeight: 0
-  m_FlexibleWidth: -1
-  m_FlexibleHeight: -1
-  m_LayoutPriority: 1
+  attribute: 3
 --- !u!1 &1707767111
 GameObject:
   m_ObjectHideFlags: 0
@@ -3175,6 +3151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   children:
+  - {fileID: 1488879022}
   - {fileID: 1668096738}
 --- !u!114 &2024797196
 MonoBehaviour:
