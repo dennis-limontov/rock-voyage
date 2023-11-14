@@ -31,13 +31,13 @@ namespace RockVoyage
 
     public enum GameAttributes
     {
-        Energy,
-        Fame,
-        Money,
-        Time,
+        Energy = 0,
+        Fame = 1,
+        Money = 2,
+        Time = 3,
 
-        CrowdHappiness,
-        MoneyProfit,
-        PerfomanceQuality
+        CrowdHappiness = 4,
+        MoneyProfit = 5,
+        PerfomanceQuality = 6
     }
 }

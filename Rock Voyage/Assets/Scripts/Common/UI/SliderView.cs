@@ -23,7 +23,7 @@ namespace RockVoyage
         protected override void UpdateCharacteristic(float oldValue, float newValue)
         {
             base.UpdateCharacteristic(oldValue, newValue);
-            _slider.value = newValue / 100f;
+            _slider.value = newValue;
             _sliderImage.color = _slider.value switch
             {
                 < Constants.ENERGY_LIMIT_DANGER => Constants.ENERGY_COLOR_DANGER,

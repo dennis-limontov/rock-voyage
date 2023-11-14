@@ -2033,6 +2033,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: You Earned Text
       objectReference: {fileID: 0}
+    - target: {fileID: 4791086071659139645, guid: dd4073464c3f4774b85448b7253c8878, type: 3}
+      propertyPath: m_MinWidth
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791086071659139645, guid: dd4073464c3f4774b85448b7253c8878, type: 3}
+      propertyPath: m_FlexibleWidth
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5035931679907785900, guid: dd4073464c3f4774b85448b7253c8878, type: 3}
       propertyPath: m_Name
       value: Earned Money Panel

@@ -21,11 +21,6 @@ namespace RockVoyage
                 * _speed, _movementVector.y * _speed, 0f));
         }
 
-        private void OnCollisionEnter2D(Collision2D collision2D)
-        {
-            
-        }
-
         public void OnMoved(CallbackContext inputContext)
         {
             _movementVector = inputContext.ReadValue<Vector2>();

@@ -17,10 +17,9 @@ namespace RockVoyage
             EventHub.OnValueChanged += UpdateCharacteristic;
             _textFormat = attribute switch
             {
-                GameAttributes.Energy => "f2 \\%",
-                GameAttributes.CrowdHappiness or GameAttributes.Fame
-                    or GameAttributes.PerfomanceQuality => "p2",
-                GameAttributes.Money or GameAttributes.MoneyProfit => "d \\$",
+                GameAttributes.CrowdHappiness or GameAttributes.Energy
+                    or GameAttributes.Fame or GameAttributes.PerfomanceQuality => "p2",
+                GameAttributes.Money or GameAttributes.MoneyProfit => "0 \\$",
                 GameAttributes.Time => Constants.DATE_STRING_FORMAT,
                 _ => string.Empty
             };
@@ -63,7 +62,7 @@ namespace RockVoyage
 
         protected virtual void UpdateCharacteristic(int oldValue, int newValue)
         {
-            UpdateCharacteristic(oldValue.ToString(), newValue.ToString());
+            UpdateCharacteristic(oldValue.ToString(_textFormat), newValue.ToString(_textFormat));
         }
 
         protected virtual void UpdateCharacteristic(string oldValue, string newValue)

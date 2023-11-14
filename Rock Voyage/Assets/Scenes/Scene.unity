@@ -1392,14 +1392,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2272552292382529348, guid: c34f91f91c9481749be91fa40cd3265e, type: 3}
-      propertyPath: children.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2272552292382529348, guid: c34f91f91c9481749be91fa40cd3265e, type: 3}
-      propertyPath: children.Array.data[1]
-      value: 
-      objectReference: {fileID: 2626886802359685501}
     - target: {fileID: 2626886800310442027, guid: c34f91f91c9481749be91fa40cd3265e, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1455,10 +1447,6 @@ PrefabInstance:
     - target: {fileID: 4616965154866745028, guid: c34f91f91c9481749be91fa40cd3265e, type: 3}
       propertyPath: m_Name
       value: Music Action
-      objectReference: {fileID: 0}
-    - target: {fileID: 4616965154866745028, guid: c34f91f91c9481749be91fa40cd3265e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6137717598319756443, guid: c34f91f91c9481749be91fa40cd3265e, type: 3}
       propertyPath: _closeButton
@@ -1603,33 +1591,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ca97fe0c70af294eb6cdd87e7f84898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2626886802359685499 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2626886801780124029, guid: c34f91f91c9481749be91fa40cd3265e, type: 3}
-  m_PrefabInstance: {fileID: 2626886802359685496}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &2626886802359685500 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2626886802275744073, guid: c34f91f91c9481749be91fa40cd3265e, type: 3}
-  m_PrefabInstance: {fileID: 2626886802359685496}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2626886802359685501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2626886802359685500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e200ca8453b63c244bcbd75db4aec0dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attribute: 3
-  _sliderImage: {fileID: 2626886802359685499}

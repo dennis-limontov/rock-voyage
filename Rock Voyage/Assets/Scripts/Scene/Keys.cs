@@ -20,11 +20,6 @@ namespace RockVoyage
 
         private IEnumerator _keysCoroutine;
 
-        private void OnDestroy()
-        {
-            SceneEvents.OnSongChosen -= SongChosenHandler;
-        }
-
         public override void Enter()
         {
             base.Enter();
@@ -93,6 +88,11 @@ namespace RockVoyage
             }
 
             SceneEvents.OnConcertEnded?.Invoke();
+        }
+
+        private void OnDestroy()
+        {
+            SceneEvents.OnSongChosen -= SongChosenHandler;
         }
     }
 }
