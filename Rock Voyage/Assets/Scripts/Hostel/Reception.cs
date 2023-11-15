@@ -29,6 +29,7 @@ namespace RockVoyage
         public void OnBuyAMapClicked()
         {
             _hostelInfo.MapInfo.IsMapPurchased = true;
+            MapEvents.OnMapBought?.Invoke();
             RVGC.Money -= Constants.MAP_COST;
             UpdateComponentsView();
         }
@@ -36,6 +37,7 @@ namespace RockVoyage
         public void OnBuyANewspaperClicked()
         {
             _hostelInfo.MapInfo.IsNewspaperPurchased = true;
+            MapEvents.OnNewspaperBought?.Invoke();
             RVGC.Money -= Constants.NEWSPAPER_COST;
             UpdateComponentsView();
         }

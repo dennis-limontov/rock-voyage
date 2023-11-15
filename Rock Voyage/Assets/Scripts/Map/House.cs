@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,6 +13,24 @@ namespace RockVoyage
 
         [SerializeField]
         private HouseInfo _houseInfo;
+
+        private void OnDestroy()
+        {
+            MapEvents.OnMapBought -= ShowView;
+            MapEvents.OnNewspaperBought -= ShowView;
+        }
+
+        private void Start()
+        {
+            if (_houseInfo is StreetMusicInfo)
+            {
+                MapEvents.OnNewspaperBought += ShowView;
+            }
+            else
+            {
+                MapEvents.OnMapBought += ShowView;
+            }
+        }
 
         public void EnterHouse()
         {

@@ -66,8 +66,15 @@ namespace RockVoyage
 
         private IEnumerator MovingKeys()
         {
+            bool wasThere = false;
             for (int i = 0, j = 0; i < _currentSong.ResultKeys.Length; i = j)
             {
+                if (!wasThere)
+                {
+                    wasThere = true;
+                }
+                else if (i == 0) break;
+
                 while (j <= i)
                 {
                     float currentSongTime = _music.timeSamples / (float)_music.clip.frequency;

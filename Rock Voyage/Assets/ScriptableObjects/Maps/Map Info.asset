@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Map Info
   m_EditorClassIdentifier: 
   _mapName: Map
+  _mapObjects: {fileID: 0}
