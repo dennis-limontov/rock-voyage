@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4929c57b39b05184eaf3c8e10cba7878, type: 3}
+  m_Name: "The Doors \u2013 Riders on the Storm"
+  m_EditorClassIdentifier: 
+  _musicForSinger: {fileID: 8300000, guid: be4c27f56e5110d4b897637c05e18003, type: 3}
+  _musicForGroup: {fileID: 8300000, guid: be4c27f56e5110d4b897637c05e18003, type: 3}
+  _keysArray: {fileID: 4900000, guid: ee1be791cc8538f41bb9ac07d83afe50, type: 3}
+  _songName: "The Doors \u2013 Riders on the Storm"
+  _isUnique: 0
+  _prominence: 0.85
