@@ -12,6 +12,12 @@ namespace RockVoyage
         private StreetMusicInfo _streetMusicInfo;
         public StreetMusicInfo StreetMusicInfo => _streetMusicInfo;
 
+        public override void Dispose()
+        {
+            SceneEvents.OnCountdownEnded -= CountdownEndedHandler;
+            base.Dispose();
+        }
+
         public override void Init(UIBaseParent parent = null)
         {
             base.Init(parent);
@@ -28,11 +34,6 @@ namespace RockVoyage
             yield return new WaitForSeconds(Constants.STREET_MUSIC_TIME);
 
             SceneEvents.OnConcertEnded?.Invoke();
-        }
-
-        private void OnDestroy()
-        {
-            SceneEvents.OnCountdownEnded -= CountdownEndedHandler;
         }
 
         public void OnPlayClicked()

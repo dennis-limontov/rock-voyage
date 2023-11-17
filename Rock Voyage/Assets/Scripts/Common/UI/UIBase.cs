@@ -1,10 +1,15 @@
+using System;
 using UnityEngine;
 
 namespace RockVoyage
 {
-    public class UIBase : MonoBehaviour
+    public class UIBase : MonoBehaviour, IDisposable
     {
         protected UIBaseParent parent;
+
+        public virtual void Dispose()
+        {
+        }
 
         public virtual void Enter()
         {

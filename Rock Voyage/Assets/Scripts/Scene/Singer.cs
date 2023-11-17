@@ -31,7 +31,6 @@ namespace RockVoyage
 
         private void CurrentNoteChangedHandler(char currentNote, char nextNote)
         {
-            Debug.Log($"c: {currentNote}; _c: {_currentNote}");
             if (currentNote != _currentNote)
             {
                 SceneEvents.OnWrongNotePlayed?.Invoke(_currentSong.Penalty);
@@ -74,7 +73,6 @@ namespace RockVoyage
             if (inputContext.phase == InputActionPhase.Performed)
             {
                 _currentNote = char.Parse(inputContext.control.name);
-                Debug.Log(inputContext.phase + " " + _currentNote);
             }
         }
     }

@@ -11,10 +11,21 @@ namespace RockVoyage
 
         protected string _textFormat;
 
+        public override void Enter()
+        {
+            base.Enter();
+            EventHub.OnValueChanged += UpdateCharacteristic;
+        }
+
+        public override void Exit()
+        {
+            EventHub.OnValueChanged -= UpdateCharacteristic;
+            base.Exit();
+        }
+
         public override void Init(UIBaseParent parent = null)
         {
             base.Init(parent);
-            EventHub.OnValueChanged += UpdateCharacteristic;
             _textFormat = attribute switch
             {
                 GameAttributes.CrowdHappiness or GameAttributes.Energy
@@ -67,11 +78,6 @@ namespace RockVoyage
 
         protected virtual void UpdateCharacteristic(string oldValue, string newValue)
         {
-        }
-
-        protected virtual void OnDestroy()
-        {
-            EventHub.OnValueChanged -= UpdateCharacteristic;
         }
     }
 }

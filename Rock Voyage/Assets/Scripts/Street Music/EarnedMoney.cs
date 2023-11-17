@@ -13,6 +13,13 @@ namespace RockVoyage
 
         private int _earnedMoney = 0;
 
+        public override void Dispose()
+        {
+            SceneEvents.OnRightNotePlayed -= RightNotePlayedHandler;
+            SceneEvents.OnConcertEnded -= ConcertEndedHandler;
+            base.Dispose();
+        }
+
         public override void Init(UIBaseParent parent = null)
         {
             base.Init(parent);
@@ -36,12 +43,6 @@ namespace RockVoyage
                 _earnedMoneyText.text = _earnedMoney.ToString();
                 _coinSound.PlayOneShot(_coinSound.clip);
             }
-        }
-
-        private void OnDestroy()
-        {
-            SceneEvents.OnRightNotePlayed -= RightNotePlayedHandler;
-            SceneEvents.OnConcertEnded -= ConcertEndedHandler;
         }
     }
 }

@@ -20,6 +20,12 @@ namespace RockVoyage
 
         private IEnumerator _keysCoroutine;
 
+        public override void Dispose()
+        {
+            SceneEvents.OnSongChosen -= SongChosenHandler;
+            base.Dispose();
+        }
+
         public override void Enter()
         {
             base.Enter();
@@ -66,28 +72,26 @@ namespace RockVoyage
 
         private IEnumerator MovingKeys()
         {
-            bool wasThere = false;
-            for (int i = 0, j = 0; i < _currentSong.ResultKeys.Length; i = j)
-            {
-                if (!wasThere)
-                {
-                    wasThere = true;
-                }
-                else if (i == 0) break;
+            yield return null;
 
-                while (j <= i)
+            for (int i = 0, j; i < _currentSong.ResultKeys.Length; i = j)
+            {
+                float checkSongTime;
+                do
                 {
+                    yield return null;
+
                     float currentSongTime = _music.timeSamples / (float)_music.clip.frequency;
-                    j = (int)(currentSongTime / _currentSong.NoteLength);
+                    checkSongTime = currentSongTime / _currentSong.NoteLength;
+                    j = (int)checkSongTime;
 
                     Vector3 newPosition = _keysTransform.localPosition;
                     newPosition.x = -currentSongTime * _keysSpeed;
                     _keysTransform.localPosition = newPosition;
-                    // _keysTransform.position -= new Vector3(_keysSpeed * Time.deltaTime, 0f);
+                } while ((checkSongTime > 0f) && (j <= i));
 
-                    yield return null;
-                }
-                if (j < _currentSong.ResultKeys.Length)
+                if (j <= 0) break;
+                else if (j < _currentSong.ResultKeys.Length)
                 {
                     SceneEvents.OnCurrentNoteChanged?.Invoke(_currentSong.ResultKeys[i],
                     _currentSong.ResultKeys[j]);
@@ -95,11 +99,6 @@ namespace RockVoyage
             }
 
             SceneEvents.OnConcertEnded?.Invoke();
-        }
-
-        private void OnDestroy()
-        {
-            SceneEvents.OnSongChosen -= SongChosenHandler;
         }
     }
 }

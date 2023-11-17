@@ -6,6 +6,12 @@ namespace RockVoyage
     {
         private UIBase _anyUIElement;
 
+        protected virtual void OnDestroy()
+        {
+            _anyUIElement.Exit();
+            _anyUIElement.Dispose();
+        }
+
         protected virtual void Start()
         {
             _anyUIElement = GetComponent<UIBase>();

@@ -21,6 +21,15 @@ namespace RockVoyage
             }
         }
 
+        public override void Dispose()
+        {
+            SceneEvents.OnWrongNotePlayed -= WrongNotePlayedHandler;
+            SceneEvents.OnSongChosen -= SongChosenHandler;
+            SceneEvents.OnCountdownEnded -= GoToNext;
+            SceneEvents.OnConcertEnded -= ConcertEndedHandler;
+            base.Dispose();
+        }
+
         public override void Init(UIBaseParent parent)
         {
             base.Init(parent);
@@ -38,6 +47,7 @@ namespace RockVoyage
                 GoToNext();
                 EventHub.OnValueChanged?.Invoke(GameAttributes.CrowdHappiness, 0f, 1f);
                 EventHub.OnValueChanged?.Invoke(GameAttributes.MoneyProfit, 0, 300);
+                EventHub.OnValueChanged?.Invoke(GameAttributes.PerfomanceQuality, 0, _perfomanceQuality);
             }
             else
             {
@@ -55,14 +65,6 @@ namespace RockVoyage
         private void WrongNotePlayedHandler(float penalty)
         {
             PerfomanceQuality -= penalty;
-        }
-
-        private void OnDestroy()
-        {
-            SceneEvents.OnWrongNotePlayed -= WrongNotePlayedHandler;
-            SceneEvents.OnSongChosen -= SongChosenHandler;
-            SceneEvents.OnCountdownEnded -= GoToNext;
-            SceneEvents.OnConcertEnded -= ConcertEndedHandler;
         }
     }
 }

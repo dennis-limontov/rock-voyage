@@ -77,7 +77,7 @@ namespace RockVoyage
                 }
                 catch (Exception)
                 {
-                    Debug.Log($"There's an error in {i} line of {_songName} file.");
+                    Debug.LogError($"There's an error in {i} line of {_songName} file.");
                     continue;
                 }
             }
