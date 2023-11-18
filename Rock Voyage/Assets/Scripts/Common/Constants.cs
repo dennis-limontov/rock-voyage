@@ -38,6 +38,9 @@ namespace RockVoyage
 
         public static string DATE_STRING_FORMAT = "yyyy/MM/dd hh:mm tt";
         public const int PLAYERS_MAX = 2;
+        public static Color NIGHT_MODE_COLOR = new Color(0.3f, 0.47f, 0.95f, 1f);
+        public static int NIGHT_MODE_HOURS_OFF = 6;
+        public static int NIGHT_MODE_HOURS_ON = 22;
 
         public static float STREET_MUSIC_TIME = 30f;
         public static float REMEMBER_CHANCE = 0.5f;

@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8aaa155a3a99ec4eb5608295452d025, type: 3}
-  m_Name: Pro Studio Info
+  m_Script: {fileID: 11500000, guid: a4d029181eb94714185991bc33b1cb74, type: 3}
+  m_Name: Street Music 4 Info
   m_EditorClassIdentifier: 
   _mapInfo: {fileID: 11400000, guid: d44f69a02ad774c46ab596ab5a0d2a45, type: 2}
-  _sceneName: Pro Studio
-  _proStudioName: Pro Studio
-  _recordingCost: 50
+  _sceneName: Street Music
