@@ -1,61 +1,86 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace RockVoyage
 {
-    public static class GameCharacteristics
+    public class GameCharacteristics : ILoadSave
     {
-        private static DateTime _clockDate = DateTime.UnixEpoch;
+        public static GameCharacteristics Instance { get; private set; } = new GameCharacteristics();
+
+        [JsonProperty]
+        private DateTime _clockDate = DateTime.UnixEpoch;
         public static DateTime ClockDate
         { 
-            get => _clockDate;
+            get => Instance._clockDate;
             set
             {
-                MapEvents.OnClockDateChanged?.Invoke(_clockDate, value);
-                _clockDate = value;
+                MapEvents.OnClockDateChanged?.Invoke(Instance._clockDate, value);
+                Instance._clockDate = value;
             }
         }
 
-        private static MapInfo _mapInfo;
+        [JsonIgnore]
+        private MapInfo _mapInfo;
+        [JsonIgnore]
         public static MapInfo MapInfo
         {
-            get => _mapInfo;
-            set => _mapInfo = value;
+            get => Instance._mapInfo;
+            set => Instance._mapInfo = value;
         }
 
-        private static int _money = Constants.MONEY_AT_START;
+        [JsonProperty]
+        private int _money = Constants.MONEY_AT_START;
         public static int Money
         {
-            get => _money;
+            get => Instance._money;
             set
             {
-                MapEvents.OnMoneyChanged?.Invoke(_money, value);
-                _money = value;
+                MapEvents.OnMoneyChanged?.Invoke(Instance._money, value);
+                Instance._money = value;
             }
         }
 
-        private static float _fame;
+        [JsonProperty]
+        private float _fame;
         public static float Fame
         {
-            get => _fame;
-            set => _fame = value;
+            get => Instance._fame;
+            set => Instance._fame = value;
         }
 
-        private static DateTime _recordAvailableDate = DateTime.UnixEpoch;
+        [JsonProperty]
+        private DateTime _recordAvailableDate = DateTime.UnixEpoch;
         public static DateTime RecordAvailableDate
         {
-            get => _recordAvailableDate;
+            get => Instance._recordAvailableDate;
             set
             {
-                _recordAvailableDate = value;
+                Instance._recordAvailableDate = value;
             }
         }
 
-        private static List<SongInfo> _availableSongs = new List<SongInfo>();
-        public static List<SongInfo> AvailableSongs => _availableSongs;
+        [JsonProperty]
+        private List<SongInfo> _availableSongs = new List<SongInfo>();
+        public static List<SongInfo> AvailableSongs => Instance._availableSongs;
 
-        public static List<PlayerCharacteristics> players
+        public List<PlayerCharacteristics> players
             = new List<PlayerCharacteristics>(Constants.PLAYERS_MAX);
-        public static PlayerCharacteristics CurrentPlayer => players[0];
+        public static PlayerCharacteristics CurrentPlayer => Instance.players[0];
+
+        GameCharacteristics()
+        {
+            ((ILoadSave)this).Awake();
+        }
+
+        public void Load(string loadData)
+        {
+            Instance = JsonConvert.DeserializeObject<GameCharacteristics>(loadData);
+        }
+
+        public string Save()
+        {
+            return JsonConvert.SerializeObject(this);
+        }
     }
 }

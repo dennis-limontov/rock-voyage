@@ -10,7 +10,7 @@ namespace RockVoyage
         private void Awake()
         {
             _playerCharacteristics = new PlayerCharacteristics();
-            GameCharacteristics.players.Add(_playerCharacteristics);
+            GameCharacteristics.Instance.players.Add(_playerCharacteristics);
         }
 
         private void Start()

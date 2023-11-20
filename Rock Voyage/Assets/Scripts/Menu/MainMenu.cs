@@ -15,6 +15,11 @@ namespace RockVoyage
             SceneManager.LoadScene(Constants.START_CITY_NAME);
         }
 
+        public void OnLoadGameClicked()
+        {
+            LoadSaveManager.Load();
+        }
+
         public void OnExitGameClicked()
         {
             Application.Quit();
@@ -25,7 +30,7 @@ namespace RockVoyage
             GameCharacteristics.ClockDate = DateTime.UnixEpoch;
             GameCharacteristics.Fame = 0f;
             GameCharacteristics.Money = Constants.MONEY_AT_START;
-            GameCharacteristics.players.Clear();
+            GameCharacteristics.Instance.players.Clear();
             GameCharacteristics.AvailableSongs.Clear();
             GameCharacteristics.AvailableSongs.Add(_firstSong);
             GameCharacteristics.RecordAvailableDate = DateTime.UnixEpoch;

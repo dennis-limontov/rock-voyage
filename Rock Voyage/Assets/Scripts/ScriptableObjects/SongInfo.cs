@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Globalization;
 using UnityEngine;
 
@@ -7,37 +8,54 @@ namespace RockVoyage
     [CreateAssetMenu(menuName = "ScriptableObjects/SongInfo")]
     public class SongInfo : ScriptableObject
     {
+        [JsonIgnore]
         [SerializeField]
         private AudioClip _musicForSinger;
+        [JsonIgnore]
         public AudioClip MusicForSinger => _musicForSinger;
 
+        [JsonIgnore]
         [SerializeField]
         private AudioClip _musicForGroup;
+        [JsonIgnore]
         public AudioClip MusicForGroup => _musicForGroup;
 
+        [JsonIgnore]
         [SerializeField]
         private TextAsset _keysArray;
+        [JsonIgnore]
         public TextAsset KeysArray => _keysArray;
 
         [SerializeField]
         private string _songName;
+        [JsonIgnore]
         public string SongName => _songName;
 
+        [JsonIgnore]
         [SerializeField]
         private bool _isUnique;
+        [JsonIgnore]
         public bool IsUnique => _isUnique;
 
+        [JsonIgnore]
         [SerializeField]
         private float _prominence;
+        [JsonIgnore]
         public float Prominence => _prominence;
 
+        [JsonIgnore]
         private char[] _resultKeys;
+        [JsonIgnore]
         public char[] ResultKeys => _resultKeys;
 
+        [JsonIgnore]
         private float _penalty;
+        [JsonIgnore]
         public float Penalty => _penalty;
 
+        [JsonIgnore]
         private float _noteLength;
+        [JsonIgnore]
         public float NoteLength => _noteLength;
 
         public void FillResultKeys()

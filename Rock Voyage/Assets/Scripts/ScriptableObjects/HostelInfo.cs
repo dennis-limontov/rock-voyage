@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using UnityEngine;
 
 namespace RockVoyage
 {
     [CreateAssetMenu(menuName = "ScriptableObjects/HostelInfo")]
-    public class HostelInfo : HouseInfo
+    public class HostelInfo : HouseInfo, ILoadSave
     {
         [SerializeField]
         private int _costPerNight;
@@ -12,8 +13,24 @@ namespace RockVoyage
 
         public bool IsBooked => _reservationDepartureTime > GameCharacteristics.ClockDate;
 
+        [JsonProperty]
         private DateTime _reservationDepartureTime = DateTime.UnixEpoch;
         public DateTime ReservationDepartureTime => _reservationDepartureTime;
+
+        private void Awake()
+        {
+            LoadSaveManager.loadSaveList.Add(this);
+        }
+
+        public void Load(string loadData)
+        {
+            _reservationDepartureTime = JsonConvert.DeserializeObject<DateTime>(loadData);
+        }
+
+        public string Save()
+        {
+            return JsonConvert.SerializeObject(_reservationDepartureTime);
+        }
 
         public void AddDays(TimeSpan departureDaysToAdd)
         {

@@ -6,7 +6,6 @@ namespace RockVoyage
     public class UIActiveOneChild : UIBaseParent
     {
         protected int _currentIndex = -1;
-
         protected UIBase CurrentElement
             => (_currentIndex == -1) ? null : children[_currentIndex];
 

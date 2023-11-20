@@ -5,6 +5,8 @@ namespace RockVoyage
 {
     public class Constants
     {
+        public const string GAME_NAME = "Rock Voyage";
+
         // scenes
         public const string MAIN_MENU_SCENE_NAME = "Main Menu";
         public const string START_CITY_NAME = "Map";

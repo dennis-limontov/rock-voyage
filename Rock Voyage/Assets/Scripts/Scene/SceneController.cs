@@ -47,7 +47,7 @@ namespace RockVoyage
                 GoToNext();
                 EventHub.OnValueChanged?.Invoke(GameAttributes.CrowdHappiness, 0f, 1f);
                 EventHub.OnValueChanged?.Invoke(GameAttributes.MoneyProfit, 0, 300);
-                EventHub.OnValueChanged?.Invoke(GameAttributes.PerfomanceQuality, 0, _perfomanceQuality);
+                EventHub.OnValueChanged?.Invoke(GameAttributes.PerfomanceQuality, 0f, _perfomanceQuality);
             }
             else
             {

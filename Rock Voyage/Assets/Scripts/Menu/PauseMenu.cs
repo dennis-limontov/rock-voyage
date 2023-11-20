@@ -28,12 +28,12 @@ namespace RockVoyage
 
         public void OnSaveGameClicked()
         {
-
+            LoadSaveManager.Save();
         }
 
         public void OnLoadGameClicked()
         {
-
+            LoadSaveManager.Load();
         }
 
         public void OnSettingsClicked()
