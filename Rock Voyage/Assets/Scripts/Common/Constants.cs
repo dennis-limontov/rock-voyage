@@ -9,6 +9,7 @@ namespace RockVoyage
 
         // scenes
         public const string MAIN_MENU_SCENE_NAME = "Main Menu";
+        public const string CUT_SCENE_START = "Cut Scene Start";
         public const string START_CITY_NAME = "Map";
 
         // layers

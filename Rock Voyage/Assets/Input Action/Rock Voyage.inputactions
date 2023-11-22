@@ -2,6 +2,62 @@
     "name": "Rock Voyage",
     "maps": [
         {
+            "name": "End",
+            "id": "5fe30567-c04e-4d0f-a089-28cef0b942eb",
+            "actions": [
+                {
+                    "name": "End",
+                    "type": "Button",
+                    "id": "72717bf2-f6b0-477d-8e47-0d5c14dababc",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "3cee86e7-3a80-4e2c-9fd2-4067e84f4b58",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "End",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Pause",
+            "id": "b7af0c2d-24b2-4c3d-b391-43436ef23522",
+            "actions": [
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "f9463f49-eb36-4e05-b2d0-03388377792b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "88cc0a9c-ed97-4bf3-bbd7-437862b1e56b",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
             "name": "Player",
             "id": "28370a4c-167a-4a38-ab8b-a2586f0fb8d6",
             "actions": [
@@ -742,34 +798,6 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "TrackedDeviceOrientation",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "Pause",
-            "id": "b7af0c2d-24b2-4c3d-b391-43436ef23522",
-            "actions": [
-                {
-                    "name": "Pause",
-                    "type": "Button",
-                    "id": "f9463f49-eb36-4e05-b2d0-03388377792b",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "88cc0a9c-ed97-4bf3-bbd7-437862b1e56b",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
