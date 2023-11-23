@@ -17,9 +17,11 @@ namespace RockVoyage
             set => _playAgainTime = value;
         }
 
+        public string Name => name;
+
         private void Awake()
         {
-            LoadSaveManager.loadSaveList.Add(this);
+            LoadSaveManager.loadSaveList.Add(Name, this);
         }
 
         public void Load(string loadData)

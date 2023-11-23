@@ -12,7 +12,7 @@ namespace RockVoyage
         public void OnNewGameClicked()
         {
             ResetGameData();
-            SceneManager.LoadScene(Constants.CUT_SCENE_START);
+            SceneManager.LoadScene(/*Constants.CUT_SCENE_START*/Constants.START_CITY_NAME);
         }
 
         public void OnLoadGameClicked()

@@ -8,6 +8,9 @@ namespace RockVoyage
     {
         public static GameCharacteristics Instance { get; private set; } = new GameCharacteristics();
 
+        [JsonIgnore]
+        public string Name => "GameCharacteristics";
+
         [JsonProperty]
         private DateTime _clockDate = DateTime.UnixEpoch;
         public static DateTime ClockDate
@@ -71,6 +74,10 @@ namespace RockVoyage
         GameCharacteristics()
         {
             ((ILoadSave)this).Awake();
+            if (Instance != null)
+            {
+                ((ILoadSave)Instance).OnDestroy();
+            }
         }
 
         public void Load(string loadData)

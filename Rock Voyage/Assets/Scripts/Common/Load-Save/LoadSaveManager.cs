@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -6,7 +7,7 @@ namespace RockVoyage
 {
     public static class LoadSaveManager
     {
-        public static List<ILoadSave> loadSaveList = new List<ILoadSave>();
+        public static Dictionary<string, ILoadSave> loadSaveList = new Dictionary<string, ILoadSave>();
 
         private static readonly string SAVE_FOLDER_PATH = Path.Combine(
             Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), Constants.GAME_NAME);
@@ -15,13 +16,16 @@ namespace RockVoyage
         public static void Load()
         {
             string[] serializedData;
+            int i = 0;
             
             if (File.Exists(SAVE_FILE_PATH))
             {
                 serializedData = File.ReadAllLines(SAVE_FILE_PATH);
-                for (int i = 0; i < loadSaveList.Count; i++)
+                foreach (string line in serializedData)
                 {
-                    loadSaveList[i].Load(serializedData[i]);
+                    (string Key, string Value) keyValue
+                        = JsonConvert.DeserializeObject<(string, string)>(line);
+                    loadSaveList[keyValue.Key].Load(keyValue.Value);
                 }
             }
         }
@@ -29,9 +33,11 @@ namespace RockVoyage
         public static void Save()
         {
             string[] serializedData = new string[loadSaveList.Count];
-            for (int i = 0; i < loadSaveList.Count; i++)
+            int i = 0;
+            foreach (KeyValuePair<string, ILoadSave> keyValue in loadSaveList)
             {
-                serializedData[i] = loadSaveList[i].Save();
+                serializedData[i++] = JsonConvert.SerializeObject((keyValue.Key,
+                    keyValue.Value.Save()));
             }
 
             if (!Directory.Exists(SAVE_FOLDER_PATH))

@@ -13,8 +13,11 @@ namespace RockVoyage
         private Rigidbody2D _rigidbody2D;
 
         private Vector2 _movementVector;
+
+        public string Name => name;
+
         [JsonProperty]
-        public (float X, float Y) PlayerPosition
+        private (float X, float Y) PlayerPosition
         {
             get => (transform.position.x, transform.position.y);
             set
@@ -27,7 +30,7 @@ namespace RockVoyage
 
         public void Awake()
         {
-            LoadSaveManager.loadSaveList.Add(this);
+            LoadSaveManager.loadSaveList.Add(Name, this);
         }
 
         public void Load(string loadData)

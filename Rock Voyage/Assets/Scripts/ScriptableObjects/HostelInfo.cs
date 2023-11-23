@@ -17,9 +17,11 @@ namespace RockVoyage
         private DateTime _reservationDepartureTime = DateTime.UnixEpoch;
         public DateTime ReservationDepartureTime => _reservationDepartureTime;
 
+        public string Name => name;
+
         private void Awake()
         {
-            LoadSaveManager.loadSaveList.Add(this);
+            LoadSaveManager.loadSaveList.Add(Name, this);
         }
 
         public void Load(string loadData)

@@ -11,7 +11,7 @@ namespace RockVoyage
         [JsonIgnore]
         public string MapName => _mapName;
 
-        [JsonProperty]
+        [JsonIgnore]
         private bool _isMapPurchased;
         [JsonIgnore]
         public bool IsMapPurchased
@@ -20,13 +20,25 @@ namespace RockVoyage
             set => _isMapPurchased = value;
         }
 
-        [JsonProperty]
+        [JsonIgnore]
         private bool _isNewspaperPurchased;
         [JsonIgnore]
         public bool IsNewspaperPurchased
         {
             get => _isNewspaperPurchased;
             set => _isNewspaperPurchased = value;
+        }
+
+        public string Name => name;
+
+        [JsonProperty]
+        private (bool IsMapPurchased, bool IsNewspaperPurchased) SerializableTuple
+        {
+            get => (_isMapPurchased, _isNewspaperPurchased);
+            set
+            {
+                (_isMapPurchased, _isNewspaperPurchased) = value;
+            }
         }
 
         [JsonIgnore]
@@ -41,19 +53,17 @@ namespace RockVoyage
 
         private void Awake()
         {
-            LoadSaveManager.loadSaveList.Add(this);
+            LoadSaveManager.loadSaveList.Add(Name, this);
         }
 
         public void Load(string loadData)
         {
-            MapInfo mapInfo = JsonConvert.DeserializeObject<MapInfo>(loadData);
-            IsMapPurchased = mapInfo.IsMapPurchased;
-            IsNewspaperPurchased = mapInfo.IsNewspaperPurchased;
+            SerializableTuple = JsonConvert.DeserializeObject<(bool, bool)>(loadData);
         }
 
         public string Save()
         {
-            return JsonConvert.SerializeObject(this);
+            return JsonConvert.SerializeObject(SerializableTuple);
         }
     }
 }
