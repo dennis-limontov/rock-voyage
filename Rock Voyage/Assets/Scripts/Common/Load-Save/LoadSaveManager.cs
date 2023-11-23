@@ -16,16 +16,19 @@ namespace RockVoyage
         public static void Load()
         {
             string[] serializedData;
-            int i = 0;
-            
-            if (File.Exists(SAVE_FILE_PATH))
+
+            if (!File.Exists(SAVE_FILE_PATH))
             {
-                serializedData = File.ReadAllLines(SAVE_FILE_PATH);
-                foreach (string line in serializedData)
+                return;
+            }
+            serializedData = File.ReadAllLines(SAVE_FILE_PATH);
+            foreach (string line in serializedData)
+            {
+                (string Key, string Value) keyValue
+                    = JsonConvert.DeserializeObject<(string, string)>(line);
+                if (loadSaveList.TryGetValue(keyValue.Key, out ILoadSave loadSave))
                 {
-                    (string Key, string Value) keyValue
-                        = JsonConvert.DeserializeObject<(string, string)>(line);
-                    loadSaveList[keyValue.Key].Load(keyValue.Value);
+                    loadSave.Load(keyValue.Value);
                 }
             }
         }

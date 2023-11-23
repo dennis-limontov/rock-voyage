@@ -34,6 +34,7 @@ namespace RockVoyage
         public void OnLoadGameClicked()
         {
             LoadSaveManager.Load();
+            OnContinueClicked();
         }
 
         public void OnSettingsClicked()

@@ -49,7 +49,11 @@ namespace RockVoyage
         public static float Fame
         {
             get => Instance._fame;
-            set => Instance._fame = value;
+            set
+            {
+                MapEvents.OnFameChanged?.Invoke(Instance._fame, value);
+                Instance._fame = value;
+            }
         }
 
         [JsonProperty]
@@ -71,23 +75,31 @@ namespace RockVoyage
             = new List<PlayerCharacteristics>(Constants.PLAYERS_MAX);
         public static PlayerCharacteristics CurrentPlayer => Instance.players[0];
 
+        private (DateTime ClockDate, int Money, float Fame,
+            DateTime RecordAvailableDate, List<PlayerCharacteristics> Players)
+            SerializableTuple
+        {
+            get => (ClockDate, Money, Fame, RecordAvailableDate, players);
+            set
+            {
+                (ClockDate, Money, Fame, RecordAvailableDate, players) = value;
+            }
+        }
+
         GameCharacteristics()
         {
             ((ILoadSave)this).Awake();
-            if (Instance != null)
-            {
-                ((ILoadSave)Instance).OnDestroy();
-            }
         }
 
         public void Load(string loadData)
         {
-            Instance = JsonConvert.DeserializeObject<GameCharacteristics>(loadData);
+            SerializableTuple = JsonConvert.DeserializeObject<(DateTime, int, float,
+                DateTime, List<PlayerCharacteristics>)>(loadData);
         }
 
         public string Save()
         {
-            return JsonConvert.SerializeObject(this);
+            return JsonConvert.SerializeObject(SerializableTuple);
         }
     }
 }
