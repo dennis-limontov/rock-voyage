@@ -23,15 +23,17 @@ namespace RockVoyage
             base.Exit();
         }
 
-        public override void Init(UIBaseParent parent = null)
+        public override void Init(UIBaseParent parent, HouseInfo houseInfo)
         {
-            base.Init(parent);
+            base.Init(parent, houseInfo);
             _textFormat = attribute switch
             {
                 GameAttributes.CrowdHappiness or GameAttributes.Energy
                     or GameAttributes.Fame or GameAttributes.PerfomanceQuality => "p2",
                 GameAttributes.Money or GameAttributes.MoneyProfit => "0 \\$",
-                GameAttributes.Time => Constants.DATE_STRING_FORMAT,
+                GameAttributes.Time or GameAttributes.PlayOnSceneAvailableDate
+                    or GameAttributes.RecordAvailableDate or GameAttributes.StreetMusicAvailableDate
+                    => Constants.DATE_STRING_FORMAT,
                 _ => string.Empty
             };
         }

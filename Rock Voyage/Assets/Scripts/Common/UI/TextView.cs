@@ -6,9 +6,9 @@ namespace RockVoyage
     {
         private TextMeshProUGUI _text;
 
-        public override void Init(UIBaseParent parent = null)
+        public override void Init(UIBaseParent parent, HouseInfo houseInfo)
         {
-            base.Init(parent);
+            base.Init(parent, houseInfo);
             _text = GetComponent<TextMeshProUGUI>();
         }
 

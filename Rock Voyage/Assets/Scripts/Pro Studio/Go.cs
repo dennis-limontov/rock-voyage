@@ -7,9 +7,9 @@ namespace RockVoyage
     {
         private Button _goButton;
 
-        public override void Init(UIBaseParent parent = null)
+        public override void Init(UIBaseParent parent, HouseInfo houseInfo)
         {
-            base.Init(parent);
+            base.Init(parent, houseInfo);
             _goButton = GetComponent<Button>();
             _goButton.interactable = (RVGC.Money >= Constants.PRO_STUDIO_RECORD_COST);
         }

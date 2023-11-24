@@ -12,9 +12,9 @@ namespace RockVoyage
         private const string GREETINGS_DONE = "Well done! Record was awesome!";
         private const string GREETINGS_SORRY = "Sorry but you should wait a little.";
 
-        public override void Init(UIBaseParent parent = null)
+        public override void Init(UIBaseParent parent, HouseInfo houseInfo)
         {
-            base.Init(parent);
+            base.Init(parent, houseInfo);
             if (RVGC.ClockDate <= RVGC.RecordAvailableDate)
             {
                 _greetingsDoneText.text = GREETINGS_SORRY;

@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using RVGC = RockVoyage.GameCharacteristics;
 
 namespace RockVoyage
@@ -19,7 +20,17 @@ namespace RockVoyage
 
         private void Awake()
         {
+            EventHub.Initialize();
+            SceneManager.sceneLoaded += SceneLoadedHandler;
             Time.timeScale = 1f;
+        }
+
+        private void SceneLoadedHandler(Scene scene, LoadSceneMode mode)
+        {
+            SceneManager.sceneLoaded -= SceneLoadedHandler;
+            MapEvents.OnSceneLoaded?.Invoke(null);
+            MapEvents.OnClockDateChanged?.Invoke(DateTime.UnixEpoch, GameCharacteristics.ClockDate);
+            MapEvents.OnMoneyChanged?.Invoke(0, GameCharacteristics.Money);
         }
 
         private void OnDestroy()
@@ -33,10 +44,6 @@ namespace RockVoyage
             _mapInfo.MapObjects = _mapObjects;
             _spriteRenderer = GetComponent<SpriteRenderer>();
             MapEvents.OnClockDateChanged += ClockDateChangedHandler;
-
-            EventHub.Initialize();
-            MapEvents.OnClockDateChanged?.Invoke(DateTime.UnixEpoch, GameCharacteristics.ClockDate);
-            MapEvents.OnMoneyChanged?.Invoke(0, GameCharacteristics.Money);
         }
 
         private void ClockDateChangedHandler(DateTime oldTime, DateTime newTime)

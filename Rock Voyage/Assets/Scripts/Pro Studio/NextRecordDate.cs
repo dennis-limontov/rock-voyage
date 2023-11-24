@@ -15,9 +15,9 @@ namespace RockVoyage
                 .ToString(Constants.DATE_STRING_FORMAT, CultureInfo.InvariantCulture);
         }
 
-        public override void Init(UIBaseParent parent = null)
+        public override void Init(UIBaseParent parent, HouseInfo houseInfo)
         {
-            base.Init(parent);
+            base.Init(parent, houseInfo);
             _nextRecordDateText = GetComponent<TextMeshProUGUI>();
         }
     }

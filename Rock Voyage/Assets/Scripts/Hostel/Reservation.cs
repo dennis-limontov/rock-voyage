@@ -21,8 +21,6 @@ namespace RockVoyage
         [SerializeField]
         private TextMeshProUGUI _reservationDateText;
 
-        private HostelInfo _hostelInfo;
-
         private TimeSpan _reservationDays;
 
         private int _reservationCost;
@@ -31,12 +29,6 @@ namespace RockVoyage
         {
             base.Enter();
             UpdateComponentsView();
-        }
-
-        public override void Init(UIBaseParent parent = null)
-        {
-            base.Init(parent);
-            _hostelInfo = ((HostelController)GetController()).HostelInfo;
         }
 
         public void OnGoToSleepClicked()
@@ -57,7 +49,7 @@ namespace RockVoyage
         {
             int newDaysToInt = (newDays != string.Empty) ? int.Parse(newDays) : 0;
             _reservationDays = new TimeSpan(newDaysToInt, 0, 0, 0);
-            _reservationCost = newDaysToInt * _hostelInfo.CostPerNight;
+            _reservationCost = newDaysToInt * ((HostelInfo)houseInfo).CostPerNight;
 
             UpdateComponentsView();
         }
@@ -67,7 +59,7 @@ namespace RockVoyage
             if (RVGC.Money >= _reservationCost)
             {
                 RVGC.Money -= _reservationCost;
-                _hostelInfo.AddDays(_reservationDays);
+                ((HostelInfo)houseInfo).AddDays(_reservationDays);
 
                 UpdateComponentsView();
             }
@@ -75,12 +67,13 @@ namespace RockVoyage
 
         private void UpdateComponentsView()
         {
-            _sleepButton.interactable = _hostelInfo.IsBooked;
+            HostelInfo hostelInfo = (HostelInfo)houseInfo;
+            _sleepButton.interactable = hostelInfo.IsBooked;
             _costValueText.text = _reservationCost.ToString();
             _okButton.interactable = (RVGC.Money >= _reservationCost);
-            if (_hostelInfo.IsBooked)
+            if (hostelInfo.IsBooked)
             {
-                _reservationDateText.text = _hostelInfo.ReservationDepartureTime
+                _reservationDateText.text = hostelInfo.ReservationDepartureTime
                     .ToString(Constants.DATE_STRING_FORMAT, CultureInfo.InvariantCulture);
             }
         }

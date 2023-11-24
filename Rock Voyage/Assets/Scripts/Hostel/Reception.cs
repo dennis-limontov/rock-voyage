@@ -12,23 +12,15 @@ namespace RockVoyage
         [SerializeField]
         private Button _newspaperButton;
 
-        private HostelInfo _hostelInfo;
-
         public override void Enter()
         {
             base.Enter();
             UpdateComponentsView();
         }
 
-        public override void Init(UIBaseParent parent = null)
-        {
-            base.Init(parent);
-            _hostelInfo = ((HostelController)GetController()).HostelInfo;
-        }
-
         public void OnBuyAMapClicked()
         {
-            _hostelInfo.MapInfo.IsMapPurchased = true;
+            houseInfo.MapInfo.IsMapPurchased = true;
             MapEvents.OnMapBought?.Invoke();
             RVGC.Money -= Constants.MAP_COST;
             UpdateComponentsView();
@@ -36,7 +28,7 @@ namespace RockVoyage
 
         public void OnBuyANewspaperClicked()
         {
-            _hostelInfo.MapInfo.IsNewspaperPurchased = true;
+            houseInfo.MapInfo.IsNewspaperPurchased = true;
             MapEvents.OnNewspaperBought?.Invoke();
             RVGC.Money -= Constants.NEWSPAPER_COST;
             UpdateComponentsView();
@@ -44,10 +36,11 @@ namespace RockVoyage
 
         private void UpdateComponentsView()
         {
+            HostelInfo hostelInfo = (HostelInfo)houseInfo;
             _mapButton.interactable = ((RVGC.Money >= Constants.MAP_COST)
-                && _hostelInfo.IsBooked && !_hostelInfo.MapInfo.IsMapPurchased);
+                && hostelInfo.IsBooked && !hostelInfo.MapInfo.IsMapPurchased);
             _newspaperButton.interactable = ((RVGC.Money >= Constants.NEWSPAPER_COST)
-                && _hostelInfo.IsBooked && !_hostelInfo.MapInfo.IsNewspaperPurchased);
+                && hostelInfo.IsBooked && !hostelInfo.MapInfo.IsNewspaperPurchased);
         }
     }
 }

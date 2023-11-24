@@ -13,7 +13,7 @@ namespace RockVoyage
         public override void Enter()
         {
             base.Enter();
-            GoTo(((StreetMusicController)GetController()).StreetMusicInfo.IsAvailable
+            GoTo(((StreetMusicInfo)houseInfo).IsAvailable
                 ? _playButton : _nextAvailableTimeText);
         }
     }

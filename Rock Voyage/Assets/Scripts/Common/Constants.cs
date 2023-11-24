@@ -24,6 +24,7 @@ namespace RockVoyage
         public static Color ENERGY_COLOR_MIDDLE = Color.yellow;
         public static Color ENERGY_COLOR_LOW = new Color(1f, 0.5f, 0f, 1f);
         public static Color ENERGY_COLOR_DANGER = Color.red;
+        public static float SCENE_PROFIT_PERCENT = 0.1f;
         public static float FAME_INCREMENT = 0.01f;
         public static float FAME_MAX = 1f;
 

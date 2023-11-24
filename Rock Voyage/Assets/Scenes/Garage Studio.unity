@@ -858,6 +858,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6137717598319756443, guid: c34f91f91c9481749be91fa40cd3265e, type: 3}
+      propertyPath: _houseInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: f66612a4cceed284eb96c8778d60d05a, type: 2}
+    - target: {fileID: 6137717598319756443, guid: c34f91f91c9481749be91fa40cd3265e, type: 3}
       propertyPath: _closeButton
       value: 
       objectReference: {fileID: 3990931788200633161}

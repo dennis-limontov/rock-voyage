@@ -29,6 +29,7 @@ namespace RockVoyage
                         .Except(GameCharacteristics.AvailableSongs).ToArray();
                     int randomIndex = Random.Range(0, unknownSongs.Length);
                     GameCharacteristics.AvailableSongs.Add(unknownSongs[randomIndex]);
+                    GameCharacteristics.AvailableSongs.Sort((x, y) => x.SongName.CompareTo(y.SongName));
                     GoTo(_successRememberText);
                 }
                 else

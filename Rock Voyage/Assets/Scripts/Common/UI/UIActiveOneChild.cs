@@ -21,12 +21,12 @@ namespace RockVoyage
             base.Exit();
         }
 
-        public override void Init(UIBaseParent parent = null)
+        public override void Init(UIBaseParent parent, HouseInfo houseInfo)
         {
-            base.Init(parent);
+            base.Init(parent, houseInfo);
             foreach (var child in children)
             {
-                child.Init(this);
+                child.Init(this, houseInfo);
                 child.Exit();
             }
         }

@@ -6,6 +6,7 @@ namespace RockVoyage
     public class UIBase : MonoBehaviour, IDisposable
     {
         protected UIBaseParent parent;
+        protected HouseInfo houseInfo;
 
         public virtual void Dispose()
         {
@@ -21,9 +22,10 @@ namespace RockVoyage
             gameObject.SetActive(false);
         }
 
-        public virtual void Init(UIBaseParent parent = null)
+        public virtual void Init(UIBaseParent parent, HouseInfo houseInfo)
         {
             this.parent = parent;
+            this.houseInfo = houseInfo;
         }
 
         protected UIBaseParent GetController()

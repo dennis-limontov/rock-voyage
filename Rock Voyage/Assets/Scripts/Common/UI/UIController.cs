@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace RockVoyage
@@ -12,10 +13,16 @@ namespace RockVoyage
             _anyUIElement.Dispose();
         }
 
-        protected virtual void Start()
+        protected virtual void Awake()
         {
             _anyUIElement = GetComponent<UIBase>();
-            _anyUIElement.Init();
+            MapEvents.OnSceneLoaded += SceneLoadedHandler;
+        }
+
+        private void SceneLoadedHandler(HouseInfo houseInfo)
+        {
+            MapEvents.OnSceneLoaded -= SceneLoadedHandler;
+            _anyUIElement.Init(null, houseInfo);
             _anyUIElement.Enter();
         }
     }

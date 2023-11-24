@@ -57,6 +57,17 @@ namespace RockVoyage
         }
 
         [JsonProperty]
+        private DateTime _playOnSceneAvailableDate = DateTime.UnixEpoch;
+        public static DateTime PlayOnSceneAvailableDate
+        {
+            get => Instance._playOnSceneAvailableDate;
+            set
+            {
+                Instance._playOnSceneAvailableDate = value;
+            }
+        }
+
+        [JsonProperty]
         private DateTime _recordAvailableDate = DateTime.UnixEpoch;
         public static DateTime RecordAvailableDate
         {
@@ -75,14 +86,14 @@ namespace RockVoyage
             = new List<PlayerCharacteristics>(Constants.PLAYERS_MAX);
         public static PlayerCharacteristics CurrentPlayer => Instance.players[0];
 
-        private (DateTime ClockDate, int Money, float Fame,
+        private (DateTime ClockDate, int Money, float Fame, DateTime PlayOnSceneAvailableDate,
             DateTime RecordAvailableDate, List<PlayerCharacteristics> Players)
             SerializableTuple
         {
-            get => (ClockDate, Money, Fame, RecordAvailableDate, players);
+            get => (ClockDate, Money, Fame, PlayOnSceneAvailableDate, RecordAvailableDate, players);
             set
             {
-                (ClockDate, Money, Fame, RecordAvailableDate, players) = value;
+                (ClockDate, Money, Fame, PlayOnSceneAvailableDate, RecordAvailableDate, players) = value;
             }
         }
 
@@ -94,7 +105,7 @@ namespace RockVoyage
         public void Load(string loadData)
         {
             SerializableTuple = JsonConvert.DeserializeObject<(DateTime, int, float,
-                DateTime, List<PlayerCharacteristics>)>(loadData);
+                DateTime, DateTime, List<PlayerCharacteristics>)>(loadData);
         }
 
         public string Save()

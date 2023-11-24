@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -8,20 +9,17 @@ namespace RockVoyage
         [SerializeField]
         private UIBase _streetMusicAction;
 
-        [SerializeField]
-        private StreetMusicInfo _streetMusicInfo;
-        public StreetMusicInfo StreetMusicInfo => _streetMusicInfo;
-
         public override void Dispose()
         {
             SceneEvents.OnCountdownEnded -= CountdownEndedHandler;
             base.Dispose();
         }
 
-        public override void Init(UIBaseParent parent = null)
+        public override void Init(UIBaseParent parent, HouseInfo houseInfo)
         {
-            base.Init(parent);
+            base.Init(parent, houseInfo);
             SceneEvents.OnCountdownEnded += CountdownEndedHandler;
+            this.houseInfo = houseInfo;
         }
 
         private void CountdownEndedHandler()
@@ -39,7 +37,8 @@ namespace RockVoyage
         public void OnPlayClicked()
         {
             GoTo(_streetMusicAction);
-            _streetMusicInfo.PlayAgainTime = GameCharacteristics.ClockDate.AddDays(1);
+            ((StreetMusicInfo)houseInfo).PlayAgainTime
+                = GameCharacteristics.ClockDate.AddDays(1);
         }
     }
 }

@@ -18,9 +18,9 @@ namespace RockVoyage
             StartCoroutine(CountdownCoroutine());
         }
 
-        public override void Init(UIBaseParent parent)
+        public override void Init(UIBaseParent parent, HouseInfo houseInfo)
         {
-            base.Init(parent);
+            base.Init(parent, houseInfo);
             _text = GetComponent<TextMeshProUGUI>();
         }
 

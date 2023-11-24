@@ -43,6 +43,7 @@ namespace RockVoyage
         {
             SceneManager.SetActiveScene(SceneManager.GetSceneByName(_houseInfo.SceneName));
             SceneManager.sceneLoaded -= SceneLoadedHandler;
+            MapEvents.OnSceneLoaded?.Invoke(_houseInfo);
         }
 
         public void ShowView()

@@ -13,9 +13,9 @@ namespace RockVoyage
 
         private TextMeshProUGUI _sliderText;
 
-        public override void Init(UIBaseParent parent = null)
+        public override void Init(UIBaseParent parent, HouseInfo houseInfo)
         {
-            base.Init(parent);
+            base.Init(parent, houseInfo);
             _slider = GetComponent<Slider>();
             _sliderText = GetComponentInChildren<TextMeshProUGUI>();
         }

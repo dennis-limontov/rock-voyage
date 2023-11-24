@@ -7,5 +7,6 @@ namespace RockVoyage
     {
         [SerializeField]
         private int _fansCapacity;
+        public int FansCapacity => _fansCapacity;
     }
 }

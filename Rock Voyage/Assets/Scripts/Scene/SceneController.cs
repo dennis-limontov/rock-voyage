@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace RockVoyage
@@ -9,6 +10,8 @@ namespace RockVoyage
 
         [SerializeField]
         private UIBase _countdown;
+
+        private SongInfo _currentSong;
 
         private float _perfomanceQuality = 1f;
         private float PerfomanceQuality
@@ -30,13 +33,14 @@ namespace RockVoyage
             base.Dispose();
         }
 
-        public override void Init(UIBaseParent parent)
+        public override void Init(UIBaseParent parent, HouseInfo houseInfo)
         {
-            base.Init(parent);
+            base.Init(parent, houseInfo);
             SceneEvents.OnConcertEnded += ConcertEndedHandler;
             SceneEvents.OnCountdownEnded += GoToNext;
             SceneEvents.OnSongChosen += SongChosenHandler;
             SceneEvents.OnWrongNotePlayed += WrongNotePlayedHandler;
+            this.houseInfo = houseInfo;
         }
 
         private void ConcertEndedHandler()
@@ -45,9 +49,18 @@ namespace RockVoyage
             if (_currentIndex + 1 < children.Length)
             {
                 GoToNext();
-                EventHub.OnValueChanged?.Invoke(GameAttributes.CrowdHappiness, 0f, 1f);
-                EventHub.OnValueChanged?.Invoke(GameAttributes.MoneyProfit, 0, 300);
-                EventHub.OnValueChanged?.Invoke(GameAttributes.PerfomanceQuality, 0f, _perfomanceQuality);
+                if (houseInfo is SceneInfo sceneInfo)
+                {
+                    float crowdHappiness = _currentSong.Prominence * _perfomanceQuality;
+                    int moneyProfit = (int)(sceneInfo.FansCapacity * crowdHappiness
+                        * Constants.SCENE_PROFIT_PERCENT);
+                    GameCharacteristics.Money += moneyProfit;
+                    GameCharacteristics.Fame += crowdHappiness / 1000f;
+                    EventHub.OnValueChanged?.Invoke(GameAttributes.CrowdHappiness, 0f, crowdHappiness);
+                    EventHub.OnValueChanged?.Invoke(GameAttributes.MoneyProfit, 0, moneyProfit);
+                    EventHub.OnValueChanged?.Invoke(GameAttributes.PerfomanceQuality, 0f, _perfomanceQuality);
+                    GameCharacteristics.PlayOnSceneAvailableDate = GameCharacteristics.ClockDate.AddDays(1);
+                }
             }
             else
             {
@@ -57,6 +70,7 @@ namespace RockVoyage
 
         private void SongChosenHandler(SongInfo currentSong)
         {
+            _currentSong = currentSong;
             PerfomanceQuality = 1f;
             _closeButton.transform.parent.gameObject.SetActive(false);
             GoTo(_countdown);

@@ -20,9 +20,9 @@ namespace RockVoyage
             base.Dispose();
         }
 
-        public override void Init(UIBaseParent parent = null)
+        public override void Init(UIBaseParent parent, HouseInfo houseInfo)
         {
-            base.Init(parent);
+            base.Init(parent, houseInfo);
             SceneEvents.OnConcertEnded += ConcertEndedHandler;
             SceneEvents.OnRightNotePlayed += RightNotePlayedHandler;
         }

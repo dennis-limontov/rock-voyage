@@ -37,9 +37,9 @@ namespace RockVoyage
             StartCoroutine(_keysCoroutine);
         }
 
-        public override void Init(UIBaseParent parent)
+        public override void Init(UIBaseParent parent, HouseInfo houseInfo)
         {
-            base.Init(parent);
+            base.Init(parent, houseInfo);
             _keysTransform = GetComponent<RectTransform>();
 
             SceneEvents.OnSongChosen += SongChosenHandler;
