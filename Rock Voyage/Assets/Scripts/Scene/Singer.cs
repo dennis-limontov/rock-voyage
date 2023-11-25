@@ -14,8 +14,11 @@ namespace RockVoyage
 
         private char _currentNote;
 
+        private Animator _animator;
+
         private void Start()
         {
+            _animator = GetComponent<Animator>();
             _music = GetComponent<AudioSource>();
             SceneEvents.OnConcertEnded += ConcertEndedHandler;
             SceneEvents.OnCountdownEnded += CountdownEndedHandler;
@@ -25,6 +28,7 @@ namespace RockVoyage
 
         private void ConcertEndedHandler()
         {
+            _animator.Play(Constants.PLAYER_STATE_IDLE);
             _music.Stop();
         }
 
@@ -49,6 +53,7 @@ namespace RockVoyage
 
         private void CountdownEndedHandler()
         {
+            _animator.Play(Constants.PLAYER_STATE_SING);
             _music.Play();
             _currentNote = ' ';
         }

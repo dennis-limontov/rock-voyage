@@ -26,10 +26,10 @@ namespace RockVoyage
             _slider.value = newValue;
             _sliderImage.color = _slider.value switch
             {
-                < Constants.ENERGY_LIMIT_DANGER => Constants.ENERGY_COLOR_DANGER,
-                < Constants.ENERGY_LIMIT_LOW => Constants.ENERGY_COLOR_LOW,
-                < Constants.ENERGY_LIMIT_MIDDLE => Constants.ENERGY_COLOR_MIDDLE,
-                _ => Constants.ENERGY_COLOR_MAX
+                < Constants.SLIDER_LIMIT_DANGER => Constants.SLIDER_COLOR_DANGER,
+                < Constants.SLIDER_LIMIT_LOW => Constants.SLIDER_COLOR_LOW,
+                < Constants.SLIDER_LIMIT_MIDDLE => Constants.SLIDER_COLOR_MIDDLE,
+                _ => Constants.SLIDER_COLOR_MAX
             };
         }
 

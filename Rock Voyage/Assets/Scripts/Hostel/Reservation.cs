@@ -33,21 +33,14 @@ namespace RockVoyage
 
         public void OnGoToSleepClicked()
         {
-            DateTime ourDay = RVGC.ClockDate;
-            if (ourDay.Hour >= 10)
-            {
-                ourDay = ourDay.AddDays(1);
-            }
-            RVGC.ClockDate = new DateTime(ourDay.Year, ourDay.Month, ourDay.Day,
-                Constants.HOSTEL_NEW_DAY_HOUR, 0, 0);
-            RVGC.CurrentPlayer.Energy = Constants.ENERGY_MAX;
+            GameCharacteristics.CurrentPlayer.Sleep();
 
             ((UIActiveOneChild)GetController()).GoToPrevious();
         }
 
         public void OnDaysChanged(string newDays)
         {
-            int newDaysToInt = (newDays != string.Empty) ? int.Parse(newDays) : 0;
+            int newDaysToInt = newDays.Equals(string.Empty) ? 0 : int.Parse(newDays);
             _reservationDays = new TimeSpan(newDaysToInt, 0, 0, 0);
             _reservationCost = newDaysToInt * ((HostelInfo)houseInfo).CostPerNight;
 
@@ -60,6 +53,7 @@ namespace RockVoyage
             {
                 RVGC.Money -= _reservationCost;
                 ((HostelInfo)houseInfo).AddDays(_reservationDays);
+                GameCharacteristics.HostelInfo = (HostelInfo)houseInfo;
 
                 UpdateComponentsView();
             }

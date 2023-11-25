@@ -20,9 +20,17 @@ namespace RockVoyage
 
         private void ClockDateChangedHandler(DateTime dateTimeOld, DateTime dateTimeNew)
         {
-            TimeSpan timeDifference = dateTimeNew - dateTimeOld;
-            _playerCharacteristics.Energy -= (float)timeDifference.TotalHours
-                * Constants.ENERGY_CONSUMPTION_PER_HOUR;
+            if (_playerCharacteristics.Energy > 0f)
+            {
+                TimeSpan timeDifference = dateTimeNew - dateTimeOld;
+                _playerCharacteristics.Energy -= (float)timeDifference.TotalHours
+                    * Constants.ENERGY_CONSUMPTION_PER_HOUR;
+
+                if (_playerCharacteristics.Energy <= 0f)
+                {
+                    MapEvents.OnLowEnergy?.Invoke();
+                }
+            }
         }
 
         private void OnDestroy()

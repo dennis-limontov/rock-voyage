@@ -8,31 +8,34 @@ namespace RockVoyage
     {
         public static GameCharacteristics Instance { get; private set; } = new GameCharacteristics();
 
-        [JsonIgnore]
         public string Name => "GameCharacteristics";
 
-        [JsonProperty]
         private DateTime _clockDate = DateTime.UnixEpoch;
         public static DateTime ClockDate
         { 
             get => Instance._clockDate;
             set
             {
-                MapEvents.OnClockDateChanged?.Invoke(Instance._clockDate, value);
+                var ourTime = Instance._clockDate;
                 Instance._clockDate = value;
+                MapEvents.OnClockDateChanged?.Invoke(ourTime, value);
             }
         }
 
-        [JsonIgnore]
+        private HostelInfo _hostelInfo;
+        public static HostelInfo HostelInfo
+        {
+            get => Instance._hostelInfo;
+            set => Instance._hostelInfo = value;
+        }
+
         private MapInfo _mapInfo;
-        [JsonIgnore]
         public static MapInfo MapInfo
         {
             get => Instance._mapInfo;
             set => Instance._mapInfo = value;
         }
 
-        [JsonProperty]
         private int _money = Constants.MONEY_AT_START;
         public static int Money
         {
@@ -44,7 +47,6 @@ namespace RockVoyage
             }
         }
 
-        [JsonProperty]
         private float _fame;
         public static float Fame
         {
@@ -56,7 +58,6 @@ namespace RockVoyage
             }
         }
 
-        [JsonProperty]
         private DateTime _playOnSceneAvailableDate = DateTime.UnixEpoch;
         public static DateTime PlayOnSceneAvailableDate
         {
@@ -67,7 +68,6 @@ namespace RockVoyage
             }
         }
 
-        [JsonProperty]
         private DateTime _recordAvailableDate = DateTime.UnixEpoch;
         public static DateTime RecordAvailableDate
         {
@@ -78,7 +78,6 @@ namespace RockVoyage
             }
         }
 
-        [JsonProperty]
         private List<SongInfo> _availableSongs = new List<SongInfo>();
         public static List<SongInfo> AvailableSongs => Instance._availableSongs;
 

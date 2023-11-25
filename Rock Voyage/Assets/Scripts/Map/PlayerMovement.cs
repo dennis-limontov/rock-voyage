@@ -12,6 +12,8 @@ namespace RockVoyage
         [SerializeField]
         private Rigidbody2D _rigidbody2D;
 
+        private Animator _animator;
+
         private Vector2 _movementVector;
 
         public string Name => name;
@@ -31,6 +33,7 @@ namespace RockVoyage
         public void Awake()
         {
             LoadSaveManager.loadSaveList.Add(Name, this);
+            _animator = GetComponent<Animator>();
         }
 
         public void Load(string loadData)
@@ -54,6 +57,46 @@ namespace RockVoyage
         public void OnMoved(CallbackContext inputContext)
         {
             _movementVector = inputContext.ReadValue<Vector2>();
+            if (_movementVector.x > 0)
+            {
+                _animator.SetBool("isIdle", false);
+                _animator.SetBool("isWalkingFront", false);
+                _animator.SetBool("isWalkingLeft", false);
+                _animator.SetBool("isWalkingRight", true);
+                _animator.SetBool("isWalkingUp", false);
+            }
+            else if (_movementVector.x < 0)
+            {
+                _animator.SetBool("isIdle", false);
+                _animator.SetBool("isWalkingFront", false);
+                _animator.SetBool("isWalkingLeft", true);
+                _animator.SetBool("isWalkingRight", false);
+                _animator.SetBool("isWalkingUp", false);
+            }
+            else if (_movementVector.y > 0)
+            {
+                _animator.SetBool("isIdle", false);
+                _animator.SetBool("isWalkingFront", false);
+                _animator.SetBool("isWalkingLeft", false);
+                _animator.SetBool("isWalkingRight", false);
+                _animator.SetBool("isWalkingUp", true);
+            }
+            else if (_movementVector.y < 0)
+            {
+                _animator.SetBool("isIdle", false);
+                _animator.SetBool("isWalkingFront", true);
+                _animator.SetBool("isWalkingLeft", false);
+                _animator.SetBool("isWalkingRight", false);
+                _animator.SetBool("isWalkingUp", false);
+            }
+            else
+            {
+                _animator.SetBool("isIdle", true);
+                _animator.SetBool("isWalkingFront", false);
+                _animator.SetBool("isWalkingLeft", false);
+                _animator.SetBool("isWalkingRight", false);
+                _animator.SetBool("isWalkingUp", false);
+            }
         }
     }
 }

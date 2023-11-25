@@ -15,18 +15,33 @@ namespace RockVoyage
         // layers
         public static string HOUSE_LAYER = "House";
 
+        // sliders
+        public const float SLIDER_LIMIT_MIDDLE = 0.7f;
+        public const float SLIDER_LIMIT_LOW = 0.4f;
+        public const float SLIDER_LIMIT_DANGER = 0.1f;
+        public static Color SLIDER_COLOR_MAX = Color.green;
+        public static Color SLIDER_COLOR_MIDDLE = Color.yellow;
+        public static Color SLIDER_COLOR_LOW = new Color(1f, 0.5f, 0f, 1f);
+        public static Color SLIDER_COLOR_DANGER = Color.red;
+
         public const float ENERGY_CONSUMPTION_PER_HOUR = 0.04f;
-        public const float ENERGY_LIMIT_MIDDLE = 0.7f;
-        public const float ENERGY_LIMIT_LOW = 0.4f;
-        public const float ENERGY_LIMIT_DANGER = 0.1f;
         public const float ENERGY_MAX = 1f;
-        public static Color ENERGY_COLOR_MAX = Color.green;
-        public static Color ENERGY_COLOR_MIDDLE = Color.yellow;
-        public static Color ENERGY_COLOR_LOW = new Color(1f, 0.5f, 0f, 1f);
-        public static Color ENERGY_COLOR_DANGER = Color.red;
         public static float SCENE_PROFIT_PERCENT = 0.1f;
         public static float FAME_INCREMENT = 0.01f;
         public static float FAME_MAX = 1f;
+
+        // states
+        public const string PLAYER_STATE_IDLE = "Idle";
+        public const string PLAYER_STATE_SING = "Sing";
+        public const string PLAYER_STATE_WALK_FRONT = "Walk Front";
+        public const string PLAYER_STATE_WALK_LEFT = "Walk Left";
+        public const string PLAYER_STATE_WALK_RIGHT = "Walk Right";
+        public const string PLAYER_STATE_WALK_UP = "Walk Up";
+        public const string PLAYER_STATE_BOOL_IDLE = "isIdle";
+        public const string PLAYER_STATE_BOOL_WALK_FRONT = "isWalkingFront";
+        public const string PLAYER_STATE_BOOL_WALK_LEFT = "isWalkingLeft";
+        public const string PLAYER_STATE_BOOL_WALK_RIGHT = "isWalkingRight";
+        public const string PLAYER_STATE_BOOL_WALK_UP = "isWalkingUp";
 
         // time
         public static TimeSpan GARAGE_STUDIO_TIME = new TimeSpan(2, 0, 0);
@@ -39,6 +54,7 @@ namespace RockVoyage
         public static int NEWSPAPER_COST = 60;
         public const int HOSTEL_NEW_DAY_HOUR = 10;
         public const int PRO_STUDIO_RECORD_COST = 50;
+        public const int TAXI_COST = 25;
 
         public static string DATE_STRING_FORMAT = "yyyy/MM/dd hh:mm tt";
         public const int PLAYERS_MAX = 2;
