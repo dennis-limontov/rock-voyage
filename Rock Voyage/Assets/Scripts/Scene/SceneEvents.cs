@@ -10,6 +10,6 @@ namespace RockVoyage
         public static Action<float> OnPerfomanceQualityChanged;
         public static Action<SongInfo> OnSongChosen;
         public static Action OnRightNotePlayed;
-        public static Action<float> OnWrongNotePlayed;
+        public static Action OnWrongNotePlayed;
     }
 }

@@ -8,6 +8,7 @@ namespace RockVoyage
         public static Action OnLowEnergy;
         public static Action<float, float> OnFameChanged;
         public static Action<HouseInfo> OnSceneLoaded;
+        public static Action<HouseInfo> OnScenePreUnloaded;
         public static Action OnMapBought;
         public static Action<int, int> OnMoneyChanged;
         public static Action OnNewspaperBought;

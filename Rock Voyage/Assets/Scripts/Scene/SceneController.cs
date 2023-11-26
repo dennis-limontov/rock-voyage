@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace RockVoyage
@@ -76,9 +75,9 @@ namespace RockVoyage
             GoTo(_countdown);
         }
 
-        private void WrongNotePlayedHandler(float penalty)
+        private void WrongNotePlayedHandler()
         {
-            PerfomanceQuality -= penalty;
+            PerfomanceQuality -= _currentSong.Penalty;
         }
     }
 }

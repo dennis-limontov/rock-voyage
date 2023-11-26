@@ -17,6 +17,13 @@ namespace RockVoyage
 
         public void OnLoadGameClicked()
         {
+            SceneManager.LoadScene(Constants.START_CITY_NAME);
+            MapEvents.OnSceneLoaded += SceneLoadedHandler;
+        }
+
+        private void SceneLoadedHandler(HouseInfo info)
+        {
+            MapEvents.OnSceneLoaded -= SceneLoadedHandler;
             LoadSaveManager.Load();
         }
 

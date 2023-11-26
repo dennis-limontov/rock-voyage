@@ -5,9 +5,6 @@ namespace RockVoyage
 {
     public class Singer : MonoBehaviour
     {
-        [SerializeField]
-        private Keys _keys;
-
         private SongInfo _currentSong;
 
         private AudioSource _music;
@@ -36,7 +33,7 @@ namespace RockVoyage
         {
             if (currentNote != _currentNote)
             {
-                SceneEvents.OnWrongNotePlayed?.Invoke(_currentSong.Penalty);
+                SceneEvents.OnWrongNotePlayed?.Invoke();
                 _music.mute = true;
             }
             else

@@ -56,6 +56,11 @@ namespace RockVoyage
             LoadSaveManager.loadSaveList.Add(Name, this);
         }
 
+        private void OnDestroy()
+        {
+            LoadSaveManager.loadSaveList.Remove(Name);
+        }
+
         public void Load(string loadData)
         {
             SerializableTuple = JsonConvert.DeserializeObject<(bool, bool)>(loadData);

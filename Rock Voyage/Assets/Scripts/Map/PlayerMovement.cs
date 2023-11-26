@@ -36,6 +36,11 @@ namespace RockVoyage
             _animator = GetComponent<Animator>();
         }
 
+        private void OnDestroy()
+        {
+            LoadSaveManager.loadSaveList.Remove(Name);
+        }
+
         public void Load(string loadData)
         {
             PlayerPosition = JsonConvert.DeserializeObject<(float, float)>(loadData);
@@ -64,6 +69,9 @@ namespace RockVoyage
                 _animator.SetBool("isWalkingLeft", false);
                 _animator.SetBool("isWalkingRight", true);
                 _animator.SetBool("isWalkingUp", false);
+                Quaternion playerRotation = transform.rotation;
+                playerRotation.y = 0f;
+                transform.rotation = playerRotation;
             }
             else if (_movementVector.x < 0)
             {
@@ -72,6 +80,9 @@ namespace RockVoyage
                 _animator.SetBool("isWalkingLeft", true);
                 _animator.SetBool("isWalkingRight", false);
                 _animator.SetBool("isWalkingUp", false);
+                Quaternion playerRotation = transform.rotation;
+                playerRotation.y = 180f;
+                transform.rotation = playerRotation;
             }
             else if (_movementVector.y > 0)
             {

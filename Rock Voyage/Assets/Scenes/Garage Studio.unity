@@ -873,6 +873,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Music Action Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7184512799594470413, guid: c34f91f91c9481749be91fa40cd3265e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 6.3234563
+      objectReference: {fileID: 0}
+    - target: {fileID: 7184512799594470413, guid: c34f91f91c9481749be91fa40cd3265e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 6.3234563
+      objectReference: {fileID: 0}
+    - target: {fileID: 7184512799594470413, guid: c34f91f91c9481749be91fa40cd3265e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 6.3234563
+      objectReference: {fileID: 0}
+    - target: {fileID: 7184512799594470413, guid: c34f91f91c9481749be91fa40cd3265e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 7184512799594470413, guid: c34f91f91c9481749be91fa40cd3265e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.88
+      objectReference: {fileID: 0}
     - target: {fileID: 7435294402736979845, guid: c34f91f91c9481749be91fa40cd3265e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

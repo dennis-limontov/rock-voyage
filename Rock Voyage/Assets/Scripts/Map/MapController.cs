@@ -29,8 +29,8 @@ namespace RockVoyage
         {
             SceneManager.sceneLoaded -= SceneLoadedHandler;
             MapEvents.OnSceneLoaded?.Invoke(null);
-            MapEvents.OnClockDateChanged?.Invoke(DateTime.UnixEpoch, GameCharacteristics.ClockDate);
-            MapEvents.OnMoneyChanged?.Invoke(0, GameCharacteristics.Money);
+            MapEvents.OnClockDateChanged?.Invoke(DateTime.UnixEpoch, RVGC.ClockDate);
+            MapEvents.OnMoneyChanged?.Invoke(0, RVGC.Money);
         }
 
         private void OnDestroy()

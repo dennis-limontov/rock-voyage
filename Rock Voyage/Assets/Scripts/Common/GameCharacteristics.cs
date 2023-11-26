@@ -6,7 +6,7 @@ namespace RockVoyage
 {
     public class GameCharacteristics : ILoadSave
     {
-        public static GameCharacteristics Instance { get; private set; } = new GameCharacteristics();
+        public static GameCharacteristics Instance { get; } = new GameCharacteristics();
 
         public string Name => "GameCharacteristics";
 

@@ -1883,6 +1883,10 @@ PrefabInstance:
       propertyPath: children.Array.data[3]
       value: 
       objectReference: {fileID: 1570342307}
+    - target: {fileID: 7184512799594470413, guid: c34f91f91c9481749be91fa40cd3265e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.26
+      objectReference: {fileID: 0}
     - target: {fileID: 8436936399095415321, guid: c34f91f91c9481749be91fa40cd3265e, type: 3}
       propertyPath: m_RootOrder
       value: 4

@@ -1,12 +1,12 @@
-﻿using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine.SceneManagement;
 
 namespace RockVoyage
 {
-    public class CloseButton : MonoBehaviour
+    public class CloseButton : UIBase
     {
         public void OnClick()
         {
+            MapEvents.OnScenePreUnloaded?.Invoke(houseInfo);
             SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
             GameCharacteristics.MapInfo.MapObjects.SetActive(true);
         }

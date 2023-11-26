@@ -1248,6 +1248,18 @@ PrefabInstance:
       propertyPath: children.Array.size
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7014287370240011651, guid: c34f91f91c9481749be91fa40cd3265e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7131378012317910073, guid: c34f91f91c9481749be91fa40cd3265e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7719956796427408290, guid: c34f91f91c9481749be91fa40cd3265e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8436936399095415321, guid: c34f91f91c9481749be91fa40cd3265e, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1630,7 +1642,6 @@ MonoBehaviour:
   - {fileID: 831589337}
   - {fileID: 474799396}
   _streetMusicAction: {fileID: 474799396}
-  _streetMusicInfo: {fileID: 11400000, guid: bdadded8c220a52458d4bcbea8e21275, type: 2}
 --- !u!114 &1130310746
 MonoBehaviour:
   m_ObjectHideFlags: 0

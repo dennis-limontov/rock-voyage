@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 3952002034869100319}
   - component: {fileID: 3109787573105429961}
   - component: {fileID: 3600663160570404145}
+  - component: {fileID: 8362271036286765822}
   m_Layer: 5
   m_Name: Close Button
   m_TagString: Untagged
@@ -190,6 +191,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1187956ea148ed945aa904d5e7759d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  houseInfo: {fileID: 0}
+--- !u!114 &8362271036286765822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3874941252784425695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ca97fe0c70af294eb6cdd87e7f84898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5103543749026128711

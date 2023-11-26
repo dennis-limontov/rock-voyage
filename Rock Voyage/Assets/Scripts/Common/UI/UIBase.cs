@@ -6,7 +6,9 @@ namespace RockVoyage
     public class UIBase : MonoBehaviour, IDisposable
     {
         protected UIBaseParent parent;
-        protected HouseInfo houseInfo;
+
+        [NonSerialized]
+        public HouseInfo houseInfo;
 
         public virtual void Dispose()
         {

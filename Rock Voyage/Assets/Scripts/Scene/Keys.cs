@@ -1,6 +1,8 @@
+using DG.Tweening;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace RockVoyage
 {
@@ -11,6 +13,9 @@ namespace RockVoyage
 
         [SerializeField]
         private AudioSource _music;
+
+        [SerializeField]
+        private Image _square;
 
         private SongInfo _currentSong;
 
@@ -29,6 +34,8 @@ namespace RockVoyage
         public override void Enter()
         {
             base.Enter();
+            SceneEvents.OnRightNotePlayed += RightNotePlayedHandler;
+            SceneEvents.OnWrongNotePlayed += WrongNotePlayedHandler;
             _music.Play();
             // _keysSpeed = _keysTransform.sizeDelta.x / _bsParanoidSO.MusicForGroup.length; // 90400/164 = 22600/41
             _keysSpeed = _keyPrefab.GetComponent<RectTransform>().sizeDelta.x
@@ -48,6 +55,8 @@ namespace RockVoyage
         public override void Exit()
         {
             base.Exit();
+            SceneEvents.OnWrongNotePlayed -= WrongNotePlayedHandler;
+            SceneEvents.OnRightNotePlayed -= RightNotePlayedHandler;
             _music.Stop();
             if (_keysCoroutine != null)
             {
@@ -57,6 +66,20 @@ namespace RockVoyage
             {
                 Destroy(key.gameObject);
             }
+        }
+
+        private void RightNotePlayedHandler()
+        {
+            DOTween.Sequence()
+                .Append(_square.DOColor(Color.green, _currentSong.NoteLength / 2))
+                .Append(_square.DOColor(Color.white, _currentSong.NoteLength / 2));
+        }
+
+        private void WrongNotePlayedHandler()
+        {
+            DOTween.Sequence()
+                .Append(_square.DOColor(Color.red, _currentSong.NoteLength / 2))
+                .Append(_square.DOColor(Color.white, _currentSong.NoteLength / 2));
         }
 
         private void SongChosenHandler(SongInfo currentSong)

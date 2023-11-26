@@ -24,6 +24,11 @@ namespace RockVoyage
             LoadSaveManager.loadSaveList.Add(Name, this);
         }
 
+        private void OnDestroy()
+        {
+            LoadSaveManager.loadSaveList.Remove(Name);
+        }
+
         public void Load(string loadData)
         {
             _playAgainTime = JsonConvert.DeserializeObject<DateTime>(loadData);
