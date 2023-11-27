@@ -11,14 +11,6 @@ PrefabInstance:
       propertyPath: m_text
       value: Airport
       objectReference: {fileID: 0}
-    - target: {fileID: 178072582858994749, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1417177339037015712, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1417177339724284992, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
       propertyPath: m_RootOrder
       value: 0

@@ -21,7 +21,7 @@ namespace RockVoyage
 
         private void Awake()
         {
-            LoadSaveManager.loadSaveList.Add(Name, this);
+            LoadSaveManager.loadSaveList.TryAdd(Name, this);
         }
 
         private void OnDestroy()

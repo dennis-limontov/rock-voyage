@@ -38,7 +38,7 @@ namespace RockVoyage
                 }
                 _countdown--;
                 DOTween.Sequence()
-                    .Append(transform.DOScale(3f, 1f))
+                    .Append(transform.DOScale(2f, 1f))
                     .Append(transform.DOScale(1f, 0f));
 
                 yield return new WaitForSeconds(1f);

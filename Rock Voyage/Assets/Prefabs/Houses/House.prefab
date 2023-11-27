@@ -48,7 +48,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Radius: 0.35
 --- !u!114 &3605613292394930826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,7 +90,7 @@ Transform:
   m_GameObject: {fileID: 1417177339037015712}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.65, y: 0.65, z: 0.65}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1326241977557267029}
@@ -137,7 +137,7 @@ SpriteRenderer:
   m_SortingLayerID: 609818065
   m_SortingLayer: -1
   m_SortingOrder: 2
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f0bc967d5a68ea943a9db48fea27d037, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -207,7 +207,7 @@ Transform:
   m_GameObject: {fileID: 2290511714513177112}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.5}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 1.185, y: 1.185, z: 1.185}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1326241977557267029}
@@ -255,7 +255,7 @@ SpriteRenderer:
   m_SortingLayer: -1
   m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.9920671, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.679544, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -376,7 +376,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 737622923496028879, guid: 3408be21242498d4199df7213fe94e9e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.28
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 737622923496028879, guid: 3408be21242498d4199df7213fe94e9e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -397,6 +397,18 @@ PrefabInstance:
     - target: {fileID: 7797150960062031927, guid: 3408be21242498d4199df7213fe94e9e, type: 3}
       propertyPath: m_fontStyle
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797150960062031927, guid: 3408be21242498d4199df7213fe94e9e, type: 3}
+      propertyPath: m_lineSpacingMax
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797150960062031927, guid: 3408be21242498d4199df7213fe94e9e, type: 3}
+      propertyPath: m_overrideHtmlColors
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797150960062031927, guid: 3408be21242498d4199df7213fe94e9e, type: 3}
+      propertyPath: m_enableVertexGradient
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3408be21242498d4199df7213fe94e9e, type: 3}

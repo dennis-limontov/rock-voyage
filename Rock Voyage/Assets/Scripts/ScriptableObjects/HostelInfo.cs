@@ -21,7 +21,7 @@ namespace RockVoyage
 
         private void Awake()
         {
-            LoadSaveManager.loadSaveList.Add(Name, this);
+            LoadSaveManager.loadSaveList.TryAdd(Name, this);
         }
 
         private void OnDestroy()
@@ -46,13 +46,13 @@ namespace RockVoyage
                 _reservationDepartureTime = GameCharacteristics.ClockDate;
             }
             _reservationDepartureTime += departureDaysToAdd;
-            if (_reservationDepartureTime.Hour < 12)
+            if (_reservationDepartureTime.Hour < 10)
             {
                 _reservationDepartureTime = _reservationDepartureTime.Subtract(new TimeSpan(1, 0, 0, 0));
             }
             _reservationDepartureTime = new DateTime(_reservationDepartureTime.Year,
                 _reservationDepartureTime.Month, _reservationDepartureTime.Day,
-                12, 0, 0);
+                10, 0, 0);
         }
     }
 }

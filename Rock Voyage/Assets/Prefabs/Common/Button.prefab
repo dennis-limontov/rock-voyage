@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6067579254126345657}
   - component: {fileID: 6067579254126345658}
   - component: {fileID: 6067579254126345659}
+  - component: {fileID: 7608280999872880903}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -68,7 +69,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 9e77120a02d17274f8a7977986bea314, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -122,6 +123,26 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7608280999872880903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6067579254126345661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: 0
+  m_PreferredHeight: 0
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!1001 &5818952158425279047
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -129,10 +150,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6067579254126345660}
     m_Modifications:
-    - target: {fileID: 7936418185411571076, guid: 8aa15e0293a5cb54daf9ad21087568c6, type: 3}
-      propertyPath: m_fontStyle
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7936418185411571130, guid: 8aa15e0293a5cb54daf9ad21087568c6, type: 3}
       propertyPath: m_Name
       value: Common Text
