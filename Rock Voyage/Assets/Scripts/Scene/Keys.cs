@@ -117,7 +117,7 @@ namespace RockVoyage
                 else if (j < _currentSong.ResultKeys.Length)
                 {
                     SceneEvents.OnCurrentNoteChanged?.Invoke(_currentSong.ResultKeys[i],
-                    _currentSong.ResultKeys[j]);
+                        _currentSong.ResultKeys[j]);
                 }
             }
 

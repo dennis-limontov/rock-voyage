@@ -4,7 +4,7 @@ namespace RockVoyage
 {
     public class UIController : MonoBehaviour
     {
-        private UIBase _anyUIElement;
+        protected UIBase _anyUIElement;
 
         protected virtual void Awake()
         {

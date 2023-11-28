@@ -6,9 +6,8 @@ namespace RockVoyage
 {
     public class PlayerCharacteristics
     {
-        [JsonProperty]
         private float _energy = Constants.ENERGY_MAX;
-        [JsonIgnore]
+        [JsonProperty]
         public float Energy
         {
             get => _energy;
@@ -22,7 +21,7 @@ namespace RockVoyage
         public void Sleep()
         {
             DateTime ourDay = RVGC.ClockDate;
-            if (ourDay.Hour >= 10)
+            if (ourDay.Hour >= Constants.HOSTEL_NEW_DAY_HOUR)
             {
                 ourDay = ourDay.AddDays(1);
             }

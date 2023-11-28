@@ -8,7 +8,7 @@ namespace RockVoyage
     {
         public static GameCharacteristics Instance { get; } = new GameCharacteristics();
 
-        public string Name => "GameCharacteristics";
+        public string Name => nameof(GameCharacteristics);
 
         private DateTime _clockDate = DateTime.UnixEpoch;
         public static DateTime ClockDate
@@ -20,20 +20,6 @@ namespace RockVoyage
                 Instance._clockDate = value;
                 MapEvents.OnClockDateChanged?.Invoke(ourTime, value);
             }
-        }
-
-        private HostelInfo _hostelInfo;
-        public static HostelInfo HostelInfo
-        {
-            get => Instance._hostelInfo;
-            set => Instance._hostelInfo = value;
-        }
-
-        private MapInfo _mapInfo;
-        public static MapInfo MapInfo
-        {
-            get => Instance._mapInfo;
-            set => Instance._mapInfo = value;
         }
 
         private int _money = Constants.MONEY_AT_START;
@@ -78,21 +64,48 @@ namespace RockVoyage
             }
         }
 
-        private List<SongInfo> _availableSongs = new List<SongInfo>();
-        public static List<SongInfo> AvailableSongs => Instance._availableSongs;
-
         public List<PlayerCharacteristics> players
             = new List<PlayerCharacteristics>(Constants.PLAYERS_MAX);
         public static PlayerCharacteristics CurrentPlayer => Instance.players[0];
 
+        private HostelInfo _hostelInfo;
+        public static HostelInfo HostelInfo
+        {
+            get => Instance._hostelInfo;
+            set => Instance._hostelInfo = value;
+        }
+
+        private MapInfo _mapInfo;
+        public static MapInfo MapInfo
+        {
+            get => Instance._mapInfo;
+            set => Instance._mapInfo = value;
+        }
+
+        private List<string> _availableSongs = new List<string>();
+        public static List<string> AvailableSongs => Instance._availableSongs;
+
         private (DateTime ClockDate, int Money, float Fame, DateTime PlayOnSceneAvailableDate,
-            DateTime RecordAvailableDate, List<PlayerCharacteristics> Players)
+            DateTime RecordAvailableDate, List<PlayerCharacteristics> Players, string HostelInfoName,
+            string MapInfoName, List<string> AvailableSongs)
             SerializableTuple
         {
-            get => (ClockDate, Money, Fame, PlayOnSceneAvailableDate, RecordAvailableDate, players);
+            get => (ClockDate, Money, Fame, PlayOnSceneAvailableDate, RecordAvailableDate,
+                players, HostelInfo.Name, MapInfo.Name, AvailableSongs);
             set
             {
-                (ClockDate, Money, Fame, PlayOnSceneAvailableDate, RecordAvailableDate, players) = value;
+                ClockDate = value.ClockDate;
+                Money = value.Money;
+                Fame = value.Fame;
+                PlayOnSceneAvailableDate = value.PlayOnSceneAvailableDate;
+                RecordAvailableDate = value.RecordAvailableDate;
+                players = value.Players;
+                ILoadSave hostelSO, mapSO;
+                LoadSaveManager.loadSaveList.TryGetValue(value.HostelInfoName, out hostelSO);
+                HostelInfo = (HostelInfo)hostelSO;
+                LoadSaveManager.loadSaveList.TryGetValue(value.MapInfoName, out mapSO);
+                MapInfo = (MapInfo)mapSO;
+                _availableSongs = value.AvailableSongs;
             }
         }
 
@@ -104,7 +117,7 @@ namespace RockVoyage
         public void Load(string loadData)
         {
             SerializableTuple = JsonConvert.DeserializeObject<(DateTime, int, float,
-                DateTime, DateTime, List<PlayerCharacteristics>)>(loadData);
+                DateTime, DateTime, List<PlayerCharacteristics>, string, string, List<string>)>(loadData);
         }
 
         public string Save()

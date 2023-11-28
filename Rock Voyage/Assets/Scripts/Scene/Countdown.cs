@@ -38,8 +38,8 @@ namespace RockVoyage
                 }
                 _countdown--;
                 DOTween.Sequence()
-                    .Append(transform.DOScale(2f, 1f))
-                    .Append(transform.DOScale(1f, 0f));
+                    .Append(transform.DOScale(1f, 1f))
+                    .Append(transform.DOScale(0.5f, 0f));
 
                 yield return new WaitForSeconds(1f);
             }

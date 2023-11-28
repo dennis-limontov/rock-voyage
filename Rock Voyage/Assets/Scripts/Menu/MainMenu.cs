@@ -39,7 +39,7 @@ namespace RockVoyage
             GameCharacteristics.Money = Constants.MONEY_AT_START;
             GameCharacteristics.Instance.players.Clear();
             GameCharacteristics.AvailableSongs.Clear();
-            GameCharacteristics.AvailableSongs.Add(_firstSong);
+            GameCharacteristics.AvailableSongs.Add(_firstSong.SongName);
             GameCharacteristics.RecordAvailableDate = DateTime.UnixEpoch;
         }
     }

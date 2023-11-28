@@ -2,6 +2,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace RockVoyage
 {
@@ -13,19 +14,27 @@ namespace RockVoyage
             Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), Constants.GAME_NAME);
         private static readonly string SAVE_FILE_PATH = Path.Combine(SAVE_FOLDER_PATH, "save.json");
 
+        static LoadSaveManager()
+        {
+            JsonConvert.DefaultSettings = (() => new JsonSerializerSettings()
+            {
+                DefaultValueHandling = DefaultValueHandling.Ignore,
+                Formatting = Formatting.Indented
+            });
+        }
+
         public static void Load()
         {
-            string[] serializedData;
-
             if (!File.Exists(SAVE_FILE_PATH))
             {
                 return;
             }
-            serializedData = File.ReadAllLines(SAVE_FILE_PATH);
-            foreach (string line in serializedData)
+
+            string serializedData = File.ReadAllText(SAVE_FILE_PATH);
+            KeyValuePair<string, string>[] deserialized = JsonConvert
+                .DeserializeObject<KeyValuePair<string, string>[]>(serializedData);
+            foreach (var keyValue in deserialized)
             {
-                (string Key, string Value) keyValue
-                    = JsonConvert.DeserializeObject<(string, string)>(line);
                 if (loadSaveList.TryGetValue(keyValue.Key, out ILoadSave loadSave))
                 {
                     loadSave.Load(keyValue.Value);
@@ -35,19 +44,14 @@ namespace RockVoyage
 
         public static void Save()
         {
-            string[] serializedData = new string[loadSaveList.Count];
-            int i = 0;
-            foreach (KeyValuePair<string, ILoadSave> keyValue in loadSaveList)
-            {
-                serializedData[i++] = JsonConvert.SerializeObject((keyValue.Key,
-                    keyValue.Value.Save()));
-            }
+            string serializedData = JsonConvert.SerializeObject(loadSaveList.Select(x
+                => new KeyValuePair<string, string>(x.Key, x.Value.Save())));
 
             if (!Directory.Exists(SAVE_FOLDER_PATH))
             {
                 Directory.CreateDirectory(SAVE_FOLDER_PATH);
             }
-            File.WriteAllLines(SAVE_FILE_PATH, serializedData);
+            File.WriteAllText(SAVE_FILE_PATH, serializedData);
         }
     }
 }

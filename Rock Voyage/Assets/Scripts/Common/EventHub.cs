@@ -37,17 +37,19 @@ namespace RockVoyage
 
     public enum GameAttributes
     {
+        // Map scene
         Energy = 0,
         Fame = 1,
         Money = 2,
         Time = 3,
-
+        // Scene scene
         CrowdHappiness = 4,
         MoneyProfit = 5,
         PerfomanceQuality = 6,
-
         PlayOnSceneAvailableDate = 7,
+        // Pro Studio scene
         RecordAvailableDate = 8,
+        // Street Music scene
         StreetMusicAvailableDate = 9
     }
 }

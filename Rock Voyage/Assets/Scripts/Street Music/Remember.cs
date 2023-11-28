@@ -25,11 +25,11 @@ namespace RockVoyage
                 var rememberChance = Random.Range(0f, 1f);
                 if (rememberChance <= Constants.REMEMBER_CHANCE)
                 {
-                    SongInfo[] unknownSongs = _songsList
+                    string[] unknownSongs = _songsList.Select(x => x.SongName)
                         .Except(GameCharacteristics.AvailableSongs).ToArray();
                     int randomIndex = Random.Range(0, unknownSongs.Length);
                     GameCharacteristics.AvailableSongs.Add(unknownSongs[randomIndex]);
-                    GameCharacteristics.AvailableSongs.Sort((x, y) => x.SongName.CompareTo(y.SongName));
+                    GameCharacteristics.AvailableSongs.Sort();
                     GoTo(_successRememberText);
                 }
                 else

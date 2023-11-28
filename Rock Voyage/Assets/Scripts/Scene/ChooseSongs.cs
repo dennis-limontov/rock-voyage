@@ -9,21 +9,25 @@ namespace RockVoyage
         [SerializeField]
         private TMP_Dropdown _dropdown;
 
+        [SerializeField]
+        private SongsList _songsList;
+
         public override void Enter()
         {
             base.Enter();
             _dropdown.options.Clear();
             foreach (var song in RVGC.AvailableSongs)
             {
-                _dropdown.options.Add(new TMP_Dropdown.OptionData(song.SongName));
+                _dropdown.options.Add(new TMP_Dropdown.OptionData(song));
             }
             _dropdown.value = -1;
         }
 
         public void OnStartClicked()
         {
-            RVGC.AvailableSongs[_dropdown.value].FillResultKeys();
-            SceneEvents.OnSongChosen?.Invoke(RVGC.AvailableSongs[_dropdown.value]);
+            SongInfo chosenSong = _songsList[RVGC.AvailableSongs[_dropdown.value]];
+            chosenSong.FillResultKeys();
+            SceneEvents.OnSongChosen?.Invoke(chosenSong);
         }
     }
 }

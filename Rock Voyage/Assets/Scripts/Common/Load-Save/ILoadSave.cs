@@ -6,7 +6,7 @@ namespace RockVoyage
 
         public void Awake()
         {
-            LoadSaveManager.loadSaveList.TryAdd(Name, this);
+            LoadSaveManager.loadSaveList[Name] = this;
         }
 
         void Load(string loadData);
