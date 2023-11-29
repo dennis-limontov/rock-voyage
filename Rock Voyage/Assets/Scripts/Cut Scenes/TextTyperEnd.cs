@@ -9,14 +9,15 @@ namespace RockVoyage
         [SerializeField]
         private TextTyper _textTyper;
 
-        private string badEndText = "Game 11111111111111111\n" +
-            "Lost 22222222222222222";
-        private string goodEndText = "Game 333333333333333\n" +
-            "Won 444444444444444";
+        private string badEndText = "The rock'n'roll car didn't have time to run a red light and was left behind by the rapidly gaining popularity of new pop genres.\n\n" +
+            "You never managed to shoot among the numerous competitors, which, unfortunately, means that your time has passed.\n\n";
+        private string goodEndText = "Your band is destined to make history!\n\n" +
+            "Soon, T-shirts with your logo will become commonplace in the modern rock wardrobe.\n\n" +
+            "The pursuit of money and fame is behind you, and now you are one on one with pure art.\n\n";
 
         private void Start()
         {
-            Time.timeScale = 0.5f;
+            Time.timeScale = 0.25f;
             if ((GameCharacteristics.Fame == 1f) || (GameCharacteristics.Money >= 10000))
             {
                 _textTyper.TypeText(goodEndText);
