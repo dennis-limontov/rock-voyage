@@ -12,6 +12,9 @@ namespace RockVoyage
         private Canvas _pauseMenuCanvas;
 
         [SerializeField]
+        private GameObject _helpPanel;
+
+        [SerializeField]
         private GameObject _yesNoPanel;
 
         public void OnPause()
@@ -35,6 +38,16 @@ namespace RockVoyage
         {
             LoadSaveManager.Load();
             OnContinueClicked();
+        }
+
+        public void OnHelpClicked()
+        {
+            _helpPanel.SetActive(true);
+        }
+
+        public void OnHelpBackClicked()
+        {
+            _helpPanel.SetActive(false);
         }
 
         public void OnSettingsClicked()

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5035931679907785902}
   - component: {fileID: 2309374453803370253}
   m_Layer: 5
-  m_Name: Text-Value Panel
+  m_Name: Text-Value Horizontal Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
