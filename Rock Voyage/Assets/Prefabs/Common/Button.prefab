@@ -137,8 +137,8 @@ MonoBehaviour:
   m_IgnoreLayout: 0
   m_MinWidth: -1
   m_MinHeight: -1
-  m_PreferredWidth: 0
-  m_PreferredHeight: 0
+  m_PreferredWidth: 1
+  m_PreferredHeight: 1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
@@ -150,22 +150,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6067579254126345660}
     m_Modifications:
-    - target: {fileID: 7936418185411571076, guid: 8aa15e0293a5cb54daf9ad21087568c6, type: 3}
-      propertyPath: m_fontSize
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 7936418185411571076, guid: 8aa15e0293a5cb54daf9ad21087568c6, type: 3}
-      propertyPath: m_fontSizeMax
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 7936418185411571076, guid: 8aa15e0293a5cb54daf9ad21087568c6, type: 3}
-      propertyPath: m_enableAutoSizing
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7936418185411571076, guid: 8aa15e0293a5cb54daf9ad21087568c6, type: 3}
-      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
-      value: 1801810542
-      objectReference: {fileID: 0}
     - target: {fileID: 7936418185411571130, guid: 8aa15e0293a5cb54daf9ad21087568c6, type: 3}
       propertyPath: m_Name
       value: Common Text
@@ -177,10 +161,6 @@ PrefabInstance:
     - target: {fileID: 7936418185411571131, guid: 8aa15e0293a5cb54daf9ad21087568c6, type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7936418185411571131, guid: 8aa15e0293a5cb54daf9ad21087568c6, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7936418185411571131, guid: 8aa15e0293a5cb54daf9ad21087568c6, type: 3}
       propertyPath: m_AnchorMax.x
