@@ -85,13 +85,20 @@ namespace RockVoyage
         private List<string> _availableSongs = new List<string>();
         public static List<string> AvailableSongs => Instance._availableSongs;
 
+        private bool _isEnergyDrinkUsed;
+        public static bool IsEnergyDrinkUsed
+        {
+            get => Instance._isEnergyDrinkUsed;
+            set => Instance._isEnergyDrinkUsed = value;
+        }
+
         private (DateTime ClockDate, int Money, float Fame, DateTime PlayOnSceneAvailableDate,
             DateTime RecordAvailableDate, List<PlayerCharacteristics> Players, string HostelInfoName,
-            string MapInfoName, List<string> AvailableSongs)
+            string MapInfoName, List<string> AvailableSongs, bool IsEnergyDrinkUsed)
             SerializableTuple
         {
             get => (ClockDate, Money, Fame, PlayOnSceneAvailableDate, RecordAvailableDate,
-                players, HostelInfo.Name, MapInfo.Name, AvailableSongs);
+                players, HostelInfo.Name, MapInfo.Name, AvailableSongs, IsEnergyDrinkUsed);
             set
             {
                 ClockDate = value.ClockDate;
@@ -106,6 +113,7 @@ namespace RockVoyage
                 LoadSaveManager.loadSaveList.TryGetValue(value.MapInfoName, out mapSO);
                 MapInfo = (MapInfo)mapSO;
                 _availableSongs = value.AvailableSongs;
+                _isEnergyDrinkUsed = value.IsEnergyDrinkUsed;
             }
         }
 
@@ -117,7 +125,8 @@ namespace RockVoyage
         public void Load(string loadData)
         {
             SerializableTuple = JsonConvert.DeserializeObject<(DateTime, int, float,
-                DateTime, DateTime, List<PlayerCharacteristics>, string, string, List<string>)>(loadData);
+                DateTime, DateTime, List<PlayerCharacteristics>, string, string,
+                List<string>, bool)>(loadData);
         }
 
         public string Save()

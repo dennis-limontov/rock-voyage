@@ -33,7 +33,7 @@ namespace RockVoyage
 
         public void OnGoToSleepClicked()
         {
-            GameCharacteristics.CurrentPlayer.Sleep();
+            RVGC.CurrentPlayer.Sleep();
 
             ((UIActiveOneChild)GetController()).GoToPrevious();
         }
@@ -53,7 +53,7 @@ namespace RockVoyage
             {
                 RVGC.Money -= _reservationCost;
                 ((HostelInfo)houseInfo).AddDays(_reservationDays);
-                GameCharacteristics.HostelInfo = (HostelInfo)houseInfo;
+                RVGC.HostelInfo = (HostelInfo)houseInfo;
 
                 UpdateComponentsView();
             }

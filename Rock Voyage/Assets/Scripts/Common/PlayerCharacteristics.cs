@@ -28,6 +28,7 @@ namespace RockVoyage
             RVGC.ClockDate = new DateTime(ourDay.Year, ourDay.Month, ourDay.Day,
                 Constants.HOSTEL_NEW_DAY_HOUR, 0, 0);
             Energy = Constants.ENERGY_MAX;
+            RVGC.IsEnergyDrinkUsed = false;
         }
     }
 }

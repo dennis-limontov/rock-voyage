@@ -13,7 +13,6 @@ namespace RockVoyage
 
         public bool IsBooked => _reservationDepartureTime > GameCharacteristics.ClockDate;
 
-        [JsonProperty]
         private DateTime _reservationDepartureTime = DateTime.UnixEpoch;
         public DateTime ReservationDepartureTime => _reservationDepartureTime;
 

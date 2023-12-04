@@ -25,6 +25,7 @@ namespace RockVoyage
         public static readonly Color SLIDER_COLOR_DANGER = Color.red;
 
         public const float ENERGY_CONSUMPTION_PER_HOUR = 0.04f;
+        public const float ENERGY_DRINK_EFFECT = 0.5f;
         public const float ENERGY_MAX = 1f;
         public const float SCENE_PROFIT_PERCENT = 0.1f;
         public const float FAME_INCREMENT = 0.01f;
