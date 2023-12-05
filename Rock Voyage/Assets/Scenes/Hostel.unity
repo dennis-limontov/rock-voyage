@@ -2872,6 +2872,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background
       objectReference: {fileID: 0}
+    - target: {fileID: 6190434583484278034, guid: 262d3330081e30e41acae14586c05f93, type: 3}
+      propertyPath: m_Size.x
+      value: 11.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 6190434583484278034, guid: 262d3330081e30e41acae14586c05f93, type: 3}
+      propertyPath: m_Size.y
+      value: 8.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 6190434583484278034, guid: 262d3330081e30e41acae14586c05f93, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 6531038103401401645, guid: caec0ba97c4a2254cb72a1fd834bf775, type: 3}
+    - target: {fileID: 6190434583484278034, guid: 262d3330081e30e41acae14586c05f93, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6190434583484278035, guid: 262d3330081e30e41acae14586c05f93, type: 3}
       propertyPath: m_RootOrder
       value: 0

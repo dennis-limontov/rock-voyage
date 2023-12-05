@@ -19,14 +19,21 @@ namespace RockVoyage
             _music = GetComponent<AudioSource>();
             SceneEvents.OnConcertEnded += ConcertEndedHandler;
             SceneEvents.OnCountdownEnded += CountdownEndedHandler;
-            SceneEvents.OnSongChosen += SongChosenHandler;
             SceneEvents.OnCurrentNoteChanged += CurrentNoteChangedHandler;
+            SceneEvents.OnSongChosen += SongChosenHandler;
         }
 
         private void ConcertEndedHandler()
         {
             _animator.Play(Constants.PLAYER_STATE_IDLE);
             _music.Stop();
+        }
+
+        private void CountdownEndedHandler()
+        {
+            _animator.Play(Constants.PLAYER_STATE_SING);
+            _music.Play();
+            _currentNote = ' ';
         }
 
         private void CurrentNoteChangedHandler(char currentNote, char nextNote)
@@ -48,13 +55,6 @@ namespace RockVoyage
             _currentNote = ' ';
         }
 
-        private void CountdownEndedHandler()
-        {
-            _animator.Play(Constants.PLAYER_STATE_SING);
-            _music.Play();
-            _currentNote = ' ';
-        }
-
         private void SongChosenHandler(SongInfo currentSong)
         {
             _music.clip = currentSong.MusicForSinger;
@@ -63,8 +63,8 @@ namespace RockVoyage
 
         private void OnDestroy()
         {
-            SceneEvents.OnCurrentNoteChanged -= CurrentNoteChangedHandler;
             SceneEvents.OnSongChosen -= SongChosenHandler;
+            SceneEvents.OnCurrentNoteChanged -= CurrentNoteChangedHandler;
             SceneEvents.OnCountdownEnded -= CountdownEndedHandler;
             SceneEvents.OnConcertEnded -= ConcertEndedHandler;
         }
