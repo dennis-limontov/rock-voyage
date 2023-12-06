@@ -1,3 +1,4 @@
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace RockVoyage
@@ -20,7 +21,8 @@ namespace RockVoyage
 
         public void OnEnergyDrinkClicked()
         {
-            GameCharacteristics.CurrentPlayer.Energy += Constants.ENERGY_DRINK_EFFECT;
+            GameCharacteristics.CurrentPlayer.Energy = Mathf.Clamp(GameCharacteristics.CurrentPlayer.Energy
+                + Constants.ENERGY_DRINK_EFFECT, 0f, Constants.ENERGY_MAX);
             GameCharacteristics.IsEnergyDrinkUsed = true;
             _energyDrinkButton.interactable = false;
         }
