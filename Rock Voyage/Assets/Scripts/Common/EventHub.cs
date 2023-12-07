@@ -50,6 +50,10 @@ namespace RockVoyage
         // Pro Studio scene
         RecordAvailableDate = 8,
         // Street Music scene
-        StreetMusicAvailableDate = 9
+        StreetMusicAvailableDate = 9,
+        // Bar scene
+        BeerPressure = 10,
+        BeerCurrentVolume = 11,
+        BeerSteps = 12
     }
 }
