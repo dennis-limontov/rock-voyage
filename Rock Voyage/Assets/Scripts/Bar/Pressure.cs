@@ -31,8 +31,6 @@ namespace RockVoyage
         private int[] _pressureValues = { 0, 10, 25, 40, 65, 80 };
         public int CurrentPressure => _pressureValues[_pressureIndex];
 
-        private Beer _beer;
-
         public override void Enter()
         {
             base.Enter();
@@ -42,7 +40,6 @@ namespace RockVoyage
         public override void Init(UIBaseParent parent, HouseInfo houseInfo)
         {
             base.Init(parent, houseInfo);
-            _beer = (Beer)parent;
         }
 
         public void OnMoreButtonClicked()
@@ -65,35 +62,20 @@ namespace RockVoyage
         public void OnStopButtonClicked()
         {
             PressureIndex = 0;
-            if (_beer.BeerCurrentVolume == _beer.Goal)
-            {
-                // you won
-            }
-            else
-            {
-                // you lost
-            }
+            BarEvents.OnBeerQuestEnded?.Invoke();
         }
 
         private void MakeStep()
         {
-            Beer beer = (Beer)parent;
-            if (beer.Step > 0)
-            {
-                beer.Step--;
-                beer.BeerCurrentVolume += CurrentPressure;
-            }
-            else
-            {
-                // you lost
-            }
+            BarEvents.OnBeerQuestStepMade?.Invoke(CurrentPressure);
             UpdateComponentsView();
         }
 
         private void UpdateComponentsView()
         {
-            _moreButton.interactable = (_pressureIndex < _pressureValues.Length);
-            _sameButton.interactable = _lessButton.interactable = (_pressureIndex > 0);
+            _moreButton.interactable = (_pressureIndex < _pressureValues.Length - 1);
+            _sameButton.interactable = (_pressureIndex > 0);
+            _lessButton.interactable = (_pressureIndex > 1);
             _stopButton.interactable = (_pressureIndex == 1);
         }
     }

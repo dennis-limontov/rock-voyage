@@ -23,8 +23,6 @@ namespace RockVoyage
         [JsonIgnore]
         [SerializeField]
         private TextAsset _keysArray;
-        [JsonIgnore]
-        public TextAsset KeysArray => _keysArray;
 
         [SerializeField]
         private string _songName;
@@ -65,7 +63,7 @@ namespace RockVoyage
                 return;
             }
 
-            string[] _songKeys = KeysArray.text.Split(Environment.NewLine);
+            string[] _songKeys = _keysArray.text.Split(Environment.NewLine);
             int bars = int.Parse(_songKeys[0].Split(' ')[0]); // 113
             int divider = int.Parse(_songKeys[0].Split(' ')[1]); // 2
             _resultKeys = new char[bars * divider * 4]; // 904 = amount of 1/8 notes
