@@ -52,9 +52,11 @@ namespace RockVoyage
         // Street Music scene
         StreetMusicAvailableDate = 9,
         // Bar scene
-        BeerGoal = 10,
-        BeerSteps = 11,
-        BeerPressure = 12,
-        BeerCurrentVolume = 13
+        BarVisitors = 14, // 10
+        BarBetVisitors = 15, // 11
+        BeerGoal = 10, // 12
+        BeerSteps = 11, // 13
+        BeerPressure = 12, // 14
+        BeerCurrentVolume = 13, // 15
     }
 }

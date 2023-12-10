@@ -15,4 +15,5 @@ MonoBehaviour:
   _mapInfo: {fileID: 11400000, guid: d44f69a02ad774c46ab596ab5a0d2a45, type: 2}
   _sceneName: Bar
   _barName: Lidbeer
+  _capacity: 70
   _energyDrinkCost: 5

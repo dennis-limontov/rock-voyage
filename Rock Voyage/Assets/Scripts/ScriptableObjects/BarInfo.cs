@@ -10,6 +10,10 @@ namespace RockVoyage
         public string BarName => _barName;
 
         [SerializeField]
+        private int _capacity;
+        public int Capacity => _capacity;
+
+        [SerializeField]
         private int _energyDrinkCost;
         public int EnergyDrinkCost => _energyDrinkCost;
     }
