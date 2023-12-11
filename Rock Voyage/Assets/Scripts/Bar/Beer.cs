@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace RockVoyage
 {
@@ -44,8 +43,6 @@ namespace RockVoyage
             }
         }
 
-        private int _testBet = 10;
-
         public override void Dispose()
         {
             BarEvents.OnBeerQuestStepMade -= BeerQuestStepMadeHandler;
@@ -80,17 +77,21 @@ namespace RockVoyage
         private void BeerQuestEndedHandler()
         {
             GoToNext();
+
+            BarController barController = (BarController)GetController();
+            int moneyProfit = barController.Bet;
             if ((BeerCurrentVolume == Goal) && (Step >= 0))
             {
                 BarEvents.OnBeerQuestEndedWithResult?.Invoke(true);
+                moneyProfit *= (barController.BetVisitors + 1);
+                GameCharacteristics.Money += moneyProfit;
             }
             else
             {
-                _testBet *= -1;
                 BarEvents.OnBeerQuestEndedWithResult?.Invoke(false);
+                moneyProfit *= -1;
             }
-            GameCharacteristics.Money += _testBet;
-            EventHub.OnValueChanged?.Invoke(GameAttributes.MoneyProfit, 0, _testBet);
+            EventHub.OnValueChanged?.Invoke(GameAttributes.MoneyProfit, 0, moneyProfit);
         }
 
         private void BeerQuestStepMadeHandler(int currentPressure)

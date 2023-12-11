@@ -14,6 +14,7 @@ namespace RockVoyage
         {
             _slider = GetComponentInChildren<Slider>();
             _sliderText = GetComponentInChildren<TextMeshProUGUI>();
+            _slider.onValueChanged?.Invoke(_slider.value);
         }
 
         public void OnSliderValueChanged()

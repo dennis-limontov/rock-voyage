@@ -119,17 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &797647793 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6637313671051334382, guid: 782d6a0a6dc3b32468e836604415ea08, type: 3}
-  m_PrefabInstance: {fileID: 1892063816}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48eb34b662015e44e8a7b8e5e1a30cfd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1345229602
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,36 +300,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1541208256 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9172524712159347805, guid: 782d6a0a6dc3b32468e836604415ea08, type: 3}
-  m_PrefabInstance: {fileID: 1892063816}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1541208260 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7128225067695485626, guid: 782d6a0a6dc3b32468e836604415ea08, type: 3}
-  m_PrefabInstance: {fileID: 1892063816}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1541208256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40868536fcc3c2c458788a1cd1298e8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1541208263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1541208256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07b3907761209a34facb7f940206164f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _textTyper: {fileID: 1541208260}
-  _continueText: {fileID: 797647793}
 --- !u!1001 &1892063816
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -441,14 +400,36 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: e04d0541e3c59fc41b12f24805d4fb04, type: 3}
-    m_RemovedComponents:
-    - {fileID: 7523971451265341015, guid: 782d6a0a6dc3b32468e836604415ea08, type: 3}
+    - target: {fileID: 7523971451265341015, guid: 782d6a0a6dc3b32468e836604415ea08, type: 3}
+      propertyPath: _sceneName
+      value: Main Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 7523971451265341015, guid: 782d6a0a6dc3b32468e836604415ea08, type: 3}
+      propertyPath: _startText
+      value: You're the brightest star of the night sky, the hottest musical chord
+        of our time, but only you and your mother know about it so far.But that's
+        for now!You've decided to build a career as a rock musician, and your band
+        is already ready to declare itself.Show the world what your talent and diligence
+        are worth!The hearts of millions of fans around the world are already waiting
+        for you and only you on the other side of the music scene!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7523971451265341015, guid: 782d6a0a6dc3b32468e836604415ea08, type: 3}
+      propertyPath: _badEndText
+      value: The rock'n'roll car didn't have time to run a red light and was left
+        behind by the rapidly gaining popularity of new pop genres.You never managed
+        to shoot among the numerous competitors, which, unfortunately, means that
+        your time has passed.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7523971451265341015, guid: 782d6a0a6dc3b32468e836604415ea08, type: 3}
+      propertyPath: _goodEndText
+      value: Your band is destined to make history!Soon, T-shirts with your logo
+        will become commonplace in the modern rock wardrobe.The pursuit of money
+        and fame is behind you, and now you are one on one with pure art.
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 9172524712159347805, guid: 782d6a0a6dc3b32468e836604415ea08, type: 3}
-      insertIndex: 4
-      addedObject: {fileID: 1541208263}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 782d6a0a6dc3b32468e836604415ea08, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

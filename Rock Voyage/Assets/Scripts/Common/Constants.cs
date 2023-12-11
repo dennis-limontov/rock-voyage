@@ -63,8 +63,17 @@ namespace RockVoyage
         public const int NIGHT_MODE_HOURS_OFF = 6;
         public const int NIGHT_MODE_HOURS_ON = 22;
 
+        // street music
         public const float STREET_MUSIC_TIME = 30f;
         public const float REMEMBER_CHANCE = 0.5f;
         public const float EARN_MONEY_CHANCE = 0.05f;
+
+        // bar
+        public const float BAR_HOURS_FOR_QUEST = 3f;
+
+        // cut scenes
+        public const int GAME_OVER_YEAR = 1980;
+        public const float GAME_WON_FAME = 1f;
+        public const int GAME_WON_MONEY = 10000;
     }
 }
