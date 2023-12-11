@@ -404,28 +404,6 @@ PrefabInstance:
       propertyPath: _sceneName
       value: Main Menu
       objectReference: {fileID: 0}
-    - target: {fileID: 7523971451265341015, guid: 782d6a0a6dc3b32468e836604415ea08, type: 3}
-      propertyPath: _startText
-      value: You're the brightest star of the night sky, the hottest musical chord
-        of our time, but only you and your mother know about it so far.But that's
-        for now!You've decided to build a career as a rock musician, and your band
-        is already ready to declare itself.Show the world what your talent and diligence
-        are worth!The hearts of millions of fans around the world are already waiting
-        for you and only you on the other side of the music scene!
-      objectReference: {fileID: 0}
-    - target: {fileID: 7523971451265341015, guid: 782d6a0a6dc3b32468e836604415ea08, type: 3}
-      propertyPath: _badEndText
-      value: The rock'n'roll car didn't have time to run a red light and was left
-        behind by the rapidly gaining popularity of new pop genres.You never managed
-        to shoot among the numerous competitors, which, unfortunately, means that
-        your time has passed.
-      objectReference: {fileID: 0}
-    - target: {fileID: 7523971451265341015, guid: 782d6a0a6dc3b32468e836604415ea08, type: 3}
-      propertyPath: _goodEndText
-      value: Your band is destined to make history!Soon, T-shirts with your logo
-        will become commonplace in the modern rock wardrobe.The pursuit of money
-        and fame is behind you, and now you are one on one with pure art.
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
