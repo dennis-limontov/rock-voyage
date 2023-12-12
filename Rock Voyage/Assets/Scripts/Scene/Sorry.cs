@@ -11,7 +11,7 @@ namespace RockVoyage
             {
                 GoToNext();
                 EventHub.OnValueChanged?.Invoke(GameAttributes.PlayOnSceneAvailableDate,
-                    DateTime.UnixEpoch, GameCharacteristics.PlayOnSceneAvailableDate);
+                    default, GameCharacteristics.PlayOnSceneAvailableDate);
             }
         }
     }

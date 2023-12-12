@@ -19,7 +19,7 @@ namespace RockVoyage
             set
             {
                 _perfomanceQuality = value;
-                SceneEvents.OnPerfomanceQualityChanged?.Invoke(_perfomanceQuality);
+                SceneEvents.OnPerfomanceQualityChanged?.Invoke(0, _perfomanceQuality);
             }
         }
 

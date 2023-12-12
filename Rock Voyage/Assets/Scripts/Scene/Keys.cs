@@ -39,7 +39,7 @@ namespace RockVoyage
             _music.Play();
             // _keysSpeed = _keysTransform.sizeDelta.x / _bsParanoidSO.MusicForGroup.length; // 90400/164 = 22600/41
             _keysSpeed = _keyPrefab.GetComponent<RectTransform>().sizeDelta.x
-                * _currentSong.ResultKeys.Length / _currentSong.MusicForGroup.length;
+                * _currentSong.SongKeys.Length / _currentSong.MusicForGroup.length;
             _keysCoroutine = MovingKeys();
             StartCoroutine(_keysCoroutine);
         }
@@ -86,7 +86,7 @@ namespace RockVoyage
         {
             _currentSong = currentSong;
             _music.clip = currentSong.MusicForGroup;
-            foreach (var key in _currentSong.ResultKeys)
+            foreach (var key in _currentSong.SongKeys)
             {
                 GameObject _newKey = Instantiate(_keyPrefab, _keysTransform);
                 _newKey.GetComponentInChildren<TextMeshProUGUI>().text = key.ToString();
@@ -97,7 +97,7 @@ namespace RockVoyage
         {
             yield return null;
 
-            for (int i = 0, j; i < _currentSong.ResultKeys.Length; i = j)
+            for (int i = 0, j; i < _currentSong.SongKeys.Length; i = j)
             {
                 float checkSongTime;
                 do
@@ -114,10 +114,10 @@ namespace RockVoyage
                 } while ((checkSongTime > 0f) && (j <= i));
 
                 if (j <= 0) break;
-                else if (j < _currentSong.ResultKeys.Length)
+                else if (j < _currentSong.SongKeys.Length)
                 {
-                    SceneEvents.OnCurrentNoteChanged?.Invoke(_currentSong.ResultKeys[i],
-                        _currentSong.ResultKeys[j]);
+                    SceneEvents.OnCurrentNoteChanged?.Invoke(_currentSong.SongKeys[i],
+                        _currentSong.SongKeys[j]);
                 }
             }
 

@@ -12,9 +12,6 @@ namespace RockVoyage
         public const string CUT_SCENE_START = "Cut Scene Start";
         public const string START_CITY_NAME = "Map";
 
-        // layers
-        public const string HOUSE_LAYER = "House";
-
         // sliders
         public const float SLIDER_LIMIT_MIDDLE = 0.7f;
         public const float SLIDER_LIMIT_LOW = 0.4f;
@@ -43,6 +40,14 @@ namespace RockVoyage
         public const string PLAYER_STATE_BOOL_WALK_LEFT = "isWalkingLeft";
         public const string PLAYER_STATE_BOOL_WALK_RIGHT = "isWalkingRight";
         public const string PLAYER_STATE_BOOL_WALK_UP = "isWalkingUp";
+        public static readonly string[] PLAYER_STATE_MOVING_BOOL_NAMES =
+        {
+            PLAYER_STATE_BOOL_IDLE,
+            PLAYER_STATE_BOOL_WALK_FRONT,
+            PLAYER_STATE_BOOL_WALK_LEFT,
+            PLAYER_STATE_BOOL_WALK_RIGHT,
+            PLAYER_STATE_BOOL_WALK_UP,
+        };
 
         // time
         public static readonly TimeSpan GARAGE_STUDIO_TIME = new TimeSpan(2, 0, 0);

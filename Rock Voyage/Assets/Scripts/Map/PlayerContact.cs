@@ -1,5 +1,5 @@
 using UnityEngine;
-using static UnityEngine.InputSystem.InputAction;
+using UnityEngine.InputSystem;
 
 namespace RockVoyage
 {
@@ -9,29 +9,26 @@ namespace RockVoyage
 
         private void OnTriggerEnter2D(Collider2D collider2D)
         {
-            if (LayerMask.NameToLayer(Constants.HOUSE_LAYER)
-                == collider2D.gameObject.layer)
+            if (collider2D.gameObject.TryGetComponent(out _house))
             {
-                _house = collider2D.gameObject.GetComponent<House>();
                 _house.ShowBorder();
             }
         }
 
         private void OnTriggerExit2D(Collider2D collider2D)
         {
-            if (LayerMask.NameToLayer(Constants.HOUSE_LAYER)
-                == collider2D.gameObject.layer)
+            if (collider2D.gameObject.GetComponent<House>() == _house)
             {
                 _house.HideBorder();
                 _house = null;
             }
         }
 
-        public void OnInteracted(CallbackContext inputContext)
+        public void OnInteracted(InputAction.CallbackContext inputContext)
         {
-            if (_house != null)
+            if (inputContext.phase == InputActionPhase.Performed)
             {
-                _house.EnterHouse();
+                _house?.EnterHouse();
             }
         }
     }

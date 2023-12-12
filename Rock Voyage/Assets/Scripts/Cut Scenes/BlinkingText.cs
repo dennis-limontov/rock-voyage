@@ -6,9 +6,10 @@ namespace RockVoyage
     public class BlinkingText : MonoBehaviour
     {
         [SerializeField]
-        private GameObject _blinkedObject;
+        private GameObject _blinkingObject;
 
-        private const float BLINKING_TIME = 0.5f;
+        [SerializeField]
+        private float _blinkingTime = 0.5f;
 
         public bool IsActivated => (_blinkingCoroutine != null);
 
@@ -34,10 +35,10 @@ namespace RockVoyage
 
         private IEnumerator ShowBlinkingText()
         {
-            WaitForSecondsRealtime wfsr = new WaitForSecondsRealtime(BLINKING_TIME);
+            WaitForSecondsRealtime wfsr = new WaitForSecondsRealtime(_blinkingTime);
             while (true)
             {
-                _blinkedObject.SetActive(!_blinkedObject.activeSelf);
+                _blinkingObject.SetActive(!_blinkingObject.activeSelf);
 
                 yield return wfsr;
             }

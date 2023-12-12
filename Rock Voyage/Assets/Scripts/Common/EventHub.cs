@@ -6,32 +6,17 @@ namespace RockVoyage
     {
         public static Action<GameAttributes, object, object> OnValueChanged;
 
-        public static void Initialize()
+        static EventHub()
         {
-            MapEvents.OnClockDateChanged += ClockDateChangedHandler;
-            MapEvents.OnFameChanged += FameChangedHandler;
-            MapEvents.OnMoneyChanged += MoneyChangedHandler;
-            SceneEvents.OnPerfomanceQualityChanged += PerfomanceQualityChangedHandler;
+            MapEvents.OnClockDateChanged += EventHandler<DateTime>(GameAttributes.Time);
+            MapEvents.OnFameChanged += EventHandler<float>(GameAttributes.Fame);
+            MapEvents.OnMoneyChanged += EventHandler<int>(GameAttributes.Money);
+            SceneEvents.OnPerfomanceQualityChanged += EventHandler<float>(GameAttributes.PerfomanceQuality);
         }
 
-        private static void ClockDateChangedHandler(DateTime arg1, DateTime arg2)
+        private static Action<T, T> EventHandler<T>(GameAttributes attribute)
         {
-            OnValueChanged?.Invoke(GameAttributes.Time, arg1, arg2);
-        }
-
-        private static void FameChangedHandler(float arg1, float arg2)
-        {
-            OnValueChanged?.Invoke(GameAttributes.Fame, arg1, arg2);
-        }
-
-        private static void MoneyChangedHandler(int arg1, int arg2)
-        {
-            OnValueChanged?.Invoke(GameAttributes.Money, arg1, arg2);
-        }
-
-        private static void PerfomanceQualityChangedHandler(float obj)
-        {
-            OnValueChanged?.Invoke(GameAttributes.PerfomanceQuality, 0f, obj);
+            return (T oldValue, T newValue) => OnValueChanged?.Invoke(attribute, oldValue, newValue);
         }
     }
 
@@ -48,6 +33,7 @@ namespace RockVoyage
         PerfomanceQuality = 6,
         PlayOnSceneAvailableDate = 7,
         // Pro Studio scene
+        RecordCost = 16,
         RecordAvailableDate = 8,
         // Street Music scene
         StreetMusicAvailableDate = 9,

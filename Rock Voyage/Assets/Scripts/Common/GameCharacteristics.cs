@@ -28,8 +28,9 @@ namespace RockVoyage
             get => Instance._money;
             set
             {
-                MapEvents.OnMoneyChanged?.Invoke(Instance._money, value);
+                var ourMoney = Instance._money;
                 Instance._money = value;
+                MapEvents.OnMoneyChanged?.Invoke(ourMoney, value);
             }
         }
 
@@ -39,8 +40,9 @@ namespace RockVoyage
             get => Instance._fame;
             set
             {
-                MapEvents.OnFameChanged?.Invoke(Instance._fame, value);
+                var ourFame = Instance._fame;
                 Instance._fame = value;
+                MapEvents.OnFameChanged?.Invoke(ourFame, value);
             }
         }
 
@@ -51,6 +53,8 @@ namespace RockVoyage
             set
             {
                 Instance._playOnSceneAvailableDate = value;
+                EventHub.OnValueChanged?.Invoke(GameAttributes.PlayOnSceneAvailableDate,
+                    default, value);
             }
         }
 
@@ -61,6 +65,8 @@ namespace RockVoyage
             set
             {
                 Instance._recordAvailableDate = value;
+                EventHub.OnValueChanged?.Invoke(GameAttributes.RecordAvailableDate,
+                    default, value);
             }
         }
 
@@ -107,8 +113,11 @@ namespace RockVoyage
                 PlayOnSceneAvailableDate = value.PlayOnSceneAvailableDate;
                 RecordAvailableDate = value.RecordAvailableDate;
                 players = value.Players;
-                ILoadSave hostelSO, mapSO;
-                LoadSaveManager.loadSaveList.TryGetValue(value.HostelInfoName, out hostelSO);
+                ILoadSave hostelSO = null, mapSO;
+                if (value.HostelInfoName != null)
+                {
+                    LoadSaveManager.loadSaveList.TryGetValue(value.HostelInfoName, out hostelSO);
+                }
                 HostelInfo = (HostelInfo)hostelSO;
                 LoadSaveManager.loadSaveList.TryGetValue(value.MapInfoName, out mapSO);
                 MapInfo = (MapInfo)mapSO;
@@ -132,6 +141,14 @@ namespace RockVoyage
         public string Save()
         {
             return JsonConvert.SerializeObject(SerializableTuple);
+        }
+
+        public static void Reset()
+        {
+            Instance.SerializableTuple = (DateTime.UnixEpoch, Constants.MONEY_AT_START,
+                0f, DateTime.UnixEpoch, DateTime.UnixEpoch,
+                new List<PlayerCharacteristics>(Constants.PLAYERS_MAX),
+                null, Constants.START_CITY_NAME, new List<string>(), false);
         }
     }
 }

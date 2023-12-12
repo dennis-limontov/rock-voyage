@@ -9,9 +9,6 @@ namespace RockVoyage
     public class CutScene : MonoBehaviour
     {
         [SerializeField]
-        private TextTyper _textTyper;
-
-        [SerializeField]
         private BlinkingText _continueText;
 
         [SerializeField]
@@ -38,31 +35,31 @@ namespace RockVoyage
 
         private const float TYPING_PAUSE = 0.05f;
 
+        private TextTyper _textTyper;
+
         private AudioSource _audioSource;
 
         private TextMeshProUGUI _text;
 
         private void Start()
         {
+            _text = GetComponent<TextMeshProUGUI>();
+            _textTyper = GetComponent<TextTyper>();
             _audioSource = GetComponent<AudioSource>();
             _audioSource.Play();
-            _text = GetComponent<TextMeshProUGUI>();
             _textTyper.PrintCompleted.AddListener(PrintCompletedHandler);
             _textTyper.CharacterPrinted.AddListener(CharacterPrintedHandler);
+            string textToType = _startText;
             if ((GameCharacteristics.Fame == Constants.GAME_WON_FAME)
                 || (GameCharacteristics.Money >= Constants.GAME_WON_MONEY))
             {
-                _textTyper.TypeText(_goodEndText, TYPING_PAUSE);
+                textToType = _goodEndText;
             }
             else if (GameCharacteristics.ClockDate.Year == Constants.GAME_OVER_YEAR)
             {
-                _textTyper.TypeText(_badEndText, TYPING_PAUSE);
+                textToType = _badEndText;
             }
-            else
-            {
-                _textTyper.TypeText(_startText, TYPING_PAUSE);
-            }
-            TMP_Text tMP_Text;
+            _textTyper.TypeText(textToType, TYPING_PAUSE);
         }
 
         private void CharacterPrintedHandler(string printedCharacter)

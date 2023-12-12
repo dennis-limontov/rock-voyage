@@ -57,8 +57,8 @@ namespace RockVoyage
 
         private void SongChosenHandler(SongInfo currentSong)
         {
-            _music.clip = currentSong.MusicForSinger;
             _currentSong = currentSong;
+            _music.clip = _currentSong.MusicForSinger;
         }
 
         private void OnDestroy()

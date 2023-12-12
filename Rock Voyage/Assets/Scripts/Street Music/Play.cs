@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace RockVoyage
@@ -13,8 +14,11 @@ namespace RockVoyage
         public override void Enter()
         {
             base.Enter();
-            GoTo(((StreetMusicInfo)houseInfo).IsAvailable
+            StreetMusicInfo streetMusicInfo = (StreetMusicInfo)houseInfo;
+            GoTo(streetMusicInfo.IsAvailable
                 ? _playButton : _nextAvailableTimeText);
+            EventHub.OnValueChanged?.Invoke(GameAttributes.StreetMusicAvailableDate,
+                default, streetMusicInfo.PlayAgainTime);
         }
     }
 }

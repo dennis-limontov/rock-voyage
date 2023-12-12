@@ -329,7 +329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48eb34b662015e44e8a7b8e5e1a30cfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _blinkedObject: {fileID: 4660801962426459036}
+  _blinkingObject: {fileID: 4660801962426459036}
 --- !u!81 &4638539954317351137
 AudioListener:
   m_ObjectHideFlags: 0
@@ -510,8 +510,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c203d0f976174845ad5b77e39e442d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _textTyper: {fileID: 7128225067695485626}
   _continueText: {fileID: 6637313671051334382}
+  _badEndText: 'The rock''n''roll car didn''t have time to run a red light and was
+    left behind by the rapidly gaining popularity of new pop genres.
+
+
+    You never
+    managed to shoot among the numerous competitors, which, unfortunately, means
+    that your time has passed.'
+  _goodEndText: 'Your band is destined to make history!
+
+
+    Soon, T-shirts with
+    your logo will become commonplace in the modern rock wardrobe.
+
+
+    The pursuit
+    of money and fame is behind you, and now you are one on one with pure art.'
+  _startText: 'You''re the brightest star of the night sky, the hottest musical chord
+    of our time, but only you and your mother know about it so far.
+
+
+    But that''s
+    for now!
+
+
+    You''ve decided to build a career as a rock musician, and your
+    band is already ready to declare itself.
+
+
+    Show the world what your talent
+    and diligence are worth!
+
+
+    The hearts of millions of fans around the world
+    are already waiting for you and only you on the other side of the music scene!'
+  _sceneName: 
 --- !u!82 &5937026169719875276
 AudioSource:
   m_ObjectHideFlags: 0

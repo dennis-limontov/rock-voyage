@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using RVGC = RockVoyage.GameCharacteristics;
@@ -12,17 +13,21 @@ namespace RockVoyage
         private const string GREETINGS_DONE = "Well done! Record was awesome!";
         private const string GREETINGS_SORRY = "Sorry but you should wait a little.";
 
-        public override void Init(UIBaseParent parent, HouseInfo houseInfo)
+        public override void Enter()
         {
-            base.Init(parent, houseInfo);
+            base.Enter();
             if (RVGC.ClockDate <= RVGC.RecordAvailableDate)
             {
                 _greetingsDoneText.text = GREETINGS_SORRY;
                 GoToNext();
+                EventHub.OnValueChanged?.Invoke(GameAttributes.RecordAvailableDate,
+                    default, RVGC.RecordAvailableDate);
             }
             else
             {
                 _greetingsDoneText.text = GREETINGS_DONE;
+                EventHub.OnValueChanged?.Invoke(GameAttributes.RecordCost,
+                    default, Constants.PRO_STUDIO_RECORD_COST);
             }
         }
     }

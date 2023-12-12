@@ -18,7 +18,6 @@ namespace RockVoyage
 
         public string Name => name;
 
-        [JsonProperty]
         private (float X, float Y) PlayerPosition
         {
             get => (transform.position.x, transform.position.y);
@@ -32,13 +31,13 @@ namespace RockVoyage
 
         public void Awake()
         {
-            LoadSaveManager.loadSaveList.TryAdd(Name, this);
             _animator = GetComponent<Animator>();
+            LoadSaveManager.Add(Name, this);
         }
 
         private void OnDestroy()
         {
-            LoadSaveManager.loadSaveList.Remove(Name);
+            LoadSaveManager.Remove(Name);
         }
 
         public void Load(string loadData)
@@ -62,51 +61,35 @@ namespace RockVoyage
         public void OnMoved(CallbackContext inputContext)
         {
             _movementVector = inputContext.ReadValue<Vector2>();
-            if (_movementVector.x > 0)
+            foreach (string boolName in Constants.PLAYER_STATE_MOVING_BOOL_NAMES)
             {
-                _animator.SetBool("isIdle", false);
-                _animator.SetBool("isWalkingFront", false);
-                _animator.SetBool("isWalkingLeft", false);
-                _animator.SetBool("isWalkingRight", true);
-                _animator.SetBool("isWalkingUp", false);
+                _animator.SetBool(boolName, false);
+            }
+            if (_movementVector.y > 0)
+            {
+                _animator.SetBool(Constants.PLAYER_STATE_BOOL_WALK_UP, true);
+            }
+            else if (_movementVector.y < 0)
+            {
+                _animator.SetBool(Constants.PLAYER_STATE_BOOL_WALK_FRONT, true);
+            }
+            else if (_movementVector.x > 0)
+            {
+                _animator.SetBool(Constants.PLAYER_STATE_BOOL_WALK_RIGHT, true);
                 Quaternion playerRotation = transform.rotation;
                 playerRotation.y = 0f;
                 transform.rotation = playerRotation;
             }
             else if (_movementVector.x < 0)
             {
-                _animator.SetBool("isIdle", false);
-                _animator.SetBool("isWalkingFront", false);
-                _animator.SetBool("isWalkingLeft", true);
-                _animator.SetBool("isWalkingRight", false);
-                _animator.SetBool("isWalkingUp", false);
+                _animator.SetBool(Constants.PLAYER_STATE_BOOL_WALK_LEFT, true);
                 Quaternion playerRotation = transform.rotation;
                 playerRotation.y = 180f;
                 transform.rotation = playerRotation;
             }
-            else if (_movementVector.y > 0)
-            {
-                _animator.SetBool("isIdle", false);
-                _animator.SetBool("isWalkingFront", false);
-                _animator.SetBool("isWalkingLeft", false);
-                _animator.SetBool("isWalkingRight", false);
-                _animator.SetBool("isWalkingUp", true);
-            }
-            else if (_movementVector.y < 0)
-            {
-                _animator.SetBool("isIdle", false);
-                _animator.SetBool("isWalkingFront", true);
-                _animator.SetBool("isWalkingLeft", false);
-                _animator.SetBool("isWalkingRight", false);
-                _animator.SetBool("isWalkingUp", false);
-            }
             else
             {
-                _animator.SetBool("isIdle", true);
-                _animator.SetBool("isWalkingFront", false);
-                _animator.SetBool("isWalkingLeft", false);
-                _animator.SetBool("isWalkingRight", false);
-                _animator.SetBool("isWalkingUp", false);
+                _animator.SetBool(Constants.PLAYER_STATE_BOOL_IDLE, true);
             }
         }
     }

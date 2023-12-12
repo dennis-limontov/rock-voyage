@@ -14,19 +14,24 @@ namespace RockVoyage
         public DateTime PlayAgainTime
         {
             get => _playAgainTime;
-            set => _playAgainTime = value;
+            set
+            {
+                _playAgainTime = value;
+                EventHub.OnValueChanged?.Invoke(GameAttributes.StreetMusicAvailableDate,
+                    default, value);
+            }
         }
 
         public string Name => name;
 
         private void Awake()
         {
-            LoadSaveManager.loadSaveList.TryAdd(Name, this);
+            LoadSaveManager.Add(Name, this);
         }
 
         private void OnDestroy()
         {
-            LoadSaveManager.loadSaveList.Remove(Name);
+            LoadSaveManager.Remove(Name);
         }
 
         public void Load(string loadData)

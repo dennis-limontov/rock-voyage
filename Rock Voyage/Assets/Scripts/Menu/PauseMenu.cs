@@ -19,8 +19,15 @@ namespace RockVoyage
 
         public void OnPause()
         {
-            Time.timeScale = 0f;
-            _pauseMenuCanvas.gameObject.SetActive(true);
+            if (_pauseMenuCanvas.gameObject.activeSelf)
+            {
+                OnContinueClicked();
+            }
+            else
+            {
+                Time.timeScale = 0f;
+                _pauseMenuCanvas.gameObject.SetActive(true);
+            }
         }
 
         public void OnContinueClicked()

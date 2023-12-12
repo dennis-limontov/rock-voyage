@@ -13,5 +13,13 @@ namespace RockVoyage
             _goButton = GetComponent<Button>();
             _goButton.interactable = (RVGC.Money >= Constants.PRO_STUDIO_RECORD_COST);
         }
+
+        public void OnGoClicked()
+        {
+            RVGC.Money -= Constants.PRO_STUDIO_RECORD_COST;
+            RVGC.Fame += Constants.FAME_INCREMENT;
+            RVGC.RecordAvailableDate = RVGC.ClockDate.AddDays(7);
+            RVGC.ClockDate += Constants.PRO_STUDIO_TIME;
+        }
     }
 }

@@ -34,13 +34,8 @@ namespace RockVoyage
 
         private void ResetGameData()
         {
-            GameCharacteristics.ClockDate = DateTime.UnixEpoch;
-            GameCharacteristics.Fame = 0f;
-            GameCharacteristics.Money = Constants.MONEY_AT_START;
-            GameCharacteristics.Instance.players.Clear();
-            GameCharacteristics.AvailableSongs.Clear();
+            GameCharacteristics.Reset();
             GameCharacteristics.AvailableSongs.Add(_firstSong.SongName);
-            GameCharacteristics.RecordAvailableDate = DateTime.UnixEpoch;
         }
     }
 }

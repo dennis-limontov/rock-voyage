@@ -337,42 +337,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &2626886800310442025
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2626886800310442026}
-  m_Layer: 5
-  m_Name: Perfomance Quality
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2626886800310442026
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2626886800310442025}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
-  m_Children:
-  - {fileID: 2626886802275744074}
-  m_Father: {fileID: 2626886801301604353}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.25, y: 0.85}
-  m_AnchorMax: {x: 0.75, y: 0.975}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2626886800365841425
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,7 +487,7 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2626886801792701241}
-  - {fileID: 2626886800310442026}
+  - {fileID: 2626886802275744074}
   m_Father: {fileID: 2028352531366376645}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.2, y: 0}
@@ -601,7 +565,7 @@ MonoBehaviour:
   _source: 1
   _separateMask: {fileID: 0}
   _sprite: {fileID: 21300000, guid: 67d8593ecd0338c418efb77357da951b, type: 3}
-  _spriteBorderMode: 1
+  _spriteBorderMode: 0
   _spritePixelsPerUnitMultiplier: 1
   _texture: {fileID: 0}
   _textureUVRect:
@@ -747,6 +711,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: f9463f49-eb36-4e05-b2d0-03388377792b
     m_ActionName: 'Pause/Pause[/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 72717bf2-f6b0-477d-8e47-0d5c14dababc
+    m_ActionName: 'End/End[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Scene
@@ -1886,6 +1854,10 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Choose a song to rehearse:'
       objectReference: {fileID: 0}
+    - target: {fileID: 7111706097739551453, guid: b1201bc374b3a4649afd159fda1b9cd9, type: 3}
+      propertyPath: m_fontSize
+      value: 34.6
+      objectReference: {fileID: 0}
     - target: {fileID: 7111706097739551459, guid: b1201bc374b3a4649afd159fda1b9cd9, type: 3}
       propertyPath: m_Name
       value: Choice Panel Text
@@ -2228,6 +2200,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Start
       objectReference: {fileID: 0}
+    - target: {fileID: 4531395702320154563, guid: 04207e86def15f246ad3e61efc3f4d6c, type: 3}
+      propertyPath: m_fontSize
+      value: 56.6
+      objectReference: {fileID: 0}
     - target: {fileID: 4531395702320154621, guid: 04207e86def15f246ad3e61efc3f4d6c, type: 3}
       propertyPath: m_Name
       value: Start Button Text
@@ -2493,8 +2469,12 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2626886800310442026}
+    m_TransformParent: {fileID: 2626886801301604353}
     m_Modifications:
+    - target: {fileID: 3497435711374419925, guid: 90387250e14c3c541aed9d24344bb3d8, type: 3}
+      propertyPath: m_fontSize
+      value: 48.1
+      objectReference: {fileID: 0}
     - target: {fileID: 5148756969637526406, guid: 90387250e14c3c541aed9d24344bb3d8, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2517,19 +2497,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5148756970232425392, guid: 90387250e14c3c541aed9d24344bb3d8, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 5148756970232425392, guid: 90387250e14c3c541aed9d24344bb3d8, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0.975
       objectReference: {fileID: 0}
     - target: {fileID: 5148756970232425392, guid: 90387250e14c3c541aed9d24344bb3d8, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 5148756970232425392, guid: 90387250e14c3c541aed9d24344bb3d8, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 5148756970232425392, guid: 90387250e14c3c541aed9d24344bb3d8, type: 3}
       propertyPath: m_SizeDelta.x
@@ -2589,16 +2569,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5148756970232425395, guid: 90387250e14c3c541aed9d24344bb3d8, type: 3}
       propertyPath: m_Name
-      value: Slider
+      value: Perfomance Quality
       objectReference: {fileID: 0}
-    - target: {fileID: 5148756970232425398, guid: 90387250e14c3c541aed9d24344bb3d8, type: 3}
-      propertyPath: m_Value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5148756970232425398, guid: 90387250e14c3c541aed9d24344bb3d8, type: 3}
-      propertyPath: m_TargetGraphic
-      value: 
-      objectReference: {fileID: 1827269325411878792}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2607,17 +2579,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 192990116115541702}
   m_SourcePrefab: {fileID: 100100000, guid: 90387250e14c3c541aed9d24344bb3d8, type: 3}
---- !u!114 &1827269325411878792 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8816745469984052594, guid: 90387250e14c3c541aed9d24344bb3d8, type: 3}
-  m_PrefabInstance: {fileID: 7133873950421652218}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2626886802275744073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2626886801780124029 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5148756969637526407, guid: 90387250e14c3c541aed9d24344bb3d8, type: 3}

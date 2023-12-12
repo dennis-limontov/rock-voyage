@@ -2,7 +2,7 @@
 
 namespace RockVoyage
 {
-    public class MapEvents
+    public static class MapEvents
     {
         public static Action<DateTime, DateTime> OnClockDateChanged;
         public static Action OnLowEnergy;

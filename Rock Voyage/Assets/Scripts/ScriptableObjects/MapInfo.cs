@@ -8,30 +8,32 @@ namespace RockVoyage
     {
         [SerializeField]
         private string _mapName;
-        [JsonIgnore]
         public string MapName => _mapName;
 
-        [JsonIgnore]
         private bool _isMapPurchased;
-        [JsonIgnore]
         public bool IsMapPurchased
         {
             get => _isMapPurchased;
-            set => _isMapPurchased = value;
+            set
+            {
+                _isMapPurchased = value;
+                MapEvents.OnMapBought?.Invoke();
+            }
         }
 
-        [JsonIgnore]
         private bool _isNewspaperPurchased;
-        [JsonIgnore]
         public bool IsNewspaperPurchased
         {
             get => _isNewspaperPurchased;
-            set => _isNewspaperPurchased = value;
+            set
+            {
+                _isNewspaperPurchased = value;
+                MapEvents.OnNewspaperBought?.Invoke();
+            }
         }
 
         public string Name => name;
 
-        [JsonProperty]
         private (bool IsMapPurchased, bool IsNewspaperPurchased) SerializableTuple
         {
             get => (_isMapPurchased, _isNewspaperPurchased);
@@ -41,10 +43,8 @@ namespace RockVoyage
             }
         }
 
-        [JsonIgnore]
         [SerializeField]
         private GameObject _mapObjects;
-        [JsonIgnore]
         public GameObject MapObjects
         {
             get => _mapObjects;
@@ -53,12 +53,12 @@ namespace RockVoyage
 
         private void Awake()
         {
-            LoadSaveManager.loadSaveList.TryAdd(Name, this);
+            LoadSaveManager.Add(Name, this);
         }
 
         private void OnDestroy()
         {
-            LoadSaveManager.loadSaveList.Remove(Name);
+            LoadSaveManager.Remove(Name);
         }
 
         public void Load(string loadData)

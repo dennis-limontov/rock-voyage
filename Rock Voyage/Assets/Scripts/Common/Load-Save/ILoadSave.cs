@@ -6,7 +6,7 @@ namespace RockVoyage
 
         public void Awake()
         {
-            LoadSaveManager.loadSaveList[Name] = this;
+            LoadSaveManager.Add(Name, this);
         }
 
         void Load(string loadData);
@@ -15,7 +15,7 @@ namespace RockVoyage
 
         public void OnDestroy()
         {
-            LoadSaveManager.loadSaveList.Remove(Name);
+            LoadSaveManager.Remove(Name);
         }
     }
 }

@@ -23,6 +23,16 @@ namespace RockVoyage
             });
         }
 
+        public static void Add(string name, ILoadSave loadSave)
+        {
+            loadSaveList[name] = loadSave;
+        }
+
+        public static void Remove(string name)
+        {
+            loadSaveList.Remove(name);
+        }
+
         public static void Load()
         {
             if (!File.Exists(SAVE_FILE_PATH))

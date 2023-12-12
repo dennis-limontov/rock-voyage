@@ -19,7 +19,6 @@ namespace RockVoyage
         {
             base.Init(parent, houseInfo);
             SceneEvents.OnCountdownEnded += CountdownEndedHandler;
-            this.houseInfo = houseInfo;
         }
 
         private void CountdownEndedHandler()

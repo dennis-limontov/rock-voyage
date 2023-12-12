@@ -20,7 +20,6 @@ namespace RockVoyage
 
         private void Awake()
         {
-            EventHub.Initialize();
             SceneManager.sceneLoaded += SceneLoadedHandler;
             Time.timeScale = 1f;
         }
