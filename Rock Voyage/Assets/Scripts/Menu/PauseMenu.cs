@@ -3,37 +3,36 @@ using UnityEngine.SceneManagement;
 
 namespace RockVoyage
 {
-    public class PauseMenu : MonoBehaviour
+    public class PauseMenu : UIBase
     {
         [SerializeField]
         private CanvasGroup _buttonsCanvasGroup;
 
         [SerializeField]
-        private Canvas _pauseMenuCanvas;
-
-        [SerializeField]
-        private GameObject _helpPanel;
-
-        [SerializeField]
         private GameObject _yesNoPanel;
+
+        public override void Enter()
+        {
+            base.Enter();
+            Time.timeScale = 0f;
+        }
+
+        public override void Exit()
+        {
+            base.Exit();
+            Time.timeScale = 1f;
+        }
 
         public void OnPause()
         {
-            if (_pauseMenuCanvas.gameObject.activeSelf)
+            if (IsActive)
             {
-                OnContinueClicked();
+                Exit();
             }
             else
             {
-                Time.timeScale = 0f;
-                _pauseMenuCanvas.gameObject.SetActive(true);
+                Enter();
             }
-        }
-
-        public void OnContinueClicked()
-        {
-            Time.timeScale = 1f;
-            _pauseMenuCanvas.gameObject.SetActive(false);
         }
 
         public void OnSaveGameClicked()
@@ -44,22 +43,7 @@ namespace RockVoyage
         public void OnLoadGameClicked()
         {
             LoadSaveManager.Load();
-            OnContinueClicked();
-        }
-
-        public void OnHelpClicked()
-        {
-            _helpPanel.SetActive(true);
-        }
-
-        public void OnHelpBackClicked()
-        {
-            _helpPanel.SetActive(false);
-        }
-
-        public void OnSettingsClicked()
-        {
-
+            Exit();
         }
 
         public void OnBackToMainMenuClicked()
@@ -76,6 +60,7 @@ namespace RockVoyage
 
         public void OnYesButtonClicked()
         {
+            Exit();
             SceneManager.LoadScene(Constants.MAIN_MENU_SCENE_NAME);
         }
     }

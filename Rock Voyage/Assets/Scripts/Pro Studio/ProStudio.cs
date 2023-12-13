@@ -21,13 +21,13 @@ namespace RockVoyage
                 _greetingsDoneText.text = GREETINGS_SORRY;
                 GoToNext();
                 EventHub.OnValueChanged?.Invoke(GameAttributes.RecordAvailableDate,
-                    default, RVGC.RecordAvailableDate);
+                    DateTime.UnixEpoch, RVGC.RecordAvailableDate);
             }
             else
             {
                 _greetingsDoneText.text = GREETINGS_DONE;
                 EventHub.OnValueChanged?.Invoke(GameAttributes.RecordCost,
-                    default, Constants.PRO_STUDIO_RECORD_COST);
+                    0, Constants.PRO_STUDIO_RECORD_COST);
             }
         }
     }

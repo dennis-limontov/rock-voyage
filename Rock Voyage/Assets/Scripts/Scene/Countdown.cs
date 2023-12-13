@@ -9,6 +9,7 @@ namespace RockVoyage
     {
         private TextMeshProUGUI _text;
         private int _countdown = 3;
+        private const float TIME = 1f;
         private const string GO = "LET'S ROCK!!!";
 
         public override void Enter()
@@ -26,22 +27,16 @@ namespace RockVoyage
 
         private IEnumerator CountdownCoroutine()
         {
+            float scale = transform.localScale.x;
             while (_countdown >= 0)
             {
-                if (_countdown == 0)
-                {
-                    _text.text = GO;
-                }
-                else
-                {
-                    _text.text = _countdown.ToString();
-                }
+                _text.text = (_countdown == 0) ? GO : _countdown.ToString();
                 _countdown--;
                 DOTween.Sequence()
-                    .Append(transform.DOScale(1f, 1f))
-                    .Append(transform.DOScale(0.5f, 0f));
+                    .Append(transform.DOScale(scale * 2, TIME))
+                    .Append(transform.DOScale(scale, 0f));
 
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(TIME);
             }
 
             SceneEvents.OnCountdownEnded?.Invoke();

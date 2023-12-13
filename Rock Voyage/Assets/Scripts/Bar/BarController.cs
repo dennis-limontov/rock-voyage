@@ -58,7 +58,7 @@ namespace RockVoyage
 
         private void BeerQuestEndedWithResultHandler(bool obj)
         {
-            GameCharacteristics.ClockDate = GameCharacteristics.ClockDate.AddHours(Constants.BAR_HOURS_FOR_QUEST);
+            GameCharacteristics.ClockDate += Constants.BAR_QUEST_TIME;
         }
 
         public void DefineQuest(int barQuestIndex)

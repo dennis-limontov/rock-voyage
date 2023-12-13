@@ -54,7 +54,7 @@ namespace RockVoyage
             {
                 Instance._playOnSceneAvailableDate = value;
                 EventHub.OnValueChanged?.Invoke(GameAttributes.PlayOnSceneAvailableDate,
-                    default, value);
+                    DateTime.UnixEpoch, value);
             }
         }
 
@@ -66,7 +66,7 @@ namespace RockVoyage
             {
                 Instance._recordAvailableDate = value;
                 EventHub.OnValueChanged?.Invoke(GameAttributes.RecordAvailableDate,
-                    default, value);
+                    DateTime.UnixEpoch, value);
             }
         }
 

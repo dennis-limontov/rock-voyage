@@ -18,7 +18,7 @@ namespace RockVoyage
             {
                 _playAgainTime = value;
                 EventHub.OnValueChanged?.Invoke(GameAttributes.StreetMusicAvailableDate,
-                    default, value);
+                    DateTime.UnixEpoch, value);
             }
         }
 

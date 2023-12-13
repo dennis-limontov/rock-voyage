@@ -10,6 +10,8 @@ namespace RockVoyage
         [NonSerialized]
         public HouseInfo houseInfo;
 
+        public bool IsActive => gameObject.activeSelf;
+
         public virtual void Dispose()
         {
         }

@@ -4,16 +4,16 @@ namespace RockVoyage
 {
     public class Asleep : UIActiveOneChild
     {
-        private void Awake()
+        public override void Dispose()
         {
-            Init(null, null);
-            MapEvents.OnLowEnergy += Enter;
-            Exit();
+            MapEvents.OnLowEnergy -= Enter;
+            base.Dispose();
         }
 
         public override void Enter()
         {
             base.Enter();
+            Time.timeScale = 0f;
             if ((GameCharacteristics.HostelInfo == null) || !GameCharacteristics.HostelInfo.IsBooked)
             {
                 if (GameCharacteristics.Money >= 0)
@@ -26,19 +26,19 @@ namespace RockVoyage
                 GameCharacteristics.Money -= Constants.TAXI_COST;
                 GoToNext();
             }
-            Time.timeScale = 0f;
             GameCharacteristics.CurrentPlayer.Sleep();
+        }
+
+        public override void Init(UIBaseParent parent, HouseInfo houseInfo)
+        {
+            base.Init(parent, houseInfo);
+            MapEvents.OnLowEnergy += Enter;
         }
 
         public override void Exit()
         {
-            base.Exit();
             Time.timeScale = 1f;
-        }
-
-        private void OnDestroy()
-        {
-            MapEvents.OnLowEnergy -= Enter;
+            base.Exit();
         }
     }
 }

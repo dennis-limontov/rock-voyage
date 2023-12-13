@@ -25,7 +25,6 @@ namespace RockVoyage
             base.Init(parent, houseInfo);
             foreach (var child in children)
             {
-                child.Init(this, houseInfo);
                 child.Exit();
             }
         }

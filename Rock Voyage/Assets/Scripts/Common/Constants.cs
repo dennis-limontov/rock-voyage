@@ -53,6 +53,7 @@ namespace RockVoyage
         public static readonly TimeSpan GARAGE_STUDIO_TIME = new TimeSpan(2, 0, 0);
         public static readonly TimeSpan PRO_STUDIO_TIME = new TimeSpan(6, 0, 0);
         public static readonly TimeSpan SCENE_TIME = new TimeSpan(3, 0, 0);
+        public static readonly TimeSpan BAR_QUEST_TIME = new TimeSpan(3, 0, 0);
 
         // costs
         public const int MONEY_AT_START = 100;
@@ -72,9 +73,6 @@ namespace RockVoyage
         public const float STREET_MUSIC_TIME = 30f;
         public const float REMEMBER_CHANCE = 0.5f;
         public const float EARN_MONEY_CHANCE = 0.05f;
-
-        // bar
-        public const float BAR_HOURS_FOR_QUEST = 3f;
 
         // cut scenes
         public const int GAME_OVER_YEAR = 1980;
