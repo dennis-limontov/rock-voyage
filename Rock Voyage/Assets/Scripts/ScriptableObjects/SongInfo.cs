@@ -31,7 +31,9 @@ namespace RockVoyage
         public float Prominence => _prominence;
 
         public char[] SongKeys { get; private set; }
+
         public float Penalty { get; private set; }
+
         public float NoteLength { get; private set; }
 
         public void FillResultKeys()

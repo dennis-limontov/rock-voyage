@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 namespace RockVoyage
 {
+    using static Constants.Scenes;
+
     public class GameCharacteristics : ILoadSave
     {
         public static GameCharacteristics Instance { get; } = new GameCharacteristics();
@@ -148,7 +150,7 @@ namespace RockVoyage
             Instance.SerializableTuple = (DateTime.UnixEpoch, Constants.MONEY_AT_START,
                 0f, DateTime.UnixEpoch, DateTime.UnixEpoch,
                 new List<PlayerCharacteristics>(Constants.PLAYERS_MAX),
-                null, Constants.START_CITY_NAME, new List<string>(), false);
+                null, START_CITY, new List<string>(), false);
         }
     }
 }

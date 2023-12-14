@@ -7,6 +7,10 @@ namespace RockVoyage
     [CreateAssetMenu(menuName = "ScriptableObjects/StreetMusicInfo")]
     public class StreetMusicInfo : HouseInfo, ILoadSave
     {
+        public const float EARN_MONEY_CHANCE = 0.05f;
+        public const float REMEMBER_CHANCE = 0.5f;
+        public const float TIME_TO_PLAY = 30f;
+
         public bool IsAvailable => _playAgainTime <= GameCharacteristics.ClockDate;
 
         [JsonProperty]

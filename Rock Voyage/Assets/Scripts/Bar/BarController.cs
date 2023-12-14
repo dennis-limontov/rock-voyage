@@ -1,9 +1,13 @@
+using System;
 using UnityEngine;
+using static UnityEngine.Random;
 
 namespace RockVoyage
 {
     public class BarController : UIActiveOneChild
     {
+        public static readonly TimeSpan QUEST_TIME = new TimeSpan(3, 0, 0);
+
         [SerializeField]
         private UIBase _beerQuest;
 
@@ -58,7 +62,7 @@ namespace RockVoyage
 
         private void BeerQuestEndedWithResultHandler(bool obj)
         {
-            GameCharacteristics.ClockDate += Constants.BAR_QUEST_TIME;
+            GameCharacteristics.ClockDate += QUEST_TIME;
         }
 
         public void DefineQuest(int barQuestIndex)
@@ -68,23 +72,23 @@ namespace RockVoyage
 
         public void DefineVisitors()
         {
-            Visitors = Random.Range(0, ((BarInfo)houseInfo).Capacity);
-            float localRand = Random.Range(0f, 1f);
+            Visitors = Range(0, ((BarInfo)houseInfo).Capacity);
+            float localRand = Range(0f, 1f);
             if (localRand < 0.8f)
             {
-                BetVisitors = Random.Range(0, Visitors / 5);
+                BetVisitors = Range(0, Visitors / 5);
             }
             else if (localRand < 0.92f)
             {
-                BetVisitors = Random.Range(Visitors / 5, Visitors * 2 / 5);
+                BetVisitors = Range(Visitors / 5, Visitors * 2 / 5);
             }
             else if (localRand < 0.952f)
             {
-                BetVisitors = Random.Range(Visitors * 2 / 5, Visitors * 3 / 5);
+                BetVisitors = Range(Visitors * 2 / 5, Visitors * 3 / 5);
             }
             else
             {
-                BetVisitors = Random.Range(Visitors * 3 / 5, Visitors);
+                BetVisitors = Range(Visitors * 3 / 5, Visitors);
             }
         }
 

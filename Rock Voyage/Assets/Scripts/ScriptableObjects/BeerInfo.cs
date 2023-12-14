@@ -9,6 +9,7 @@ namespace RockVoyage
     {
         [SerializeField]
         private TextAsset _beerInfoAsset;
+
         public KeyValuePair<int, int>[] GoalsAndSteps { get; private set; }
 
         public void FillBeerInfo()

@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -28,7 +27,7 @@ namespace RockVoyage
 
         private IEnumerator PlayLittleSongPart()
         {
-            yield return new WaitForSeconds(Constants.STREET_MUSIC_TIME);
+            yield return new WaitForSeconds(StreetMusicInfo.TIME_TO_PLAY);
 
             SceneEvents.OnConcertEnded?.Invoke();
         }

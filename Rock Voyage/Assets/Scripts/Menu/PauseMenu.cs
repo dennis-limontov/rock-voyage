@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 
 namespace RockVoyage
 {
+    using static Constants.Scenes;
+
     public class PauseMenu : UIBase
     {
         [SerializeField]
@@ -61,7 +63,7 @@ namespace RockVoyage
         public void OnYesButtonClicked()
         {
             Exit();
-            SceneManager.LoadScene(Constants.MAIN_MENU_SCENE_NAME);
+            SceneManager.LoadScene(MAIN_MENU);
         }
     }
 }

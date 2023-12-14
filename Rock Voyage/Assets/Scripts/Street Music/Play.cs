@@ -15,8 +15,7 @@ namespace RockVoyage
         {
             base.Enter();
             StreetMusicInfo streetMusicInfo = (StreetMusicInfo)houseInfo;
-            GoTo(streetMusicInfo.IsAvailable
-                ? _playButton : _nextAvailableTimeText);
+            GoTo(streetMusicInfo.IsAvailable ? _playButton : _nextAvailableTimeText);
             EventHub.OnValueChanged?.Invoke(GameAttributes.StreetMusicAvailableDate,
                 DateTime.UnixEpoch, streetMusicInfo.PlayAgainTime);
         }

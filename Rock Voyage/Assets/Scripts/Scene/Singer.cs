@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 
 namespace RockVoyage
 {
+    using static Constants.PlayerAnimationStates;
+
     public class Singer : MonoBehaviour
     {
         private SongInfo _currentSong;
@@ -25,13 +27,13 @@ namespace RockVoyage
 
         private void ConcertEndedHandler()
         {
-            _animator.Play(Constants.PLAYER_STATE_IDLE);
+            _animator.Play(IDLE);
             _music.Stop();
         }
 
         private void CountdownEndedHandler()
         {
-            _animator.Play(Constants.PLAYER_STATE_SING);
+            _animator.Play(SING);
             _music.Play();
             _currentNote = ' ';
         }

@@ -1,9 +1,10 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace RockVoyage
 {
+    using static Constants.Scenes;
+
     public class MainMenu : MonoBehaviour
     {
         [SerializeField]
@@ -12,12 +13,12 @@ namespace RockVoyage
         public void OnNewGameClicked()
         {
             ResetGameData();
-            SceneManager.LoadScene(Constants.CUT_SCENE_START);
+            SceneManager.LoadScene(CUT_SCENE_START);
         }
 
         public void OnLoadGameClicked()
         {
-            SceneManager.LoadScene(Constants.START_CITY_NAME);
+            SceneManager.LoadScene(START_CITY);
             MapEvents.OnSceneLoaded += SceneLoadedHandler;
         }
 

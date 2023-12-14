@@ -4,6 +4,8 @@ namespace RockVoyage
 {
     public class SceneController : UIActiveOneChild
     {
+        public const float PROFIT_PERCENT = 0.1f;
+
         [SerializeField]
         private CloseButton _closeButton;
 
@@ -51,8 +53,7 @@ namespace RockVoyage
                 if (houseInfo is SceneInfo sceneInfo)
                 {
                     float crowdHappiness = _currentSong.Prominence * _perfomanceQuality;
-                    int moneyProfit = (int)(sceneInfo.FansCapacity * crowdHappiness
-                        * Constants.SCENE_PROFIT_PERCENT);
+                    int moneyProfit = (int)(sceneInfo.FansCapacity * crowdHappiness * PROFIT_PERCENT);
                     GameCharacteristics.Money += moneyProfit;
                     GameCharacteristics.Fame += crowdHappiness / 1000f;
                     EventHub.OnValueChanged?.Invoke(GameAttributes.CrowdHappiness, 0f, crowdHappiness);

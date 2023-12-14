@@ -21,12 +21,12 @@ namespace RockVoyage
         public void Sleep()
         {
             DateTime ourDay = RVGC.ClockDate;
-            if (ourDay.Hour >= Constants.HOSTEL_NEW_DAY_HOUR)
+            if (ourDay.Hour >= Constants.NEW_DAY_HOUR)
             {
                 ourDay = ourDay.AddDays(1);
             }
             RVGC.ClockDate = new DateTime(ourDay.Year, ourDay.Month, ourDay.Day,
-                Constants.HOSTEL_NEW_DAY_HOUR, 0, 0);
+                Constants.NEW_DAY_HOUR, 0, 0);
             Energy = Constants.ENERGY_MAX;
             RVGC.IsEnergyDrinkUsed = false;
         }

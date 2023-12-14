@@ -4,6 +4,8 @@ using static UnityEngine.InputSystem.InputAction;
 
 namespace RockVoyage
 {
+    using static Constants.PlayerAnimationStates;
+
     public class PlayerMovement : MonoBehaviour, ILoadSave
     {
         [SerializeField]
@@ -61,35 +63,35 @@ namespace RockVoyage
         public void OnMoved(CallbackContext inputContext)
         {
             _movementVector = inputContext.ReadValue<Vector2>();
-            foreach (string boolName in Constants.PLAYER_STATE_MOVING_BOOL_NAMES)
+            foreach (string boolName in MOVING_BOOL_NAMES)
             {
                 _animator.SetBool(boolName, false);
             }
             if (_movementVector.y > 0)
             {
-                _animator.SetBool(Constants.PLAYER_STATE_BOOL_WALK_UP, true);
+                _animator.SetBool(BOOL_WALK_UP, true);
             }
             else if (_movementVector.y < 0)
             {
-                _animator.SetBool(Constants.PLAYER_STATE_BOOL_WALK_FRONT, true);
+                _animator.SetBool(BOOL_WALK_FRONT, true);
             }
             else if (_movementVector.x > 0)
             {
-                _animator.SetBool(Constants.PLAYER_STATE_BOOL_WALK_RIGHT, true);
+                _animator.SetBool(BOOL_WALK_RIGHT, true);
                 Quaternion playerRotation = transform.rotation;
                 playerRotation.y = 0f;
                 transform.rotation = playerRotation;
             }
             else if (_movementVector.x < 0)
             {
-                _animator.SetBool(Constants.PLAYER_STATE_BOOL_WALK_LEFT, true);
+                _animator.SetBool(BOOL_WALK_LEFT, true);
                 Quaternion playerRotation = transform.rotation;
                 playerRotation.y = 180f;
                 transform.rotation = playerRotation;
             }
             else
             {
-                _animator.SetBool(Constants.PLAYER_STATE_BOOL_IDLE, true);
+                _animator.SetBool(BOOL_IDLE, true);
             }
         }
     }
