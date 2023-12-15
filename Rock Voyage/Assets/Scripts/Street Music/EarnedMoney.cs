@@ -37,7 +37,7 @@ namespace RockVoyage
         private void RightNotePlayedHandler()
         {
             var earnMoneyChance = Random.Range(0f, 1f);
-            if (earnMoneyChance <= Constants.EARN_MONEY_CHANCE)
+            if (earnMoneyChance <= StreetMusicInfo.EARN_MONEY_CHANCE)
             {
                 _earnedMoney++;
                 _earnedMoneyText.text = _earnedMoney.ToString();
