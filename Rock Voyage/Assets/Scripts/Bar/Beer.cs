@@ -71,7 +71,7 @@ namespace RockVoyage
             base.Init(parent, houseInfo);
             BarEvents.OnBeerQuestEnded += BeerQuestEndedHandler;
             BarEvents.OnBeerQuestStepMade += BeerQuestStepMadeHandler;
-            _beerInfo.FillBeerInfo();
+            _beerInfo.FillInfo();
         }
 
         private void BeerQuestEndedHandler()

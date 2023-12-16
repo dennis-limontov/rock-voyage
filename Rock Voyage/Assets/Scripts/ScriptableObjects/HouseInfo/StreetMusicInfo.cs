@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RockVoyage
 {
-    [CreateAssetMenu(menuName = "ScriptableObjects/StreetMusicInfo")]
+    [CreateAssetMenu(menuName = "ScriptableObjects/HouseInfo/StreetMusicInfo")]
     public class StreetMusicInfo : HouseInfo, ILoadSave
     {
         public const float EARN_MONEY_CHANCE = 0.05f;

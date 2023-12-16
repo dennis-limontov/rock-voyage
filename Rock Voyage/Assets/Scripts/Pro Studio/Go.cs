@@ -15,14 +15,14 @@ namespace RockVoyage
         {
             base.Init(parent, houseInfo);
             _goButton = GetComponent<Button>();
-            _goButton.interactable = (RVGC.Money >= ProStudio.RECORD_COST);
+            _goButton.interactable = (RVGC.Money >= ProStudioInfo.RECORD_COST);
         }
 
         public void OnGoClicked()
         {
-            RVGC.Money -= ProStudio.RECORD_COST;
+            RVGC.Money -= ProStudioInfo.RECORD_COST;
             RVGC.Fame += FAME_INCREMENT;
-            RVGC.RecordAvailableDate = RVGC.ClockDate.AddDays(ProStudio.RECORD_AVAILABLE_DATE_PAUSE);
+            RVGC.RecordAvailableDate = RVGC.ClockDate.AddDays(ProStudioInfo.RECORD_AVAILABLE_DATE_PAUSE);
             RVGC.ClockDate += RECORD_TIME;
         }
     }

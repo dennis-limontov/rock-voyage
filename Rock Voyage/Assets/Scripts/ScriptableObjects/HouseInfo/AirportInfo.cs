@@ -2,7 +2,7 @@
 
 namespace RockVoyage
 {
-    [CreateAssetMenu(menuName = "ScriptableObjects/AirportInfo")]
+    [CreateAssetMenu(menuName = "ScriptableObjects/HouseInfo/AirportInfo")]
     public class AirportInfo : HouseInfo
     {
     }

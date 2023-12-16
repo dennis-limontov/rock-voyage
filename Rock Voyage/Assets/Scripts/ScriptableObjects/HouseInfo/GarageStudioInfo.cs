@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace RockVoyage
 {
-    [CreateAssetMenu(menuName = "ScriptableObjects/GarageStudioInfo")]
+    [CreateAssetMenu(menuName = "ScriptableObjects/HouseInfo/GarageStudioInfo")]
     public class GarageStudioInfo : HouseInfo
     {
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RockVoyage
 {
-    [CreateAssetMenu(menuName = "ScriptableObjects/BeerInfo")]
+    [CreateAssetMenu(menuName = "ScriptableObjects/BarQuestInfo/BeerInfo")]
     public class BeerInfo : ScriptableObject
     {
         [SerializeField]
@@ -12,7 +12,7 @@ namespace RockVoyage
 
         public KeyValuePair<int, int>[] GoalsAndSteps { get; private set; }
 
-        public void FillBeerInfo()
+        public void FillInfo()
         {
             if ((GoalsAndSteps != null) && (GoalsAndSteps.Length != 0))
             {

@@ -1,10 +1,13 @@
+using System;
 using UnityEngine;
 
 namespace RockVoyage
 {
-    [CreateAssetMenu(menuName = "ScriptableObjects/BarInfo")]
+    [CreateAssetMenu(menuName = "ScriptableObjects/HouseInfo/BarInfo")]
     public class BarInfo : HouseInfo
     {
+        public static readonly TimeSpan QUEST_TIME = new TimeSpan(3, 0, 0);
+
         [SerializeField]
         private string _barName;
         public string BarName => _barName;

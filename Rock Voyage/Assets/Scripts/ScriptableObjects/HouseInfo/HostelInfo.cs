@@ -4,9 +4,12 @@ using UnityEngine;
 
 namespace RockVoyage
 {
-    [CreateAssetMenu(menuName = "ScriptableObjects/HostelInfo")]
+    [CreateAssetMenu(menuName = "ScriptableObjects/HouseInfo/HostelInfo")]
     public class HostelInfo : HouseInfo, ILoadSave
     {
+        public const int MAP_COST = 60;
+        public const int NEWSPAPER_COST = 60;
+
         [SerializeField]
         private int _costPerNight;
         public int CostPerNight => _costPerNight;

@@ -1,4 +1,4 @@
-using System;
+using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.Random;
 
@@ -6,8 +6,6 @@ namespace RockVoyage
 {
     public class BarController : UIActiveOneChild
     {
-        public static readonly TimeSpan QUEST_TIME = new TimeSpan(3, 0, 0);
-
         [SerializeField]
         private UIBase _beerQuest;
 
@@ -36,10 +34,12 @@ namespace RockVoyage
             }
         }
 
-        private BarQuest _barQuest;
+        private BarQuest _selectedQuest;
 
         private int _bet;
         public int Bet => _bet;
+
+        private Dictionary<BarQuest, UIBase> _barQuests;
 
         public override void Dispose()
         {
@@ -58,16 +58,21 @@ namespace RockVoyage
         {
             base.Init(parent, houseInfo);
             BarEvents.OnBeerQuestEndedWithResult += BeerQuestEndedWithResultHandler;
+            _barQuests = new Dictionary<BarQuest, UIBase>
+            {
+                { BarQuest.Beer, _beerQuest },
+                { BarQuest.Cocktail, _cocktailQuest },
+            };
         }
 
         private void BeerQuestEndedWithResultHandler(bool obj)
         {
-            GameCharacteristics.ClockDate += QUEST_TIME;
+            GameCharacteristics.ClockDate += BarInfo.QUEST_TIME;
         }
 
         public void DefineQuest(int barQuestIndex)
         {
-            _barQuest = (BarQuest)barQuestIndex;
+            _selectedQuest = (BarQuest)barQuestIndex;
         }
 
         public void DefineVisitors()
@@ -100,17 +105,7 @@ namespace RockVoyage
         public void OnQuestStarted()
         {
             GameCharacteristics.Money -= _bet;
-            switch (_barQuest)
-            {
-                case BarQuest.Beer:
-                    GoTo(_beerQuest);
-                    break;
-                case BarQuest.Cocktail:
-                    GoTo(_cocktailQuest);
-                    break;
-                default:
-                    break;
-            }
+            GoTo(_barQuests[_selectedQuest]);
         }
     }
 

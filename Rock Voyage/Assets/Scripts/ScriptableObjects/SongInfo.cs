@@ -36,7 +36,7 @@ namespace RockVoyage
 
         public float NoteLength { get; private set; }
 
-        public void FillResultKeys()
+        public void FillInfo()
         {
             if ((SongKeys != null) && (SongKeys.Length != 0))
             {

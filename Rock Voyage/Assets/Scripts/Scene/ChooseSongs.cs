@@ -26,7 +26,7 @@ namespace RockVoyage
         public void OnStartClicked()
         {
             SongInfo chosenSong = _songsList[RVGC.AvailableSongs[_dropdown.value]];
-            chosenSong.FillResultKeys();
+            chosenSong.FillInfo();
             SceneEvents.OnSongChosen?.Invoke(chosenSong);
         }
     }

@@ -4244,7 +4244,7 @@ MonoBehaviour:
   - {fileID: 1027483143}
   - {fileID: 1029741827}
   _beerQuest: {fileID: 1029741827}
-  _cocktailQuest: {fileID: 994826459}
+  _cocktailQuest: {fileID: 0}
 --- !u!1001 &1329549788
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -7,9 +7,6 @@ namespace RockVoyage
 {
     public class ProStudio : UIActiveOneChild
     {
-        public const int RECORD_COST = 50;
-        public const int RECORD_AVAILABLE_DATE_PAUSE = 7;
-
         [SerializeField]
         private TextMeshProUGUI _greetingsDoneText;
 
@@ -29,7 +26,7 @@ namespace RockVoyage
             else
             {
                 _greetingsDoneText.text = GREETINGS_DONE;
-                EventHub.OnValueChanged?.Invoke(GameAttributes.RecordCost, 0, RECORD_COST);
+                EventHub.OnValueChanged?.Invoke(GameAttributes.RecordCost, 0, ProStudioInfo.RECORD_COST);
             }
         }
     }
