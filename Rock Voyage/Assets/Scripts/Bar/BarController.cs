@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
 using static UnityEngine.Random;
 
 namespace RockVoyage
@@ -7,10 +8,13 @@ namespace RockVoyage
     public class BarController : UIActiveOneChild
     {
         [SerializeField]
-        private UIBase _beerQuest;
+        private UIBase _questResultPanel;
 
         [SerializeField]
-        private UIBase _cocktailQuest;
+        private BarQuestController _beerQuest;
+
+        [SerializeField]
+        private BarQuestController _cocktailQuest;
 
         private int _visitors;
         public int Visitors
@@ -39,12 +43,12 @@ namespace RockVoyage
         private int _bet;
         public int Bet => _bet;
 
-        private Dictionary<BarQuest, UIBase> _barQuests;
+        private Dictionary<BarQuest, BarQuestController> _barQuests;
 
         public override void Dispose()
         {
             base.Dispose();
-            BarEvents.OnBeerQuestEndedWithResult -= BeerQuestEndedWithResultHandler;
+            BarEvents.OnQuestEndedWithResult -= BeerQuestEndedWithResultHandler;
         }
 
         public override void Enter()
@@ -57,17 +61,29 @@ namespace RockVoyage
         public override void Init(UIBaseParent parent, HouseInfo houseInfo)
         {
             base.Init(parent, houseInfo);
-            BarEvents.OnBeerQuestEndedWithResult += BeerQuestEndedWithResultHandler;
-            _barQuests = new Dictionary<BarQuest, UIBase>
+            BarEvents.OnQuestEndedWithResult += BeerQuestEndedWithResultHandler;
+            _barQuests = new Dictionary<BarQuest, BarQuestController>
             {
                 { BarQuest.Beer, _beerQuest },
                 { BarQuest.Cocktail, _cocktailQuest },
             };
         }
 
-        private void BeerQuestEndedWithResultHandler(bool obj)
+        private void BeerQuestEndedWithResultHandler(bool result)
         {
+            GoTo(_questResultPanel);
             GameCharacteristics.ClockDate += BarInfo.QUEST_TIME;
+            int moneyProfit = Bet;
+            if (result)
+            {
+                moneyProfit *= (BetVisitors + 1);
+                GameCharacteristics.Money += moneyProfit;
+            }
+            else
+            {
+                moneyProfit *= -1;
+            }
+            EventHub.OnValueChanged?.Invoke(GameAttributes.MoneyProfit, 0, moneyProfit);
         }
 
         public void DefineQuest(int barQuestIndex)

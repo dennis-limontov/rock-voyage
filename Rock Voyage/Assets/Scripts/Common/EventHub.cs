@@ -44,5 +44,6 @@ namespace RockVoyage
         BeerSteps = 11, // 13
         BeerPressure = 12, // 14
         BeerCurrentVolume = 13, // 15
+        CocktailName = 17,
     }
 }

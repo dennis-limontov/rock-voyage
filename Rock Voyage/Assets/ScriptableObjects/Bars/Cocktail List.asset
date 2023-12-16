@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2455ba12cb10c864daf8b2255ca410b8, type: 3}
-  m_Name: Beer Info
+  m_Script: {fileID: 11500000, guid: 64ad2b074372c124d861f2481a918cfc, type: 3}
+  m_Name: Cocktail List
   m_EditorClassIdentifier: 
-  _questInfoAsset: {fileID: 4900000, guid: efc5e4c582ac5a540adc8bd7831aff7e, type: 3}
+  questInfoAsset: {fileID: 0}
+  _cocktails: []

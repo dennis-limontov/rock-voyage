@@ -5,21 +5,22 @@ using UnityEngine;
 namespace RockVoyage
 {
     [CreateAssetMenu(menuName = "ScriptableObjects/BarQuestInfo/BeerInfo")]
-    public class BeerInfo : ScriptableObject
+    public class BeerInfo : BarQuestInfo
     {
         [SerializeField]
-        private TextAsset _beerInfoAsset;
+        private TextAsset _questInfoAsset;
 
         public KeyValuePair<int, int>[] GoalsAndSteps { get; private set; }
 
-        public void FillInfo()
+        public override void FillInfo()
         {
             if ((GoalsAndSteps != null) && (GoalsAndSteps.Length != 0))
             {
                 return;
             }
+            base.FillInfo();
 
-            string[] beerInfoValues = _beerInfoAsset.text.Split(Environment.NewLine);
+            string[] beerInfoValues = _questInfoAsset.text.Split(Environment.NewLine);
             GoalsAndSteps = new KeyValuePair<int, int>[beerInfoValues.Length];
             for (int i = 0; i < GoalsAndSteps.Length; i++)
             {

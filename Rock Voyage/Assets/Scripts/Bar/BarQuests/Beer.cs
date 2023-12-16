@@ -2,14 +2,8 @@ using UnityEngine;
 
 namespace RockVoyage
 {
-    public class Beer : UIActiveOneChild
+    public class Beer : BarQuestController
     {
-        [SerializeField]
-        private BeerInfo _beerInfo;
-
-        [SerializeField]
-        private CloseButton _closeButton;
-
         private int _beerCurrentVolume;
         public int BeerCurrentVolume
         {
@@ -53,17 +47,11 @@ namespace RockVoyage
         public override void Enter()
         {
             base.Enter();
-            _closeButton.gameObject.SetActive(false);
+            BeerInfo beerInfo = (BeerInfo)questInfo;
             BeerCurrentVolume = 0;
-            int randIndex = Random.Range(0, _beerInfo.GoalsAndSteps.Length);
-            Goal = _beerInfo.GoalsAndSteps[randIndex].Key;
-            Step = _beerInfo.GoalsAndSteps[randIndex].Value;
-        }
-
-        public override void Exit()
-        {
-            base.Exit();
-            _closeButton.gameObject.SetActive(true);
+            int randIndex = Random.Range(0, beerInfo.GoalsAndSteps.Length);
+            Goal = beerInfo.GoalsAndSteps[randIndex].Key;
+            Step = beerInfo.GoalsAndSteps[randIndex].Value;
         }
 
         public override void Init(UIBaseParent parent, HouseInfo houseInfo)
@@ -71,27 +59,11 @@ namespace RockVoyage
             base.Init(parent, houseInfo);
             BarEvents.OnBeerQuestEnded += BeerQuestEndedHandler;
             BarEvents.OnBeerQuestStepMade += BeerQuestStepMadeHandler;
-            _beerInfo.FillInfo();
         }
 
         private void BeerQuestEndedHandler()
         {
-            GoToNext();
-
-            BarController barController = (BarController)GetController();
-            int moneyProfit = barController.Bet;
-            if ((BeerCurrentVolume == Goal) && (Step >= 0))
-            {
-                BarEvents.OnBeerQuestEndedWithResult?.Invoke(true);
-                moneyProfit *= (barController.BetVisitors + 1);
-                GameCharacteristics.Money += moneyProfit;
-            }
-            else
-            {
-                BarEvents.OnBeerQuestEndedWithResult?.Invoke(false);
-                moneyProfit *= -1;
-            }
-            EventHub.OnValueChanged?.Invoke(GameAttributes.MoneyProfit, 0, moneyProfit);
+            BarEvents.OnQuestEndedWithResult?.Invoke((BeerCurrentVolume == Goal) && (Step >= 0));
         }
 
         private void BeerQuestStepMadeHandler(int currentPressure)
@@ -103,7 +75,7 @@ namespace RockVoyage
             }
             else
             {
-                BarEvents.OnBeerQuestEndedWithResult?.Invoke(false);
+                BarEvents.OnQuestEndedWithResult?.Invoke(false);
             }
         }
     }

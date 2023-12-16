@@ -6,22 +6,23 @@ using UnityEngine;
 namespace RockVoyage
 {
     [CreateAssetMenu(menuName = "ScriptableObjects/BarQuestInfo/CocktailInfo")]
-    public class CocktailInfo : ScriptableObject
+    public class CocktailInfo : BarQuestInfo
     {
         [SerializeField]
-        private TextAsset _cocktailInfoAsset;
+        private TextAsset _questInfoAsset;
 
         public string Name { get; private set; }
         public KeyValuePair<string, float>[] Ingredients { get; private set; }
 
-        public void FillInfo()
+        public override void FillInfo()
         {
             if ((Ingredients != null) && (Ingredients.Length != 0))
             {
                 return;
             }
+            base.FillInfo();
 
-            string[] cocktailInfoValues = _cocktailInfoAsset.text.Split(Environment.NewLine);
+            string[] cocktailInfoValues = _questInfoAsset.text.Split(Environment.NewLine);
             Ingredients = new KeyValuePair<string, float>[cocktailInfoValues.Length - 1];
             Name = cocktailInfoValues[0];
             for (int i = 1; i < cocktailInfoValues.Length; i++)
