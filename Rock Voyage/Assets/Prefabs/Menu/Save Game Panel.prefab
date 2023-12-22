@@ -8,29 +8,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 637627092678652186, guid: 34977bc5bbc225b499815a5e93cd0d19, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
+    - target: {fileID: 154228947526162725, guid: 34977bc5bbc225b499815a5e93cd0d19, type: 3}
+      propertyPath: m_Name
+      value: Save List Panel
       objectReference: {fileID: 0}
-    - target: {fileID: 637627092678652186, guid: 34977bc5bbc225b499815a5e93cd0d19, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
+    - target: {fileID: 2260095529890112075, guid: 34977bc5bbc225b499815a5e93cd0d19, type: 3}
+      propertyPath: m_Name
+      value: Save Text
       objectReference: {fileID: 0}
-    - target: {fileID: 637627092678652186, guid: 34977bc5bbc225b499815a5e93cd0d19, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
+    - target: {fileID: 2260095529890112117, guid: 34977bc5bbc225b499815a5e93cd0d19, type: 3}
+      propertyPath: m_text
+      value: Save
       objectReference: {fileID: 0}
-    - target: {fileID: 637627092678652186, guid: 34977bc5bbc225b499815a5e93cd0d19, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
+    - target: {fileID: 2260095529890112117, guid: 34977bc5bbc225b499815a5e93cd0d19, type: 3}
+      propertyPath: m_fontSize
+      value: 35.8
       objectReference: {fileID: 0}
-    - target: {fileID: 637627092678652186, guid: 34977bc5bbc225b499815a5e93cd0d19, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 637627092678652186, guid: 34977bc5bbc225b499815a5e93cd0d19, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
+    - target: {fileID: 3628408204846920561, guid: 34977bc5bbc225b499815a5e93cd0d19, type: 3}
+      propertyPath: m_fontSize
+      value: 35.8
       objectReference: {fileID: 0}
     - target: {fileID: 6380524546105002254, guid: 34977bc5bbc225b499815a5e93cd0d19, type: 3}
       propertyPath: m_AnchorMax.y
@@ -136,6 +132,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6893688651247399390, guid: 34977bc5bbc225b499815a5e93cd0d19, type: 3}
+      propertyPath: m_Name
+      value: Save Buttons
+      objectReference: {fileID: 0}
     - target: {fileID: 8470118223758546954, guid: 34977bc5bbc225b499815a5e93cd0d19, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -159,34 +159,14 @@ PrefabInstance:
     - target: {fileID: 8470118223758546954, guid: 34977bc5bbc225b499815a5e93cd0d19, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8470118223758546955, guid: 34977bc5bbc225b499815a5e93cd0d19, type: 3}
+      propertyPath: m_Name
+      value: Save Game Button
       objectReference: {fileID: 0}
     - target: {fileID: 8780060499700917333, guid: 34977bc5bbc225b499815a5e93cd0d19, type: 3}
       propertyPath: m_Name
-      value: Load Game Panel Variant
-      objectReference: {fileID: 0}
-    - target: {fileID: 8881586347429980049, guid: 34977bc5bbc225b499815a5e93cd0d19, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8881586347429980049, guid: 34977bc5bbc225b499815a5e93cd0d19, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8881586347429980049, guid: 34977bc5bbc225b499815a5e93cd0d19, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8881586347429980049, guid: 34977bc5bbc225b499815a5e93cd0d19, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8881586347429980049, guid: 34977bc5bbc225b499815a5e93cd0d19, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8881586347429980049, guid: 34977bc5bbc225b499815a5e93cd0d19, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: Save Game Panel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

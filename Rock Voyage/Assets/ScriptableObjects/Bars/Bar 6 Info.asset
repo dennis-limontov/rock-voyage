@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f17433c7dbf6fa489a019eb222f29e4, type: 3}
   m_Name: Bar 6 Info
   m_EditorClassIdentifier: 
-  _mapInfo: {fileID: 0}
-  _sceneName: Map
+  _mapInfo: {fileID: 11400000, guid: d44f69a02ad774c46ab596ab5a0d2a45, type: 2}
+  _sceneName: Bar
   _barName: The Phantom Menace
   _capacity: 101
   _energyDrinkCost: 10

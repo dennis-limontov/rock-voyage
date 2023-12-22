@@ -13,6 +13,7 @@ namespace RockVoyage
         private static readonly string SAVE_FOLDER_PATH = Path.Combine(
             Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), Constants.GAME_NAME);
         private static readonly string SAVE_FILE_PATH = Path.Combine(SAVE_FOLDER_PATH, "save.json");
+        private static readonly string SAVE_FILE_PATTERN = "*.json";
 
         static LoadSaveManager()
         {
@@ -31,6 +32,16 @@ namespace RockVoyage
         public static void Remove(string name)
         {
             loadSaveList.Remove(name);
+        }
+
+        public static string[] GetSavedGamesList()
+        {
+            string[] savedGames = Directory.GetFiles(SAVE_FOLDER_PATH, SAVE_FILE_PATTERN);
+            for (int i = 0; i < savedGames.Length; i++)
+            {
+                savedGames[i] = Path.GetFileNameWithoutExtension(savedGames[i]);
+            }
+            return savedGames;
         }
 
         public static void Load()

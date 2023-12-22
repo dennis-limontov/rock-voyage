@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bar 2 Info
   m_EditorClassIdentifier: 
   _mapInfo: {fileID: 11400000, guid: d44f69a02ad774c46ab596ab5a0d2a45, type: 2}
-  _sceneName: Map
+  _sceneName: Bar
   _barName: Golden Water
   _capacity: 100
   _energyDrinkCost: 8
