@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e462c370e8fe60649888ba8961f3f950, type: 3}
   m_Name: Railway Station Info
   m_EditorClassIdentifier: 
-  _mapInfo: {fileID: 0}
-  _sceneName: Map
+  _mapInfo: {fileID: 11400000, guid: d44f69a02ad774c46ab596ab5a0d2a45, type: 2}
+  _sceneName: Railway Station
