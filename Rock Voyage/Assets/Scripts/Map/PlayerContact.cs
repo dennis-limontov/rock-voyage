@@ -19,7 +19,7 @@ namespace RockVoyage
         {
             if (collider2D.gameObject.GetComponent<House>() == _house)
             {
-                _house.HideBorder();
+                _house?.HideBorder();
                 _house = null;
             }
         }
