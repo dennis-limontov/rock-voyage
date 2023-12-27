@@ -27,6 +27,7 @@ namespace RockVoyage
 
         public static class Scenes
         {
+            public const string ABOUT = "About";
             public const string MAIN_MENU = "Main Menu";
             public const string CUT_SCENE_START = "Cut Scene Start";
             public const string START_CITY = "Map";

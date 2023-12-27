@@ -41,5 +41,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Railway Station.unity
     guid: da5c948723031e14988de5ed492c58c1
+  - enabled: 1
+    path: Assets/Scenes/About.unity
+    guid: ac8e7ee2771ca4a42bd20f821daf44f4
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

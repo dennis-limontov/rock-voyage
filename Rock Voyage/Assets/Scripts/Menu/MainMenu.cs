@@ -22,6 +22,11 @@ namespace RockVoyage
             MapEvents.OnSceneLoaded += SceneLoadedHandler;
         }
 
+        public void OnAboutClicked()
+        {
+            SceneManager.LoadScene(ABOUT);
+        }
+
         private void SceneLoadedHandler(HouseInfo info)
         {
             MapEvents.OnSceneLoaded -= SceneLoadedHandler;
