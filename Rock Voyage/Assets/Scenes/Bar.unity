@@ -2421,7 +2421,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7936418185411571076, guid: 8aa15e0293a5cb54daf9ad21087568c6, type: 3}
       propertyPath: m_fontSize
-      value: 28.45
+      value: 54.3
       objectReference: {fileID: 0}
     - target: {fileID: 7936418185411571130, guid: 8aa15e0293a5cb54daf9ad21087568c6, type: 3}
       propertyPath: m_Name
@@ -2510,13 +2510,34 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7936418185411571130, guid: 8aa15e0293a5cb54daf9ad21087568c6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 863044685}
   m_SourcePrefab: {fileID: 100100000, guid: 8aa15e0293a5cb54daf9ad21087568c6, type: 3}
 --- !u!224 &863044683 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7936418185411571131, guid: 8aa15e0293a5cb54daf9ad21087568c6, type: 3}
   m_PrefabInstance: {fileID: 863044682}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &863044684 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7936418185411571130, guid: 8aa15e0293a5cb54daf9ad21087568c6, type: 3}
+  m_PrefabInstance: {fileID: 863044682}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &863044685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863044684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 539cbaa080f31d54b8b09417dfd94726, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attribute: 19
 --- !u!1001 &927646973
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5927,7 +5948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 539cbaa080f31d54b8b09417dfd94726, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attribute: 17
+  attribute: 18
 --- !u!224 &1599683555 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7936418185411571131, guid: 8aa15e0293a5cb54daf9ad21087568c6, type: 3}
@@ -6770,6 +6791,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   children:
   - {fileID: 4945099987605878847}
+  - {fileID: 863044685}
   - {fileID: 1438638585}
   - {fileID: 1583656763}
   questInfo: {fileID: 11400000, guid: f5c01e30f0371994fbe5de6f6ca335e8, type: 2}
