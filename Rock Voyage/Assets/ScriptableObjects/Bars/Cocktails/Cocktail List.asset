@@ -13,4 +13,13 @@ MonoBehaviour:
   m_Name: Cocktail List
   m_EditorClassIdentifier: 
   _cocktails:
+  - {fileID: 11400000, guid: 7284deeeabd854e44a49debd539faf47, type: 2}
+  - {fileID: 11400000, guid: ff9d81fda7dbca744a2f9444075b4a5c, type: 2}
+  - {fileID: 11400000, guid: 0ee598647a6c46f4f83698025198c6d2, type: 2}
+  - {fileID: 11400000, guid: 577dd07a1af639b498fd1440ad64ae83, type: 2}
+  - {fileID: 11400000, guid: a0eecf6b8371d14488ab16ee2ad1dee9, type: 2}
   - {fileID: 11400000, guid: 2d4c520af61f1fb498649c56ff4f2135, type: 2}
+  - {fileID: 11400000, guid: ce34719a39a579845a5905c3a862a3ca, type: 2}
+  - {fileID: 11400000, guid: 5e7402a022dad394fab2543cfcb4ebe7, type: 2}
+  - {fileID: 11400000, guid: d847dd508787c9942b628389f42fe8da, type: 2}
+  - {fileID: 11400000, guid: 81a46660e9cec974597eaf4fcfbfdca0, type: 2}

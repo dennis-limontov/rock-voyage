@@ -1,0 +1,8 @@
+Beherovka
+50%_alcohol 1
+ground_cinnamon 30
+ground_cardamom 4
+carnation 15
+anise 8
+black_pepper 8
+orange_peel 10

@@ -1,0 +1,7 @@
+Tom Collins
+gin 45
+lemon_juice 30
+sparkling_water 60
+Angostura 3
+lime 1
+maraschino_cherry 1
