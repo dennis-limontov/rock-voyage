@@ -1,35 +1,41 @@
 # Rock Voyage
 
-Молодая рок-группа отправляется в путь в поисках славы и выгодного контракта. Устройте настоящее турне по сценам мира, станьте частью музыкальной культуры 1970-х, завоюйте сердца фанатов и докажите продюсерам, что вы заслуживаете вершин хеви-метала!
+A young rock band sets out on a journey in search of fame and a lucrative contract. Arrange a real tour of the world's stages, become a part of the musical culture of the 1970s, capture the hearts of fans and prove to the producers that you deserve the heights of heavy metal!
 
 ***Sex, drugs, rock'n'roll !..!,***
 
-**_Жанр_**: ритм-игра, головоломка.
+**_Genre_**: rhythm game, puzzle.
 
-**_Сеттинг_**: Европа, 1970-е.
+**_Setting_**: Europe, 1970-е.
 
-**_Стилистика_**: хеви-метал.
+**_Stylistics_**: heavy metal.
 
-**_Аудитория_**: 14+.
+**_Audience_**: 14+.
 
-**_Языки_**: English, русский.
+**_Languages_**: English *(at present)*.
 
 
 
-## В погоне за успехом!
+## In pursuit of success!
 
-Прогуляйтесь по городу и послушайте местных музыкантов, чтобы пополнить свой репертуар, а также продемонстрировать уличному потоку свои таланты.
+Take a walk around the city and listen to local musicians to replenish your repertoire, as well as demonstrate your talents to the street stream.
 
-Участвуйте в концертах! Выходите на сцены города, чтобы завоевать сердца фанатов, ну а бонусом – заработать денег.
+Take part in concerts! Go out on the scenes of the city to capture the hearts of fans, and as a bonus, earn money.
 
-Репетируйте композиции из вашего репертуара в личной студии-гараже! Спасибо родителям ГГ.
+Rehearse compositions from your repertoire in your personal garage studio! Thanks to the our main hero parents.
 
-Когда вы решите повысить известной своей группы – профессиональная студия к вашим услугам.
+When you decide to increase the popularity of your group, a professional studio is at your service.
 
-Для ночлега используйте хостелы. Вас ждут: тёплая и чистая постель, подъём по будильнику, пополнение энергии, а также возможность купить карту города и газету.
+Use hostels for overnight stays. You will find: a warm and clean bed, an alarm clock wake-up, energy replenishment, as well as the opportunity to buy a city map and a newspaper.
 
-Какой рок-музыкант без перманентных визитов в бар? Проверьте свои знания и навыки в мире алкоголя, чтобы пополнить свой бюджет на ставках!
+What kind of rock musician is without permanent visits to the bar? Test your knowledge and skills in the world of alcohol to replenish your budget thanks to the bets!
 
-Пользуйтесь аэропортом для путешествий между городами! На данный момент карта одна, поэтому он временно закрыт.
+Use an airport and a railway station to travel between cities! There's only one map at the moment, so they're temporarily closed.
 
-Успейте прокатиться на рок-волне и выстрелить, иначе ваша музыка окажется за бортом времени, а выгодный контракт так и останется подростковой мечтой.
+Have time to ride the rock wave and shoot, otherwise your music will be overboard of time, and a lucrative contract will remain a teenage dream.
+
+
+
+## Current release
+
+___[Rock Voyage v0.0.1](https://dropmefiles.com/upY2Y "Rock Voyage v0.0.1")___
