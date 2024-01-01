@@ -33,9 +33,3 @@ What kind of rock musician is without permanent visits to the bar? Test your kno
 Use an airport and a railway station to travel between cities! There's only one map at the moment, so they're temporarily closed.
 
 Have time to ride the rock wave and shoot, otherwise your music will be overboard of time, and a lucrative contract will remain a teenage dream.
-
-
-
-## Current release
-
-___[Rock Voyage v0.0.1](https://dropmefiles.com/upY2Y "Rock Voyage v0.0.1")___
