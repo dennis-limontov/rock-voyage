@@ -15,7 +15,7 @@ namespace RockVoyage
 
         private void Start()
         {
-            if (!PlayerPrefs.HasKey(ATTENTION))
+            if (PlayerPrefs.HasKey(ATTENTION))
             {
                 gameObject.SetActive(Convert.ToBoolean(PlayerPrefs.GetInt(ATTENTION)));
             }
