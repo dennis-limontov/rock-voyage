@@ -1,4 +1,18 @@
-Cherry
-vermouth 20
-sherry_brandy 20
-Benedictine 0.5
+{
+	"Name": "Cherry",
+	"Ingredients":
+	[
+		{
+			"Key": "vermouth",
+			"Value": 20
+		},
+		{
+			"Key": "sherry brandy",
+			"Value": 20
+		},
+		{
+			"Key": "Benedictine",
+			"Value": 0.5
+		}
+	]
+}

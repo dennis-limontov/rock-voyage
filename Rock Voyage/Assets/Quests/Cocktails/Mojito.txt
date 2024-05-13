@@ -1,7 +1,30 @@
-Mojito
-lime 1
-fresh_mint 3
-cane_sugar 15
-soda_water 150
-Cuban_white_rum 50
-ice 200
+{
+	"Name": "Mojito",
+	"Ingredients":
+	[
+		{
+			"Key": "lime",
+			"Value": 1
+		},
+		{
+			"Key": "fresh mint",
+			"Value": 3
+		},
+		{
+			"Key": "cane sugar",
+			"Value": 2
+		},
+		{
+			"Key": "soda water",
+			"Value": 150
+		},
+		{
+			"Key": "Cuban white rum",
+			"Value": 50
+		},
+		{
+			"Key": "ice",
+			"Value": 2
+		}
+	]
+}

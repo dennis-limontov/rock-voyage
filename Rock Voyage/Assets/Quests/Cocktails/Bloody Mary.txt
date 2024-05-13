@@ -1,7 +1,34 @@
-Bloody Mary
-vodka 60
-tomato_juice 100
-tabasco_sauce 1
-salt 1
-pepper 1
-lime 3
+{
+	"Name": "Bloody Mary",
+	"Ingredients":
+	[
+		{
+			"Key": "vodka",
+			"Value": 50
+		},
+		{
+			"Key": "tomato juice",
+			"Value": 100
+		},
+		{
+			"Key": "tabasco sauce",
+			"Value": 0.1
+		},
+		{
+			"Key": "worcestershire sauce",
+			"Value": 0.1
+		},
+		{
+			"Key": "salt",
+			"Value": 1
+		},
+		{
+			"Key": "celery powder",
+			"Value": 1
+		},
+		{
+			"Key": "lime",
+			"Value": 3
+		}
+	]
+}

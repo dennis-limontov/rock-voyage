@@ -1,4 +1,18 @@
-﻿Jägerbomb
-Jägermeister 50
-Red_Bull 150
-ice 5
+﻿{
+	"Name": "Jägerbomb",
+	"Ingredients":
+	[
+		{
+			"Key": "Jägermeister",
+			"Value": 50
+		},
+		{
+			"Key": "Red Bull",
+			"Value": 150
+		},
+		{
+			"Key": "ice",
+			"Value": 5
+		}
+	]
+}

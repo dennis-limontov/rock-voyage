@@ -1,5 +1,22 @@
-Screwdriver
-vodka 50
-orange_juice 100
-ice 2
-orange 1
+{
+	"Name": "Screwdriver",
+	"Ingredients":
+	[
+		{
+			"Key": "vodka",
+			"Value": 50
+		},
+		{
+			"Key": "orange juice",
+			"Value": 100
+		},
+		{
+			"Key": "orange",
+			"Value": 1
+		},
+		{
+			"Key": "ice",
+			"Value": 2
+		}
+	]
+}

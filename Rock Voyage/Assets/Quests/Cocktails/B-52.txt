@@ -1,4 +1,18 @@
-B-52
-coffee_liqueur 20
-creamy_liqueur 20
-orange_liqueur 20
+{
+	"Name": "B-52",
+	"Ingredients":
+	[
+		{
+			"Key": "coffee liqueur",
+			"Value": 20
+		},
+		{
+			"Key": "creamy liqueur",
+			"Value": 20
+		},
+		{
+			"Key": "orange liqueur",
+			"Value": 20
+		}
+	]
+}

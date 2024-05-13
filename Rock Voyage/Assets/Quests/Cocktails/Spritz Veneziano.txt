@@ -1,6 +1,26 @@
-Spritz Veneziano
-Aperol 40
-Prosecco 60
-soda_splash 20
-ice 2
-orange 1
+{
+	"Name": "Spritz Veneziano",
+	"Ingredients":
+	[
+		{
+			"Key": "Aperol",
+			"Value": 40
+		},
+		{
+			"Key": "Prosecco",
+			"Value": 60
+		},
+		{
+			"Key": "soda splash",
+			"Value": 20
+		},
+		{
+			"Key": "orange",
+			"Value": 1
+		},
+		{
+			"Key": "ice",
+			"Value": 2
+		}
+	]
+}

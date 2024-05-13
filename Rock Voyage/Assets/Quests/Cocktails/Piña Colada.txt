@@ -1,8 +1,34 @@
-﻿Piña Colada
-rum 50
-powdered_sugar 1
-coconut_cream 1
-pineapple_juice 50
-pineapple 7
-orange 1
-ice 3
+﻿{
+	"Name": "Piña Colada",
+	"Ingredients":
+	[
+		{
+			"Key": "rum",
+			"Value": 50
+		},
+		{
+			"Key": "powdered sugar",
+			"Value": 1
+		},
+		{
+			"Key": "coconut cream",
+			"Value": 1
+		},
+		{
+			"Key": "pineapple juice",
+			"Value": 50
+		},
+		{
+			"Key": "pineapple",
+			"Value": 7
+		},
+		{
+			"Key": "orange",
+			"Value": 1
+		},
+		{
+			"Key": "ice",
+			"Value": 3
+		}
+	]
+}
