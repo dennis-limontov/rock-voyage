@@ -11,28 +11,26 @@ namespace RockVoyage
         private TextAsset _ingredientsAsset;
 
         [SerializeField]
-        private CocktailInfo[] _cocktails;
-        public CocktailInfo[] Cocktails => _cocktails;
+        private TextAsset[] _cocktailsAssets;
 
-        public Ingredient[] Ingredients { get; private set; }
+        public CocktailInfo[] Cocktails { get; private set; }
+
+        public IngredientInfo[] Ingredients { get; private set; }
 
         public override void FillInfo()
         {
-            base.FillInfo();
-            foreach (var cocktail in _cocktails)
+            if (Ingredients != null && Ingredients.Length != 0)
             {
-                cocktail.FillInfo();
+                return;
             }
-            
-            Ingredients = JsonConvert.DeserializeObject<Ingredient[]>(_ingredientsAsset.text);
-        }
+            base.FillInfo();
 
-        [Serializable]
-        public class Ingredient
-        {
-            public string Name {  get; set; }
-            public float[] Doses { get; set; }
-            public string Measure { get; set; }
+            Ingredients = JsonConvert.DeserializeObject<IngredientInfo[]>(_ingredientsAsset.text);
+            Cocktails = new CocktailInfo[_cocktailsAssets.Length];
+            for (int i = 0; i < _cocktailsAssets.Length; i++)
+            {
+                Cocktails[i] = JsonConvert.DeserializeObject<CocktailInfo>(_cocktailsAssets[i].text);
+            }
         }
     }
 }

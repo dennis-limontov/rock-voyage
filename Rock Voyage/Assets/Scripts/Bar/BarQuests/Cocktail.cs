@@ -5,6 +5,8 @@ namespace RockVoyage
 {
     public class Cocktail : BarQuestController
     {
+        private CocktailList _cocktailList;
+
         private string _cocktailName;
         public string CocktailName
         {
@@ -35,12 +37,12 @@ namespace RockVoyage
         public override void Enter()
         {
             base.Enter();
-            CocktailList cocktailList = (CocktailList)questInfo;
-            int randIndex = Random.Range(0, cocktailList.Cocktails.Length);
-            CocktailInfo cocktailInfo = cocktailList.Cocktails[randIndex];
+            _cocktailList = (CocktailList)questInfo;
+            int randIndex = Random.Range(0, _cocktailList.Cocktails.Length);
+            CocktailInfo cocktailInfo = _cocktailList.Cocktails[randIndex];
             CocktailName = cocktailInfo.Name;
             _ingredients = cocktailInfo.Ingredients;
-            CurrentIngredientIndex = randIndex;
+            CurrentIngredientIndex = 0;
         }
     }
 }

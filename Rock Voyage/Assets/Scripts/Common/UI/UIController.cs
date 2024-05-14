@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 using UnityEngine;
 
 namespace RockVoyage
@@ -6,11 +8,23 @@ namespace RockVoyage
     {
         protected UIBase _anyUIElement;
 
+        [SerializeField]
+        protected HouseInfo _defaultHouseInfo;
+
         protected virtual void Awake()
         {
             _anyUIElement = GetComponent<UIBase>();
             MapEvents.OnSceneLoaded += SceneLoadedHandler;
             MapEvents.OnScenePreUnloaded += ScenePreUnloadedHandler;
+        }
+
+        protected virtual void Start()
+        {
+            if (_defaultHouseInfo && MapEvents.OnSceneLoaded?.GetInvocationList()
+                .Contains((Action<HouseInfo>)SceneLoadedHandler) == true)
+            {
+                MapEvents.OnSceneLoaded.Invoke(_defaultHouseInfo);
+            }
         }
 
         private void SceneLoadedHandler(HouseInfo houseInfo)
