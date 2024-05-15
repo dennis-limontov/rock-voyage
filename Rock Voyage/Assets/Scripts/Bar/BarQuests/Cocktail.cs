@@ -5,6 +5,9 @@ namespace RockVoyage
 {
     public class Cocktail : BarQuestController
     {
+        [SerializeField]
+        private UIActiveOneChild _chooseCocktailPanel;
+
         private CocktailList _cocktailList;
 
         private string _cocktailName;
@@ -34,6 +37,8 @@ namespace RockVoyage
             }
         }
 
+        private bool _ingredientOrMeasure = true;
+
         public override void Enter()
         {
             base.Enter();
@@ -43,6 +48,19 @@ namespace RockVoyage
             CocktailName = cocktailInfo.Name;
             _ingredients = cocktailInfo.Ingredients;
             CurrentIngredientIndex = 0;
+        }
+
+        public void OnChoiceButtonPressed()
+        {
+            if (_ingredientOrMeasure)
+            {
+                _chooseCocktailPanel.GoToNext();
+            }
+            else
+            {
+                _chooseCocktailPanel.GoToPrevious();
+            }
+            _ingredientOrMeasure = !_ingredientOrMeasure;
         }
     }
 }

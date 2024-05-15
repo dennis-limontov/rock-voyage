@@ -47,5 +47,9 @@ namespace RockVoyage
         CocktailName = 17,
         CocktailSteps = 18,
         CocktailIngredient = 19,
+        CocktailChoiceA = 20,
+        CocktailChoiceB = 21,
+        CocktailChoiceC = 22,
+        CocktailChoiceD = 23
     }
 }

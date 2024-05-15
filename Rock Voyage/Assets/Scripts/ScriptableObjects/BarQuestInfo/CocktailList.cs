@@ -19,7 +19,9 @@ namespace RockVoyage
 
         public override void FillInfo()
         {
-            if (Ingredients != null && Ingredients.Length != 0)
+            if (Cocktails != null && Cocktails.Length != 0
+                && Cocktails[0].Ingredients != null && Cocktails[0].Ingredients.Length != 0
+                && Ingredients != null && Ingredients.Length != 0)
             {
                 return;
             }
