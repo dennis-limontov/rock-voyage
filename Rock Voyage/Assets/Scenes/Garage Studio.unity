@@ -978,7 +978,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ca97fe0c70af294eb6cdd87e7f84898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defaultHouseInfo: {fileID: 11400000, guid: f66612a4cceed284eb96c8778d60d05a, type: 2}
+  _defaultHouseInfo:
+    rid: 2570560787245695051
+  references:
+    version: 2
+    RefIds:
+    - rid: 2570560787245695051
+      type: {class: GarageStudioInfo, ns: RockVoyage, asm: Assembly-CSharp}
+      data:
+        <MapInfo>k__BackingField: {fileID: 11400000, guid: d44f69a02ad774c46ab596ab5a0d2a45, type: 2}
+        <SceneName>k__BackingField: Garage Studio
 --- !u!1 &1839294565
 GameObject:
   m_ObjectHideFlags: 0

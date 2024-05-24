@@ -21,12 +21,17 @@ namespace RockVoyage
         private void Awake()
         {
             SceneManager.sceneLoaded += SceneLoadedHandler;
-            Time.timeScale = 1f;
+            _spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
         private void SceneLoadedHandler(Scene scene, LoadSceneMode mode)
         {
             SceneManager.sceneLoaded -= SceneLoadedHandler;
+
+            RVGC.MapInfo = _mapInfo;
+            _mapInfo.MapObjects = _mapObjects;
+            _mapInfo.Init();
+
             MapEvents.OnSceneLoaded?.Invoke(null);
             MapEvents.OnClockDateChanged?.Invoke(DateTime.UnixEpoch, RVGC.ClockDate);
             MapEvents.OnMoneyChanged?.Invoke(0, RVGC.Money);
@@ -35,13 +40,11 @@ namespace RockVoyage
         private void OnDestroy()
         {
             MapEvents.OnClockDateChanged -= ClockDateChangedHandler;
+            _mapInfo.Release();
         }
 
         private void Start()
         {
-            RVGC.MapInfo = _mapInfo;
-            _mapInfo.MapObjects = _mapObjects;
-            _spriteRenderer = GetComponent<SpriteRenderer>();
             MapEvents.OnClockDateChanged += ClockDateChangedHandler;
         }
 

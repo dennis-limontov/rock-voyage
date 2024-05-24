@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc7615fc6dd0844c8d6fcad7704a010, type: 3}
   m_Name: Map Info
   m_EditorClassIdentifier: 
-  _mapName: Map
-  _mapObjects: {fileID: 0}
+  <SceneName>k__BackingField: Map

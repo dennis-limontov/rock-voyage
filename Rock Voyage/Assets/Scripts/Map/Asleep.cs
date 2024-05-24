@@ -1,4 +1,5 @@
 using UnityEngine;
+using RVGC = RockVoyage.GameCharacteristics;
 
 namespace RockVoyage
 {
@@ -14,19 +15,19 @@ namespace RockVoyage
         {
             base.Enter();
             Time.timeScale = 0f;
-            if ((GameCharacteristics.HostelInfo == null) || !GameCharacteristics.HostelInfo.IsBooked)
+            if (RVGC.MapInfo.BookedHostel == null)
             {
-                if (GameCharacteristics.Money >= 0)
+                if (RVGC.Money >= 0)
                 {
-                    GameCharacteristics.Money /= 2;
+                    RVGC.Money /= 2;
                 }
             }
             else
             {
-                GameCharacteristics.Money -= Constants.TAXI_COST;
+                RVGC.Money -= Constants.TAXI_COST;
                 GoToNext();
             }
-            GameCharacteristics.CurrentPlayer.Sleep();
+            PlayersList.CurrentPlayer.Sleep();
         }
 
         public override void Init(UIBaseParent parent, HouseInfo houseInfo)

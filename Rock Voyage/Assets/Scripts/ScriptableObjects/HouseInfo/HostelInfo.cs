@@ -1,60 +1,40 @@
-﻿using Newtonsoft.Json;
+﻿using JsonHelpers;
 using System;
+using System.Runtime.Serialization;
 using UnityEngine;
+using RVGC = RockVoyage.GameCharacteristics;
 
 namespace RockVoyage
 {
-    [CreateAssetMenu(menuName = "ScriptableObjects/HouseInfo/HostelInfo")]
-    public class HostelInfo : HouseInfo, ILoadSave
+    [Serializable, DataContract]
+    public class HostelInfo : HouseInfo
     {
         public const int MAP_COST = 60;
         public const int NEWSPAPER_COST = 60;
 
-        [SerializeField]
-        private int _costPerNight;
-        public int CostPerNight => _costPerNight;
+        [field: SerializeField]
+        public int CostPerNight { get; private set; }
 
-        public bool IsBooked => _reservationDepartureTime > GameCharacteristics.ClockDate;
+        public bool IsBooked => ReservationExpirationTime > RVGC.ClockDate;
 
-        private DateTime _reservationDepartureTime = DateTime.UnixEpoch;
-        public DateTime ReservationDepartureTime => _reservationDepartureTime;
-
-        public string Name => name;
-
-        private void Awake()
-        {
-            LoadSaveManager.Add(Name, this);
-        }
-
-        private void OnDestroy()
-        {
-            LoadSaveManager.Remove(Name);
-        }
-
-        public void Load(string loadData)
-        {
-            _reservationDepartureTime = JsonConvert.DeserializeObject<DateTime>(loadData);
-        }
-
-        public string Save()
-        {
-            return JsonConvert.SerializeObject(_reservationDepartureTime);
-        }
+        [DataMember]
+        [SerializeIfGreaterThanCurrent]
+        public DateTime ReservationExpirationTime { get; private set; } = DateTime.UnixEpoch;
 
         public void AddDays(TimeSpan departureDaysToAdd)
         {
             if (!IsBooked)
             {
-                _reservationDepartureTime = GameCharacteristics.ClockDate;
+                ReservationExpirationTime = RVGC.ClockDate;
             }
-            _reservationDepartureTime += departureDaysToAdd;
-            if (_reservationDepartureTime.Hour < 10)
+            if (ReservationExpirationTime.Hour < Constants.NEW_DAY_HOUR)
             {
-                _reservationDepartureTime = _reservationDepartureTime.Subtract(new TimeSpan(1, 0, 0, 0));
+                departureDaysToAdd -= new TimeSpan(1, 0, 0, 0);
             }
-            _reservationDepartureTime = new DateTime(_reservationDepartureTime.Year,
-                _reservationDepartureTime.Month, _reservationDepartureTime.Day,
-                10, 0, 0);
+            ReservationExpirationTime += departureDaysToAdd;
+            ReservationExpirationTime = new DateTime(ReservationExpirationTime.Year,
+                ReservationExpirationTime.Month, ReservationExpirationTime.Day,
+                Constants.NEW_DAY_HOUR, 0, 0);
         }
     }
 }

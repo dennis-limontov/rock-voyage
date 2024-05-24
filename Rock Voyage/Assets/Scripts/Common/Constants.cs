@@ -8,13 +8,11 @@ namespace RockVoyage
         // common
         public const string GAME_NAME = "Rock Voyage";
         public const float ENERGY_CONSUMPTION_PER_HOUR = 0.04f;
-        public const float ENERGY_DRINK_EFFECT = 0.5f;
         public const float ENERGY_MAX = 1f;
         public const float FAME_MAX = 1f;
         public const int MONEY_AT_START = 100;
         public const int NEW_DAY_HOUR = 10;
         public const int TAXI_COST = 25;
-        public const string DATE_STRING_FORMAT = "yyyy/MM/dd hh:mm tt";
         public const int PLAYERS_MAX = 2;
         public static readonly Color NIGHT_MODE_COLOR = new Color(0.3f, 0.47f, 0.95f, 1f);
         public const int NIGHT_MODE_HOURS_OFF = 6;

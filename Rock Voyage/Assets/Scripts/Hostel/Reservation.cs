@@ -1,5 +1,4 @@
 using System;
-using System.Globalization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +8,8 @@ namespace RockVoyage
 {
     public class Reservation : UIBase
     {
+        private HostelInfo _hostelInfo;
+
         [SerializeField]
         private Button _sleepButton;
 
@@ -25,6 +26,12 @@ namespace RockVoyage
 
         private int _reservationCost;
 
+        public override void Init(UIBaseParent parent, HouseInfo houseInfo)
+        {
+            base.Init(parent, houseInfo);
+            _hostelInfo = (HostelInfo)houseInfo;
+        }
+
         public override void Enter()
         {
             base.Enter();
@@ -33,7 +40,7 @@ namespace RockVoyage
 
         public void OnGoToSleepClicked()
         {
-            RVGC.CurrentPlayer.Sleep();
+            PlayersList.CurrentPlayer.Sleep();
 
             ((UIActiveOneChild)GetController()).GoToPrevious();
         }
@@ -42,7 +49,7 @@ namespace RockVoyage
         {
             int newDaysToInt = newDays.Equals(string.Empty) ? 0 : int.Parse(newDays);
             _reservationDays = new TimeSpan(newDaysToInt, 0, 0, 0);
-            _reservationCost = newDaysToInt * ((HostelInfo)houseInfo).CostPerNight;
+            _reservationCost = newDaysToInt * _hostelInfo.CostPerNight;
 
             UpdateComponentsView();
         }
@@ -52,8 +59,7 @@ namespace RockVoyage
             if (RVGC.Money >= _reservationCost)
             {
                 RVGC.Money -= _reservationCost;
-                ((HostelInfo)houseInfo).AddDays(_reservationDays);
-                RVGC.HostelInfo = (HostelInfo)houseInfo;
+                _hostelInfo.AddDays(_reservationDays);
 
                 UpdateComponentsView();
             }
@@ -61,14 +67,12 @@ namespace RockVoyage
 
         private void UpdateComponentsView()
         {
-            HostelInfo hostelInfo = (HostelInfo)houseInfo;
-            _sleepButton.interactable = hostelInfo.IsBooked;
+            _sleepButton.interactable = _hostelInfo.IsBooked;
             _costValueText.text = _reservationCost.ToString();
             _okButton.interactable = (RVGC.Money >= _reservationCost);
-            if (hostelInfo.IsBooked)
+            if (_hostelInfo.IsBooked)
             {
-                _reservationDateText.text = hostelInfo.ReservationDepartureTime
-                    .ToString(Constants.DATE_STRING_FORMAT, CultureInfo.InvariantCulture);
+                _reservationDateText.text = _hostelInfo.ReservationExpirationTime.ToString();
             }
         }
     }

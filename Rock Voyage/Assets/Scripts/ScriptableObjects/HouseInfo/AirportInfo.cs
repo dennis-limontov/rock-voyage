@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Runtime.Serialization;
+using UnityEngine;
 
 namespace RockVoyage
 {
-    [CreateAssetMenu(menuName = "ScriptableObjects/HouseInfo/AirportInfo")]
+    [Serializable, DataContract]
     public class AirportInfo : HouseInfo
     {
     }

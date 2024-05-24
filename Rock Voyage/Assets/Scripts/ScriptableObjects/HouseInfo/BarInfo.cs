@@ -1,23 +1,19 @@
 using System;
+using System.Runtime.Serialization;
 using UnityEngine;
 
 namespace RockVoyage
 {
-    [CreateAssetMenu(menuName = "ScriptableObjects/HouseInfo/BarInfo")]
+    [Serializable, DataContract]
     public class BarInfo : HouseInfo
     {
+        public const float ENERGY_DRINK_EFFECT = 0.5f;
         public static readonly TimeSpan QUEST_TIME = new TimeSpan(3, 0, 0);
 
-        [SerializeField]
-        private string _barName;
-        public string BarName => _barName;
+        [field: SerializeField]
+        public int Capacity { get; private set; }
 
-        [SerializeField]
-        private int _capacity;
-        public int Capacity => _capacity;
-
-        [SerializeField]
-        private int _energyDrinkCost;
-        public int EnergyDrinkCost => _energyDrinkCost;
+        [field: SerializeField]
+        public int EnergyDrinkCost { get; private set; }
     }
 } 

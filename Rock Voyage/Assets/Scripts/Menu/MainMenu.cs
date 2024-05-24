@@ -10,27 +10,25 @@ namespace RockVoyage
         [SerializeField]
         private SongInfo _firstSong;
 
+        public void Start ()
+        {
+            Time.timeScale = 1f;
+            ResetGameData();
+        }
+
         public void OnNewGameClicked()
         {
-            ResetGameData();
             SceneManager.LoadScene(CUT_SCENE_START);
         }
 
         public void OnLoadGameClicked()
         {
-            SceneManager.LoadScene(START_CITY);
-            MapEvents.OnSceneLoaded += SceneLoadedHandler;
+            LoadSaveManager.Load();
         }
 
         public void OnAboutClicked()
         {
             SceneManager.LoadScene(ABOUT);
-        }
-
-        private void SceneLoadedHandler(HouseInfo info)
-        {
-            MapEvents.OnSceneLoaded -= SceneLoadedHandler;
-            LoadSaveManager.Load();
         }
 
         public void OnExitGameClicked()
@@ -42,6 +40,7 @@ namespace RockVoyage
         {
             GameCharacteristics.Reset();
             GameCharacteristics.AvailableSongs.Add(_firstSong.SongName);
+            PlayersList.Reset();
         }
     }
 }

@@ -288,6 +288,8 @@ GameObject:
   - component: {fileID: 218070870}
   - component: {fileID: 218070869}
   - component: {fileID: 218070868}
+  - component: {fileID: 218070873}
+  - component: {fileID: 218070872}
   m_Layer: 5
   m_Name: Hostel Canvas
   m_TagString: Untagged
@@ -378,6 +380,45 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &218070872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218070867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ca97fe0c70af294eb6cdd87e7f84898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultHouseInfo:
+    rid: 2570560787245695052
+  references:
+    version: 2
+    RefIds:
+    - rid: 2570560787245695052
+      type: {class: HostelInfo, ns: RockVoyage, asm: Assembly-CSharp}
+      data:
+        <MapInfo>k__BackingField: {fileID: 11400000, guid: d44f69a02ad774c46ab596ab5a0d2a45, type: 2}
+        <SceneName>k__BackingField: Hostel
+        <Name>k__BackingField: Hostel 1
+        <CostPerNight>k__BackingField: 7
+--- !u!114 &218070873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218070867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 649f8f046d873294c83cfff31f7dd7ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  children:
+  - {fileID: 1224089915}
+  - {fileID: 481828453}
 --- !u!1001 &473498725
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1501,7 +1542,7 @@ PrefabInstance:
     - target: {fileID: 6067579254126345659, guid: 04207e86def15f246ad3e61efc3f4d6c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1224089917}
+      objectReference: {fileID: 218070873}
     - target: {fileID: 6067579254126345659, guid: 04207e86def15f246ad3e61efc3f4d6c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -2000,7 +2041,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7111706097739551453, guid: b1201bc374b3a4649afd159fda1b9cd9, type: 3}
       propertyPath: m_fontSize
-      value: 34.6
+      value: 37.4
       objectReference: {fileID: 0}
     - target: {fileID: 8297129265181966677, guid: b1201bc374b3a4649afd159fda1b9cd9, type: 3}
       propertyPath: m_Name
@@ -2026,12 +2067,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 701143486}
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4945099987844689396, guid: b1201bc374b3a4649afd159fda1b9cd9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1224089916}
-    - targetCorrespondingSourceObject: {fileID: 4945099987844689396, guid: b1201bc374b3a4649afd159fda1b9cd9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1224089917}
     - targetCorrespondingSourceObject: {fileID: 8297129265181966677, guid: b1201bc374b3a4649afd159fda1b9cd9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1224089915}
@@ -2056,11 +2091,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5242220049064052449, guid: b1201bc374b3a4649afd159fda1b9cd9, type: 3}
   m_PrefabInstance: {fileID: 1224089908}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1224089913 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4945099987844689396, guid: b1201bc374b3a4649afd159fda1b9cd9, type: 3}
-  m_PrefabInstance: {fileID: 1224089908}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1224089915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2075,34 +2105,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mapButton: {fileID: 1815191965}
   _newspaperButton: {fileID: 701143487}
---- !u!114 &1224089916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1224089913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ca97fe0c70af294eb6cdd87e7f84898, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _defaultHouseInfo: {fileID: 11400000, guid: ee194bed686474148a677f132e548c74, type: 2}
---- !u!114 &1224089917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1224089913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 649f8f046d873294c83cfff31f7dd7ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  children:
-  - {fileID: 1224089915}
-  - {fileID: 481828453}
 --- !u!224 &1283802934 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6067579254126345660, guid: 04207e86def15f246ad3e61efc3f4d6c, type: 3}
@@ -2139,7 +2141,7 @@ PrefabInstance:
     - target: {fileID: 6067579254126345659, guid: 04207e86def15f246ad3e61efc3f4d6c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1224089917}
+      objectReference: {fileID: 218070873}
     - target: {fileID: 6067579254126345659, guid: 04207e86def15f246ad3e61efc3f4d6c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2

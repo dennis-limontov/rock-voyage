@@ -6,12 +6,19 @@ namespace RockVoyage
 {
     public class Reception : UIBase
     {
+        private HostelInfo _hostelInfo;
 
         [SerializeField]
         private Button _mapButton;
 
         [SerializeField]
         private Button _newspaperButton;
+
+        public override void Init(UIBaseParent parent, HouseInfo houseInfo)
+        {
+            base.Init(parent, houseInfo);
+            _hostelInfo = (HostelInfo)houseInfo;
+        }
 
         public override void Enter()
         {
@@ -21,25 +28,24 @@ namespace RockVoyage
 
         public void OnBuyAMapClicked()
         {
-            houseInfo.MapInfo.IsMapPurchased = true;
+            _hostelInfo.MapInfo.IsMapPurchased = true;
             RVGC.Money -= HostelInfo.MAP_COST;
             UpdateComponentsView();
         }
 
         public void OnBuyANewspaperClicked()
         {
-            houseInfo.MapInfo.IsNewspaperPurchased = true;
+            _hostelInfo.MapInfo.IsNewspaperPurchased = true;
             RVGC.Money -= HostelInfo.NEWSPAPER_COST;
             UpdateComponentsView();
         }
 
         private void UpdateComponentsView()
         {
-            HostelInfo hostelInfo = (HostelInfo)houseInfo;
             _mapButton.interactable = ((RVGC.Money >= HostelInfo.MAP_COST)
-                && hostelInfo.IsBooked && !hostelInfo.MapInfo.IsMapPurchased);
+                && _hostelInfo.IsBooked && !_hostelInfo.MapInfo.IsMapPurchased);
             _newspaperButton.interactable = ((RVGC.Money >= HostelInfo.NEWSPAPER_COST)
-                && hostelInfo.IsBooked && !hostelInfo.MapInfo.IsNewspaperPurchased);
+                && _hostelInfo.IsBooked && !_hostelInfo.MapInfo.IsNewspaperPurchased);
         }
     }
 }

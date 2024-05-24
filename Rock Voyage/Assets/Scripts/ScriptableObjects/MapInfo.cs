@@ -1,16 +1,24 @@
-﻿using Newtonsoft.Json;
+﻿using JsonHelpers;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
 using UnityEngine;
 
 namespace RockVoyage
 {
     [CreateAssetMenu(menuName = "ScriptableObjects/MapInfo")]
-    public class MapInfo : ScriptableObject, ILoadSave
+    [Serializable, DataContract]
+    public class MapInfo : ScriptableObject, ILoadSaveRoot
     {
-        [SerializeField]
-        private string _mapName;
-        public string MapName => _mapName;
+        public string Name => SceneName;
+
+        [field: SerializeField]
+        public string SceneName { get; private set; }
 
         private bool _isMapPurchased;
+        [DataMember]
         public bool IsMapPurchased
         {
             get => _isMapPurchased;
@@ -22,6 +30,7 @@ namespace RockVoyage
         }
 
         private bool _isNewspaperPurchased;
+        [DataMember]
         public bool IsNewspaperPurchased
         {
             get => _isNewspaperPurchased;
@@ -32,43 +41,24 @@ namespace RockVoyage
             }
         }
 
-        public string Name => name;
+        [DataMember, JsonConverter(typeof(ReusableDictionaryConverter<string, HouseInfo>))]
+        public Dictionary<string, HouseInfo> Houses { get; private set; } = new Dictionary<string, HouseInfo>();
 
-        private (bool IsMapPurchased, bool IsNewspaperPurchased) SerializableTuple
+        public GameObject MapObjects { get; set; }
+
+        public HostelInfo BookedHostel => (HostelInfo)Houses.Values
+            .FirstOrDefault(house => (house as HostelInfo)?.IsBooked == true);
+
+        public void Init()
         {
-            get => (_isMapPurchased, _isNewspaperPurchased);
-            set
-            {
-                (_isMapPurchased, _isNewspaperPurchased) = value;
-            }
+            ((ILoadSaveRoot)this).AddLoadSaveable();
         }
 
-        [SerializeField]
-        private GameObject _mapObjects;
-        public GameObject MapObjects
+        public void Release()
         {
-            get => _mapObjects;
-            set => _mapObjects = value;
-        }
-
-        private void Awake()
-        {
-            LoadSaveManager.Add(Name, this);
-        }
-
-        private void OnDestroy()
-        {
-            LoadSaveManager.Remove(Name);
-        }
-
-        public void Load(string loadData)
-        {
-            SerializableTuple = JsonConvert.DeserializeObject<(bool, bool)>(loadData);
-        }
-
-        public string Save()
-        {
-            return JsonConvert.SerializeObject(SerializableTuple);
+            ((ILoadSaveRoot)this).RemoveLoadSaveable();
+            Houses.Clear();
+            MapObjects = null;
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Globalization;
 using UnityEngine;
 
 namespace RockVoyage
@@ -31,9 +30,6 @@ namespace RockVoyage
                 GameAttributes.CrowdHappiness or GameAttributes.Energy
                     or GameAttributes.Fame or GameAttributes.PerfomanceQuality => "p2",
                 GameAttributes.Money or GameAttributes.MoneyProfit => "0 \\$",
-                GameAttributes.Time or GameAttributes.PlayOnSceneAvailableDate
-                    or GameAttributes.RecordAvailableDate or GameAttributes.StreetMusicAvailableDate
-                    => Constants.DATE_STRING_FORMAT,
                 _ => string.Empty
             };
         }
@@ -43,41 +39,22 @@ namespace RockVoyage
         {
             if (this.attribute == attribute)
             {
-                if (newValue is DateTime dateTimeValue)
+                switch (newValue)
                 {
-                    UpdateCharacteristic((DateTime)oldValue, dateTimeValue);
-                }
-                else if (newValue is float floatValue)
-                {
-                    UpdateCharacteristic((float)oldValue, floatValue);
-                }
-                else if (newValue is int intValue)
-                {
-                    UpdateCharacteristic((int)oldValue, intValue);
-                }
-                else if (newValue is string stringValue)
-                {
-                    UpdateCharacteristic(oldValue.ToString(), stringValue);
+                    case string stringValue:
+                        UpdateCharacteristic(oldValue.ToString(), stringValue);
+                        break;
+                    case IFormattable formattableValue:
+                        UpdateCharacteristic((IFormattable)oldValue, formattableValue);
+                        break;
                 }
             }
         }
 
-        protected virtual void UpdateCharacteristic(DateTime oldValue, DateTime newValue)
+        protected virtual void UpdateCharacteristic(IFormattable oldValue, IFormattable newValue)
         {
-            UpdateCharacteristic(oldValue.ToString(_textFormat, CultureInfo.InvariantCulture),
-                newValue.ToString(_textFormat, CultureInfo.InvariantCulture));
+            UpdateCharacteristic(oldValue.ToString(_textFormat, null), newValue.ToString(_textFormat, null));
         }
-
-        protected virtual void UpdateCharacteristic(float oldValue, float newValue)
-        {
-            UpdateCharacteristic(oldValue.ToString(_textFormat), newValue.ToString(_textFormat));
-        }
-
-        protected virtual void UpdateCharacteristic(int oldValue, int newValue)
-        {
-            UpdateCharacteristic(oldValue.ToString(_textFormat), newValue.ToString(_textFormat));
-        }
-
         protected virtual void UpdateCharacteristic(string oldValue, string newValue)
         {
         }

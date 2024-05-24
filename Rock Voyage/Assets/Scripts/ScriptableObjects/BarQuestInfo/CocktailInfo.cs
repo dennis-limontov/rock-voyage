@@ -1,12 +1,15 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace RockVoyage
 {
-    [Serializable]
-    public class CocktailInfo
+    [Serializable, DataContract]
+    public struct CocktailInfo
     {
-        public string Name { get; set; }
-        public KeyValuePair<string, float>[] Ingredients { get; set; }
+        [DataMember(IsRequired = true)]
+        public string Name { get; private set; }
+        [DataMember(IsRequired = true)]
+        public KeyValuePair<string, float>[] Ingredients { get; private set; }
     }
 }

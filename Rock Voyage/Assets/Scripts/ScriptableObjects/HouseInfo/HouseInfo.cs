@@ -1,15 +1,29 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Runtime.Serialization;
+using UnityEngine;
 
 namespace RockVoyage
 {
-    public abstract class HouseInfo : ScriptableObject
+    [Serializable, DataContract]
+    public abstract class HouseInfo
     {
-        [SerializeField]
-        private MapInfo _mapInfo;
-        public MapInfo MapInfo => _mapInfo;
+        [field: SerializeField]
+        public string Name { get; protected set; }
 
-        [SerializeField]
-        private string _sceneName;
-        public string SceneName => _sceneName;
+        [field: SerializeField]
+        public MapInfo MapInfo { get; protected set; }
+
+        [field: SerializeField]
+        public string SceneName { get; protected set; }
+
+        public virtual void Awake()
+        {
+            MapInfo.Houses.Add(Name, this);
+        }
+
+        public virtual void OnDestroy()
+        {
+            MapInfo.Houses.Remove(Name);
+        }
     }
 }

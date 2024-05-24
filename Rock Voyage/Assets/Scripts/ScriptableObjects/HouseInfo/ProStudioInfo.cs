@@ -1,19 +1,26 @@
+using System;
+using System.Runtime.Serialization;
 using UnityEngine;
+using RVGC = RockVoyage.GameCharacteristics;
 
 namespace RockVoyage
 {
-    [CreateAssetMenu(menuName = "ScriptableObjects/HouseInfo/ProStudioInfo")]
+    [Serializable, DataContract]
     public class ProStudioInfo : HouseInfo
     {
-        public const int RECORD_COST = 50;
         public const int RECORD_AVAILABLE_DATE_PAUSE = 7;
+        public const float FAME_INCREMENT = 0.01f;
+        public static readonly TimeSpan RECORD_TIME = new TimeSpan(6, 0, 0);
 
-        [SerializeField]
-        private string _proStudioName;
-        public string ProStudioName => _proStudioName;
+        [field: SerializeField]
+        public int RecordingCost { get; private set; }
 
-        [SerializeField]
-        private int _recordingCost;
-        public int RecordingCost => _recordingCost;
+        public void MakeRecord()
+        {
+            RVGC.Money -= RecordingCost;
+            RVGC.Fame += FAME_INCREMENT;
+            RVGC.RecordAvailableDate = RVGC.ClockDate.AddDays(RECORD_AVAILABLE_DATE_PAUSE);
+            RVGC.ClockDate += RECORD_TIME;
+        }
     }
 }

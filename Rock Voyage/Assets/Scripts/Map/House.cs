@@ -11,17 +11,12 @@ namespace RockVoyage
         [SerializeField]
         private GameObject _circleBorder;
 
-        [SerializeField]
+        [SerializeReference, SubclassSelector]
         private HouseInfo _houseInfo;
 
-        private void OnDestroy()
+        private void Awake()
         {
-            MapEvents.OnMapBought -= ShowView;
-            MapEvents.OnNewspaperBought -= ShowView;
-        }
-
-        private void Start()
-        {
+            _houseInfo.Awake();
             if (_houseInfo is StreetMusicInfo)
             {
                 MapEvents.OnNewspaperBought += ShowView;
@@ -32,17 +27,24 @@ namespace RockVoyage
             }
         }
 
-        public void EnterHouse()
+        private void OnDestroy()
         {
-            _houseInfo.MapInfo.MapObjects.SetActive(false);
-            SceneManager.LoadScene(_houseInfo.SceneName, LoadSceneMode.Additive);
-            SceneManager.sceneLoaded += SceneLoadedHandler;
+            MapEvents.OnMapBought -= ShowView;
+            MapEvents.OnNewspaperBought -= ShowView;
+            _houseInfo.OnDestroy();
         }
 
-        private void SceneLoadedHandler(Scene arg0, LoadSceneMode arg1)
+        public void EnterHouse()
         {
-            SceneManager.SetActiveScene(SceneManager.GetSceneByName(_houseInfo.SceneName));
+            SceneManager.sceneLoaded += SceneLoadedHandler;
+            _houseInfo.MapInfo.MapObjects.SetActive(false);
+            SceneManager.LoadScene(_houseInfo.SceneName, LoadSceneMode.Additive);
+        }
+
+        private void SceneLoadedHandler(Scene scene, LoadSceneMode mode)
+        {
             SceneManager.sceneLoaded -= SceneLoadedHandler;
+            SceneManager.SetActiveScene(scene);
             MapEvents.OnSceneLoaded?.Invoke(_houseInfo);
         }
 

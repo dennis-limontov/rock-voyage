@@ -5,6 +5,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 66206959384244638, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
@@ -67,10 +68,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 3605613292394930826, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
-      propertyPath: _houseInfo
-      value: 
-      objectReference: {fileID: 11400000, guid: f13a752005f9fb64d9ff8e5db2717dff, type: 2}
     - target: {fileID: 3992252673697502197, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
       propertyPath: m_text
       value: Airport
@@ -80,4 +77,7 @@ PrefabInstance:
       value: Airport
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}

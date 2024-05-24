@@ -1,86 +1,110 @@
-﻿using Newtonsoft.Json;
+﻿using JsonHelpers;
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
+using UnityEngine;
 
 namespace RockVoyage
 {
-    using static Constants.Scenes;
+    using static Constants;
 
-    public class GameCharacteristics : ILoadSave
+    [Serializable, DataContract]
+    public class GameCharacteristics : ILoadSaveRoot
     {
-        public static GameCharacteristics Instance { get; } = new GameCharacteristics();
+        public static readonly GameCharacteristics Instance = new GameCharacteristics();
 
         public string Name => nameof(GameCharacteristics);
 
         private DateTime _clockDate = DateTime.UnixEpoch;
-        public static DateTime ClockDate
-        { 
-            get => Instance._clockDate;
+        [DataMember]
+        private DateTime clockDate
+        {
+            get => _clockDate;
             set
             {
-                var ourTime = Instance._clockDate;
-                Instance._clockDate = value;
+                var ourTime = clockDate;
+                _clockDate = value;
                 MapEvents.OnClockDateChanged?.Invoke(ourTime, value);
             }
         }
-
-        private int _money = Constants.MONEY_AT_START;
-        public static int Money
+        public static DateTime ClockDate
         {
-            get => Instance._money;
+            get => Instance.clockDate;
+            set => Instance.clockDate = value;
+        }
+
+        private int _money = MONEY_AT_START;
+        [DataMember]
+        private int money
+        {
+            get => _money;
             set
             {
-                var ourMoney = Instance._money;
-                Instance._money = value;
+                var ourMoney = _money;
+                _money = value;
                 MapEvents.OnMoneyChanged?.Invoke(ourMoney, value);
             }
         }
+        public static int Money
+        {
+            get => Instance.money;
+            set => Instance.money = value;
+        }
 
         private float _fame;
-        public static float Fame
+        [DataMember]
+        private float fame
         {
             get => Instance._fame;
             set
             {
-                var ourFame = Instance._fame;
-                Instance._fame = value;
+                var ourFame = _fame;
+                _fame = value;
                 MapEvents.OnFameChanged?.Invoke(ourFame, value);
             }
         }
+        public static float Fame
+        {
+            get => Instance.fame;
+            set => Instance.fame = value;
+        }
 
         private DateTime _playOnSceneAvailableDate = DateTime.UnixEpoch;
-        public static DateTime PlayOnSceneAvailableDate
+        [DataMember]
+        [SerializeIfGreaterThanCurrent]
+        private DateTime playOnSceneAvailableDate
         {
-            get => Instance._playOnSceneAvailableDate;
+            get => _playOnSceneAvailableDate;
             set
             {
-                Instance._playOnSceneAvailableDate = value;
+                _playOnSceneAvailableDate = value;
                 EventHub.OnValueChanged?.Invoke(GameAttributes.PlayOnSceneAvailableDate,
                     DateTime.UnixEpoch, value);
             }
         }
+        public static DateTime PlayOnSceneAvailableDate
+        {
+            get => Instance.playOnSceneAvailableDate;
+            set => Instance.playOnSceneAvailableDate = value;
+        }
 
         private DateTime _recordAvailableDate = DateTime.UnixEpoch;
-        public static DateTime RecordAvailableDate
+        [DataMember]
+        [SerializeIfGreaterThanCurrent]
+        private DateTime recordAvailableDate
         {
-            get => Instance._recordAvailableDate;
+            get => _recordAvailableDate;
             set
             {
-                Instance._recordAvailableDate = value;
+                _recordAvailableDate = value;
                 EventHub.OnValueChanged?.Invoke(GameAttributes.RecordAvailableDate,
                     DateTime.UnixEpoch, value);
             }
         }
-
-        public List<PlayerCharacteristics> players
-            = new List<PlayerCharacteristics>(Constants.PLAYERS_MAX);
-        public static PlayerCharacteristics CurrentPlayer => Instance.players[0];
-
-        private HostelInfo _hostelInfo;
-        public static HostelInfo HostelInfo
+        public static DateTime RecordAvailableDate
         {
-            get => Instance._hostelInfo;
-            set => Instance._hostelInfo = value;
+            get => Instance.recordAvailableDate;
+            set => Instance.recordAvailableDate = value;
         }
 
         private MapInfo _mapInfo;
@@ -90,9 +114,11 @@ namespace RockVoyage
             set => Instance._mapInfo = value;
         }
 
+        [DataMember]
         private List<string> _availableSongs = new List<string>();
         public static List<string> AvailableSongs => Instance._availableSongs;
 
+        [DataMember]
         private bool _isEnergyDrinkUsed;
         public static bool IsEnergyDrinkUsed
         {
@@ -100,57 +126,24 @@ namespace RockVoyage
             set => Instance._isEnergyDrinkUsed = value;
         }
 
-        private (DateTime ClockDate, int Money, float Fame, DateTime PlayOnSceneAvailableDate,
-            DateTime RecordAvailableDate, List<PlayerCharacteristics> Players, string HostelInfoName,
-            string MapInfoName, List<string> AvailableSongs, bool IsEnergyDrinkUsed)
-            SerializableTuple
-        {
-            get => (ClockDate, Money, Fame, PlayOnSceneAvailableDate, RecordAvailableDate,
-                players, HostelInfo.Name, MapInfo.Name, AvailableSongs, IsEnergyDrinkUsed);
-            set
-            {
-                ClockDate = value.ClockDate;
-                Money = value.Money;
-                Fame = value.Fame;
-                PlayOnSceneAvailableDate = value.PlayOnSceneAvailableDate;
-                RecordAvailableDate = value.RecordAvailableDate;
-                players = value.Players;
-                ILoadSave hostelSO = null, mapSO;
-                if (value.HostelInfoName != null)
-                {
-                    LoadSaveManager.loadSaveList.TryGetValue(value.HostelInfoName, out hostelSO);
-                }
-                HostelInfo = (HostelInfo)hostelSO;
-                LoadSaveManager.loadSaveList.TryGetValue(value.MapInfoName, out mapSO);
-                MapInfo = (MapInfo)mapSO;
-                _availableSongs = value.AvailableSongs;
-                _isEnergyDrinkUsed = value.IsEnergyDrinkUsed;
-            }
-        }
-
-        GameCharacteristics()
-        {
-            ((ILoadSave)this).Awake();
-        }
-
-        public void Load(string loadData)
-        {
-            SerializableTuple = JsonConvert.DeserializeObject<(DateTime, int, float,
-                DateTime, DateTime, List<PlayerCharacteristics>, string, string,
-                List<string>, bool)>(loadData);
-        }
-
-        public string Save()
-        {
-            return JsonConvert.SerializeObject(SerializableTuple);
-        }
-
         public static void Reset()
         {
-            Instance.SerializableTuple = (DateTime.UnixEpoch, Constants.MONEY_AT_START,
-                0f, DateTime.UnixEpoch, DateTime.UnixEpoch,
-                new List<PlayerCharacteristics>(Constants.PLAYERS_MAX),
-                null, START_CITY, new List<string>(), false);
+            ClockDate = DateTime.UnixEpoch;
+            Money = MONEY_AT_START;
+            Fame = 0f;
+            PlayOnSceneAvailableDate = DateTime.UnixEpoch;
+            RecordAvailableDate = DateTime.UnixEpoch;
+            MapInfo = null;
+            AvailableSongs.Clear();
+            IsEnergyDrinkUsed = false;
         }
+
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        private static void Init()
+        {
+            Instance.AddLoadSaveable();
+        }
+
+        private GameCharacteristics() { }
     }
 }

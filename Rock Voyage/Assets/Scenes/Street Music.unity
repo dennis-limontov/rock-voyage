@@ -1539,7 +1539,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ca97fe0c70af294eb6cdd87e7f84898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defaultHouseInfo: {fileID: 11400000, guid: bdadded8c220a52458d4bcbea8e21275, type: 2}
+  _defaultHouseInfo:
+    rid: 2570560787245695055
+  references:
+    version: 2
+    RefIds:
+    - rid: 2570560787245695055
+      type: {class: StreetMusicInfo, ns: RockVoyage, asm: Assembly-CSharp}
+      data:
+        <MapInfo>k__BackingField: {fileID: 11400000, guid: d44f69a02ad774c46ab596ab5a0d2a45, type: 2}
+        <SceneName>k__BackingField: Street Music
+        <Name>k__BackingField: Street Music 1
 --- !u!1001 &1203784867
 PrefabInstance:
   m_ObjectHideFlags: 0

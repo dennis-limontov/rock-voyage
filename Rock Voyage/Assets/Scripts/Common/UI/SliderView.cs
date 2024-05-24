@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,13 +7,17 @@ namespace RockVoyage
 {
     public class SliderView : GameCharacteristicView
     {
-        public const float SLIDER_LIMIT_MIDDLE = 0.7f;
-        public const float SLIDER_LIMIT_LOW = 0.4f;
-        public const float SLIDER_LIMIT_DANGER = 0.1f;
-        public static readonly Color SLIDER_COLOR_MAX = new Color(0.04f, 0.62f, 0.1f, 1f);
-        public static readonly Color SLIDER_COLOR_MIDDLE = Color.yellow;
-        public static readonly Color SLIDER_COLOR_LOW = new Color(1f, 0.5f, 0f, 1f);
-        public static readonly Color SLIDER_COLOR_DANGER = Color.red;
+        public static readonly Gradient SLIDER_COLOR_GRADIENT = new Gradient()
+        {
+            colorKeys = new GradientColorKey[]
+            {
+                new GradientColorKey(Color.red, 0.1f),
+                new GradientColorKey(new Color(1f, 0.5f, 0f, 1f), 0.4f),
+                new GradientColorKey(Color.yellow, 0.7f),
+                new GradientColorKey(new Color(0.04f, 0.62f, 0.1f, 1f), 1f),
+            },
+            mode = GradientMode.Fixed
+        };
 
         [SerializeField]
         private Image _sliderImage;
@@ -28,17 +33,11 @@ namespace RockVoyage
             _sliderText = GetComponentInChildren<TextMeshProUGUI>();
         }
 
-        protected override void UpdateCharacteristic(float oldValue, float newValue)
+        protected override void UpdateCharacteristic(IFormattable oldValue, IFormattable newValue)
         {
             base.UpdateCharacteristic(oldValue, newValue);
-            _slider.value = newValue;
-            _sliderImage.color = _slider.value switch
-            {
-                < SLIDER_LIMIT_DANGER => SLIDER_COLOR_DANGER,
-                < SLIDER_LIMIT_LOW => SLIDER_COLOR_LOW,
-                < SLIDER_LIMIT_MIDDLE => SLIDER_COLOR_MIDDLE,
-                _ => SLIDER_COLOR_MAX
-            };
+            _slider.value = (float)newValue;
+            _sliderImage.color = SLIDER_COLOR_GRADIENT.Evaluate(_slider.value);
         }
 
         protected override void UpdateCharacteristic(string oldValue, string newValue)

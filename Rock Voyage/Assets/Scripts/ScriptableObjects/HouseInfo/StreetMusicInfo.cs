@@ -1,20 +1,20 @@
-using Newtonsoft.Json;
+using JsonHelpers;
 using System;
-using UnityEngine;
+using System.Runtime.CompilerServices;
+using System.Runtime.Serialization;
 
 namespace RockVoyage
 {
-    [CreateAssetMenu(menuName = "ScriptableObjects/HouseInfo/StreetMusicInfo")]
-    public class StreetMusicInfo : HouseInfo, ILoadSave
+    [Serializable, DataContract]
+    public class StreetMusicInfo : HouseInfo
     {
         public const float EARN_MONEY_CHANCE = 0.05f;
         public const float REMEMBER_CHANCE = 0.5f;
         public const float TIME_TO_PLAY = 30f;
 
-        public bool IsAvailable => _playAgainTime <= GameCharacteristics.ClockDate;
-
-        [JsonProperty]
         private DateTime _playAgainTime = DateTime.UnixEpoch;
+        [DataMember]
+        [SerializeIfGreaterThanCurrent]
         public DateTime PlayAgainTime
         {
             get => _playAgainTime;
@@ -26,26 +26,6 @@ namespace RockVoyage
             }
         }
 
-        public string Name => name;
-
-        private void Awake()
-        {
-            LoadSaveManager.Add(Name, this);
-        }
-
-        private void OnDestroy()
-        {
-            LoadSaveManager.Remove(Name);
-        }
-
-        public void Load(string loadData)
-        {
-            _playAgainTime = JsonConvert.DeserializeObject<DateTime>(loadData);
-        }
-
-        public string Save()
-        {
-            return JsonConvert.SerializeObject(_playAgainTime);
-        }
+        public bool IsAvailable => _playAgainTime <= GameCharacteristics.ClockDate;
     }
 }

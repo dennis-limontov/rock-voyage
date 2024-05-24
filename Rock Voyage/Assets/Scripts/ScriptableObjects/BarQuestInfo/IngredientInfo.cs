@@ -1,12 +1,16 @@
 using System;
+using System.Runtime.Serialization;
 
 namespace RockVoyage
 {
-    [Serializable]
-    public class IngredientInfo
+    [Serializable, DataContract]
+    public struct IngredientInfo
     {
-        public string Name { get; set; }
-        public float[] Doses { get; set; }
-        public string Measure { get; set; }
+        [DataMember(IsRequired = true)]
+        public string Name { get; private set; }
+        [DataMember(IsRequired = true)]
+        public float[] Doses { get; private set; }
+        [DataMember(IsRequired = true)]
+        public string Measure { get; private set; }
     }
 }

@@ -8,7 +8,7 @@ namespace RockVoyage
     {
         protected UIBase _anyUIElement;
 
-        [SerializeField]
+        [SerializeReference, SubclassSelector]
         protected HouseInfo _defaultHouseInfo;
 
         protected virtual void Awake()
@@ -20,7 +20,7 @@ namespace RockVoyage
 
         protected virtual void Start()
         {
-            if (_defaultHouseInfo && MapEvents.OnSceneLoaded?.GetInvocationList()
+            if ((_defaultHouseInfo != null) && MapEvents.OnSceneLoaded?.GetInvocationList()
                 .Contains((Action<HouseInfo>)SceneLoadedHandler) == true)
             {
                 MapEvents.OnSceneLoaded.Invoke(_defaultHouseInfo);

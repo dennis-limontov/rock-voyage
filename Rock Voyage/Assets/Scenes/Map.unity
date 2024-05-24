@@ -173,8 +173,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8637324551749692039, guid: a8c8d8e109411734fbc9eac1efd17c5e, type: 3}
       propertyPath: _houseInfo
+      value: 2570560787245695049
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637324551749692039, guid: a8c8d8e109411734fbc9eac1efd17c5e, type: 3}
+      propertyPath: 'managedReferences[2570560787245695049]'
+      value: Assembly-CSharp RockVoyage.StreetMusicInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637324551749692039, guid: a8c8d8e109411734fbc9eac1efd17c5e, type: 3}
+      propertyPath: managedReferences[2570560787245695049].<Name>k__BackingField
+      value: Street Music 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637324551749692039, guid: a8c8d8e109411734fbc9eac1efd17c5e, type: 3}
+      propertyPath: managedReferences[2570560787245695049].<MapInfo>k__BackingField
       value: 
-      objectReference: {fileID: 11400000, guid: 8b91b077c64d7de458b012bd39c36d15, type: 2}
+      objectReference: {fileID: 11400000, guid: d44f69a02ad774c46ab596ab5a0d2a45, type: 2}
+    - target: {fileID: 8637324551749692039, guid: a8c8d8e109411734fbc9eac1efd17c5e, type: 3}
+      propertyPath: managedReferences[2570560787245695049].<SceneName>k__BackingField
+      value: Street Music
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -195,8 +211,32 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
       propertyPath: _houseInfo
+      value: 2570560787245695027
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: 'managedReferences[2570560787245695027]'
+      value: Assembly-CSharp RockVoyage.BarInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: managedReferences[2570560787245695027].<Name>k__BackingField
+      value: Beer4life
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: managedReferences[2570560787245695027].<MapInfo>k__BackingField
       value: 
-      objectReference: {fileID: 11400000, guid: 01149a3d792ab0f418423d41842be144, type: 2}
+      objectReference: {fileID: 11400000, guid: d44f69a02ad774c46ab596ab5a0d2a45, type: 2}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: managedReferences[2570560787245695027].<Capacity>k__BackingField
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: managedReferences[2570560787245695027].<SceneName>k__BackingField
+      value: Bar
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: managedReferences[2570560787245695027].<EnergyDrinkCost>k__BackingField
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4406182820387693816, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
       propertyPath: m_Name
       value: Bar 4
@@ -791,8 +831,32 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
       propertyPath: _houseInfo
+      value: 2570560787245695028
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: 'managedReferences[2570560787245695028]'
+      value: Assembly-CSharp RockVoyage.BarInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: managedReferences[2570560787245695028].<Name>k__BackingField
+      value: Whisper in the Wind
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: managedReferences[2570560787245695028].<MapInfo>k__BackingField
       value: 
-      objectReference: {fileID: 11400000, guid: 698d2954bfe6868469e1fb948127781e, type: 2}
+      objectReference: {fileID: 11400000, guid: d44f69a02ad774c46ab596ab5a0d2a45, type: 2}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: managedReferences[2570560787245695028].<Capacity>k__BackingField
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: managedReferences[2570560787245695028].<SceneName>k__BackingField
+      value: Bar
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: managedReferences[2570560787245695028].<EnergyDrinkCost>k__BackingField
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4406182820387693816, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
       propertyPath: m_Name
       value: Bar 5
@@ -901,8 +965,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8113523009585755719, guid: fc6bdbe2d4bfc234b8539890a147052d, type: 3}
       propertyPath: _houseInfo
+      value: 2570560787245695034
+      objectReference: {fileID: 0}
+    - target: {fileID: 8113523009585755719, guid: fc6bdbe2d4bfc234b8539890a147052d, type: 3}
+      propertyPath: 'managedReferences[2570560787245695034]'
+      value: Assembly-CSharp RockVoyage.ProStudioInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 8113523009585755719, guid: fc6bdbe2d4bfc234b8539890a147052d, type: 3}
+      propertyPath: managedReferences[2570560787245695034].<Name>k__BackingField
+      value: Parlorphone
+      objectReference: {fileID: 0}
+    - target: {fileID: 8113523009585755719, guid: fc6bdbe2d4bfc234b8539890a147052d, type: 3}
+      propertyPath: managedReferences[2570560787245695034].<MapInfo>k__BackingField
       value: 
-      objectReference: {fileID: 11400000, guid: 62a1a72677e147a47b419321e14be827, type: 2}
+      objectReference: {fileID: 11400000, guid: d44f69a02ad774c46ab596ab5a0d2a45, type: 2}
+    - target: {fileID: 8113523009585755719, guid: fc6bdbe2d4bfc234b8539890a147052d, type: 3}
+      propertyPath: managedReferences[2570560787245695034].<SceneName>k__BackingField
+      value: Pro Studio
+      objectReference: {fileID: 0}
+    - target: {fileID: 8113523009585755719, guid: fc6bdbe2d4bfc234b8539890a147052d, type: 3}
+      propertyPath: managedReferences[2570560787245695034].<RecordingCost>k__BackingField
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2039,8 +2123,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8637324551749692039, guid: a8c8d8e109411734fbc9eac1efd17c5e, type: 3}
       propertyPath: _houseInfo
+      value: 2570560787245695045
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637324551749692039, guid: a8c8d8e109411734fbc9eac1efd17c5e, type: 3}
+      propertyPath: 'managedReferences[2570560787245695045]'
+      value: Assembly-CSharp RockVoyage.StreetMusicInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637324551749692039, guid: a8c8d8e109411734fbc9eac1efd17c5e, type: 3}
+      propertyPath: managedReferences[2570560787245695045].<Name>k__BackingField
+      value: Street Music 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637324551749692039, guid: a8c8d8e109411734fbc9eac1efd17c5e, type: 3}
+      propertyPath: managedReferences[2570560787245695045].<MapInfo>k__BackingField
       value: 
-      objectReference: {fileID: 11400000, guid: c264aaf3355330147b49ade56d92c625, type: 2}
+      objectReference: {fileID: 11400000, guid: d44f69a02ad774c46ab596ab5a0d2a45, type: 2}
+    - target: {fileID: 8637324551749692039, guid: a8c8d8e109411734fbc9eac1efd17c5e, type: 3}
+      propertyPath: managedReferences[2570560787245695045].<SceneName>k__BackingField
+      value: Street Music
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2604,6 +2704,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ca97fe0c70af294eb6cdd87e7f84898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _defaultHouseInfo:
+    rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!1001 &320429735
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3880,8 +3987,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8637324551749692039, guid: a8c8d8e109411734fbc9eac1efd17c5e, type: 3}
       propertyPath: _houseInfo
+      value: 2570560787245695046
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637324551749692039, guid: a8c8d8e109411734fbc9eac1efd17c5e, type: 3}
+      propertyPath: 'managedReferences[2570560787245695046]'
+      value: Assembly-CSharp RockVoyage.StreetMusicInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637324551749692039, guid: a8c8d8e109411734fbc9eac1efd17c5e, type: 3}
+      propertyPath: managedReferences[2570560787245695046].<Name>k__BackingField
+      value: Street Music 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637324551749692039, guid: a8c8d8e109411734fbc9eac1efd17c5e, type: 3}
+      propertyPath: managedReferences[2570560787245695046].<MapInfo>k__BackingField
       value: 
-      objectReference: {fileID: 11400000, guid: 26d106ab600d7a8498511a3377fbdca5, type: 2}
+      objectReference: {fileID: 11400000, guid: d44f69a02ad774c46ab596ab5a0d2a45, type: 2}
+    - target: {fileID: 8637324551749692039, guid: a8c8d8e109411734fbc9eac1efd17c5e, type: 3}
+      propertyPath: managedReferences[2570560787245695046].<SceneName>k__BackingField
+      value: Street Music
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4664,8 +4787,32 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
       propertyPath: _houseInfo
+      value: 2570560787245695025
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: 'managedReferences[2570560787245695025]'
+      value: Assembly-CSharp RockVoyage.BarInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: managedReferences[2570560787245695025].<Name>k__BackingField
+      value: Golden Water
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: managedReferences[2570560787245695025].<MapInfo>k__BackingField
       value: 
-      objectReference: {fileID: 11400000, guid: aefdce1c4372c044abb0de949fb3b76a, type: 2}
+      objectReference: {fileID: 11400000, guid: d44f69a02ad774c46ab596ab5a0d2a45, type: 2}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: managedReferences[2570560787245695025].<Capacity>k__BackingField
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: managedReferences[2570560787245695025].<SceneName>k__BackingField
+      value: Bar
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: managedReferences[2570560787245695025].<EnergyDrinkCost>k__BackingField
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4406182820387693816, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
       propertyPath: m_Name
       value: Bar 2
@@ -5640,6 +5787,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Railway Station
       objectReference: {fileID: 0}
+    - target: {fileID: 7313124889498692586, guid: ca8edc4405682b64fbdcf3abb1e28d71, type: 3}
+      propertyPath: _houseInfo
+      value: 2570560787245695035
+      objectReference: {fileID: 0}
+    - target: {fileID: 7313124889498692586, guid: ca8edc4405682b64fbdcf3abb1e28d71, type: 3}
+      propertyPath: 'managedReferences[2570560787245695035]'
+      value: Assembly-CSharp RockVoyage.RailwayStationInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 7313124889498692586, guid: ca8edc4405682b64fbdcf3abb1e28d71, type: 3}
+      propertyPath: managedReferences[2570560787245695035].<Name>k__BackingField
+      value: Railway Station
+      objectReference: {fileID: 0}
+    - target: {fileID: 7313124889498692586, guid: ca8edc4405682b64fbdcf3abb1e28d71, type: 3}
+      propertyPath: managedReferences[2570560787245695035].<MapInfo>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: d44f69a02ad774c46ab596ab5a0d2a45, type: 2}
+    - target: {fileID: 7313124889498692586, guid: ca8edc4405682b64fbdcf3abb1e28d71, type: 3}
+      propertyPath: managedReferences[2570560787245695035].<SceneName>k__BackingField
+      value: Railway Station
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6099,8 +6266,32 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
       propertyPath: _houseInfo
+      value: 2570560787245695030
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: 'managedReferences[2570560787245695030]'
+      value: Assembly-CSharp RockVoyage.BarInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: managedReferences[2570560787245695030].<Name>k__BackingField
+      value: Beeeer
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: managedReferences[2570560787245695030].<MapInfo>k__BackingField
       value: 
-      objectReference: {fileID: 11400000, guid: 293dddd1827ac5c4d848293577da10c6, type: 2}
+      objectReference: {fileID: 11400000, guid: d44f69a02ad774c46ab596ab5a0d2a45, type: 2}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: managedReferences[2570560787245695030].<Capacity>k__BackingField
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: managedReferences[2570560787245695030].<SceneName>k__BackingField
+      value: Bar
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: managedReferences[2570560787245695030].<EnergyDrinkCost>k__BackingField
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4406182820387693816, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
       propertyPath: m_Name
       value: Bar 7
@@ -7513,8 +7704,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8637324551749692039, guid: a8c8d8e109411734fbc9eac1efd17c5e, type: 3}
       propertyPath: _houseInfo
+      value: 2570560787245695044
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637324551749692039, guid: a8c8d8e109411734fbc9eac1efd17c5e, type: 3}
+      propertyPath: 'managedReferences[2570560787245695044]'
+      value: Assembly-CSharp RockVoyage.StreetMusicInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637324551749692039, guid: a8c8d8e109411734fbc9eac1efd17c5e, type: 3}
+      propertyPath: managedReferences[2570560787245695044].<Name>k__BackingField
+      value: Street Music 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637324551749692039, guid: a8c8d8e109411734fbc9eac1efd17c5e, type: 3}
+      propertyPath: managedReferences[2570560787245695044].<MapInfo>k__BackingField
       value: 
-      objectReference: {fileID: 11400000, guid: a33c478ab82f17041a6e8f0f7caa3eb7, type: 2}
+      objectReference: {fileID: 11400000, guid: d44f69a02ad774c46ab596ab5a0d2a45, type: 2}
+    - target: {fileID: 8637324551749692039, guid: a8c8d8e109411734fbc9eac1efd17c5e, type: 3}
+      propertyPath: managedReferences[2570560787245695044].<SceneName>k__BackingField
+      value: Street Music
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7990,8 +8197,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8435840769723093561, guid: 7dea1f8a9b223e44c94acf825ab44139, type: 3}
       propertyPath: _houseInfo
+      value: 2570560787245695036
+      objectReference: {fileID: 0}
+    - target: {fileID: 8435840769723093561, guid: 7dea1f8a9b223e44c94acf825ab44139, type: 3}
+      propertyPath: 'managedReferences[2570560787245695036]'
+      value: Assembly-CSharp RockVoyage.SceneInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 8435840769723093561, guid: 7dea1f8a9b223e44c94acf825ab44139, type: 3}
+      propertyPath: managedReferences[2570560787245695036].<Name>k__BackingField
+      value: Devil Scene
+      objectReference: {fileID: 0}
+    - target: {fileID: 8435840769723093561, guid: 7dea1f8a9b223e44c94acf825ab44139, type: 3}
+      propertyPath: managedReferences[2570560787245695036].<MapInfo>k__BackingField
       value: 
-      objectReference: {fileID: 11400000, guid: 5039528286b35f945a445d7a9d4e702e, type: 2}
+      objectReference: {fileID: 11400000, guid: d44f69a02ad774c46ab596ab5a0d2a45, type: 2}
+    - target: {fileID: 8435840769723093561, guid: 7dea1f8a9b223e44c94acf825ab44139, type: 3}
+      propertyPath: managedReferences[2570560787245695036].<SceneName>k__BackingField
+      value: Scene
+      objectReference: {fileID: 0}
+    - target: {fileID: 8435840769723093561, guid: 7dea1f8a9b223e44c94acf825ab44139, type: 3}
+      propertyPath: managedReferences[2570560787245695036].<FansCapacity>k__BackingField
+      value: 666
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8162,8 +8389,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8637324551749692039, guid: a8c8d8e109411734fbc9eac1efd17c5e, type: 3}
       propertyPath: _houseInfo
+      value: 2570560787245695048
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637324551749692039, guid: a8c8d8e109411734fbc9eac1efd17c5e, type: 3}
+      propertyPath: 'managedReferences[2570560787245695048]'
+      value: Assembly-CSharp RockVoyage.StreetMusicInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637324551749692039, guid: a8c8d8e109411734fbc9eac1efd17c5e, type: 3}
+      propertyPath: managedReferences[2570560787245695048].<Name>k__BackingField
+      value: Street Music 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637324551749692039, guid: a8c8d8e109411734fbc9eac1efd17c5e, type: 3}
+      propertyPath: managedReferences[2570560787245695048].<MapInfo>k__BackingField
       value: 
-      objectReference: {fileID: 11400000, guid: 33bf1f8acf082424cbbbd5aaf63dac4e, type: 2}
+      objectReference: {fileID: 11400000, guid: d44f69a02ad774c46ab596ab5a0d2a45, type: 2}
+    - target: {fileID: 8637324551749692039, guid: a8c8d8e109411734fbc9eac1efd17c5e, type: 3}
+      propertyPath: managedReferences[2570560787245695048].<SceneName>k__BackingField
+      value: Street Music
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8184,8 +8427,28 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6141940948545991160, guid: f6cca7d05ad9f7140a05c71c8a8e7ae7, type: 3}
       propertyPath: _houseInfo
+      value: 2570560787245695042
+      objectReference: {fileID: 0}
+    - target: {fileID: 6141940948545991160, guid: f6cca7d05ad9f7140a05c71c8a8e7ae7, type: 3}
+      propertyPath: 'managedReferences[2570560787245695042]'
+      value: Assembly-CSharp RockVoyage.HostelInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 6141940948545991160, guid: f6cca7d05ad9f7140a05c71c8a8e7ae7, type: 3}
+      propertyPath: managedReferences[2570560787245695042].<Name>k__BackingField
+      value: Hostel 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6141940948545991160, guid: f6cca7d05ad9f7140a05c71c8a8e7ae7, type: 3}
+      propertyPath: managedReferences[2570560787245695042].<MapInfo>k__BackingField
       value: 
-      objectReference: {fileID: 11400000, guid: 2505b8f7ad224144ebe68bcd4756e61a, type: 2}
+      objectReference: {fileID: 11400000, guid: d44f69a02ad774c46ab596ab5a0d2a45, type: 2}
+    - target: {fileID: 6141940948545991160, guid: f6cca7d05ad9f7140a05c71c8a8e7ae7, type: 3}
+      propertyPath: managedReferences[2570560787245695042].<SceneName>k__BackingField
+      value: Hostel
+      objectReference: {fileID: 0}
+    - target: {fileID: 6141940948545991160, guid: f6cca7d05ad9f7140a05c71c8a8e7ae7, type: 3}
+      propertyPath: managedReferences[2570560787245695042].<CostPerNight>k__BackingField
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8403694535860672305, guid: f6cca7d05ad9f7140a05c71c8a8e7ae7, type: 3}
       propertyPath: m_Name
       value: Hostel 4
@@ -8357,6 +8620,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ca97fe0c70af294eb6cdd87e7f84898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _defaultHouseInfo:
+    rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!114 &1355180095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8427,8 +8697,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4436680477291219752, guid: 82d4619603923dc42b937e5d66b2b271, type: 3}
       propertyPath: _houseInfo
+      value: 2570560787245695023
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436680477291219752, guid: 82d4619603923dc42b937e5d66b2b271, type: 3}
+      propertyPath: 'managedReferences[2570560787245695023]'
+      value: Assembly-CSharp RockVoyage.AirportInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436680477291219752, guid: 82d4619603923dc42b937e5d66b2b271, type: 3}
+      propertyPath: managedReferences[2570560787245695023].<Name>k__BackingField
+      value: Airport
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436680477291219752, guid: 82d4619603923dc42b937e5d66b2b271, type: 3}
+      propertyPath: managedReferences[2570560787245695023].<MapInfo>k__BackingField
       value: 
-      objectReference: {fileID: 11400000, guid: f13a752005f9fb64d9ff8e5db2717dff, type: 2}
+      objectReference: {fileID: 11400000, guid: d44f69a02ad774c46ab596ab5a0d2a45, type: 2}
+    - target: {fileID: 4436680477291219752, guid: 82d4619603923dc42b937e5d66b2b271, type: 3}
+      propertyPath: managedReferences[2570560787245695023].<SceneName>k__BackingField
+      value: Airport
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9327,8 +9613,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8435840769723093561, guid: 7dea1f8a9b223e44c94acf825ab44139, type: 3}
       propertyPath: _houseInfo
+      value: 2570560787245695038
+      objectReference: {fileID: 0}
+    - target: {fileID: 8435840769723093561, guid: 7dea1f8a9b223e44c94acf825ab44139, type: 3}
+      propertyPath: 'managedReferences[2570560787245695038]'
+      value: Assembly-CSharp RockVoyage.SceneInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 8435840769723093561, guid: 7dea1f8a9b223e44c94acf825ab44139, type: 3}
+      propertyPath: managedReferences[2570560787245695038].<Name>k__BackingField
+      value: Limbo Scene
+      objectReference: {fileID: 0}
+    - target: {fileID: 8435840769723093561, guid: 7dea1f8a9b223e44c94acf825ab44139, type: 3}
+      propertyPath: managedReferences[2570560787245695038].<MapInfo>k__BackingField
       value: 
-      objectReference: {fileID: 11400000, guid: 537ade8ea1b86cb478f23acb96db25ee, type: 2}
+      objectReference: {fileID: 11400000, guid: d44f69a02ad774c46ab596ab5a0d2a45, type: 2}
+    - target: {fileID: 8435840769723093561, guid: 7dea1f8a9b223e44c94acf825ab44139, type: 3}
+      propertyPath: managedReferences[2570560787245695038].<SceneName>k__BackingField
+      value: Scene
+      objectReference: {fileID: 0}
+    - target: {fileID: 8435840769723093561, guid: 7dea1f8a9b223e44c94acf825ab44139, type: 3}
+      propertyPath: managedReferences[2570560787245695038].<FansCapacity>k__BackingField
+      value: 777
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9349,8 +9655,32 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
       propertyPath: _houseInfo
+      value: 2570560787245695026
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: 'managedReferences[2570560787245695026]'
+      value: Assembly-CSharp RockVoyage.BarInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: managedReferences[2570560787245695026].<Name>k__BackingField
+      value: Afterparty
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: managedReferences[2570560787245695026].<MapInfo>k__BackingField
       value: 
-      objectReference: {fileID: 11400000, guid: 7c783fd7e7158c7478fcbba8a08b63cb, type: 2}
+      objectReference: {fileID: 11400000, guid: d44f69a02ad774c46ab596ab5a0d2a45, type: 2}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: managedReferences[2570560787245695026].<Capacity>k__BackingField
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: managedReferences[2570560787245695026].<SceneName>k__BackingField
+      value: Bar
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: managedReferences[2570560787245695026].<EnergyDrinkCost>k__BackingField
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4406182820387693816, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
       propertyPath: m_Name
       value: Bar 3
@@ -9784,8 +10114,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8637324551749692039, guid: a8c8d8e109411734fbc9eac1efd17c5e, type: 3}
       propertyPath: _houseInfo
+      value: 2570560787245695047
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637324551749692039, guid: a8c8d8e109411734fbc9eac1efd17c5e, type: 3}
+      propertyPath: 'managedReferences[2570560787245695047]'
+      value: Assembly-CSharp RockVoyage.StreetMusicInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637324551749692039, guid: a8c8d8e109411734fbc9eac1efd17c5e, type: 3}
+      propertyPath: managedReferences[2570560787245695047].<Name>k__BackingField
+      value: Street Music 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637324551749692039, guid: a8c8d8e109411734fbc9eac1efd17c5e, type: 3}
+      propertyPath: managedReferences[2570560787245695047].<MapInfo>k__BackingField
       value: 
-      objectReference: {fileID: 11400000, guid: 63ab19edb78ca2b45b0b0f55f1e1bc45, type: 2}
+      objectReference: {fileID: 11400000, guid: d44f69a02ad774c46ab596ab5a0d2a45, type: 2}
+    - target: {fileID: 8637324551749692039, guid: a8c8d8e109411734fbc9eac1efd17c5e, type: 3}
+      propertyPath: managedReferences[2570560787245695047].<SceneName>k__BackingField
+      value: Street Music
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9811,8 +10157,28 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6141940948545991160, guid: f6cca7d05ad9f7140a05c71c8a8e7ae7, type: 3}
       propertyPath: _houseInfo
+      value: 2570560787245695041
+      objectReference: {fileID: 0}
+    - target: {fileID: 6141940948545991160, guid: f6cca7d05ad9f7140a05c71c8a8e7ae7, type: 3}
+      propertyPath: 'managedReferences[2570560787245695041]'
+      value: Assembly-CSharp RockVoyage.HostelInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 6141940948545991160, guid: f6cca7d05ad9f7140a05c71c8a8e7ae7, type: 3}
+      propertyPath: managedReferences[2570560787245695041].<Name>k__BackingField
+      value: Hostel 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6141940948545991160, guid: f6cca7d05ad9f7140a05c71c8a8e7ae7, type: 3}
+      propertyPath: managedReferences[2570560787245695041].<MapInfo>k__BackingField
       value: 
-      objectReference: {fileID: 11400000, guid: 07cd8d2ef46db024d93533368a688756, type: 2}
+      objectReference: {fileID: 11400000, guid: d44f69a02ad774c46ab596ab5a0d2a45, type: 2}
+    - target: {fileID: 6141940948545991160, guid: f6cca7d05ad9f7140a05c71c8a8e7ae7, type: 3}
+      propertyPath: managedReferences[2570560787245695041].<SceneName>k__BackingField
+      value: Hostel
+      objectReference: {fileID: 0}
+    - target: {fileID: 6141940948545991160, guid: f6cca7d05ad9f7140a05c71c8a8e7ae7, type: 3}
+      propertyPath: managedReferences[2570560787245695041].<CostPerNight>k__BackingField
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8403694535860672305, guid: f6cca7d05ad9f7140a05c71c8a8e7ae7, type: 3}
       propertyPath: m_Name
       value: Hostel 3
@@ -10289,8 +10655,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8637324551749692039, guid: a8c8d8e109411734fbc9eac1efd17c5e, type: 3}
       propertyPath: _houseInfo
+      value: 2570560787245695050
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637324551749692039, guid: a8c8d8e109411734fbc9eac1efd17c5e, type: 3}
+      propertyPath: 'managedReferences[2570560787245695050]'
+      value: Assembly-CSharp RockVoyage.StreetMusicInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637324551749692039, guid: a8c8d8e109411734fbc9eac1efd17c5e, type: 3}
+      propertyPath: managedReferences[2570560787245695050].<Name>k__BackingField
+      value: Street Music 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637324551749692039, guid: a8c8d8e109411734fbc9eac1efd17c5e, type: 3}
+      propertyPath: managedReferences[2570560787245695050].<MapInfo>k__BackingField
       value: 
-      objectReference: {fileID: 11400000, guid: 2dccd2d0881d0904ca5c8d7598e67a72, type: 2}
+      objectReference: {fileID: 11400000, guid: d44f69a02ad774c46ab596ab5a0d2a45, type: 2}
+    - target: {fileID: 8637324551749692039, guid: a8c8d8e109411734fbc9eac1efd17c5e, type: 3}
+      propertyPath: managedReferences[2570560787245695050].<SceneName>k__BackingField
+      value: Street Music
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10624,6 +11006,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1923038072}
     m_Modifications:
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: _houseInfo
+      value: 2570560787245695024
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: 'managedReferences[2570560787245695024]'
+      value: Assembly-CSharp RockVoyage.BarInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: managedReferences[2570560787245695024].<Name>k__BackingField
+      value: Lidbeer
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: managedReferences[2570560787245695024].<MapInfo>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: d44f69a02ad774c46ab596ab5a0d2a45, type: 2}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: managedReferences[2570560787245695024].<Capacity>k__BackingField
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: managedReferences[2570560787245695024].<SceneName>k__BackingField
+      value: Bar
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: managedReferences[2570560787245695024].<EnergyDrinkCost>k__BackingField
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4406182820387693816, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
       propertyPath: m_Name
       value: Bar 1
@@ -10688,8 +11098,32 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
       propertyPath: _houseInfo
+      value: 2570560787245695029
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: 'managedReferences[2570560787245695029]'
+      value: Assembly-CSharp RockVoyage.BarInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: managedReferences[2570560787245695029].<Name>k__BackingField
+      value: The Phantom Menace
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: managedReferences[2570560787245695029].<MapInfo>k__BackingField
       value: 
-      objectReference: {fileID: 11400000, guid: b90a12f555db7514dac4bab89e03de45, type: 2}
+      objectReference: {fileID: 11400000, guid: d44f69a02ad774c46ab596ab5a0d2a45, type: 2}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: managedReferences[2570560787245695029].<Capacity>k__BackingField
+      value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: managedReferences[2570560787245695029].<SceneName>k__BackingField
+      value: Bar
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: managedReferences[2570560787245695029].<EnergyDrinkCost>k__BackingField
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4406182820387693816, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
       propertyPath: m_Name
       value: Bar 6
@@ -10754,8 +11188,32 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
       propertyPath: _houseInfo
+      value: 2570560787245695031
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: 'managedReferences[2570560787245695031]'
+      value: Assembly-CSharp RockVoyage.BarInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: managedReferences[2570560787245695031].<Name>k__BackingField
+      value: Green Night
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: managedReferences[2570560787245695031].<MapInfo>k__BackingField
       value: 
-      objectReference: {fileID: 11400000, guid: b27ce13c9c589034bacb0b442f4485f2, type: 2}
+      objectReference: {fileID: 11400000, guid: d44f69a02ad774c46ab596ab5a0d2a45, type: 2}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: managedReferences[2570560787245695031].<Capacity>k__BackingField
+      value: 85
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: managedReferences[2570560787245695031].<SceneName>k__BackingField
+      value: Bar
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055473807815901745, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
+      propertyPath: managedReferences[2570560787245695031].<EnergyDrinkCost>k__BackingField
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4406182820387693816, guid: 655f7605643fb5a46a20e90aa156dc08, type: 3}
       propertyPath: m_Name
       value: Bar 8
@@ -11723,8 +12181,28 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6141940948545991160, guid: f6cca7d05ad9f7140a05c71c8a8e7ae7, type: 3}
       propertyPath: _houseInfo
+      value: 2570560787245695040
+      objectReference: {fileID: 0}
+    - target: {fileID: 6141940948545991160, guid: f6cca7d05ad9f7140a05c71c8a8e7ae7, type: 3}
+      propertyPath: 'managedReferences[2570560787245695040]'
+      value: Assembly-CSharp RockVoyage.HostelInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 6141940948545991160, guid: f6cca7d05ad9f7140a05c71c8a8e7ae7, type: 3}
+      propertyPath: managedReferences[2570560787245695040].<Name>k__BackingField
+      value: Hostel 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6141940948545991160, guid: f6cca7d05ad9f7140a05c71c8a8e7ae7, type: 3}
+      propertyPath: managedReferences[2570560787245695040].<MapInfo>k__BackingField
       value: 
-      objectReference: {fileID: 11400000, guid: 3d141c63e63d4fb4394bba12300794a5, type: 2}
+      objectReference: {fileID: 11400000, guid: d44f69a02ad774c46ab596ab5a0d2a45, type: 2}
+    - target: {fileID: 6141940948545991160, guid: f6cca7d05ad9f7140a05c71c8a8e7ae7, type: 3}
+      propertyPath: managedReferences[2570560787245695040].<SceneName>k__BackingField
+      value: Hostel
+      objectReference: {fileID: 0}
+    - target: {fileID: 6141940948545991160, guid: f6cca7d05ad9f7140a05c71c8a8e7ae7, type: 3}
+      propertyPath: managedReferences[2570560787245695040].<CostPerNight>k__BackingField
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8403694535860672305, guid: f6cca7d05ad9f7140a05c71c8a8e7ae7, type: 3}
       propertyPath: m_Name
       value: Hostel 2
@@ -11830,6 +12308,30 @@ PrefabInstance:
     - target: {fileID: 5853099891304075406, guid: fc6bdbe2d4bfc234b8539890a147052d, type: 3}
       propertyPath: m_Name
       value: Pro Studio 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8113523009585755719, guid: fc6bdbe2d4bfc234b8539890a147052d, type: 3}
+      propertyPath: _houseInfo
+      value: 2570560787245695033
+      objectReference: {fileID: 0}
+    - target: {fileID: 8113523009585755719, guid: fc6bdbe2d4bfc234b8539890a147052d, type: 3}
+      propertyPath: 'managedReferences[2570560787245695033]'
+      value: Assembly-CSharp RockVoyage.ProStudioInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 8113523009585755719, guid: fc6bdbe2d4bfc234b8539890a147052d, type: 3}
+      propertyPath: managedReferences[2570560787245695033].<Name>k__BackingField
+      value: Abbey Walkway
+      objectReference: {fileID: 0}
+    - target: {fileID: 8113523009585755719, guid: fc6bdbe2d4bfc234b8539890a147052d, type: 3}
+      propertyPath: managedReferences[2570560787245695033].<MapInfo>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: d44f69a02ad774c46ab596ab5a0d2a45, type: 2}
+    - target: {fileID: 8113523009585755719, guid: fc6bdbe2d4bfc234b8539890a147052d, type: 3}
+      propertyPath: managedReferences[2570560787245695033].<SceneName>k__BackingField
+      value: Pro Studio
+      objectReference: {fileID: 0}
+    - target: {fileID: 8113523009585755719, guid: fc6bdbe2d4bfc234b8539890a147052d, type: 3}
+      propertyPath: managedReferences[2570560787245695033].<RecordingCost>k__BackingField
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12042,6 +12544,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Street Music 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8637324551749692039, guid: a8c8d8e109411734fbc9eac1efd17c5e, type: 3}
+      propertyPath: _houseInfo
+      value: 2570560787245695043
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637324551749692039, guid: a8c8d8e109411734fbc9eac1efd17c5e, type: 3}
+      propertyPath: 'managedReferences[2570560787245695043]'
+      value: Assembly-CSharp RockVoyage.StreetMusicInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637324551749692039, guid: a8c8d8e109411734fbc9eac1efd17c5e, type: 3}
+      propertyPath: managedReferences[2570560787245695043].<Name>k__BackingField
+      value: Street Music 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637324551749692039, guid: a8c8d8e109411734fbc9eac1efd17c5e, type: 3}
+      propertyPath: managedReferences[2570560787245695043].<MapInfo>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: d44f69a02ad774c46ab596ab5a0d2a45, type: 2}
+    - target: {fileID: 8637324551749692039, guid: a8c8d8e109411734fbc9eac1efd17c5e, type: 3}
+      propertyPath: managedReferences[2570560787245695043].<SceneName>k__BackingField
+      value: Street Music
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12106,8 +12628,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8435840769723093561, guid: 7dea1f8a9b223e44c94acf825ab44139, type: 3}
       propertyPath: _houseInfo
+      value: 2570560787245695037
+      objectReference: {fileID: 0}
+    - target: {fileID: 8435840769723093561, guid: 7dea1f8a9b223e44c94acf825ab44139, type: 3}
+      propertyPath: 'managedReferences[2570560787245695037]'
+      value: Assembly-CSharp RockVoyage.SceneInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 8435840769723093561, guid: 7dea1f8a9b223e44c94acf825ab44139, type: 3}
+      propertyPath: managedReferences[2570560787245695037].<Name>k__BackingField
+      value: Heaven Scene
+      objectReference: {fileID: 0}
+    - target: {fileID: 8435840769723093561, guid: 7dea1f8a9b223e44c94acf825ab44139, type: 3}
+      propertyPath: managedReferences[2570560787245695037].<MapInfo>k__BackingField
       value: 
-      objectReference: {fileID: 11400000, guid: d49c0beca7d5b014ba6022dd3ca4416a, type: 2}
+      objectReference: {fileID: 11400000, guid: d44f69a02ad774c46ab596ab5a0d2a45, type: 2}
+    - target: {fileID: 8435840769723093561, guid: 7dea1f8a9b223e44c94acf825ab44139, type: 3}
+      propertyPath: managedReferences[2570560787245695037].<SceneName>k__BackingField
+      value: Scene
+      objectReference: {fileID: 0}
+    - target: {fileID: 8435840769723093561, guid: 7dea1f8a9b223e44c94acf825ab44139, type: 3}
+      propertyPath: managedReferences[2570560787245695037].<FansCapacity>k__BackingField
+      value: 999
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12165,6 +12707,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8369122730140373589, guid: 75e7b553c9561ee4aae0adde02e78cd1, type: 3}
+      propertyPath: _houseInfo
+      value: 2570560787245695032
+      objectReference: {fileID: 0}
+    - target: {fileID: 8369122730140373589, guid: 75e7b553c9561ee4aae0adde02e78cd1, type: 3}
+      propertyPath: 'managedReferences[2570560787245695032]'
+      value: Assembly-CSharp RockVoyage.GarageStudioInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 8369122730140373589, guid: 75e7b553c9561ee4aae0adde02e78cd1, type: 3}
+      propertyPath: managedReferences[2570560787245695032].<Name>k__BackingField
+      value: Garage Studio
+      objectReference: {fileID: 0}
+    - target: {fileID: 8369122730140373589, guid: 75e7b553c9561ee4aae0adde02e78cd1, type: 3}
+      propertyPath: managedReferences[2570560787245695032].<MapInfo>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: d44f69a02ad774c46ab596ab5a0d2a45, type: 2}
+    - target: {fileID: 8369122730140373589, guid: 75e7b553c9561ee4aae0adde02e78cd1, type: 3}
+      propertyPath: managedReferences[2570560787245695032].<SceneName>k__BackingField
+      value: Garage Studio
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12180,8 +12742,28 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6141940948545991160, guid: f6cca7d05ad9f7140a05c71c8a8e7ae7, type: 3}
       propertyPath: _houseInfo
+      value: 2570560787245695039
+      objectReference: {fileID: 0}
+    - target: {fileID: 6141940948545991160, guid: f6cca7d05ad9f7140a05c71c8a8e7ae7, type: 3}
+      propertyPath: 'managedReferences[2570560787245695039]'
+      value: Assembly-CSharp RockVoyage.HostelInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 6141940948545991160, guid: f6cca7d05ad9f7140a05c71c8a8e7ae7, type: 3}
+      propertyPath: managedReferences[2570560787245695039].<Name>k__BackingField
+      value: Hostel 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6141940948545991160, guid: f6cca7d05ad9f7140a05c71c8a8e7ae7, type: 3}
+      propertyPath: managedReferences[2570560787245695039].<MapInfo>k__BackingField
       value: 
-      objectReference: {fileID: 11400000, guid: ee194bed686474148a677f132e548c74, type: 2}
+      objectReference: {fileID: 11400000, guid: d44f69a02ad774c46ab596ab5a0d2a45, type: 2}
+    - target: {fileID: 6141940948545991160, guid: f6cca7d05ad9f7140a05c71c8a8e7ae7, type: 3}
+      propertyPath: managedReferences[2570560787245695039].<SceneName>k__BackingField
+      value: Hostel
+      objectReference: {fileID: 0}
+    - target: {fileID: 6141940948545991160, guid: f6cca7d05ad9f7140a05c71c8a8e7ae7, type: 3}
+      propertyPath: managedReferences[2570560787245695039].<CostPerNight>k__BackingField
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8403694535860672305, guid: f6cca7d05ad9f7140a05c71c8a8e7ae7, type: 3}
       propertyPath: m_Name
       value: Hostel 1

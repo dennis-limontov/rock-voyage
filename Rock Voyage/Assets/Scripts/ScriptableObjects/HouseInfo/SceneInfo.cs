@@ -1,14 +1,15 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Runtime.Serialization;
+using UnityEngine;
 
 namespace RockVoyage
 {
-    [CreateAssetMenu(menuName = "ScriptableObjects/HouseInfo/SceneInfo")]
+    [Serializable, DataContract]
     public class SceneInfo : HouseInfo
     {
         public const float PROFIT_PERCENT = 0.1f;
 
-        [SerializeField]
-        private int _fansCapacity;
-        public int FansCapacity => _fansCapacity;
+        [field: SerializeField]
+        public int FansCapacity { get; private set; }
     }
 }

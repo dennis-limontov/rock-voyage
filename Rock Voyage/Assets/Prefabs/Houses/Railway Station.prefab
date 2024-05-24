@@ -56,10 +56,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Railway Station
       objectReference: {fileID: 0}
-    - target: {fileID: 3605613292394930826, guid: 1bf7e17c687902448b968b7acfe20c94, type: 3}
-      propertyPath: _houseInfo
-      value: 
-      objectReference: {fileID: 11400000, guid: 4d7c341f9a36b7042957a30d0deef585, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
