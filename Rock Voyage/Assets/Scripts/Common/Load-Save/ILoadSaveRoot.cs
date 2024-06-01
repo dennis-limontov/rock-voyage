@@ -3,6 +3,11 @@ namespace RockVoyage
     public interface ILoadSaveRoot
     {
         public string Name { get; }
+
+        public void Reset()
+        {
+
+        }
     }
 
     public static class ILoadSaveExtensions

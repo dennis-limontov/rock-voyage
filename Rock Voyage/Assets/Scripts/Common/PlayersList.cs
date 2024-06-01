@@ -1,4 +1,3 @@
-using JsonHelpers;
 using Newtonsoft.Json;
 using System;
 using System.Collections;
@@ -16,7 +15,6 @@ namespace RockVoyage
         public string Name => nameof(PlayersList);
 
         [DataMember]
-        [JsonConverter(typeof(ReusableDictionaryConverter<string, PlayerCharacteristics>))]
         private Dictionary<string, PlayerCharacteristics> players
             = new Dictionary<string, PlayerCharacteristics>(Constants.PLAYERS_MAX);
 
@@ -33,7 +31,7 @@ namespace RockVoyage
             }
         }
 
-        public static void Reset()
+        public void Reset()
         {
             Instance.Clear();
             Instance.CurrentPlayerName = "Player";

@@ -10,9 +10,10 @@ namespace RockVoyage
         [SerializeField]
         private SongInfo _firstSong;
 
-        public void Start ()
+        private void Start()
         {
             Time.timeScale = 1f;
+            LoadSaveManager.NeedSave = true;
             ResetGameData();
         }
 
@@ -38,9 +39,8 @@ namespace RockVoyage
 
         private void ResetGameData()
         {
-            GameCharacteristics.Reset();
+            LoadSaveManager.ResetGameData();
             GameCharacteristics.AvailableSongs.Add(_firstSong.SongName);
-            PlayersList.Reset();
         }
     }
 }

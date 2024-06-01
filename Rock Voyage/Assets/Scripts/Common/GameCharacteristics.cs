@@ -115,8 +115,8 @@ namespace RockVoyage
         }
 
         [DataMember]
-        private List<string> _availableSongs = new List<string>();
-        public static List<string> AvailableSongs => Instance._availableSongs;
+        private SortedSet<string> _availableSongs = new SortedSet<string>();
+        public static SortedSet<string> AvailableSongs => Instance._availableSongs;
 
         [DataMember]
         private bool _isEnergyDrinkUsed;
@@ -126,7 +126,7 @@ namespace RockVoyage
             set => Instance._isEnergyDrinkUsed = value;
         }
 
-        public static void Reset()
+        public void Reset()
         {
             ClockDate = DateTime.UnixEpoch;
             Money = MONEY_AT_START;

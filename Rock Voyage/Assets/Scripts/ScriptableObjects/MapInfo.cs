@@ -1,6 +1,4 @@
-﻿using JsonHelpers;
-using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -41,7 +39,7 @@ namespace RockVoyage
             }
         }
 
-        [DataMember, JsonConverter(typeof(ReusableDictionaryConverter<string, HouseInfo>))]
+        [DataMember]
         public Dictionary<string, HouseInfo> Houses { get; private set; } = new Dictionary<string, HouseInfo>();
 
         public GameObject MapObjects { get; set; }

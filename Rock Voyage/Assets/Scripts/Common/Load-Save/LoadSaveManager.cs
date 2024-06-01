@@ -3,59 +3,63 @@ using JsonHelpers;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using UnityEngine.SceneManagement;
-using static Newtonsoft.Json.JsonConvert;
+using Newtonsoft.Json.Linq;
 
 namespace RockVoyage
 {
     public static class LoadSaveManager
     {
-        private static Dictionary<string, string> loadedDataStorage = new Dictionary<string, string>();
-        public static Dictionary<string, ILoadSaveRoot> loadSaveRoots = new Dictionary<string, ILoadSaveRoot>();
-
         private static readonly string SAVE_FOLDER_PATH = Path.Combine(
             Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), Constants.GAME_NAME);
         private static readonly string SAVE_FILE_PATH = Path.Combine(SAVE_FOLDER_PATH, "save.json");
         private static readonly string SAVE_FILE_PATTERN = "*.json";
 
+        public static readonly Dictionary<string, ILoadSaveRoot> loadSaveRoots = new Dictionary<string, ILoadSaveRoot>();
+        private static JObject _loadedDataStorage = new JObject();
+        private static JObject _tempDataCache;
+
+        private static readonly JsonSerializer _serializer;
+
+        public static bool NeedSave { get; set; }
+
         static LoadSaveManager()
         {
-            DefaultSettings = (() => new JsonSerializerSettings()
+            JsonConvert.DefaultSettings = (() => new JsonSerializerSettings()
             {
+                ObjectCreationHandling = ObjectCreationHandling.Reuse,
                 NullValueHandling = NullValueHandling.Ignore,
                 DefaultValueHandling = DefaultValueHandling.Ignore,
                 TypeNameHandling = TypeNameHandling.Auto,
                 Formatting = Formatting.Indented,
                 ContractResolver = new ShouldSerializeContractResolver(),
             });
+            _serializer = JsonSerializer.CreateDefault();
         }
 
         public static void Add(string name, ILoadSaveRoot loadSave)
         {
             loadSaveRoots[name] = loadSave;
-            if (loadedDataStorage.Remove(name, out string value))
-            {
-                PopulateObject(value, loadSave);
-            }
+            Populate(loadSave, name);
         }
 
         public static void Remove(string name)
         {
-            if (loadSaveRoots.Remove(name, out ILoadSaveRoot removed))
+            if (loadSaveRoots.Remove(name, out ILoadSaveRoot removed) && NeedSave)
             {
-                loadedDataStorage[name] = SerializeObject(removed);
+                _loadedDataStorage[name] = JObject.FromObject(removed);
             }
         }
 
-        public static string[] GetSavedGamesList()
+        private static void Populate(ILoadSaveRoot loadSave, string key)
         {
-            string[] savedGames = Directory.GetFiles(SAVE_FOLDER_PATH, SAVE_FILE_PATTERN);
-            for (int i = 0; i < savedGames.Length; i++)
+            if (_loadedDataStorage.Remove(key, out JToken value))
             {
-                savedGames[i] = Path.GetFileNameWithoutExtension(savedGames[i]);
+                using (var reader = value.CreateReader())
+                {
+                    _serializer.Populate(reader, loadSave);
+                }
             }
-            return savedGames;
         }
 
         public static void Load()
@@ -65,10 +69,16 @@ namespace RockVoyage
                 return;
             }
 
-            loadedDataStorage = DeserializeObject<Dictionary<string, string>>(
-                File.ReadAllText(SAVE_FILE_PATH));
-            string sceneName;
-            loadedDataStorage.Remove("SceneName", out sceneName);
+            NeedSave = false;
+            ResetGameData();
+            using (var sr = File.OpenText(SAVE_FILE_PATH))
+            using (var reader = new JsonTextReader(sr))
+            {
+                _tempDataCache = _serializer.Deserialize<JObject>(reader);
+            }
+            JToken sceneNameToken;
+            _tempDataCache.Remove("SceneName", out sceneNameToken);
+            string sceneName = sceneNameToken?.Value<string>();
             sceneName ??= Constants.Scenes.START_CITY;
             if (SceneManager.GetSceneByName(sceneName) == default)
             {
@@ -83,36 +93,61 @@ namespace RockVoyage
 
         public static void Save()
         {
-            var deserialized = loadSaveRoots.ToDictionary(x => x.Key,
-                x => SerializeObject(x.Value));
-            deserialized = deserialized.Concat(loadedDataStorage).ToDictionary(x => x.Key, x => x.Value);
-            deserialized.Add("SceneName", GameCharacteristics.MapInfo.SceneName);
-            string serializedData = SerializeObject(deserialized);
-            serializedData = Format(serializedData);
+            var deserialized = new JObject()
+            {
+                { "SceneName", GameCharacteristics.MapInfo.SceneName }
+            };
+            deserialized.Merge(JObject.FromObject(loadSaveRoots));
+            deserialized.Merge(_loadedDataStorage);
 
             if (!Directory.Exists(SAVE_FOLDER_PATH))
             {
                 Directory.CreateDirectory(SAVE_FOLDER_PATH);
             }
-            File.WriteAllText(SAVE_FILE_PATH, serializedData);
-        }
 
-        private static string Format(string serializedData)
-        {
-            return serializedData.Replace("\\r", "\r").Replace("\\n", "\n");
+            using (StreamWriter sw = File.CreateText(SAVE_FILE_PATH))
+            using (var writer = new JsonTextWriter(sw))
+            {
+                _serializer.Serialize(writer, deserialized);
+            }
         }
 
         private static void SceneLoadedHandler(HouseInfo info)
         {
+            NeedSave = true;
             MapEvents.OnSceneLoaded -= SceneLoadedHandler;
-            var deserialized = new Dictionary<string, string>(loadedDataStorage);
-            foreach (var keyValue in deserialized)
+            _loadedDataStorage = new JObject(_tempDataCache);
+            foreach (var keyValue in _tempDataCache)
             {
                 if (loadSaveRoots.TryGetValue(keyValue.Key, out ILoadSaveRoot loadSave))
                 {
-                    PopulateObject(keyValue.Value, loadSave);
-                    loadedDataStorage.Remove(keyValue.Key);
+                    Populate(loadSave, keyValue.Key);
                 }
+            }
+            _tempDataCache = null;
+        }
+
+        public static string[] GetSavedGamesList()
+        {
+            string[] savedGames = Directory.GetFiles(SAVE_FOLDER_PATH, SAVE_FILE_PATTERN);
+            for (int i = 0; i < savedGames.Length; i++)
+            {
+                savedGames[i] = Path.GetFileNameWithoutExtension(savedGames[i]);
+            }
+            return savedGames;
+        }
+
+        public static void Reset()
+        {
+            _loadedDataStorage = new JObject();
+        }
+
+        public static void ResetGameData()
+        {
+            Reset();
+            foreach (ILoadSaveRoot loadSave in loadSaveRoots.Values)
+            {
+                loadSave.Reset();
             }
         }
     }

@@ -25,11 +25,7 @@ namespace RockVoyage
                 var rememberChance = Random.Range(0f, 1f);
                 if (rememberChance <= StreetMusicInfo.REMEMBER_CHANCE)
                 {
-                    string[] unknownSongs = _songsList.Select(x => x.SongName)
-                        .Except(GameCharacteristics.AvailableSongs).ToArray();
-                    int randomIndex = Random.Range(0, unknownSongs.Length);
-                    GameCharacteristics.AvailableSongs.Add(unknownSongs[randomIndex]);
-                    GameCharacteristics.AvailableSongs.Sort();
+                    GameCharacteristics.AvailableSongs.Add(_songsList.GetRandomUnknownSong());
                     GoTo(_successRememberText);
                 }
                 else

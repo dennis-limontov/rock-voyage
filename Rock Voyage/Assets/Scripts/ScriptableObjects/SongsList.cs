@@ -25,5 +25,17 @@ namespace RockVoyage
         {
             return ((IEnumerable<SongInfo>)_songs).GetEnumerator();
         }
+
+        public string GetRandomUnknownSong()
+        {
+            if (Length <= GameCharacteristics.AvailableSongs.Count)
+            {
+                return null;
+            }
+            var unknownSongs = _songs.Select(x => x.SongName)
+                .Except(GameCharacteristics.AvailableSongs).ToArray();
+            int randomIndex = Random.Range(0, unknownSongs.Length);
+            return unknownSongs[randomIndex];
+        }
     }
 }

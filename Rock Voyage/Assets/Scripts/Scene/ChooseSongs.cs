@@ -1,3 +1,4 @@
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using RVGC = RockVoyage.GameCharacteristics;
@@ -25,7 +26,7 @@ namespace RockVoyage
 
         public void OnStartClicked()
         {
-            SongInfo chosenSong = _songsList[RVGC.AvailableSongs[_dropdown.value]];
+            SongInfo chosenSong = _songsList[RVGC.AvailableSongs.ElementAt(_dropdown.value)];
             chosenSong.FillInfo();
             SceneEvents.OnSongChosen?.Invoke(chosenSong);
         }

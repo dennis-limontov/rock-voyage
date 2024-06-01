@@ -63,6 +63,7 @@ namespace RockVoyage
         public void OnYesButtonClicked()
         {
             Exit();
+            LoadSaveManager.NeedSave = false;
             SceneManager.LoadScene(MAIN_MENU);
         }
     }

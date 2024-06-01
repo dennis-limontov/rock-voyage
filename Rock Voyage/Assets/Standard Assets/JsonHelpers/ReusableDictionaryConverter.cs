@@ -2,6 +2,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace JsonHelpers
 {
@@ -11,28 +12,38 @@ namespace JsonHelpers
 
         public override IDictionary<K, V> ReadJson(JsonReader reader, Type objectType, IDictionary<K, V> existingValue, bool hasExistingValue, JsonSerializer serializer)
         {
-            IDictionary<K, V> ret = hasExistingValue ? existingValue : new Dictionary<K, V>();
+            JObject jObj = serializer.Deserialize<JObject>(reader);
+            IDictionary<K, V> result = hasExistingValue ? existingValue : (IDictionary<K, V>)Activator.CreateInstance(objectType, jObj.Count);
 
-            foreach (var kv in JObject.Load(reader))
+            K key;
+            V value;
+            foreach (var kv in jObj)
             {
-                K key = JsonConvert.DeserializeObject<K>($"\"{kv.Key}\"");
-                V value;
-                if (ret.TryGetValue(key, out value))
+                if (kv.Value.Type == JTokenType.Null) continue;
+                using (var sr = new StringReader($"\"{kv.Key}\""))
+                using (var keyReader = new JsonTextReader(sr))
                 {
-                    serializer.Populate(kv.Value.CreateReader(), value);
+                    key = serializer.Deserialize<K>(keyReader);
                 }
-                else
+                using (var valueReader = kv.Value.CreateReader())
                 {
-                    value = serializer.Deserialize<V>(reader);
-                    ret.Add(key, value);
+                    if (result.TryGetValue(key, out value))
+                    {
+                        serializer.Populate(valueReader, value);
+                    }
+                    else
+                    {
+                        value = serializer.Deserialize<V>(valueReader);
+                        result.Add(key, value);
+                    }
                 }
             }
-            return ret;
+            return result;
         }
 
         public override void WriteJson(JsonWriter writer, IDictionary<K, V> value, JsonSerializer serializer)
         {
-            throw new NotImplementedException();
+            serializer.Serialize(writer, value);
         }
     }
 }
